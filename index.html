@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,16 +8,38 @@
 <title>Seb Feasey</title>
 
 <style>
-
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
     background: #111111;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.language-switch {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 10;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.language-switch button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    opacity: 0.5;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+}
+
+.language-switch button.active {
+    opacity: 1;
+    text-decoration: underline;
 }
 
 .hero {
@@ -26,9 +49,7 @@ body {
     align-items: center;
 }
 
-.container {
-    text-align: center;
-}
+.container { text-align: center; }
 
 h1 {
     font-family: Georgia, "Times New Roman", serif;
@@ -60,9 +81,7 @@ nav a {
     transition: opacity 0.3s;
 }
 
-nav a:hover {
-    opacity: 0.6;
-}
+nav a:hover { opacity: 0.6; }
 
 section {
     min-height: 100vh;
@@ -83,9 +102,7 @@ h2 {
     line-height: 1.8;
 }
 
-.contact a {
-    color: white;
-}
+.contact a { color: white; }
 
 footer {
     text-align: center;
@@ -93,103 +110,103 @@ footer {
     opacity: 0.5;
     font-size: 0.9rem;
 }
-
 </style>
 </head>
 
 <body>
 
+<div class="language-switch">
+    <button onclick="setLanguage('en')" id="btn-en" class="active">EN</button>
+    /
+    <button onclick="setLanguage('fr')" id="btn-fr">FR</button>
+</div>
+
 <div class="hero">
-
     <div class="container">
-
         <h1>seb feasey</h1>
 
-        <div class="subtitle">
+        <div class="subtitle" data-en="graphic design & editorial design student" data-fr="étudiant en graphisme & design éditorial">
             graphic design & editorial design student
         </div>
 
         <nav>
-            <a href="#projects">projects</a>
-            <a href="#about">about</a>
-            <a href="#contact">contact</a>
+            <a href="#projects" data-en="projects" data-fr="projets">projects</a>
+            <a href="#about" data-en="about" data-fr="à propos">about</a>
+            <a href="#contact" data-en="contact" data-fr="contact">contact</a>
         </nav>
-
     </div>
-
 </div>
 
 <section id="projects">
-
-    <h2>Projects</h2>
+    <h2 data-en="Projects" data-fr="Projets">Projects</h2>
 
     <div class="content">
-        <p>
+        <p data-en="Projects coming soon..." data-fr="Projets à venir...">
             Projects coming soon...
         </p>
 
-        <p>
-            I am currently preparing a selection of
-            editorial, graphic design and visual communication projects
-            to showcase here.
+        <p data-en="I am currently curating and preparing a selection of editorial, graphic design and visual communication projects to showcase here."
+           data-fr="Je prépare actuellement une sélection de projets en design éditorial, graphisme et communication visuelle qui seront bientôt présentés ici.">
+            I am currently curating and preparing a selection of editorial, graphic design and visual communication projects to showcase here.
         </p>
     </div>
-
 </section>
 
 <section id="about">
-
-    <h2>About</h2>
+    <h2 data-en="About" data-fr="À propos">About</h2>
 
     <div class="content">
-        <p>
-            Hello, I'm Seb Feasey, a DN MADE Graphisme student at the
-            Lycée de la Communication in Metz.
+        <p data-en="Hello, I'm Seb Feasey, a DN MADE Graphisme student at the Lycée de la Communication in Metz."
+           data-fr="Bonjour, je m'appelle Seb Feasey et je suis étudiant en DN MADE Graphisme au Lycée de la Communication à Metz.">
+            Hello, I'm Seb Feasey, a DN MADE Graphisme student at the Lycée de la Communication in Metz.
         </p>
 
-        <p>
-            I have a love for editorial design, typography, visual
-            identity and creative communication. I enjoy exploring how
-            design can inform, engage and tell meaningful stories through
-            both print and digital media.
+        <p data-en="My interests lie in editorial design, typography, visual identity and creative communication. I enjoy exploring how design can inform, engage and tell meaningful stories through both print and digital media."
+           data-fr="Je m'intéresse au design éditorial, à la typographie, à l'identité visuelle et à la communication créative. J'aime explorer la manière dont le design peut informer, attirer l'attention et raconter des histoires à travers les supports imprimés et numériques.">
+            My interests lie in editorial design, typography, visual identity and creative communication. I enjoy exploring how design can inform, engage and tell meaningful stories through both print and digital media.
         </p>
 
-        <p>
-            This website serves as a growing portfolio of my academic,
-            personal and professional projects as I continue to develop
-            my skills and creative practice.
+        <p data-en="This website serves as a growing portfolio of my academic, personal and professional projects as I continue to develop my skills and creative practice."
+           data-fr="Ce site est un portfolio évolutif rassemblant mes projets scolaires, personnels et professionnels, au fur et à mesure que je développe mes compétences et ma pratique créative.">
+            This website serves as a growing portfolio of my academic, personal and professional projects as I continue to develop my skills and creative practice.
         </p>
     </div>
-
 </section>
 
 <section id="contact">
-
-    <h2>Contact</h2>
+    <h2 data-en="Contact" data-fr="Contact">Contact</h2>
 
     <div class="content contact">
-
         <p>
             Email:
-            <a href="mailto:feaseysebastien@gmail.com">
-                feaseysebastien@gmail.com
-            </a>
+            <a href="mailto:feaseysebastien@gmail.com">feaseysebastien@gmail.com</a>
         </p>
 
         <p>
             Instagram:
-            <a href="https://instagram.com/sebfeasey" target="_blank">
-                @sebfeasey
-            </a>
+            <a href="https://instagram.com/sebfeasey" target="_blank">@sebfeasey</a>
         </p>
-
     </div>
-
 </section>
 
 <footer>
     © 2026 Seb Feasey
 </footer>
+
+<script>
+function setLanguage(language) {
+    const elements = document.querySelectorAll("[data-en]");
+
+    elements.forEach(element => {
+        element.textContent = element.getAttribute("data-" + language);
+    });
+
+    document.getElementById("btn-en").classList.toggle("active", language === "en");
+    document.getElementById("btn-fr").classList.toggle("active", language === "fr");
+
+    document.documentElement.lang = language;
+}
+</script>
 
 </body>
 </html>
