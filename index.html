@@ -1,49 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seb Feasey</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: #111111;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<title>Seb Feasey</title>
 
-    .container {
-      text-align: center;
-    }
+<style>
 
-    h1 {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: clamp(4rem, 12vw, 9rem);
-      font-weight: 400;
-      margin: 0;
-      letter-spacing: 0.02em;
-      text-transform: lowercase;
-    }
+body {
+    margin: 0;
+    background: #111;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-    p {
-      margin-top: 1.5rem;
-      font-size: clamp(0.9rem, 2vw, 1.3rem);
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      font-weight: 300;
-    }
-  </style>
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    transition: opacity 0.3s;
+}
+
+nav a:hover {
+    opacity: 0.6;
+}
+
+</style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>seb feasey</h1>
-    <p>website work in progress</p>
-  </div>
+
+<div class="container">
+
+<h1>seb feasey</h1>
+
+<div class="subtitle">
+graphic design & editorial design student
+</div>
+
+<nav>
+<a href="#">projects</a>
+<a href="#">about</a>
+<a href="#">contact</a>
+</nav>
+
+</div>
+
 </body>
 </html>
