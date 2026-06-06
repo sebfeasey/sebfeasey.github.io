@@ -7,7 +7,10 @@
 <title>Seb Feasey</title>
 
 <style>
-html { scroll-behavior: smooth; }
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
@@ -16,11 +19,29 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.home-button {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 100;
+    color: white;
+    text-decoration: none;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.home-button:hover {
+    opacity: 1;
+}
+
 .language-switch {
     position: fixed;
     top: 2rem;
     right: 2rem;
-    z-index: 10;
+    z-index: 100;
     font-size: 0.85rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -48,7 +69,9 @@ body {
     align-items: center;
 }
 
-.container { text-align: center; }
+.container {
+    text-align: center;
+}
 
 h1 {
     font-family: Georgia, "Times New Roman", serif;
@@ -80,7 +103,9 @@ nav a {
     transition: opacity 0.3s;
 }
 
-nav a:hover { opacity: 0.6; }
+nav a:hover {
+    opacity: 0.6;
+}
 
 section {
     min-height: 100vh;
@@ -101,7 +126,9 @@ h2 {
     line-height: 1.8;
 }
 
-.contact a { color: white; }
+.contact a {
+    color: white;
+}
 
 footer {
     text-align: center;
@@ -109,10 +136,48 @@ footer {
     opacity: 0.5;
     font-size: 0.9rem;
 }
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        margin-bottom: 3rem;
+    }
+
+    nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+
+    .home-button {
+        top: 1rem;
+        left: 1rem;
+    }
+
+    .language-switch {
+        top: 1rem;
+        right: 1rem;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
+
+<a href="#" class="home-button">SF.</a>
 
 <div class="language-switch">
     <button onclick="setLanguage('en')" id="btn-en" class="active">EN</button>
@@ -121,11 +186,17 @@ footer {
 </div>
 
 <div class="hero">
+
     <div class="container">
+
         <h1>seb feasey</h1>
 
-        <div class="subtitle" data-en="graphic design & editorial design student" data-fr="étudiant en graphisme & design éditorial">
+        <div class="subtitle"
+             data-en="graphic design & editorial design student"
+             data-fr="étudiant en graphisme & design éditorial">
+
             graphic design & editorial design student
+
         </div>
 
         <nav>
@@ -133,59 +204,88 @@ footer {
             <a href="#about" data-en="about" data-fr="à propos">about</a>
             <a href="#contact" data-en="contact" data-fr="contact">contact</a>
         </nav>
+
     </div>
+
 </div>
 
 <section id="projects">
+
     <h2 data-en="Projects" data-fr="Projets">Projects</h2>
 
     <div class="content">
-        <p data-en="Projects coming soon..." data-fr="Projets à venir...">
+
+        <p data-en="Projects coming soon..."
+           data-fr="Projets à venir...">
+
             Projects coming soon...
+
         </p>
 
-        <p data-en="I am currently preparing a selection of editorial, graphic design and visual communication projects to showcase here."
+        <p data-en="I am currently curating and preparing a selection of editorial, graphic design and visual communication projects to showcase here."
            data-fr="Je prépare actuellement une sélection de projets en design éditorial, graphisme et communication visuelle qui seront bientôt présentés ici.">
-            I am currently preparing a selection of editorial, graphic design and visual communication projects to showcase here.
+
+            I am currently curating and preparing a selection of editorial, graphic design and visual communication projects to showcase here.
+
         </p>
+
     </div>
+
 </section>
 
 <section id="about">
+
     <h2 data-en="About" data-fr="À propos">About</h2>
 
     <div class="content">
+
         <p data-en="Hello, I'm Seb Feasey, a DN MADE Graphisme student at the Lycée de la Communication in Metz."
            data-fr="Bonjour, je m'appelle Seb Feasey et je suis étudiant en DN MADE Graphisme au Lycée de la Communication à Metz.">
+
             Hello, I'm Seb Feasey, a DN MADE Graphisme student at the Lycée de la Communication in Metz.
+
         </p>
 
         <p data-en="My interests lie in editorial design, typography, visual identity and creative communication. I enjoy exploring how design can inform, engage and tell meaningful stories through both print and digital media."
            data-fr="Je m'intéresse au design éditorial, à la typographie, à l'identité visuelle et à la communication créative. J'aime explorer la manière dont le design peut informer, attirer l'attention et raconter des histoires à travers les supports imprimés et numériques.">
+
             My interests lie in editorial design, typography, visual identity and creative communication. I enjoy exploring how design can inform, engage and tell meaningful stories through both print and digital media.
+
         </p>
 
         <p data-en="This website serves as a growing portfolio of my academic, personal and professional projects as I continue to develop my skills and creative practice."
            data-fr="Ce site est un portfolio évolutif rassemblant mes projets scolaires, personnels et professionnels, au fur et à mesure que je développe mes compétences et ma pratique créative.">
+
             This website serves as a growing portfolio of my academic, personal and professional projects as I continue to develop my skills and creative practice.
+
         </p>
+
     </div>
+
 </section>
 
 <section id="contact">
+
     <h2 data-en="Contact" data-fr="Contact">Contact</h2>
 
     <div class="content contact">
+
         <p>
             Email:
-            <a href="mailto:feaseysebastien@gmail.com">feaseysebastien@gmail.com</a>
+            <a href="mailto:feaseysebastien@gmail.com">
+                feaseysebastien@gmail.com
+            </a>
         </p>
 
         <p>
             Instagram:
-            <a href="https://instagram.com/sebfeasey" target="_blank">@sebfeasey</a>
+            <a href="https://instagram.com/sebfeasey" target="_blank">
+                @sebfeasey
+            </a>
         </p>
+
     </div>
+
 </section>
 
 <footer>
@@ -193,7 +293,9 @@ footer {
 </footer>
 
 <script>
+
 function setLanguage(language) {
+
     const elements = document.querySelectorAll("[data-en]");
 
     elements.forEach(element => {
@@ -205,6 +307,7 @@ function setLanguage(language) {
 
     document.documentElement.lang = language;
 }
+
 </script>
 
 </body>
