@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-    <script data-goatcounter="https://sebfeasey.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Seb Feasey</title>
+
+<!-- GOATCOUNTER ANALYTICS -->
+<script data-goatcounter="https://sebfeasey.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 
 <style>
 
@@ -20,6 +24,8 @@ body {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* SF. BUTTON */
 
 .home-button {
     position: fixed;
@@ -38,6 +44,8 @@ body {
 .home-button:hover {
     opacity: 1;
 }
+
+/* LANGUAGE SWITCH */
 
 .language-switch {
     position: fixed;
@@ -63,6 +71,8 @@ body {
     opacity: 1;
     text-decoration: underline;
 }
+
+/* HOMEPAGE */
 
 .hero {
     height: 100vh;
@@ -91,6 +101,8 @@ h1 {
     margin-bottom: 5rem;
 }
 
+/* NAVIGATION */
+
 nav {
     display: flex;
     justify-content: center;
@@ -108,6 +120,8 @@ nav a {
 nav a:hover {
     opacity: 0.6;
 }
+
+/* SECTIONS */
 
 section {
     min-height: 100vh;
@@ -128,9 +142,13 @@ h2 {
     line-height: 1.8;
 }
 
+/* CONTACT */
+
 .contact a {
     color: white;
 }
+
+/* FOOTER */
 
 footer {
     text-align: center;
@@ -144,13 +162,14 @@ footer {
 @media (max-width: 768px) {
 
     h1 {
-        font-size: 3.5rem;
+        font-size: 2.7rem;
     }
 
     .subtitle {
         font-size: 0.7rem;
         letter-spacing: 0.2em;
         margin-bottom: 3rem;
+        padding: 0 1.5rem;
     }
 
     nav {
@@ -170,22 +189,57 @@ footer {
     .language-switch {
         top: 1rem;
         right: 1rem;
+        font-size: 0.75rem;
+    }
+
+    .language-switch button {
+        font-size: 0.75rem;
+        padding: 0.15rem;
+    }
+
+    section {
+        padding: 6rem 8%;
     }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- SF. HOME BUTTON -->
+
 <a href="#" class="home-button">SF.</a>
 
+
+<!-- LANGUAGE SWITCH -->
+
 <div class="language-switch">
-    <button onclick="setLanguage('en')" id="btn-en" class="active">EN</button>
+
+    <button onclick="setLanguage('en')" id="btn-en" class="active">
+        EN
+    </button>
+
     /
-    <button onclick="setLanguage('fr')" id="btn-fr">FR</button>
+
+    <button onclick="setLanguage('fr')" id="btn-fr">
+        FR
+    </button>
+
+    /
+
+    <button onclick="setLanguage('sv')" id="btn-sv">
+        SV
+    </button>
+
 </div>
+
+
+<!-- HOMEPAGE -->
 
 <div class="hero">
 
@@ -195,37 +249,69 @@ footer {
 
         <div class="subtitle"
              data-en="graphic design & editorial design student"
-             data-fr="étudiant en graphisme & design éditorial">
+             data-fr="étudiant en graphisme & design éditorial"
+             data-sv="student inom grafisk design & redaktionell design">
 
             graphic design & editorial design student
 
         </div>
 
         <nav>
-            <a href="#projects" data-en="projects" data-fr="projets">projects</a>
-            <a href="#about" data-en="about" data-fr="à propos">about</a>
-            <a href="#contact" data-en="contact" data-fr="contact">contact</a>
+
+            <a href="#projects"
+               data-en="projects"
+               data-fr="projets"
+               data-sv="projekt">
+                projects
+            </a>
+
+            <a href="#about"
+               data-en="about"
+               data-fr="à propos"
+               data-sv="om mig">
+                about
+            </a>
+
+            <a href="#contact"
+               data-en="contact"
+               data-fr="contact"
+               data-sv="kontakt">
+                contact
+            </a>
+
         </nav>
 
     </div>
 
 </div>
 
+
+<!-- PROJECTS -->
+
 <section id="projects">
 
-    <h2 data-en="Projects" data-fr="Projets">Projects</h2>
+    <h2
+        data-en="Projects"
+        data-fr="Projets"
+        data-sv="Projekt">
+        Projects
+    </h2>
 
     <div class="content">
 
-        <p data-en="Projects are on their way."
-           data-fr="Les projets arrivent bientôt.">
+        <p
+            data-en="Projects are on their way."
+            data-fr="Les projets arrivent bientôt."
+            data-sv="Projekt är på väg.">
 
             Projects are on their way.
 
         </p>
 
-        <p data-en="I'm currently putting together a selection of work from my studies, personal projects and collaborations. Check back soon to see what I've been working on."
-           data-fr="Je rassemble actuellement une sélection de travaux issus de mes études, de projets personnels et de collaborations. Revenez bientôt pour découvrir ce sur quoi j’ai travaillé.">
+        <p
+            data-en="I'm currently putting together a selection of work from my studies, personal projects and collaborations. Check back soon to see what I've been working on."
+            data-fr="Je rassemble actuellement une sélection de travaux issus de mes études, de projets personnels et de collaborations. Revenez bientôt pour découvrir ce sur quoi j’ai travaillé."
+            data-sv="Jag håller just nu på att sätta ihop ett urval av arbeten från mina studier, personliga projekt och samarbeten. Kom gärna tillbaka snart för att se vad jag har jobbat med.">
 
             I'm currently putting together a selection of work from my studies, personal projects and collaborations. Check back soon to see what I've been working on.
 
@@ -235,35 +321,51 @@ footer {
 
 </section>
 
+
+<!-- ABOUT -->
+
 <section id="about">
 
-    <h2 data-en="About" data-fr="À propos">About</h2>
+    <h2
+        data-en="About"
+        data-fr="À propos"
+        data-sv="Om mig">
+        About
+    </h2>
 
     <div class="content">
 
-        <p data-en="Hi, I'm Seb."
-           data-fr="Salut, moi c'est Seb.">
+        <p
+            data-en="Hi, I'm Seb."
+            data-fr="Salut, moi c'est Seb."
+            data-sv="Hej, jag heter Seb.">
 
             Hi, I'm Seb.
 
         </p>
 
-        <p data-en="I'm a DN MADE Graphisme student at the Lycée de la Communication in Metz, France, with a particular interest in editorial design, typography and visual storytelling."
-           data-fr="Je suis étudiant en DN MADE Graphisme au Lycée de la Communication à Metz, France, avec un intérêt particulier pour le design éditorial, la typographie et la narration visuelle.">
+        <p
+            data-en="I'm a DN MADE Graphisme student at the Lycée de la Communication in Metz, France, with a particular interest in editorial design, typography and visual storytelling."
+            data-fr="Je suis étudiant en DN MADE Graphisme au Lycée de la Communication à Metz, France, avec un intérêt particulier pour le design éditorial, la typographie et la narration visuelle."
+            data-sv="Jag studerar DN MADE Graphisme på Lycée de la Communication i Metz, Frankrike, med ett särskilt intresse för redaktionell design, typografi och visuellt berättande.">
 
             I'm a DN MADE Graphisme student at the Lycée de la Communication in Metz, France, with a particular interest in editorial design, typography and visual storytelling.
 
         </p>
 
-        <p data-en="I love creating work that feels thoughtful, engaging and a little unexpected. Whether it's a publication, poster or visual identity, I'm always interested in how design can communicate ideas and connect with people."
-           data-fr="J’aime créer des projets réfléchis, engageants et parfois inattendus. Qu’il s’agisse d’une publication, d’une affiche ou d’une identité visuelle, je m’intéresse toujours à la manière dont le design peut transmettre des idées et créer du lien.">
+        <p
+            data-en="I love creating work that feels thoughtful, engaging and a little unexpected. Whether it's a publication, poster or visual identity, I'm always interested in how design can communicate ideas and connect with people."
+            data-fr="J’aime créer des projets réfléchis, engageants et parfois inattendus. Qu’il s’agisse d’une publication, d’une affiche ou d’une identité visuelle, je m’intéresse toujours à la manière dont le design peut transmettre des idées et créer du lien."
+            data-sv="Jag gillar att skapa projekt som känns genomtänkta, engagerande och lite oväntade. Oavsett om det handlar om en publikation, en affisch eller en visuell identitet är jag alltid nyfiken på hur design kan förmedla idéer och skapa kontakt med människor.">
 
             I love creating work that feels thoughtful, engaging and a little unexpected. Whether it's a publication, poster or visual identity, I'm always interested in how design can communicate ideas and connect with people.
 
         </p>
 
-        <p data-en="This website is a space where I'll be sharing my projects, experiments and creative journey as I continue to learn and grow as a designer."
-           data-fr="Ce site est un espace où je partage mes projets, mes expérimentations et mon parcours créatif au fil de mon évolution en tant que designer.">
+        <p
+            data-en="This website is a space where I'll be sharing my projects, experiments and creative journey as I continue to learn and grow as a designer."
+            data-fr="Ce site est un espace où je partage mes projets, mes expérimentations et mon parcours créatif au fil de mon évolution en tant que designer."
+            data-sv="Den här webbplatsen är en plats där jag delar mina projekt, experiment och min kreativa resa medan jag fortsätter att lära mig och utvecklas som designer.">
 
             This website is a space where I'll be sharing my projects, experiments and creative journey as I continue to learn and grow as a designer.
 
@@ -273,9 +375,17 @@ footer {
 
 </section>
 
+
+<!-- CONTACT -->
+
 <section id="contact">
 
-    <h2 data-en="Contact" data-fr="Contact">Contact</h2>
+    <h2
+        data-en="Contact"
+        data-fr="Contact"
+        data-sv="Kontakt">
+        Contact
+    </h2>
 
     <div class="content contact">
 
@@ -288,7 +398,9 @@ footer {
 
         <p>
             Instagram:
-            <a href="https://instagram.com/sebfeasey" target="_blank">
+            <a href="https://instagram.com/sebfeasey"
+               target="_blank"
+               rel="noopener noreferrer">
                 @sebfeasey
             </a>
         </p>
@@ -297,9 +409,15 @@ footer {
 
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
     © 2026 Seb Feasey
 </footer>
+
+
+<!-- LANGUAGE SCRIPT -->
 
 <script>
 
@@ -308,16 +426,31 @@ function setLanguage(language) {
     const elements = document.querySelectorAll("[data-en]");
 
     elements.forEach(element => {
-        element.textContent = element.getAttribute("data-" + language);
+
+        const translation = element.getAttribute("data-" + language);
+
+        if (translation) {
+            element.textContent = translation;
+        }
+
     });
 
-    document.getElementById("btn-en").classList.toggle("active", language === "en");
-    document.getElementById("btn-fr").classList.toggle("active", language === "fr");
+    document.getElementById("btn-en")
+        .classList.toggle("active", language === "en");
+
+    document.getElementById("btn-fr")
+        .classList.toggle("active", language === "fr");
+
+    document.getElementById("btn-sv")
+        .classList.toggle("active", language === "sv");
 
     document.documentElement.lang = language;
+
 }
 
 </script>
 
+
 </body>
+
 </html>
