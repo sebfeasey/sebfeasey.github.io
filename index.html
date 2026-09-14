@@ -40,12 +40,6 @@ html {
 
     scroll-behavior: smooth;
 
-    /*
-    Gentle snapping only.
-    It helps the section settle when you are already
-    close, but shouldn't hijack normal scrolling.
-    */
-
     scroll-snap-type: y proximity;
 }
 
@@ -61,10 +55,6 @@ body {
 
     overflow-x: hidden;
 
-    /*
-    Keeps trackpad / touch scrolling feeling natural.
-    */
-
     -webkit-overflow-scrolling: touch;
 }
 
@@ -73,9 +63,8 @@ body {
    CUSTOM SCROLLBAR
    ========================================================= */
 
-/* Firefox */
-
 html {
+
     scrollbar-width: thin;
 
     scrollbar-color:
@@ -84,34 +73,41 @@ html {
 }
 
 
-/* Chromium / Safari */
-
 ::-webkit-scrollbar {
+
     width: 10px;
 }
 
+
 ::-webkit-scrollbar-track {
-    background: rgba(24,26,77,0.12);
+
+    background:
+        rgba(24,26,77,0.12);
 }
+
 
 ::-webkit-scrollbar-thumb {
 
-    background: var(--ui-colour);
+    background:
+        var(--ui-colour);
 
     border-radius: 999px;
 
-    border: 3px solid transparent;
+    border:
+        3px solid transparent;
 
-    background-clip: padding-box;
-
-    opacity: 0.7;
+    background-clip:
+        padding-box;
 }
+
 
 ::-webkit-scrollbar-thumb:hover {
 
-    border: 2px solid transparent;
+    border:
+        2px solid transparent;
 
-    background-clip: padding-box;
+    background-clip:
+        padding-box;
 }
 
 
@@ -132,12 +128,13 @@ html {
     overflow: hidden;
 
     scroll-snap-align: start;
+
     scroll-snap-stop: normal;
 }
 
 
 /* =========================================================
-   VERY SUBTLE SECTION EDGE
+   SUBTLE SECTION EDGE
    ========================================================= */
 
 .colour-section:not(:first-of-type)::before {
@@ -165,27 +162,33 @@ html {
         );
 
     backdrop-filter: blur(1.5px);
+
     -webkit-backdrop-filter: blur(1.5px);
 }
 
 
 /* =========================================================
-   SELECTION
+   TEXT SELECTION
    ========================================================= */
 
 ::selection {
+
     background: #181A4D;
+
     color: #F9F3DB;
 }
 
+
 ::-moz-selection {
+
     background: #181A4D;
+
     color: #F9F3DB;
 }
 
 
 /* =========================================================
-   FIXED SF
+   SF BUTTON
    ========================================================= */
 
 .home-button {
@@ -230,6 +233,7 @@ html {
         rgba(255,255,255,0.08);
 
     backdrop-filter: blur(14px);
+
     -webkit-backdrop-filter: blur(14px);
 
     transition:
@@ -253,7 +257,7 @@ html {
 
 
 /* =========================================================
-   LANGUAGE
+   LANGUAGE SWITCH
    ========================================================= */
 
 .language-switch {
@@ -285,6 +289,7 @@ html {
         rgba(255,255,255,0.08);
 
     backdrop-filter: blur(14px);
+
     -webkit-backdrop-filter: blur(14px);
 
     color: var(--ui-colour);
@@ -350,6 +355,7 @@ html {
 .hero {
 
     height: 100vh;
+
     min-height: 100vh;
 
     display: flex;
@@ -657,7 +663,7 @@ nav a:hover {
 
 
 /* =========================================================
-   TITLES
+   SECTION TITLES
    ========================================================= */
 
 .section-title {
@@ -729,6 +735,7 @@ nav a:hover {
 .projects-section {
 
     height: 100vh;
+
     min-height: 100vh;
 
     padding:
@@ -763,6 +770,10 @@ nav a:hover {
 }
 
 
+/* =========================================================
+   PROJECT INTRO
+   ========================================================= */
+
 .projects-intro .section-title {
 
     margin-bottom: 1.8rem;
@@ -794,13 +805,13 @@ nav a:hover {
     margin-left: 1.3rem;
 
     /*
-    Extra vertical breathing room means cards
-    can rise on hover without being clipped.
+    Extra room around all four edges prevents
+    hover scaling being clipped.
     */
 
     padding:
-        1.4rem
-        0;
+        1.6rem
+        1.4rem;
 }
 
 
@@ -821,14 +832,15 @@ nav a:hover {
     scrollbar-width: none;
 
     /*
-    Large enough padding for hover motion.
+    Particularly generous left and right padding
+    so the cards beside the arrows can grow freely.
     */
 
     padding:
-        1.4rem
-        0
-        1.6rem
-        1.2rem;
+        1.5rem
+        2.6rem
+        1.8rem
+        2.6rem;
 }
 
 
@@ -940,6 +952,10 @@ nav a:hover {
 }
 
 
+/*
+Reduced a little so longer titles fit comfortably.
+*/
+
 .project-title {
 
     font-family:
@@ -949,24 +965,16 @@ nav a:hover {
 
     font-size:
         clamp(
-            2.15rem,
-            3.7vw,
-            3.55rem
+            1.9rem,
+            3.1vw,
+            3rem
         );
 
-    line-height: 0.94;
+    line-height: 0.96;
 
-    overflow-wrap: anywhere;
-}
+    overflow-wrap: normal;
 
-
-.project-type {
-
-    font-size: 0.7rem;
-
-    letter-spacing: 0.15em;
-
-    text-transform: uppercase;
+    word-break: normal;
 }
 
 
@@ -1008,6 +1016,7 @@ nav a:hover {
     color: inherit;
 
     backdrop-filter: blur(8px);
+
     -webkit-backdrop-filter: blur(8px);
 
     opacity: 0.62;
@@ -1051,12 +1060,14 @@ nav a:hover {
 
 
 .carousel-arrow.left {
-    left: -3px;
+
+    left: 0.3rem;
 }
 
 
 .carousel-arrow.right {
-    right: -3px;
+
+    right: 0.3rem;
 }
 
 
@@ -1067,6 +1078,7 @@ nav a:hover {
 .about-section {
 
     height: 100vh;
+
     min-height: 100vh;
 
     padding:
@@ -1261,6 +1273,7 @@ footer {
     color: #181A4D;
 
     backdrop-filter: blur(22px);
+
     -webkit-backdrop-filter: blur(22px);
 
     box-shadow:
@@ -1269,30 +1282,61 @@ footer {
         55px
         rgba(0,0,0,0.12);
 
-    transform:
-        translateX(110%);
+    /*
+    CLOSED:
+    further right + slightly smaller + transparent + blurred.
+    */
 
-    filter: blur(6px);
+    transform:
+        translateX(110%)
+        scale(0.985);
+
+    opacity: 0;
+
+    filter:
+        blur(15px);
+
+    visibility: hidden;
+
+    pointer-events: none;
 
     transition:
 
         transform
-        0.62s
+        0.68s
         cubic-bezier(0.16,1,0.3,1),
 
+        opacity
+        0.48s ease,
+
         filter
-        0.5s ease;
+        0.58s ease,
+
+        visibility
+        0.68s;
 }
 
 
 .project-drawer.open {
 
     transform:
-        translateX(0);
+        translateX(0)
+        scale(1);
 
-    filter: blur(0);
+    opacity: 1;
+
+    filter:
+        blur(0);
+
+    visibility: visible;
+
+    pointer-events: auto;
 }
 
+
+/* =========================================================
+   DRAWER CLOSE
+   ========================================================= */
 
 .drawer-close {
 
@@ -1308,9 +1352,11 @@ footer {
 
     border-radius: 50%;
 
-    background: #181A4D;
+    background:
+        #181A4D;
 
-    color: #F9F3DB;
+    color:
+        #F9F3DB;
 
     cursor: pointer;
 
@@ -1332,8 +1378,13 @@ footer {
 }
 
 
+/* =========================================================
+   DRAWER TITLE
+   ========================================================= */
+
 /*
-Only the project title remains.
+Reduced further so every current title sits comfortably
+inside the drawer.
 */
 
 .drawer-title {
@@ -1349,16 +1400,18 @@ Only the project title remains.
 
     font-size:
         clamp(
-            2.5rem,
-            4.4vw,
-            4.2rem
+            2.25rem,
+            3.7vw,
+            3.5rem
         );
 
-    line-height: 0.94;
+    line-height: 0.96;
 
     font-weight: 400;
 
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
+
+    word-break: normal;
 }
 
 
@@ -1505,12 +1558,19 @@ Only the project title remains.
     .projects-carousel-wrapper {
 
         margin-left: 0;
+
+        padding:
+            1rem
+            0.7rem;
     }
 
 
     .projects-carousel {
 
-        padding-left: 0.5rem;
+        padding:
+            1.3rem
+            2rem
+            1.6rem;
     }
 
 
@@ -1522,6 +1582,17 @@ Only the project title remains.
             86%;
 
         min-width: 0;
+    }
+
+
+    .project-title {
+
+        font-size:
+            clamp(
+                1.85rem,
+                8vw,
+                2.8rem
+            );
     }
 
 
@@ -1583,14 +1654,10 @@ Only the project title remains.
 
         font-size:
             clamp(
-                2.8rem,
-                13vw,
-                4.5rem
+                2.4rem,
+                11vw,
+                3.7rem
             );
-
-        overflow-wrap: normal;
-
-        word-break: normal;
     }
 
 }
@@ -1652,6 +1719,12 @@ Only the project title remains.
     .project-card,
     .carousel-arrow,
     nav a {
+
+        transition: none;
+    }
+
+
+    .project-drawer {
 
         transition: none;
     }
@@ -1825,13 +1898,13 @@ class="projects-section colour-section">
 <h2
 class="section-title"
 
-data-en="Selected work."
+data-en="Projects"
 
-data-fr="Projets sélectionnés."
+data-fr="Projets"
 
-data-sv="Utvalda projekt.">
+data-sv="Projekt">
 
-Selected work.
+Projects
 
 </h2>
 
@@ -1895,11 +1968,6 @@ Editorial
 </span>
 
 
-<span class="project-type">
-DN MADE / PRINT
-</span>
-
-
 </div>
 
 </button>
@@ -1927,11 +1995,6 @@ data-sv="Fotografi">
 
 Photography
 
-</span>
-
-
-<span class="project-type">
-IMAGE / SERIES
 </span>
 
 
@@ -1965,11 +2028,6 @@ Posters
 </span>
 
 
-<span class="project-type">
-PRINT / GRAPHIC
-</span>
-
-
 </div>
 
 </button>
@@ -2000,11 +2058,6 @@ Typography
 </span>
 
 
-<span class="project-type">
-TYPE / EXPERIMENT
-</span>
-
-
 </div>
 
 </button>
@@ -2032,11 +2085,6 @@ data-sv="Experiment">
 
 Experiments
 
-</span>
-
-
-<span class="project-type">
-PROCESS / PLAY
 </span>
 
 
@@ -2406,10 +2454,6 @@ document.documentElement.lang =
 language;
 
 
-/*
-If drawer is open, update its title too.
-*/
-
 if (
 drawer.classList.contains("open") &&
 currentOpenProject
@@ -2724,10 +2768,6 @@ document.getElementById(
 );
 
 
-/*
-Store one clean copy of each original project.
-*/
-
 const originalCards =
 Array.from(
 carousel.querySelectorAll(
@@ -2743,48 +2783,7 @@ card.cloneNode(true)
 
 
 /* =========================================================
-   CARD STEP
-   ========================================================= */
-
-function getCardStep() {
-
-
-const card =
-carousel.querySelector(
-".project-card"
-);
-
-
-if (!card) {
-
-return 390;
-
-}
-
-
-const style =
-window.getComputedStyle(
-carousel
-);
-
-
-const gap =
-parseFloat(
-style.gap
-) || 20;
-
-
-return (
-card.offsetWidth +
-gap
-);
-
-
-}
-
-
-/* =========================================================
-   ADD ANOTHER FULL SET TO THE RIGHT
+   APPEND SET
    ========================================================= */
 
 function appendProjectSet() {
@@ -2805,7 +2804,7 @@ template.cloneNode(true)
 
 
 /* =========================================================
-   ADD ANOTHER FULL SET TO THE LEFT
+   PREPEND SET
    ========================================================= */
 
 function prependProjectSet() {
@@ -2829,11 +2828,6 @@ carousel.firstChild
 });
 
 
-/*
-Preserve exactly what the visitor was looking at.
-There is no visible jump.
-*/
-
 const addedWidth =
 carousel.scrollWidth -
 previousWidth;
@@ -2847,32 +2841,19 @@ addedWidth;
 
 
 /* =========================================================
-   CREATE A LONG CONTINUOUS STRIP INITIALLY
+   INITIAL LONG CAROUSEL
    ========================================================= */
 
-/*
-Start with several copies so it already looks like:
-
-123451234512345...
-
-rather than one isolated set.
-*/
-
 appendProjectSet();
 appendProjectSet();
 appendProjectSet();
-
-
-/*
-Also add sets before 01 so going left works too.
-*/
 
 prependProjectSet();
 prependProjectSet();
 
 
 /* =========================================================
-   FIND NEAREST CARD
+   NEAREST CARD
    ========================================================= */
 
 function nearestCard() {
@@ -2892,7 +2873,7 @@ carousel.getBoundingClientRect();
 
 const target =
 carouselBox.left +
-40;
+70;
 
 
 let closest =
@@ -2944,7 +2925,7 @@ return closest;
 
 
 /* =========================================================
-   MOVE BY ONE CARD
+   MOVE ONE CARD
    ========================================================= */
 
 function moveCarousel(direction) {
@@ -3013,7 +2994,7 @@ carousel.scrollTo({
 
 left:
 nextCard.offsetLeft -
-12,
+40,
 
 behavior:
 "smooth"
@@ -3032,11 +3013,6 @@ rightArrow.addEventListener(
 "click",
 () => {
 
-
-/*
-Always add more content ahead well before
-the visitor reaches the end.
-*/
 
 if (
 carousel.scrollWidth -
@@ -3082,7 +3058,7 @@ moveCarousel(-1);
 
 
 /* =========================================================
-   MANUAL CAROUSEL SCROLLING
+   MANUAL CAROUSEL SCROLL
    ========================================================= */
 
 let carouselScrollTimer;
@@ -3103,11 +3079,6 @@ setTimeout(
 () => {
 
 
-/*
-If someone drags / trackpads toward the end,
-keep extending the strip.
-*/
-
 if (
 carousel.scrollWidth -
 carousel.scrollLeft -
@@ -3121,10 +3092,6 @@ appendProjectSet();
 
 }
 
-
-/*
-Same thing toward the beginning.
-*/
 
 if (
 carousel.scrollLeft <
@@ -3257,11 +3224,6 @@ let currentOpenProject =
 null;
 
 
-/*
-Event delegation means all future cloned
-carousel cards work automatically too.
-*/
-
 carousel.addEventListener(
 "click",
 event => {
@@ -3325,8 +3287,32 @@ drawer.setAttribute(
 );
 
 
+/*
+Keep the key briefly while the drawer
+animates closed, then clear it.
+*/
+
+setTimeout(
+() => {
+
+
+if (
+!drawer.classList.contains(
+"open"
+)
+) {
+
+
 currentOpenProject =
 null;
+
+
+}
+
+
+},
+700
+);
 
 
 }
