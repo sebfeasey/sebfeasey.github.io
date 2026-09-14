@@ -12,12 +12,15 @@
 <script data-goatcounter="https://sebfeasey.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
-<!-- Lets the website know JavaScript is active -->
 <script>
     document.documentElement.classList.add("js");
 </script>
 
 <style>
+
+/* ==================================================
+   BASE
+   ================================================== */
 
 html {
     scroll-behavior: smooth;
@@ -25,69 +28,117 @@ html {
 
 body {
     margin: 0;
-    background: #78020c;
-    color: #AFCDED;
+
+    background: #FF340C;
+    color: #F9F3DB;
+
     font-family: Arial, Helvetica, sans-serif;
+
     overflow-x: hidden;
+
+    transition:
+        background-color 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+        color 0.7s ease;
 }
 
-/* TEXT SELECTION */
+
+/* ==================================================
+   TEXT SELECTION
+   ================================================== */
 
 ::selection {
-    background: #4f0108;
-    color: #AFCDED;
+    background: #181A4D;
+    color: #F9F3DB;
 }
 
 ::-moz-selection {
-    background: #4f0108;
-    color: #AFCDED;
+    background: #181A4D;
+    color: #F9F3DB;
 }
 
-/* =========================
-   SF. BUTTON
-   ========================= */
+
+/* ==================================================
+   FIXED INTERFACE
+   ================================================== */
 
 .home-button {
     position: fixed;
+
     top: 2rem;
     left: 2rem;
+
     z-index: 100;
-    color: #AFCDED;
+
+    color: currentColor;
+
     text-decoration: none;
+
     font-family: Georgia, "Times New Roman", serif;
+
     font-size: 1.2rem;
+
     letter-spacing: 0.1em;
+
     opacity: 0.8;
-    transition: opacity 0.3s;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.5s ease;
 }
 
 .home-button:hover {
     opacity: 1;
+    transform: rotate(-7deg) scale(1.08);
 }
 
-/* =========================
+
+/* ==================================================
    LANGUAGE SWITCH
-   ========================= */
+   ================================================== */
 
 .language-switch {
     position: fixed;
+
     top: 2rem;
     right: 2rem;
+
     z-index: 100;
+
     font-size: 0.85rem;
+
     letter-spacing: 0.12em;
+
     text-transform: uppercase;
-    color: #AFCDED;
+
+    color: currentColor;
+
+    transition: color 0.5s ease;
 }
 
 .language-switch button {
+
     background: none;
     border: none;
-    color: #AFCDED;
+
+    color: currentColor;
+
     cursor: pointer;
+
     opacity: 0.5;
+
     font-size: 0.85rem;
+
     letter-spacing: 0.12em;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.language-switch button:hover {
+    opacity: 1;
+    transform: translateY(-2px);
 }
 
 .language-switch button.active {
@@ -95,211 +146,336 @@ body {
     text-decoration: underline;
 }
 
-/* =========================
+
+/* ==================================================
    HOMEPAGE
-   ========================= */
+   ================================================== */
 
 .hero {
     height: 100vh;
+
     display: flex;
+
     justify-content: center;
     align-items: center;
+
     position: relative;
-    overflow: hidden;
+
+    box-sizing: border-box;
 }
 
 .container {
     text-align: center;
+
     position: relative;
+
     z-index: 2;
 }
 
-/* =========================
-   STAR
-   ========================= */
 
-.hero-star {
-    position: absolute;
-
-    left: 50%;
-    top: 50%;
-
-    width: 66vw;
-    max-width: 1000px;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 1;
-
-    pointer-events: none;
-
-    opacity: 0;
-
-    animation: starReveal 1.8s ease-out forwards;
-}
-
-@keyframes starReveal {
-
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.96);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-}
-
-/* Opening animation */
+/* ==================================================
+   HOMEPAGE OPENING ANIMATION
+   ================================================== */
 
 .hero .container {
-    opacity: 0;
-    filter: blur(8px);
-    transform: translateY(14px);
 
-    animation: heroReveal 1.4s ease-out forwards;
-    animation-delay: 0.15s;
+    opacity: 0;
+
+    filter: blur(12px);
+
+    transform:
+        translateY(38px)
+        scale(0.96);
+
+    animation:
+        heroBump 1.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    animation-delay: 0.1s;
 }
 
-@keyframes heroReveal {
+
+@keyframes heroBump {
 
     0% {
         opacity: 0;
-        filter: blur(8px);
-        transform: translateY(14px);
+
+        filter: blur(12px);
+
+        transform:
+            translateY(38px)
+            scale(0.96);
     }
 
-    60% {
-        opacity: 0.75;
+    65% {
+        opacity: 1;
+
+        filter: blur(1px);
+
+        transform:
+            translateY(-6px)
+            scale(1.012);
+    }
+
+    82% {
+        transform:
+            translateY(3px)
+            scale(0.997);
     }
 
     100% {
         opacity: 1;
+
         filter: blur(0);
-        transform: translateY(0);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
 
 }
 
+
+/* ==================================================
+   MAIN TITLE
+   ================================================== */
+
 h1 {
+
     font-family: Georgia, "Times New Roman", serif;
+
     font-size: clamp(4rem, 12vw, 8rem);
+
     font-weight: 400;
+
     margin: 0;
+
     text-transform: lowercase;
-    position: relative;
-    z-index: 2;
 }
+
+
+/* ==================================================
+   SUBTITLE
+   ================================================== */
 
 .subtitle {
+
     margin-top: 1rem;
+
     letter-spacing: 0.3em;
+
     text-transform: uppercase;
+
     font-size: 0.9rem;
+
     margin-bottom: 5rem;
-    position: relative;
-    z-index: 2;
 }
 
-/* =========================
-   NAVIGATION
-   ========================= */
+
+/* ==================================================
+   HOMEPAGE NAVIGATION
+   ================================================== */
 
 nav {
+
     display: flex;
+
     justify-content: center;
+
     gap: 2rem;
-    position: relative;
-    z-index: 2;
 }
 
 nav a {
-    color: #AFCDED;
+
+    color: currentColor;
+
     text-decoration: none;
+
     text-transform: uppercase;
+
     letter-spacing: 0.15em;
+
+    display: inline-block;
+
     transition:
-        opacity 0.3s,
-        transform 0.3s;
+        opacity 0.3s ease,
+        transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 nav a:hover {
-    opacity: 0.6;
-    transform: translateY(-2px);
+
+    opacity: 0.7;
+
+    transform:
+        translateY(-5px)
+        rotate(-1deg);
 }
 
-/* =========================
+
+/* ==================================================
    SECTIONS
-   ========================= */
+   ================================================== */
 
 section {
+
     min-height: 100vh;
+
     padding: 8rem 12%;
+
     box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    color: inherit;
+
+    position: relative;
 }
 
+
 h2 {
+
     font-family: Georgia, "Times New Roman", serif;
+
     font-size: clamp(2.5rem, 6vw, 4rem);
+
     font-weight: 400;
+
+    margin-top: 0;
+
     margin-bottom: 2rem;
 }
 
+
 .content {
+
     max-width: 700px;
+
     font-size: 1.1rem;
+
     line-height: 1.8;
 }
 
-/* =========================
+
+/* ==================================================
    SCROLL REVEAL
-   ========================= */
+   ================================================== */
 
 .js .reveal {
+
     opacity: 0;
-    filter: blur(6px);
-    transform: translateY(28px);
+
+    filter: blur(9px);
+
+    transform:
+        translateY(55px)
+        rotate(0.7deg)
+        scale(0.97);
 
     transition:
-        opacity 1s ease,
+
+        opacity 0.9s ease,
+
         filter 1s ease,
-        transform 1s ease;
+
+        transform 1.15s cubic-bezier(
+            0.16,
+            1.15,
+            0.3,
+            1
+        );
 }
+
 
 .js .reveal.visible {
+
     opacity: 1;
+
     filter: blur(0);
-    transform: translateY(0);
+
+    transform:
+        translateY(0)
+        rotate(0deg)
+        scale(1);
 }
+
+
+/* Paragraph comes in just after heading */
 
 .js .reveal-delay {
-    transition-delay: 0.15s;
+    transition-delay: 0.12s;
 }
 
-/* =========================
-   CONTACT
-   ========================= */
+
+/* Slight alternate movement */
+
+.js .reveal-left {
+
+    transform:
+        translateX(-35px)
+        translateY(25px)
+        rotate(-1deg)
+        scale(0.97);
+}
+
+
+.js .reveal-left.visible {
+
+    transform:
+        translateX(0)
+        translateY(0)
+        rotate(0deg)
+        scale(1);
+}
+
+
+/* ==================================================
+   LINKS
+   ================================================== */
 
 .contact a {
-    color: #AFCDED;
+
+    color: currentColor;
+
+    display: inline-block;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* =========================
+
+.contact a:hover {
+
+    opacity: 0.65;
+
+    transform: translateX(5px);
+}
+
+
+/* ==================================================
    FOOTER
-   ========================= */
+   ================================================== */
 
 footer {
+
     text-align: center;
+
     padding: 2rem;
-    opacity: 0.5;
+
+    opacity: 0.55;
+
     font-size: 0.9rem;
+
+    color: inherit;
 }
 
-/* =========================
+
+/* ==================================================
    MOBILE
-   ========================= */
+   ================================================== */
 
 @media (max-width: 768px) {
 
@@ -307,56 +483,103 @@ footer {
         font-size: 2.7rem;
     }
 
+
     .subtitle {
+
         font-size: 0.7rem;
+
         letter-spacing: 0.2em;
+
         margin-bottom: 3rem;
+
         padding: 0 1.5rem;
     }
 
+
     nav {
+
         gap: 1rem;
+
         flex-wrap: wrap;
     }
+
 
     nav a {
         font-size: 0.8rem;
     }
 
+
     .home-button {
+
         top: 1rem;
+
         left: 1rem;
     }
 
+
     .language-switch {
+
         top: 1rem;
+
         right: 1rem;
+
         font-size: 0.75rem;
     }
 
+
     .language-switch button {
+
         font-size: 0.75rem;
+
         padding: 0.15rem;
     }
 
+
     section {
+
         padding: 6rem 8%;
     }
 
+
     .js .reveal {
-        transform: translateY(20px);
+
+        transform:
+            translateY(35px)
+            scale(0.98);
     }
 
-    .hero-star {
-        width: 120vw;
-        max-width: none;
+
+    .js .reveal.visible {
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+
+    .js .reveal-left {
+
+        transform:
+            translateX(-20px)
+            translateY(20px)
+            scale(0.98);
+    }
+
+
+    .js .reveal-left.visible {
+
+        transform:
+            translateX(0)
+            translateY(0)
+            scale(1);
     }
 
 }
 
-/* =========================
+
+/* ==================================================
    REDUCED MOTION
-   ========================= */
+   ================================================== */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -364,23 +587,32 @@ footer {
         scroll-behavior: auto;
     }
 
+
+    body {
+        transition: none;
+    }
+
+
     .hero .container {
+
         animation: none;
+
         opacity: 1;
+
         filter: none;
+
         transform: none;
     }
 
-    .hero-star {
-        animation: none;
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
 
     .js .reveal {
+
         opacity: 1;
+
         filter: none;
+
         transform: none;
+
         transition: none;
     }
 
@@ -394,80 +626,111 @@ footer {
 <body>
 
 
-<!-- SF. HOME BUTTON -->
+<!-- ==================================================
+     SF HOME BUTTON
+     ================================================== -->
 
-<a href="#" class="home-button">SF.</a>
+<a href="#" class="home-button">
+    SF.
+</a>
 
 
-<!-- LANGUAGE SWITCH -->
+<!-- ==================================================
+     LANGUAGE SWITCH
+     ================================================== -->
 
 <div class="language-switch">
 
-    <button onclick="setLanguage('en')" id="btn-en" class="active">
+    <button
+        onclick="setLanguage('en')"
+        id="btn-en"
+        class="active">
         EN
     </button>
 
     /
 
-    <button onclick="setLanguage('fr')" id="btn-fr">
+    <button
+        onclick="setLanguage('fr')"
+        id="btn-fr">
         FR
     </button>
 
     /
 
-    <button onclick="setLanguage('sv')" id="btn-sv">
+    <button
+        onclick="setLanguage('sv')"
+        id="btn-sv">
         SV
     </button>
 
 </div>
 
 
-<!-- HOMEPAGE -->
+<!-- ==================================================
+     HOMEPAGE
+     ================================================== -->
 
-<div class="hero">
-
-    <!-- STAR -->
-
-    <img src="star.svg"
-         alt=""
-         class="hero-star"
-         aria-hidden="true">
-
+<div
+    class="hero colour-section"
+    id="home">
 
     <div class="container">
 
-        <h1>seb feasey</h1>
+        <h1>
+            seb feasey
+        </h1>
 
-        <div class="subtitle"
-             data-en="graphic design & editorial design student"
-             data-fr="étudiant en graphisme & design éditorial"
-             data-sv="student inom grafisk design & redaktionell design">
+
+        <div
+            class="subtitle"
+
+            data-en="graphic design & editorial design student"
+
+            data-fr="étudiant en graphisme & design éditorial"
+
+            data-sv="student inom grafisk design & redaktionell design">
 
             graphic design & editorial design student
 
         </div>
 
+
         <nav>
 
-            <a href="#projects"
-               data-en="projects"
-               data-fr="projets"
-               data-sv="projekt">
+            <a
+                href="#projects"
+
+                data-en="projects"
+                data-fr="projets"
+                data-sv="projekt">
+
                 projects
+
             </a>
 
-            <a href="#about"
-               data-en="about"
-               data-fr="à propos"
-               data-sv="om mig">
+
+            <a
+                href="#about"
+
+                data-en="about"
+                data-fr="à propos"
+                data-sv="om mig">
+
                 about
+
             </a>
 
-            <a href="#contact"
-               data-en="contact"
-               data-fr="contact"
-               data-sv="kontakt">
+
+            <a
+                href="#contact"
+
+                data-en="contact"
+                data-fr="contact"
+                data-sv="kontakt">
+
                 contact
+
             </a>
 
         </nav>
@@ -477,31 +740,46 @@ footer {
 </div>
 
 
-<!-- PROJECTS -->
+<!-- ==================================================
+     PROJECTS
+     ================================================== -->
 
-<section id="projects">
+<section
+    id="projects"
+    class="colour-section">
 
-    <h2 class="reveal"
+
+    <h2
+        class="reveal reveal-left"
+
         data-en="Projects"
         data-fr="Projets"
         data-sv="Projekt">
+
         Projects
+
     </h2>
+
 
     <div class="content reveal reveal-delay">
 
         <p
             data-en="Projects are on their way."
+
             data-fr="Les projets arrivent bientôt."
+
             data-sv="Projekt är på väg.">
 
             Projects are on their way.
 
         </p>
 
+
         <p
             data-en="I'm currently putting together a selection of work from my studies, personal projects and collaborations. Check back soon to see what I've been working on."
+
             data-fr="Je rassemble actuellement une sélection de travaux issus de mes études, de projets personnels et de collaborations. Revenez bientôt pour découvrir ce sur quoi j’ai travaillé."
+
             data-sv="Jag håller just nu på att sätta ihop ett urval av arbeten från mina studier, personliga projekt och samarbeten. Kom gärna tillbaka snart för att se vad jag har jobbat med.">
 
             I'm currently putting together a selection of work from my studies, personal projects and collaborations. Check back soon to see what I've been working on.
@@ -513,49 +791,71 @@ footer {
 </section>
 
 
-<!-- ABOUT -->
+<!-- ==================================================
+     ABOUT
+     ================================================== -->
 
-<section id="about">
+<section
+    id="about"
+    class="colour-section">
 
-    <h2 class="reveal"
+
+    <h2
+        class="reveal"
+
         data-en="About"
         data-fr="À propos"
         data-sv="Om mig">
+
         About
+
     </h2>
+
 
     <div class="content reveal reveal-delay">
 
+
         <p
             data-en="Hi, I'm Seb."
+
             data-fr="Salut, moi c'est Seb."
+
             data-sv="Hej, jag heter Seb.">
 
             Hi, I'm Seb.
 
         </p>
 
+
         <p
             data-en="I'm a DN MADE Graphisme student at the Lycée de la Communication in Metz, France, with a particular interest in editorial design, typography and visual storytelling."
+
             data-fr="Je suis étudiant en DN MADE Graphisme au Lycée de la Communication à Metz, France, avec un intérêt particulier pour le design éditorial, la typographie et la narration visuelle."
+
             data-sv="Jag studerar DN MADE Graphisme på Lycée de la Communication i Metz, Frankrike, med ett särskilt intresse för redaktionell design, typografi och visuellt berättande.">
 
             I'm a DN MADE Graphisme student at the Lycée de la Communication in Metz, France, with a particular interest in editorial design, typography and visual storytelling.
 
         </p>
 
+
         <p
             data-en="I love creating work that feels thoughtful, engaging and a little unexpected. Whether it's a publication, poster or visual identity, I'm always interested in how design can communicate ideas and connect with people."
+
             data-fr="J’aime créer des projets réfléchis, engageants et parfois inattendus. Qu’il s’agisse d’une publication, d’une affiche ou d’une identité visuelle, je m’intéresse toujours à la manière dont le design peut transmettre des idées et créer du lien."
+
             data-sv="Jag gillar att skapa projekt som känns genomtänkta, engagerande och lite oväntade. Oavsett om det handlar om en publikation, en affisch eller en visuell identitet är jag alltid nyfiken på hur design kan förmedla idéer och skapa kontakt med människor.">
 
             I love creating work that feels thoughtful, engaging and a little unexpected. Whether it's a publication, poster or visual identity, I'm always interested in how design can communicate ideas and connect with people.
 
         </p>
 
+
         <p
             data-en="This website is a space where I'll be sharing my projects, experiments and creative journey as I continue to learn and grow as a designer."
+
             data-fr="Ce site est un espace où je partage mes projets, mes expérimentations et mon parcours créatif au fil de mon évolution en tant que designer."
+
             data-sv="Den här webbplatsen är en plats där jag delar mina projekt, experiment och min kreativa resa medan jag fortsätter att lära mig och utvecklas som designer.">
 
             This website is a space where I'll be sharing my projects, experiments and creative journey as I continue to learn and grow as a designer.
@@ -567,33 +867,56 @@ footer {
 </section>
 
 
-<!-- CONTACT -->
+<!-- ==================================================
+     CONTACT
+     ================================================== -->
 
-<section id="contact">
+<section
+    id="contact"
+    class="colour-section">
 
-    <h2 class="reveal"
+
+    <h2
+        class="reveal reveal-left"
+
         data-en="Contact"
         data-fr="Contact"
         data-sv="Kontakt">
+
         Contact
+
     </h2>
+
 
     <div class="content contact reveal reveal-delay">
 
-        <p>
-            Email:
-            <a href="mailto:feaseysebastien@gmail.com">
-                feaseysebastien@gmail.com
-            </a>
-        </p>
 
         <p>
-            Instagram:
-            <a href="https://instagram.com/sebfeasey"
-               target="_blank"
-               rel="noopener noreferrer">
-                @sebfeasey
+
+            Email:
+
+            <a href="mailto:feaseysebastien@gmail.com">
+
+                feaseysebastien@gmail.com
+
             </a>
+
+        </p>
+
+
+        <p>
+
+            Instagram:
+
+            <a
+                href="https://instagram.com/sebfeasey"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                @sebfeasey
+
+            </a>
+
         </p>
 
     </div>
@@ -601,79 +924,376 @@ footer {
 </section>
 
 
-<!-- FOOTER -->
+<!-- ==================================================
+     FOOTER
+     ================================================== -->
 
 <footer>
     © 2026 Seb Feasey
 </footer>
 
 
-<!-- SCRIPTS -->
-
 <script>
 
-/* LANGUAGE SWITCH */
+
+/* ==================================================
+   LANGUAGE SWITCH
+   ================================================== */
+
 
 function setLanguage(language) {
 
-    const elements = document.querySelectorAll("[data-en]");
+    const elements =
+        document.querySelectorAll("[data-en]");
+
 
     elements.forEach(element => {
 
-        const translation = element.getAttribute("data-" + language);
+        const translation =
+            element.getAttribute(
+                "data-" + language
+            );
+
 
         if (translation) {
-            element.textContent = translation;
+
+            element.textContent =
+                translation;
+
         }
 
     });
 
-    document.getElementById("btn-en")
-        .classList.toggle("active", language === "en");
 
-    document.getElementById("btn-fr")
-        .classList.toggle("active", language === "fr");
+    document
+        .getElementById("btn-en")
+        .classList
+        .toggle(
+            "active",
+            language === "en"
+        );
 
-    document.getElementById("btn-sv")
-        .classList.toggle("active", language === "sv");
 
-    document.documentElement.lang = language;
+    document
+        .getElementById("btn-fr")
+        .classList
+        .toggle(
+            "active",
+            language === "fr"
+        );
+
+
+    document
+        .getElementById("btn-sv")
+        .classList
+        .toggle(
+            "active",
+            language === "sv"
+        );
+
+
+    document.documentElement.lang =
+        language;
 
 }
 
 
-/* SCROLL REVEAL */
 
-const revealElements = document.querySelectorAll(".reveal");
+/* ==================================================
+   COLOUR PALETTE
+   ==================================================
 
-const observer = new IntersectionObserver(
+   Colours taken from your palette.
 
-    (entries, observer) => {
+   Each page load chooses four of them
+   and puts them in a random order.
 
-        entries.forEach(entry => {
+   The text colour is stored with each
+   background so it always stays readable.
 
-            if (entry.isIntersecting) {
+   ================================================== */
 
-                entry.target.classList.add("visible");
 
-                observer.unobserve(entry.target);
+const palette = [
 
-            }
-
-        });
-
+    {
+        background: "#FF340C",
+        text: "#F9F3DB"
     },
 
     {
-        threshold: 0.18,
-        rootMargin: "0px 0px -8% 0px"
+        background: "#E0070F",
+        text: "#F9F3DB"
+    },
+
+    {
+        background: "#F03172",
+        text: "#F9F3DB"
+    },
+
+    {
+        background: "#E990A2",
+        text: "#181A4D"
+    },
+
+    {
+        background: "#FFAE00",
+        text: "#181A4D"
+    },
+
+    {
+        background: "#CAC307",
+        text: "#181A4D"
+    },
+
+    {
+        background: "#0F4A42",
+        text: "#F9F3DB"
+    },
+
+    {
+        background: "#181A4D",
+        text: "#F9F3DB"
+    },
+
+    {
+        background: "#273287",
+        text: "#F9F3DB"
+    },
+
+    {
+        background: "#441B07",
+        text: "#F9F3DB"
     }
 
+];
+
+
+
+/* ==================================================
+   SHUFFLE FUNCTION
+   ================================================== */
+
+
+function shuffle(array) {
+
+    const shuffled =
+        [...array];
+
+
+    for (
+        let i = shuffled.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() *
+                (i + 1)
+            );
+
+
+        [
+            shuffled[i],
+            shuffled[j]
+        ] = [
+            shuffled[j],
+            shuffled[i]
+        ];
+
+    }
+
+
+    return shuffled;
+
+}
+
+
+
+/* ==================================================
+   CHOOSE RANDOM SECTION COLOURS
+   ================================================== */
+
+
+const colourSections =
+    document.querySelectorAll(
+        ".colour-section"
+    );
+
+
+const randomPalette =
+    shuffle(palette);
+
+
+/*
+Use four different colours
+for the four main sections.
+*/
+
+colourSections.forEach(
+    (section, index) => {
+
+        const colour =
+            randomPalette[index];
+
+
+        section.dataset.background =
+            colour.background;
+
+
+        section.dataset.text =
+            colour.text;
+
+    }
 );
 
-revealElements.forEach(element => {
-    observer.observe(element);
+
+
+/* ==================================================
+   CHANGE GLOBAL PAGE COLOUR
+   ================================================== */
+
+
+function setPageColour(section) {
+
+    const background =
+        section.dataset.background;
+
+
+    const text =
+        section.dataset.text;
+
+
+    document.body.style.backgroundColor =
+        background;
+
+
+    document.body.style.color =
+        text;
+
+}
+
+
+
+/* ==================================================
+   SET FIRST HOMEPAGE COLOUR IMMEDIATELY
+   ================================================== */
+
+
+setPageColour(
+    document.querySelector("#home")
+);
+
+
+
+/* ==================================================
+   BACKGROUND COLOUR OBSERVER
+   ================================================== */
+
+
+const colourObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+                    setPageColour(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+
+            /*
+            The colour switches when the
+            section occupies the middle
+            region of the screen.
+            */
+
+            rootMargin:
+                "-35% 0px -35% 0px",
+
+            threshold: 0
+
+        }
+
+    );
+
+
+colourSections.forEach(section => {
+
+    colourObserver.observe(section);
+
 });
+
+
+
+/* ==================================================
+   TEXT REVEAL OBSERVER
+   ================================================== */
+
+
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+                    entry.target
+                        .classList
+                        .add("visible");
+
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+
+            threshold: 0.15,
+
+            rootMargin:
+                "0px 0px -8% 0px"
+
+        }
+
+    );
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
 
 </script>
 
