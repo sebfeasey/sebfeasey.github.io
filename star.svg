@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Calque_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 841.89 595.28">
-  <!-- Generator: Adobe Illustrator 30.8.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 1)  -->
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 816.21 513.46">
   <defs>
     <style>
-      .st0 {
-        fill: #4b0e14;
+      .cls-1 {
+        fill: #7b1618;
       }
     </style>
   </defs>
-  <polygon class="st0" points="421.81 8.76 485.24 274.79 829.6 199.36 531.64 359.44 675.48 586.52 455.05 429.14 168.14 586.52 331.73 360.97 11.36 229.44 360.74 268.1 421.81 8.76"/>
+  <polyline class="cls-1" points="423.59 .01 475.64 189.91 816.21 89.27 551.23 275.81 678.78 482.67 455.72 335.44 147.94 513.46 291.04 264.21 0 154.32 350.72 178.01 384.67 0"/>
 </svg>
