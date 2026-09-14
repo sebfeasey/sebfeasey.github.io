@@ -25,7 +25,6 @@ document.documentElement.classList.add("js");
 
     --cream: #F9F3DB;
     --navy: #181A4D;
-
     --ui-colour: #F9F3DB;
 
 }
@@ -40,7 +39,17 @@ document.documentElement.classList.add("js");
 }
 
 html {
+
     scroll-behavior: smooth;
+
+    /*
+    Gentle snapping rather than mandatory snapping.
+    This means the browser helps the sections settle
+    into place without taking control away from you.
+    */
+
+    scroll-snap-type: y proximity;
+
 }
 
 body {
@@ -54,6 +63,20 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 
     overflow-x: hidden;
+
+}
+
+
+/* =========================================================
+   SECTION SNAP
+   ========================================================= */
+
+.colour-section {
+
+    scroll-snap-align: start;
+
+    scroll-snap-stop: normal;
+
 }
 
 
@@ -64,20 +87,20 @@ body {
 ::selection {
 
     background: #181A4D;
-
     color: #F9F3DB;
+
 }
 
 ::-moz-selection {
 
     background: #181A4D;
-
     color: #F9F3DB;
+
 }
 
 
 /* =========================================================
-   FIXED UI
+   FIXED SF BUTTON
    ========================================================= */
 
 .home-button {
@@ -103,7 +126,10 @@ body {
 
     text-decoration: none;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-size: 1.05rem;
 
@@ -131,6 +157,7 @@ body {
 
         background
         0.4s ease;
+
 }
 
 
@@ -187,6 +214,7 @@ body {
     transition:
         color 0.45s ease,
         background 0.4s ease;
+
 }
 
 
@@ -257,7 +285,7 @@ body {
 
 
 /* =========================================================
-   VERY SUBTLE SECTION TRANSITION
+   SOFT SECTION EDGE
    ========================================================= */
 
 .colour-section:not(:first-of-type)::before {
@@ -270,7 +298,7 @@ body {
     left: 0;
 
     width: 100%;
-    height: 32px;
+    height: 22px;
 
     z-index: 5;
 
@@ -280,12 +308,12 @@ body {
 
         linear-gradient(
             to bottom,
-            rgba(249,243,219,0.055),
+            rgba(249,243,219,0.035),
             transparent
         );
 
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 
 }
 
@@ -326,7 +354,7 @@ body {
 
 
 /* =========================================================
-   HERO ANIMATION
+   HERO INTRO
    ========================================================= */
 
 .hero-inner {
@@ -398,7 +426,7 @@ body {
 
 
 /* =========================================================
-   HOME TYPOGRAPHY
+   SEB FEASEY
    ========================================================= */
 
 h1 {
@@ -426,6 +454,67 @@ h1 {
 }
 
 
+/* individual letters */
+
+.name-letter {
+
+    display: inline-block;
+
+    position: relative;
+
+    cursor: default;
+
+    transform-origin: center bottom;
+
+    transition:
+
+        transform
+        0.55s
+        cubic-bezier(0.34,1.56,0.64,1),
+
+        filter
+        0.4s ease;
+
+}
+
+
+/* little playful movement */
+
+.name-letter:hover {
+
+    transform:
+
+        translateY(-12px)
+        rotate(-5deg)
+        scale(1.16, 1.06);
+
+}
+
+
+.name-letter:nth-child(even):hover {
+
+    transform:
+
+        translateY(-10px)
+        rotate(5deg)
+        scale(1.12, 1.10);
+
+}
+
+
+.name-space {
+
+    display: inline-block;
+
+    width: 0.22em;
+
+}
+
+
+/* =========================================================
+   SUBTITLE
+   ========================================================= */
+
 .subtitle {
 
     margin-top: 1rem;
@@ -442,7 +531,7 @@ h1 {
 
 
 /* =========================================================
-   HOME NAVIGATION
+   HOME NAV
    ========================================================= */
 
 nav {
@@ -491,8 +580,7 @@ nav a:hover {
 
 
 /* =========================================================
-   SHARED SECTION TITLE
-   Projects / About / Contact
+   SHARED TITLE
    ========================================================= */
 
 .section-title {
@@ -588,11 +676,11 @@ nav a:hover {
 
     grid-template-columns:
 
-        minmax(230px,0.55fr)
+        minmax(240px,0.52fr)
 
-        minmax(0,1.9fr);
+        minmax(0,1.85fr);
 
-    gap: 5vw;
+    gap: 7vw;
 
     position: relative;
 
@@ -616,7 +704,7 @@ nav a:hover {
 
 .projects-intro p {
 
-    max-width: 320px;
+    max-width: 310px;
 
     min-height: 90px;
 
@@ -628,7 +716,7 @@ nav a:hover {
 
 
 /* =========================================================
-   PROJECT CAROUSEL
+   PROJECT WINDOW
    ========================================================= */
 
 .projects-carousel-wrapper {
@@ -637,6 +725,31 @@ nav a:hover {
 
     min-width: 0;
 
+    /*
+    Gives the carousel a little breathing room
+    from the title.
+    */
+
+    margin-left: 1.3rem;
+
+}
+
+
+/*
+The small inner mask gives the left edge
+a slightly cropped / window-like feeling.
+*/
+
+.projects-carousel-mask {
+
+    overflow: hidden;
+
+    padding:
+        1rem
+        0.7rem
+        2rem
+        1.8rem;
+
 }
 
 
@@ -644,7 +757,7 @@ nav a:hover {
 
     display: flex;
 
-    gap: 1.2rem;
+    gap: 1.25rem;
 
     overflow-x: auto;
 
@@ -655,9 +768,8 @@ nav a:hover {
     scrollbar-width: none;
 
     padding:
-        1rem
-        0
-        2rem;
+        0.2rem
+        0;
 
 }
 
@@ -678,7 +790,7 @@ nav a:hover {
     flex:
         0
         0
-        min(390px,70%);
+        min(370px,72%);
 
     aspect-ratio: 4 / 3;
 
@@ -699,7 +811,7 @@ nav a:hover {
     cursor: pointer;
 
     background:
-        rgba(249,243,219,0.06);
+        rgba(249,243,219,0.055);
 
     color: inherit;
 
@@ -710,7 +822,7 @@ nav a:hover {
     transition:
 
         transform
-        0.5s
+        0.48s
         cubic-bezier(0.34,1.56,0.64,1),
 
         background
@@ -726,13 +838,13 @@ nav a:hover {
 .project-card:hover {
 
     transform:
-        scale(1.045)
-        translateY(-5px);
+        scale(1.035)
+        translateY(-4px);
 
     background:
-        rgba(249,243,219,0.12);
+        rgba(249,243,219,0.105);
 
-    border-radius: 12px;
+    border-radius: 8px;
 
 }
 
@@ -740,13 +852,13 @@ nav a:hover {
 .project-card:active {
 
     transform:
-        scale(0.975);
+        scale(0.98);
 
 }
 
 
 /* =========================================================
-   PROJECT CARD CONTENT
+   PROJECT CONTENT
    ========================================================= */
 
 .project-card-inner {
@@ -815,12 +927,12 @@ nav a:hover {
 
     top: 50%;
 
-    width: 48px;
-    height: 48px;
+    width: 38px;
+    height: 38px;
 
     border:
         1px solid
-        rgba(24,26,77,0.12);
+        rgba(249,243,219,0.34);
 
     border-radius: 50%;
 
@@ -833,15 +945,19 @@ nav a:hover {
     align-items: center;
     justify-content: center;
 
-    font-size: 1.4rem;
+    font-size: 1rem;
+
+    line-height: 1;
 
     background:
-        rgba(249,243,219,0.92);
+        rgba(249,243,219,0.12);
 
-    color: #181A4D;
+    color: inherit;
 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    opacity: 0.72;
 
     transform:
         translateY(-50%);
@@ -853,6 +969,9 @@ nav a:hover {
         cubic-bezier(0.34,1.56,0.64,1),
 
         opacity
+        0.3s ease,
+
+        background
         0.3s ease;
 
 }
@@ -860,9 +979,14 @@ nav a:hover {
 
 .carousel-arrow:hover {
 
+    opacity: 1;
+
+    background:
+        rgba(249,243,219,0.20);
+
     transform:
         translateY(-50%)
-        scale(1.16);
+        scale(1.10);
 
 }
 
@@ -871,21 +995,21 @@ nav a:hover {
 
     transform:
         translateY(-50%)
-        scale(0.92);
+        scale(0.94);
 
 }
 
 
 .carousel-arrow.left {
 
-    left: -24px;
+    left: -6px;
 
 }
 
 
 .carousel-arrow.right {
 
-    right: -24px;
+    right: -6px;
 
 }
 
@@ -954,39 +1078,45 @@ nav a:hover {
 
 .contact-section {
 
-    height: 100vh;
     min-height: 100vh;
 
     padding:
         8rem
-        9%;
+        9%
+        0;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.contact-main {
+
+    flex: 1;
 
     display: flex;
 
     align-items: center;
 
-}
-
-
-.contact-layout {
-
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns:
-
-        minmax(260px,0.75fr)
-
-        minmax(400px,1.25fr);
-
-    gap: 8vw;
-
     position: relative;
 
     z-index: 10;
 
-    align-items: start;
+}
+
+
+.contact-content {
+
+    width: 100%;
+
+}
+
+
+.contact-content .section-title {
+
+    margin-bottom: 2.3rem;
 
 }
 
@@ -995,9 +1125,17 @@ nav a:hover {
 
     font-size: 1.08rem;
 
-    line-height: 1.8;
+    line-height: 1.9;
 
-    padding-top: 0.3rem;
+}
+
+
+.contact p {
+
+    margin:
+        0
+        0
+        0.5rem;
 
 }
 
@@ -1032,6 +1170,29 @@ nav a:hover {
 
 
 /* =========================================================
+   FOOTER — SAME CONTACT BLOCK
+   ========================================================= */
+
+footer {
+
+    width: 100%;
+
+    text-align: center;
+
+    padding:
+        2rem
+        1rem;
+
+    color: inherit;
+
+    font-size: 0.85rem;
+
+    opacity: 0.65;
+
+}
+
+
+/* =========================================================
    PROJECT DRAWER
    ========================================================= */
 
@@ -1044,8 +1205,8 @@ nav a:hover {
 
     width:
         min(
-            520px,
-            46vw
+            500px,
+            43vw
         );
 
     height: 100vh;
@@ -1189,33 +1350,21 @@ nav a:hover {
 
 
 /* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer {
-
-    text-align: center;
-
-    padding:
-        2.5rem
-        2rem;
-
-    background:
-        var(--footer-bg);
-
-    color:
-        var(--footer-text);
-
-    font-size: 0.85rem;
-
-}
-
-
-/* =========================================================
    MOBILE
    ========================================================= */
 
 @media (max-width: 850px) {
+
+
+    html {
+
+        /*
+        Still helpful on mobile, but not forceful.
+        */
+
+        scroll-snap-type: y proximity;
+
+    }
 
 
     .home-button {
@@ -1252,6 +1401,7 @@ footer {
     .hero {
 
         height: 100vh;
+
         min-height: 100vh;
 
         padding:
@@ -1270,6 +1420,13 @@ footer {
                 15vw,
                 5rem
             );
+
+    }
+
+
+    .name-letter:hover {
+
+        transform: none;
 
     }
 
@@ -1316,8 +1473,7 @@ footer {
 
 
     .projects-section,
-    .about-section,
-    .contact-section {
+    .about-section {
 
         height: auto;
 
@@ -1351,6 +1507,20 @@ footer {
     }
 
 
+    .projects-carousel-wrapper {
+
+        margin-left: 0;
+
+    }
+
+
+    .projects-carousel-mask {
+
+        padding-left: 0.8rem;
+
+    }
+
+
     .project-card {
 
         flex:
@@ -1365,30 +1535,27 @@ footer {
 
     .carousel-arrow {
 
-        width: 42px;
-        height: 42px;
-
-        font-size: 1.2rem;
+        width: 36px;
+        height: 36px;
 
     }
 
 
     .carousel-arrow.left {
 
-        left: -10px;
+        left: -5px;
 
     }
 
 
     .carousel-arrow.right {
 
-        right: -10px;
+        right: -5px;
 
     }
 
 
-    .about-section,
-    .contact-section {
+    .about-section {
 
         padding:
             7rem
@@ -1397,8 +1564,7 @@ footer {
     }
 
 
-    .about-layout,
-    .contact-layout {
+    .about-layout {
 
         grid-template-columns: 1fr;
 
@@ -1416,9 +1582,14 @@ footer {
     }
 
 
-    .contact {
+    .contact-section {
 
-        padding-top: 0;
+        min-height: 100vh;
+
+        padding:
+            7rem
+            8%
+            0;
 
     }
 
@@ -1448,6 +1619,8 @@ footer {
 
         scroll-behavior: auto;
 
+        scroll-snap-type: none;
+
     }
 
 
@@ -1458,6 +1631,20 @@ footer {
         filter: none;
 
         animation: none;
+
+    }
+
+
+    .name-letter {
+
+        transition: none;
+
+    }
+
+
+    .name-letter:hover {
+
+        transform: none;
 
     }
 
@@ -1558,8 +1745,12 @@ class="hero colour-section">
 <div class="hero-inner">
 
 
-<h1>
+<h1
+id="animated-name"
+aria-label="seb feasey">
+
 seb feasey
+
 </h1>
 
 
@@ -1636,6 +1827,8 @@ class="projects-section colour-section">
 <div class="projects-layout">
 
 
+<!-- PROJECT TITLE -->
+
 <div class="projects-intro reveal">
 
 
@@ -1669,17 +1862,22 @@ A selection of editorial, graphic, photographic and typographic projects. Click 
 </div>
 
 
+<!-- PROJECT CAROUSEL -->
+
 <div class="projects-carousel-wrapper reveal">
 
 
 <button
 class="carousel-arrow left"
 id="projects-left"
-aria-label="Previous projects">
+aria-label="Previous project">
 
-←
+‹
 
 </button>
+
+
+<div class="projects-carousel-mask">
 
 
 <div
@@ -1713,7 +1911,9 @@ Editorial
 
 
 <span class="project-type">
+
 DN MADE / PRINT
+
 </span>
 
 
@@ -1748,7 +1948,9 @@ Photography
 
 
 <span class="project-type">
+
 IMAGE / SERIES
+
 </span>
 
 
@@ -1783,7 +1985,9 @@ Posters
 
 
 <span class="project-type">
+
 PRINT / GRAPHIC
+
 </span>
 
 
@@ -1818,7 +2022,9 @@ Typography
 
 
 <span class="project-type">
+
 TYPE / EXPERIMENT
+
 </span>
 
 
@@ -1853,7 +2059,9 @@ Experiments
 
 
 <span class="project-type">
+
 PROCESS / PLAY
+
 </span>
 
 
@@ -1865,12 +2073,15 @@ PROCESS / PLAY
 </div>
 
 
+</div>
+
+
 <button
 class="carousel-arrow right"
 id="projects-right"
-aria-label="Next projects">
+aria-label="Next project">
 
-→
+›
 
 </button>
 
@@ -1972,7 +2183,7 @@ This website is a space where I'll be sharing my projects, experiments and creat
 
 
 <!-- =========================================================
-     CONTACT
+     CONTACT + FOOTER
      ========================================================= -->
 
 <section
@@ -1980,7 +2191,10 @@ id="contact"
 class="contact-section colour-section">
 
 
-<div class="contact-layout">
+<div class="contact-main">
+
+
+<div class="contact-content">
 
 
 <h2
@@ -2032,18 +2246,18 @@ rel="noopener noreferrer">
 
 </div>
 
-</section>
+
+</div>
 
 
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
-
-<footer id="footer">
+<footer>
 
 © 2026 Seb Feasey
 
 </footer>
+
+
+</section>
 
 
 <!-- =========================================================
@@ -2098,18 +2312,85 @@ Project information.
 
 <script>
 
+/* =========================================================
+   ANIMATED NAME
+   ========================================================= */
+
+const animatedName =
+document.getElementById(
+"animated-name"
+);
+
+
+const nameText =
+"seb feasey";
+
+
+animatedName.innerHTML = "";
+
+
+[...nameText].forEach(character => {
+
+
+if (character === " ") {
+
+
+const space =
+document.createElement("span");
+
+
+space.className =
+"name-space";
+
+
+space.innerHTML =
+"&nbsp;";
+
+
+animatedName.appendChild(
+space
+);
+
+
+} else {
+
+
+const letter =
+document.createElement("span");
+
+
+letter.className =
+"name-letter";
+
+
+letter.textContent =
+character;
+
+
+animatedName.appendChild(
+letter
+);
+
+
+}
+
+
+});
+
 
 /* =========================================================
    LANGUAGE
    ========================================================= */
 
-let currentLanguage = "en";
+let currentLanguage =
+"en";
 
 
 function setLanguage(language) {
 
 
-currentLanguage = language;
+currentLanguage =
+language;
 
 
 document
@@ -2125,8 +2406,10 @@ element.getAttribute(
 
 if (translation) {
 
+
 element.textContent =
 translation;
+
 
 }
 
@@ -2160,6 +2443,7 @@ language === "sv"
 
 document.documentElement.lang =
 language;
+
 
 }
 
@@ -2205,7 +2489,8 @@ text: "#F9F3DB"
 function shuffle(array) {
 
 
-const copy = [...array];
+const copy =
+[...array];
 
 
 for (
@@ -2217,7 +2502,8 @@ i--
 
 const j =
 Math.floor(
-Math.random() * (i + 1)
+Math.random() *
+(i + 1)
 );
 
 
@@ -2240,7 +2526,7 @@ return copy;
 
 
 /* =========================================================
-   RANDOM SECTION ORDER
+   RANDOM SECTION COLOURS
    ========================================================= */
 
 const sections =
@@ -2250,7 +2536,9 @@ document.querySelectorAll(
 
 
 const shuffledColours =
-shuffle(sectionColours);
+shuffle(
+sectionColours
+);
 
 
 sections.forEach(
@@ -2285,32 +2573,6 @@ colour.text;
 
 
 /* =========================================================
-   FOOTER MATCHES CONTACT
-   ========================================================= */
-
-const contactSection =
-document.getElementById(
-"contact"
-);
-
-
-document.documentElement
-.style
-.setProperty(
-"--footer-bg",
-contactSection.dataset.backgroundColour
-);
-
-
-document.documentElement
-.style
-.setProperty(
-"--footer-text",
-contactSection.dataset.textColour
-);
-
-
-/* =========================================================
    FIXED UI COLOUR
    ========================================================= */
 
@@ -2334,7 +2596,7 @@ document.querySelector("#home")
 
 
 /* =========================================================
-   SECTION OBSERVER
+   CURRENT SECTION OBSERVER
    ========================================================= */
 
 const sectionObserver =
@@ -2347,7 +2609,9 @@ entries => {
 entries.forEach(entry => {
 
 
-if (entry.isIntersecting) {
+if (
+entry.isIntersecting
+) {
 
 
 updateUIColour(
@@ -2379,7 +2643,11 @@ threshold: 0
 
 sections.forEach(section => {
 
-sectionObserver.observe(section);
+
+sectionObserver.observe(
+section
+);
+
 
 });
 
@@ -2404,7 +2672,9 @@ entries => {
 entries.forEach(entry => {
 
 
-if (entry.isIntersecting) {
+if (
+entry.isIntersecting
+) {
 
 
 entry.target
@@ -2444,7 +2714,11 @@ rootMargin:
 
 revealElements.forEach(element => {
 
-revealObserver.observe(element);
+
+revealObserver.observe(
+element
+);
+
 
 });
 
@@ -2456,6 +2730,14 @@ revealObserver.observe(element);
 const carousel =
 document.getElementById(
 "projects-carousel"
+);
+
+
+const projectCards =
+Array.from(
+carousel.querySelectorAll(
+".project-card"
+)
 );
 
 
@@ -2471,21 +2753,141 @@ document.getElementById(
 );
 
 
-function carouselAmount() {
+let currentProjectIndex =
+0;
 
 
-const card =
-carousel.querySelector(
-".project-card"
+/* =========================================================
+   FIND NEAREST CURRENT CARD
+   ========================================================= */
+
+function updateCurrentProjectIndex() {
+
+
+let closestIndex =
+0;
+
+
+let closestDistance =
+Infinity;
+
+
+projectCards.forEach(
+(card,index) => {
+
+
+const distance =
+Math.abs(
+card.offsetLeft -
+carousel.scrollLeft
 );
 
 
-if (!card) return 400;
+if (
+distance <
+closestDistance
+) {
 
 
-return card.offsetWidth + 20;
+closestDistance =
+distance;
+
+
+closestIndex =
+index;
+
 
 }
+
+
+});
+
+
+currentProjectIndex =
+closestIndex;
+
+
+}
+
+
+/* =========================================================
+   SCROLL TO PROJECT
+   ========================================================= */
+
+function scrollToProject(index) {
+
+
+const total =
+projectCards.length;
+
+
+/* wrap infinitely */
+
+if (
+index >= total
+) {
+
+
+index = 0;
+
+
+}
+
+
+if (
+index < 0
+) {
+
+
+index =
+total - 1;
+
+
+}
+
+
+currentProjectIndex =
+index;
+
+
+const card =
+projectCards[
+currentProjectIndex
+];
+
+
+carousel.scrollTo({
+
+left:
+card.offsetLeft,
+
+behavior:
+"smooth"
+
+});
+
+
+}
+
+
+/* =========================================================
+   ARROWS
+   ========================================================= */
+
+rightArrow.addEventListener(
+"click",
+() => {
+
+
+updateCurrentProjectIndex();
+
+
+scrollToProject(
+currentProjectIndex + 1
+);
+
+
+});
 
 
 leftArrow.addEventListener(
@@ -2493,34 +2895,37 @@ leftArrow.addEventListener(
 () => {
 
 
-carousel.scrollBy({
+updateCurrentProjectIndex();
 
-left:
--carouselAmount(),
 
-behavior:
-"smooth"
-
-});
+scrollToProject(
+currentProjectIndex - 1
+);
 
 
 });
 
 
-rightArrow.addEventListener(
-"click",
+/* Keep index updated if you manually drag/scroll */
+
+let carouselScrollTimer;
+
+
+carousel.addEventListener(
+"scroll",
 () => {
 
 
-carousel.scrollBy({
+clearTimeout(
+carouselScrollTimer
+);
 
-left:
-carouselAmount(),
 
-behavior:
-"smooth"
-
-});
+carouselScrollTimer =
+setTimeout(
+updateCurrentProjectIndex,
+120
+);
 
 
 });
@@ -2687,7 +3092,7 @@ sv:
 
 
 /* =========================================================
-   DRAWER
+   PROJECT DRAWER
    ========================================================= */
 
 const drawer =
