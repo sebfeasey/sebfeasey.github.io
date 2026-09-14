@@ -22,11 +22,9 @@ document.documentElement.classList.add("js");
    ========================================================= */
 
 :root {
-
     --cream: #F9F3DB;
     --navy: #181A4D;
     --ui-colour: #F9F3DB;
-
 }
 
 
@@ -43,15 +41,12 @@ html {
     scroll-behavior: smooth;
 
     /*
-    Gentle assistance only.
-    The browser can settle near a section,
-    but normal scrolling still feels free.
+    Gentle snapping only.
+    It helps the section settle when you are already
+    close, but shouldn't hijack normal scrolling.
     */
 
     scroll-snap-type: y proximity;
-
-    scroll-padding-top: 0;
-
 }
 
 body {
@@ -66,6 +61,11 @@ body {
 
     overflow-x: hidden;
 
+    /*
+    Keeps trackpad / touch scrolling feeling natural.
+    */
+
+    -webkit-overflow-scrolling: touch;
 }
 
 
@@ -76,99 +76,116 @@ body {
 /* Firefox */
 
 html {
-
     scrollbar-width: thin;
 
     scrollbar-color:
         var(--ui-colour)
-        rgba(24,26,77,0.18);
-
+        rgba(24,26,77,0.16);
 }
 
 
-/* Chrome / Edge / Safari */
+/* Chromium / Safari */
 
 ::-webkit-scrollbar {
-
-    width: 11px;
-
+    width: 10px;
 }
-
 
 ::-webkit-scrollbar-track {
-
-    background:
-        rgba(24,26,77,0.14);
-
+    background: rgba(24,26,77,0.12);
 }
-
 
 ::-webkit-scrollbar-thumb {
 
-    background:
-        var(--ui-colour);
+    background: var(--ui-colour);
 
     border-radius: 999px;
 
-    border:
-        3px solid
-        transparent;
+    border: 3px solid transparent;
 
-    background-clip:
-        padding-box;
+    background-clip: padding-box;
 
+    opacity: 0.7;
 }
-
 
 ::-webkit-scrollbar-thumb:hover {
 
-    background:
-        var(--ui-colour);
+    border: 2px solid transparent;
 
-    border:
-        2px solid
-        transparent;
-
-    background-clip:
-        padding-box;
-
+    background-clip: padding-box;
 }
 
 
 /* =========================================================
-   SECTION SNAP
+   SECTIONS
    ========================================================= */
 
 .colour-section {
 
+    position: relative;
+
+    width: 100%;
+
+    color: var(--section-text);
+
+    background: var(--section-bg);
+
+    overflow: hidden;
+
     scroll-snap-align: start;
-
     scroll-snap-stop: normal;
-
 }
 
 
 /* =========================================================
-   TEXT SELECTION
+   VERY SUBTLE SECTION EDGE
+   ========================================================= */
+
+.colour-section:not(:first-of-type)::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 14px;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            rgba(249,243,219,0.018),
+            transparent
+        );
+
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+}
+
+
+/* =========================================================
+   SELECTION
    ========================================================= */
 
 ::selection {
-
     background: #181A4D;
     color: #F9F3DB;
-
 }
 
 ::-moz-selection {
-
     background: #181A4D;
     color: #F9F3DB;
-
 }
 
 
 /* =========================================================
-   FIXED SF BUTTON
+   FIXED SF
    ========================================================= */
 
 .home-button {
@@ -217,15 +234,13 @@ html {
 
     transition:
 
-        color 0.45s ease,
+        color 0.4s ease,
 
         transform
         0.45s
         cubic-bezier(0.34,1.56,0.64,1),
 
-        background
-        0.4s ease;
-
+        background 0.3s ease;
 }
 
 
@@ -234,12 +249,11 @@ html {
     transform:
         scale(1.10)
         rotate(-4deg);
-
 }
 
 
 /* =========================================================
-   LANGUAGE SWITCH
+   LANGUAGE
    ========================================================= */
 
 .language-switch {
@@ -280,9 +294,8 @@ html {
     letter-spacing: 0.1em;
 
     transition:
-        color 0.45s ease,
-        background 0.4s ease;
-
+        color 0.4s ease,
+        background 0.3s ease;
 }
 
 
@@ -306,12 +319,11 @@ html {
 
     transition:
 
-        opacity 0.3s ease,
+        opacity 0.25s ease,
 
         transform
         0.4s
         cubic-bezier(0.34,1.56,0.64,1);
-
 }
 
 
@@ -320,7 +332,6 @@ html {
     opacity: 1;
 
     transform: scale(1.13);
-
 }
 
 
@@ -329,60 +340,6 @@ html {
     opacity: 1;
 
     text-decoration: underline;
-
-}
-
-
-/* =========================================================
-   COLOUR SECTIONS
-   ========================================================= */
-
-.colour-section {
-
-    position: relative;
-
-    width: 100%;
-
-    color: var(--section-text);
-
-    background: var(--section-bg);
-
-    overflow: hidden;
-
-}
-
-
-/* =========================================================
-   SOFT SECTION EDGE
-   ========================================================= */
-
-.colour-section:not(:first-of-type)::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 18px;
-
-    z-index: 5;
-
-    pointer-events: none;
-
-    background:
-
-        linear-gradient(
-            to bottom,
-            rgba(249,243,219,0.025),
-            transparent
-        );
-
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-
 }
 
 
@@ -404,7 +361,6 @@ html {
         7rem
         3rem
         5rem;
-
 }
 
 
@@ -417,46 +373,85 @@ html {
     position: relative;
 
     z-index: 10;
-
 }
 
 
 /* =========================================================
-   HERO INTRO
+   HOMEPAGE ENTRY
    ========================================================= */
 
-.hero-inner {
+.hero-name {
 
     opacity: 0;
 
-    filter: blur(12px);
+    filter: blur(14px);
+
+    transform:
+        translateY(32px)
+        scale(0.93);
 
     animation:
 
-        heroBounce
-        1.45s
+        heroNameEntrance
+        1.25s
         cubic-bezier(0.16,1,0.3,1)
+        0.08s
         forwards;
-
 }
 
 
-@keyframes heroBounce {
+.hero .subtitle {
+
+    opacity: 0;
+
+    filter: blur(8px);
+
+    transform:
+        translateY(20px);
+
+    animation:
+
+        heroSmallEntrance
+        1s
+        cubic-bezier(0.16,1,0.3,1)
+        0.38s
+        forwards;
+}
+
+
+.hero nav {
+
+    opacity: 0;
+
+    filter: blur(6px);
+
+    transform:
+        translateY(16px);
+
+    animation:
+
+        heroSmallEntrance
+        1s
+        cubic-bezier(0.16,1,0.3,1)
+        0.62s
+        forwards;
+}
+
+
+@keyframes heroNameEntrance {
 
     0% {
 
         opacity: 0;
 
-        filter: blur(12px);
+        filter: blur(14px);
 
         transform:
             translateY(32px)
             scale(0.93);
-
     }
 
-
-    62% {
+    67% {
 
         opacity: 1;
 
@@ -465,18 +460,14 @@ html {
         transform:
             translateY(-5px)
             scale(1.025);
-
     }
 
-
-    82% {
+    84% {
 
         transform:
             translateY(2px)
-            scale(0.99);
-
+            scale(0.992);
     }
-
 
     100% {
 
@@ -487,14 +478,48 @@ html {
         transform:
             translateY(0)
             scale(1);
+    }
 
+}
+
+
+@keyframes heroSmallEntrance {
+
+    0% {
+
+        opacity: 0;
+
+        filter: blur(8px);
+
+        transform:
+            translateY(20px);
+    }
+
+    70% {
+
+        opacity: 1;
+
+        filter: blur(0);
+
+        transform:
+            translateY(-2px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        filter: blur(0);
+
+        transform:
+            translateY(0);
     }
 
 }
 
 
 /* =========================================================
-   SEB FEASEY
+   NAME
    ========================================================= */
 
 h1 {
@@ -518,7 +543,6 @@ h1 {
     font-weight: 400;
 
     text-transform: lowercase;
-
 }
 
 
@@ -536,11 +560,7 @@ h1 {
 
         transform
         0.55s
-        cubic-bezier(0.34,1.56,0.64,1),
-
-        filter
-        0.4s ease;
-
+        cubic-bezier(0.34,1.56,0.64,1);
 }
 
 
@@ -551,7 +571,6 @@ h1 {
         translateY(-12px)
         rotate(-5deg)
         scale(1.16,1.06);
-
 }
 
 
@@ -562,7 +581,6 @@ h1 {
         translateY(-10px)
         rotate(5deg)
         scale(1.12,1.10);
-
 }
 
 
@@ -571,7 +589,6 @@ h1 {
     display: inline-block;
 
     width: 0.22em;
-
 }
 
 
@@ -590,7 +607,6 @@ h1 {
     letter-spacing: 0.3em;
 
     font-size: 0.9rem;
-
 }
 
 
@@ -605,7 +621,6 @@ nav {
     justify-content: center;
 
     gap: 2rem;
-
 }
 
 
@@ -623,12 +638,11 @@ nav a {
 
     transition:
 
-        opacity 0.3s ease,
+        opacity 0.25s ease,
 
         transform
         0.45s
         cubic-bezier(0.34,1.56,0.64,1);
-
 }
 
 
@@ -639,12 +653,11 @@ nav a:hover {
     transform:
         scale(1.12)
         translateY(-3px);
-
 }
 
 
 /* =========================================================
-   SHARED TITLE
+   TITLES
    ========================================================= */
 
 .section-title {
@@ -666,7 +679,6 @@ nav a:hover {
     line-height: 0.9;
 
     font-weight: 400;
-
 }
 
 
@@ -678,24 +690,23 @@ nav a:hover {
 
     opacity: 0;
 
-    filter: blur(10px);
+    filter: blur(9px);
 
     transform:
-        translateY(45px)
-        scale(0.92);
+        translateY(38px)
+        scale(0.94);
 
     transition:
 
         opacity
-        0.68s ease,
+        0.65s ease,
 
         filter
         0.72s ease,
 
         transform
-        0.85s
-        cubic-bezier(0.34,1.30,0.64,1);
-
+        0.82s
+        cubic-bezier(0.34,1.26,0.64,1);
 }
 
 
@@ -708,7 +719,6 @@ nav a:hover {
     transform:
         translateY(0)
         scale(1);
-
 }
 
 
@@ -728,7 +738,6 @@ nav a:hover {
     display: flex;
 
     align-items: center;
-
 }
 
 
@@ -751,18 +760,12 @@ nav a:hover {
     z-index: 10;
 
     align-items: center;
-
 }
 
-
-/* =========================================================
-   PROJECT INTRO
-   ========================================================= */
 
 .projects-intro .section-title {
 
     margin-bottom: 1.8rem;
-
 }
 
 
@@ -775,12 +778,11 @@ nav a:hover {
     line-height: 1.6;
 
     font-size: 0.95rem;
-
 }
 
 
 /* =========================================================
-   PROJECT WINDOW
+   PROJECT CAROUSEL
    ========================================================= */
 
 .projects-carousel-wrapper {
@@ -791,19 +793,14 @@ nav a:hover {
 
     margin-left: 1.3rem;
 
-}
-
-
-.projects-carousel-mask {
-
-    overflow: hidden;
+    /*
+    Extra vertical breathing room means cards
+    can rise on hover without being clipped.
+    */
 
     padding:
-        1rem
-        0.7rem
-        2rem
-        1.8rem;
-
+        1.4rem
+        0;
 }
 
 
@@ -815,28 +812,34 @@ nav a:hover {
 
     overflow-x: auto;
 
+    overflow-y: hidden;
+
     scroll-behavior: smooth;
 
     scroll-snap-type: x proximity;
 
     scrollbar-width: none;
 
-    padding:
-        0.2rem
-        0;
+    /*
+    Large enough padding for hover motion.
+    */
 
+    padding:
+        1.4rem
+        0
+        1.6rem
+        1.2rem;
 }
 
 
 .projects-carousel::-webkit-scrollbar {
 
     display: none;
-
 }
 
 
 /* =========================================================
-   PROJECT BOX
+   PROJECT CARD
    ========================================================= */
 
 .project-card {
@@ -876,30 +879,29 @@ nav a:hover {
     transition:
 
         transform
-        0.48s
+        0.5s
         cubic-bezier(0.34,1.56,0.64,1),
 
         background
-        0.35s ease,
+        0.3s ease,
 
         border-radius
         0.4s
         cubic-bezier(0.34,1.56,0.64,1);
-
 }
 
 
 .project-card:hover {
 
     transform:
-        scale(1.035)
-        translateY(-4px);
+
+        translateY(-8px)
+        scale(1.04);
 
     background:
         rgba(249,243,219,0.105);
 
     border-radius: 8px;
-
 }
 
 
@@ -907,12 +909,11 @@ nav a:hover {
 
     transform:
         scale(0.98);
-
 }
 
 
 /* =========================================================
-   PROJECT CONTENT
+   PROJECT CARD CONTENT
    ========================================================= */
 
 .project-card-inner {
@@ -928,7 +929,6 @@ nav a:hover {
     flex-direction: column;
 
     justify-content: space-between;
-
 }
 
 
@@ -937,7 +937,6 @@ nav a:hover {
     font-size: 0.7rem;
 
     letter-spacing: 0.16em;
-
 }
 
 
@@ -950,13 +949,14 @@ nav a:hover {
 
     font-size:
         clamp(
-            2.2rem,
-            4vw,
-            3.8rem
+            2.15rem,
+            3.7vw,
+            3.55rem
         );
 
-    line-height: 0.93;
+    line-height: 0.94;
 
+    overflow-wrap: anywhere;
 }
 
 
@@ -967,7 +967,6 @@ nav a:hover {
     letter-spacing: 0.15em;
 
     text-transform: uppercase;
-
 }
 
 
@@ -981,12 +980,12 @@ nav a:hover {
 
     top: 50%;
 
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
 
     border:
         1px solid
-        rgba(249,243,219,0.25);
+        rgba(249,243,219,0.22);
 
     border-radius: 50%;
 
@@ -999,12 +998,12 @@ nav a:hover {
     align-items: center;
     justify-content: center;
 
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 
     line-height: 1;
 
     background:
-        rgba(249,243,219,0.08);
+        rgba(249,243,219,0.075);
 
     color: inherit;
 
@@ -1027,7 +1026,6 @@ nav a:hover {
 
         background
         0.25s ease;
-
 }
 
 
@@ -1041,7 +1039,6 @@ nav a:hover {
     transform:
         translateY(-50%)
         scale(1.08);
-
 }
 
 
@@ -1050,21 +1047,16 @@ nav a:hover {
     transform:
         translateY(-50%)
         scale(0.96);
-
 }
 
 
 .carousel-arrow.left {
-
-    left: -4px;
-
+    left: -3px;
 }
 
 
 .carousel-arrow.right {
-
-    right: -4px;
-
+    right: -3px;
 }
 
 
@@ -1084,7 +1076,6 @@ nav a:hover {
     display: flex;
 
     align-items: center;
-
 }
 
 
@@ -1107,7 +1098,6 @@ nav a:hover {
     z-index: 10;
 
     align-items: start;
-
 }
 
 
@@ -1122,7 +1112,6 @@ nav a:hover {
     line-height: 1.8;
 
     padding-top: 0.3rem;
-
 }
 
 
@@ -1142,7 +1131,6 @@ nav a:hover {
     display: flex;
 
     flex-direction: column;
-
 }
 
 
@@ -1157,21 +1145,18 @@ nav a:hover {
     position: relative;
 
     z-index: 10;
-
 }
 
 
 .contact-content {
 
     width: 100%;
-
 }
 
 
 .contact-content .section-title {
 
     margin-bottom: 2.3rem;
-
 }
 
 
@@ -1180,7 +1165,6 @@ nav a:hover {
     font-size: 1.08rem;
 
     line-height: 1.9;
-
 }
 
 
@@ -1190,7 +1174,6 @@ nav a:hover {
         0
         0
         0.5rem;
-
 }
 
 
@@ -1208,7 +1191,6 @@ nav a:hover {
 
         opacity
         0.3s ease;
-
 }
 
 
@@ -1219,7 +1201,6 @@ nav a:hover {
         scale(1.04);
 
     opacity: 0.75;
-
 }
 
 
@@ -1242,7 +1223,6 @@ footer {
     font-size: 0.85rem;
 
     opacity: 0.65;
-
 }
 
 
@@ -1259,18 +1239,21 @@ footer {
 
     width:
         min(
-            500px,
-            43vw
+            470px,
+            40vw
         );
 
     height: 100vh;
 
     z-index: 5000;
 
+    display: flex;
+
+    align-items: center;
+
     padding:
-        7rem
-        3.5rem
-        3rem;
+        6rem
+        3.5rem;
 
     background:
         rgba(249,243,219,0.95);
@@ -1284,7 +1267,7 @@ footer {
         -15px
         0
         55px
-        rgba(0,0,0,0.13);
+        rgba(0,0,0,0.12);
 
     transform:
         translateX(110%);
@@ -1298,8 +1281,7 @@ footer {
         cubic-bezier(0.16,1,0.3,1),
 
         filter
-        0.55s ease;
-
+        0.5s ease;
 }
 
 
@@ -1309,7 +1291,6 @@ footer {
         translateX(0);
 
     filter: blur(0);
-
 }
 
 
@@ -1320,8 +1301,8 @@ footer {
     top: 1.6rem;
     right: 1.6rem;
 
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
 
     border: 0;
 
@@ -1333,14 +1314,13 @@ footer {
 
     cursor: pointer;
 
-    font-size: 1.4rem;
+    font-size: 1.35rem;
 
     transition:
 
         transform
         0.45s
         cubic-bezier(0.34,1.56,0.64,1);
-
 }
 
 
@@ -1349,31 +1329,18 @@ footer {
     transform:
         scale(1.13)
         rotate(90deg);
-
 }
 
 
-.drawer-number {
-
-    text-transform: uppercase;
-
-    letter-spacing: 0.16em;
-
-    font-size: 0.75rem;
-
-    opacity: 0.6;
-
-    margin-bottom: 1.5rem;
-
-}
-
+/*
+Only the project title remains.
+*/
 
 .drawer-title {
 
-    margin:
-        0
-        0
-        2rem;
+    margin: 0;
+
+    width: 100%;
 
     font-family:
         Georgia,
@@ -1382,24 +1349,16 @@ footer {
 
     font-size:
         clamp(
-            3rem,
-            6vw,
-            5rem
+            2.5rem,
+            4.4vw,
+            4.2rem
         );
 
-    line-height: 0.92;
+    line-height: 0.94;
 
     font-weight: 400;
 
-}
-
-
-.drawer-description {
-
-    line-height: 1.8;
-
-    font-size: 1.05rem;
-
+    overflow-wrap: anywhere;
 }
 
 
@@ -1412,8 +1371,8 @@ footer {
 
     html {
 
-        scroll-snap-type: y proximity;
-
+        scroll-snap-type:
+            y proximity;
     }
 
 
@@ -1425,7 +1384,6 @@ footer {
         height: 38px;
 
         min-width: 52px;
-
     }
 
 
@@ -1437,14 +1395,12 @@ footer {
         height: 38px;
 
         font-size: 0.68rem;
-
     }
 
 
     .language-switch button {
 
         font-size: 0.68rem;
-
     }
 
 
@@ -1458,7 +1414,6 @@ footer {
             6rem
             1.5rem
             4rem;
-
     }
 
 
@@ -1470,14 +1425,12 @@ footer {
                 15vw,
                 5rem
             );
-
     }
 
 
     .name-letter:hover {
 
         transform: none;
-
     }
 
 
@@ -1490,7 +1443,6 @@ footer {
         margin-bottom: 3rem;
 
         padding: 0 1rem;
-
     }
 
 
@@ -1499,14 +1451,12 @@ footer {
         gap: 1rem;
 
         flex-wrap: wrap;
-
     }
 
 
     nav a {
 
         font-size: 0.76rem;
-
     }
 
 
@@ -1518,7 +1468,6 @@ footer {
                 16vw,
                 4.8rem
             );
-
     }
 
 
@@ -1528,7 +1477,6 @@ footer {
         height: auto;
 
         min-height: 100vh;
-
     }
 
 
@@ -1537,7 +1485,6 @@ footer {
         padding:
             7rem
             7%;
-
     }
 
 
@@ -1546,28 +1493,24 @@ footer {
         grid-template-columns: 1fr;
 
         gap: 3rem;
-
     }
 
 
     .projects-intro p {
 
         min-height: 0;
-
     }
 
 
     .projects-carousel-wrapper {
 
         margin-left: 0;
-
     }
 
 
-    .projects-carousel-mask {
+    .projects-carousel {
 
-        padding-left: 0.8rem;
-
+        padding-left: 0.5rem;
     }
 
 
@@ -1579,29 +1522,13 @@ footer {
             86%;
 
         min-width: 0;
-
     }
 
 
     .carousel-arrow {
 
-        width: 34px;
-        height: 34px;
-
-    }
-
-
-    .carousel-arrow.left {
-
-        left: -4px;
-
-    }
-
-
-    .carousel-arrow.right {
-
-        right: -4px;
-
+        width: 32px;
+        height: 32px;
     }
 
 
@@ -1610,7 +1537,6 @@ footer {
         padding:
             7rem
             8%;
-
     }
 
 
@@ -1619,7 +1545,6 @@ footer {
         grid-template-columns: 1fr;
 
         gap: 2.5rem;
-
     }
 
 
@@ -1628,7 +1553,6 @@ footer {
         min-height: 0;
 
         padding-top: 0;
-
     }
 
 
@@ -1640,7 +1564,6 @@ footer {
             7rem
             8%
             0;
-
     }
 
 
@@ -1649,10 +1572,25 @@ footer {
         width: 100%;
 
         padding:
-            6rem
-            2rem
-            3rem;
+            5rem
+            2rem;
 
+        align-items: center;
+    }
+
+
+    .drawer-title {
+
+        font-size:
+            clamp(
+                2.8rem,
+                13vw,
+                4.5rem
+            );
+
+        overflow-wrap: normal;
+
+        word-break: normal;
     }
 
 }
@@ -1670,32 +1608,32 @@ footer {
         scroll-behavior: auto;
 
         scroll-snap-type: none;
-
     }
 
 
-    .hero-inner {
+    .hero-name,
+    .hero .subtitle,
+    .hero nav {
 
         opacity: 1;
 
         filter: none;
 
-        animation: none;
+        transform: none;
 
+        animation: none;
     }
 
 
     .name-letter {
 
         transition: none;
-
     }
 
 
     .name-letter:hover {
 
         transform: none;
-
     }
 
 
@@ -1708,7 +1646,6 @@ footer {
         transform: none;
 
         transition: none;
-
     }
 
 
@@ -1717,7 +1654,6 @@ footer {
     nav a {
 
         transition: none;
-
     }
 
 }
@@ -1795,6 +1731,9 @@ class="hero colour-section">
 <div class="hero-inner">
 
 
+<div class="hero-name">
+
+
 <h1
 id="animated-name"
 aria-label="seb feasey">
@@ -1802,6 +1741,9 @@ aria-label="seb feasey">
 seb feasey
 
 </h1>
+
+
+</div>
 
 
 <div
@@ -1923,9 +1865,6 @@ aria-label="Previous project">
 </button>
 
 
-<div class="projects-carousel-mask">
-
-
 <div
 class="projects-carousel"
 id="projects-carousel">
@@ -1957,9 +1896,7 @@ Editorial
 
 
 <span class="project-type">
-
 DN MADE / PRINT
-
 </span>
 
 
@@ -1994,9 +1931,7 @@ Photography
 
 
 <span class="project-type">
-
 IMAGE / SERIES
-
 </span>
 
 
@@ -2031,9 +1966,7 @@ Posters
 
 
 <span class="project-type">
-
 PRINT / GRAPHIC
-
 </span>
 
 
@@ -2068,9 +2001,7 @@ Typography
 
 
 <span class="project-type">
-
 TYPE / EXPERIMENT
-
 </span>
 
 
@@ -2105,18 +2036,13 @@ Experiments
 
 
 <span class="project-type">
-
 PROCESS / PLAY
-
 </span>
 
 
 </div>
 
 </button>
-
-
-</div>
 
 
 </div>
@@ -2326,15 +2252,6 @@ aria-label="Close project">
 </button>
 
 
-<div
-class="drawer-number"
-id="drawer-number">
-
-PROJECT 01
-
-</div>
-
-
 <h3
 class="drawer-title"
 id="drawer-title">
@@ -2342,15 +2259,6 @@ id="drawer-title">
 Editorial
 
 </h3>
-
-
-<div
-class="drawer-description"
-id="drawer-description">
-
-Project information.
-
-</div>
 
 
 </aside>
@@ -2498,11 +2406,32 @@ document.documentElement.lang =
 language;
 
 
+/*
+If drawer is open, update its title too.
+*/
+
+if (
+drawer.classList.contains("open") &&
+currentOpenProject
+) {
+
+
+drawerTitle.textContent =
+projectInfo[
+currentOpenProject
+].title[
+currentLanguage
+];
+
+
+}
+
+
 }
 
 
 /* =========================================================
-   CURATED COLOUR SET
+   COLOURS
    ========================================================= */
 
 const sectionColours = [
@@ -2580,7 +2509,7 @@ return copy;
 
 
 /* =========================================================
-   RANDOM SECTION COLOURS
+   APPLY SECTION COLOURS
    ========================================================= */
 
 const sections =
@@ -2615,10 +2544,6 @@ colour.text
 );
 
 
-section.dataset.backgroundColour =
-colour.background;
-
-
 section.dataset.textColour =
 colour.text;
 
@@ -2650,7 +2575,7 @@ document.querySelector("#home")
 
 
 /* =========================================================
-   CURRENT SECTION OBSERVER
+   CURRENT SECTION
    ========================================================= */
 
 const sectionObserver =
@@ -2685,7 +2610,7 @@ entry.target
 {
 
 rootMargin:
-"-44% 0px -44% 0px",
+"-45% 0px -45% 0px",
 
 threshold: 0
 
@@ -2755,10 +2680,10 @@ entry.target
 
 {
 
-threshold: 0.16,
+threshold: 0.15,
 
 rootMargin:
-"0px 0px -6% 0px"
+"0px 0px -5% 0px"
 
 }
 
@@ -2778,7 +2703,7 @@ element
 
 
 /* =========================================================
-   TRUE INFINITE PROJECT CAROUSEL
+   PROJECT CAROUSEL
    ========================================================= */
 
 const carousel =
@@ -2800,7 +2725,7 @@ document.getElementById(
 
 
 /*
-Take the original cards before cloning.
+Store one clean copy of each original project.
 */
 
 const originalCards =
@@ -2811,103 +2736,33 @@ carousel.querySelectorAll(
 );
 
 
-const totalOriginal =
-originalCards.length;
-
-
-/*
-Clone all cards once before and once after.
-
-Structure becomes:
-
-01 02 03 04 05
-01 02 03 04 05
-01 02 03 04 05
-
-The visitor begins in the middle set.
-When they reach either cloned set,
-the scroll position silently moves back
-to the identical card in the middle.
-*/
-
-originalCards.forEach(card => {
-
-
-const clone =
-card.cloneNode(true);
-
-
-clone.classList.add(
-"carousel-clone"
+const templates =
+originalCards.map(card =>
+card.cloneNode(true)
 );
-
-
-carousel.appendChild(
-clone
-);
-
-
-});
-
-
-[...originalCards]
-.reverse()
-.forEach(card => {
-
-
-const clone =
-card.cloneNode(true);
-
-
-clone.classList.add(
-"carousel-clone"
-);
-
-
-carousel.insertBefore(
-clone,
-carousel.firstChild
-);
-
-
-});
-
-
-let allCards =
-Array.from(
-carousel.querySelectorAll(
-".project-card"
-)
-);
-
-
-/*
-Middle-set starting index.
-*/
-
-let carouselIndex =
-totalOriginal;
 
 
 /* =========================================================
-   CARD WIDTH
+   CARD STEP
    ========================================================= */
 
 function getCardStep() {
 
 
-const firstCard =
-allCards[0];
+const card =
+carousel.querySelector(
+".project-card"
+);
 
 
-if (!firstCard) {
+if (!card) {
 
 return 390;
 
 }
 
 
-const styles =
+const style =
 window.getComputedStyle(
 carousel
 );
@@ -2915,14 +2770,12 @@ carousel
 
 const gap =
 parseFloat(
-styles.columnGap ||
-styles.gap ||
-20
-);
+style.gap
+) || 20;
 
 
 return (
-firstCard.offsetWidth +
+card.offsetWidth +
 gap
 );
 
@@ -2931,79 +2784,239 @@ gap
 
 
 /* =========================================================
-   INITIAL CAROUSEL POSITION
+   ADD ANOTHER FULL SET TO THE RIGHT
    ========================================================= */
 
-function positionCarouselInitially() {
+function appendProjectSet() {
 
 
-const step =
-getCardStep();
+templates.forEach(template => {
 
 
-carousel.scrollLeft =
-step *
-totalOriginal;
-
-
-carouselIndex =
-totalOriginal;
-
-
-}
-
-
-window.addEventListener(
-"load",
-positionCarouselInitially
+carousel.appendChild(
+template.cloneNode(true)
 );
-
-
-window.addEventListener(
-"resize",
-() => {
-
-
-const step =
-getCardStep();
-
-
-carousel.scrollLeft =
-step *
-carouselIndex;
 
 
 });
 
 
+}
+
+
 /* =========================================================
-   SCROLL TO INDEX
+   ADD ANOTHER FULL SET TO THE LEFT
    ========================================================= */
 
-function moveToIndex(
-index,
-smooth = true
+function prependProjectSet() {
+
+
+const previousWidth =
+carousel.scrollWidth;
+
+
+[...templates]
+.reverse()
+.forEach(template => {
+
+
+carousel.insertBefore(
+template.cloneNode(true),
+carousel.firstChild
+);
+
+
+});
+
+
+/*
+Preserve exactly what the visitor was looking at.
+There is no visible jump.
+*/
+
+const addedWidth =
+carousel.scrollWidth -
+previousWidth;
+
+
+carousel.scrollLeft +=
+addedWidth;
+
+
+}
+
+
+/* =========================================================
+   CREATE A LONG CONTINUOUS STRIP INITIALLY
+   ========================================================= */
+
+/*
+Start with several copies so it already looks like:
+
+123451234512345...
+
+rather than one isolated set.
+*/
+
+appendProjectSet();
+appendProjectSet();
+appendProjectSet();
+
+
+/*
+Also add sets before 01 so going left works too.
+*/
+
+prependProjectSet();
+prependProjectSet();
+
+
+/* =========================================================
+   FIND NEAREST CARD
+   ========================================================= */
+
+function nearestCard() {
+
+
+const cards =
+Array.from(
+carousel.querySelectorAll(
+".project-card"
+)
+);
+
+
+const carouselBox =
+carousel.getBoundingClientRect();
+
+
+const target =
+carouselBox.left +
+40;
+
+
+let closest =
+cards[0];
+
+
+let closestDistance =
+Infinity;
+
+
+cards.forEach(card => {
+
+
+const box =
+card.getBoundingClientRect();
+
+
+const distance =
+Math.abs(
+box.left -
+target
+);
+
+
+if (
+distance <
+closestDistance
 ) {
 
 
-carouselIndex =
-index;
+closestDistance =
+distance;
 
 
-const step =
-getCardStep();
+closest =
+card;
+
+
+}
+
+
+});
+
+
+return closest;
+
+
+}
+
+
+/* =========================================================
+   MOVE BY ONE CARD
+   ========================================================= */
+
+function moveCarousel(direction) {
+
+
+const card =
+nearestCard();
+
+
+if (!card) return;
+
+
+const cards =
+Array.from(
+carousel.querySelectorAll(
+".project-card"
+)
+);
+
+
+let index =
+cards.indexOf(card);
+
+
+index += direction;
+
+
+if (
+index < 0
+) {
+
+
+prependProjectSet();
+
+
+return moveCarousel(
+direction
+);
+
+
+}
+
+
+if (
+index >=
+cards.length
+) {
+
+
+appendProjectSet();
+
+
+return moveCarousel(
+direction
+);
+
+
+}
+
+
+const nextCard =
+cards[index];
 
 
 carousel.scrollTo({
 
 left:
-step *
-carouselIndex,
+nextCard.offsetLeft -
+12,
 
 behavior:
-smooth
-? "smooth"
-: "auto"
+"smooth"
 
 });
 
@@ -3012,7 +3025,7 @@ smooth
 
 
 /* =========================================================
-   ARROW MOVEMENT
+   ARROWS
    ========================================================= */
 
 rightArrow.addEventListener(
@@ -3020,9 +3033,26 @@ rightArrow.addEventListener(
 () => {
 
 
-moveToIndex(
-carouselIndex + 1
-);
+/*
+Always add more content ahead well before
+the visitor reaches the end.
+*/
+
+if (
+carousel.scrollWidth -
+carousel.scrollLeft -
+carousel.clientWidth <
+carousel.clientWidth * 3
+) {
+
+
+appendProjectSet();
+
+
+}
+
+
+moveCarousel(1);
 
 
 });
@@ -3033,19 +3063,29 @@ leftArrow.addEventListener(
 () => {
 
 
-moveToIndex(
-carouselIndex - 1
-);
+if (
+carousel.scrollLeft <
+carousel.clientWidth * 2
+) {
+
+
+prependProjectSet();
+
+
+}
+
+
+moveCarousel(-1);
 
 
 });
 
 
 /* =========================================================
-   LOOP CORRECTION
+   MANUAL CAROUSEL SCROLLING
    ========================================================= */
 
-let carouselTimer;
+let carouselScrollTimer;
 
 
 carousel.addEventListener(
@@ -3054,78 +3094,52 @@ carousel.addEventListener(
 
 
 clearTimeout(
-carouselTimer
+carouselScrollTimer
 );
 
 
-carouselTimer =
+carouselScrollTimer =
 setTimeout(
 () => {
 
 
-const step =
-getCardStep();
-
-
-const approximateIndex =
-Math.round(
-carousel.scrollLeft /
-step
-);
-
-
-carouselIndex =
-approximateIndex;
-
-
 /*
-If we're in the right cloned group,
-jump invisibly to matching middle card.
+If someone drags / trackpads toward the end,
+keep extending the strip.
 */
 
 if (
-carouselIndex >=
-totalOriginal * 2
+carousel.scrollWidth -
+carousel.scrollLeft -
+carousel.clientWidth <
+carousel.clientWidth * 2
 ) {
 
 
-carouselIndex -=
-totalOriginal;
-
-
-carousel.scrollLeft =
-step *
-carouselIndex;
+appendProjectSet();
 
 
 }
 
 
 /*
-If we're in the left cloned group,
-jump invisibly to matching middle card.
+Same thing toward the beginning.
 */
 
 if (
-carouselIndex <
-totalOriginal
+carousel.scrollLeft <
+carousel.clientWidth
 ) {
 
 
-carouselIndex +=
-totalOriginal;
-
-
-carousel.scrollLeft =
-step *
-carouselIndex;
+prependProjectSet();
 
 
 }
 
 
 },
-120
+80
 );
 
 
@@ -3133,15 +3147,13 @@ carouselIndex;
 
 
 /* =========================================================
-   PROJECT INFORMATION
+   PROJECT TITLES
    ========================================================= */
 
 const projectInfo = {
 
 
 editorial: {
-
-number: "01",
 
 title: {
 
@@ -3151,27 +3163,12 @@ fr: "Éditorial",
 
 sv: "Redaktionellt"
 
-},
-
-description: {
-
-en:
-"Editorial projects exploring publication design, layout, typography and visual storytelling. This area can eventually contain images, process work and the full project story.",
-
-fr:
-"Des projets éditoriaux explorant la mise en page, la typographie, la publication et la narration visuelle. Cet espace pourra ensuite accueillir des images, le processus et l’histoire complète du projet.",
-
-sv:
-"Redaktionella projekt som utforskar publikation, layout, typografi och visuellt berättande."
-
 }
 
 },
 
 
 photography: {
-
-number: "02",
 
 title: {
 
@@ -3181,27 +3178,12 @@ fr: "Photographie",
 
 sv: "Fotografi"
 
-},
-
-description: {
-
-en:
-"Photographic series and visual observations exploring places, people, objects and atmosphere.",
-
-fr:
-"Séries photographiques et observations visuelles autour des lieux, des personnes, des objets et des atmosphères.",
-
-sv:
-"Fotografiska serier och visuella observationer kring platser, människor, föremål och atmosfär."
-
 }
 
 },
 
 
 posters: {
-
-number: "03",
 
 title: {
 
@@ -3211,27 +3193,12 @@ fr: "Affiches",
 
 sv: "Affischer"
 
-},
-
-description: {
-
-en:
-"Poster design exploring typography, composition, image and colour through cultural and experimental briefs.",
-
-fr:
-"Des affiches explorant la typographie, la composition, l’image et la couleur à travers des sujets culturels et expérimentaux.",
-
-sv:
-"Affischdesign som utforskar typografi, komposition, bild och färg."
-
 }
 
 },
 
 
 typography: {
-
-number: "04",
 
 title: {
 
@@ -3241,27 +3208,12 @@ fr: "Typographie",
 
 sv: "Typografi"
 
-},
-
-description: {
-
-en:
-"Type experiments and letterform projects exploring rhythm, personality and how typography can communicate beyond words.",
-
-fr:
-"Expérimentations typographiques et projets de lettres explorant le rythme, la personnalité et la manière dont la typographie communique au-delà des mots.",
-
-sv:
-"Typografiska experiment och bokstavsprojekt kring rytm, personlighet och kommunikation."
-
 }
 
 },
 
 
 experiments: {
-
-number: "05",
 
 title: {
 
@@ -3270,19 +3222,6 @@ en: "Experiments",
 fr: "Expérimentations",
 
 sv: "Experiment"
-
-},
-
-description: {
-
-en:
-"Personal experiments, unfinished ideas, visual tests and the things that don't quite fit into a single category.",
-
-fr:
-"Expérimentations personnelles, idées en cours, tests visuels et projets qui ne rentrent pas vraiment dans une seule catégorie.",
-
-sv:
-"Personliga experiment, visuella tester och projekt som inte riktigt passar i en enda kategori."
 
 }
 
@@ -3293,7 +3232,7 @@ sv:
 
 
 /* =========================================================
-   PROJECT DRAWER
+   DRAWER
    ========================================================= */
 
 const drawer =
@@ -3308,28 +3247,19 @@ document.getElementById(
 );
 
 
-const drawerNumber =
-document.getElementById(
-"drawer-number"
-);
-
-
 const drawerTitle =
 document.getElementById(
 "drawer-title"
 );
 
 
-const drawerDescription =
-document.getElementById(
-"drawer-description"
-);
+let currentOpenProject =
+null;
 
 
 /*
-Because the carousel has cloned cards,
-use event delegation instead of adding
-listeners only to the originals.
+Event delegation means all future cloned
+carousel cards work automatically too.
 */
 
 carousel.addEventListener(
@@ -3343,11 +3273,7 @@ event.target.closest(
 );
 
 
-if (!card) {
-
-return;
-
-}
+if (!card) return;
 
 
 const key =
@@ -3358,26 +3284,15 @@ const project =
 projectInfo[key];
 
 
-if (!project) {
-
-return;
-
-}
+if (!project) return;
 
 
-drawerNumber.textContent =
-"PROJECT " +
-project.number;
+currentOpenProject =
+key;
 
 
 drawerTitle.textContent =
 project.title[
-currentLanguage
-];
-
-
-drawerDescription.textContent =
-project.description[
 currentLanguage
 ];
 
@@ -3408,6 +3323,10 @@ drawer.setAttribute(
 "aria-hidden",
 "true"
 );
+
+
+currentOpenProject =
+null;
 
 
 }
