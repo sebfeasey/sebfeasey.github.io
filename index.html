@@ -28,6 +28,7 @@ body {
     background: #78020c;
     color: #AFCDED;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
 /* TEXT SELECTION */
@@ -103,10 +104,52 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .container {
     text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================
+   STAR
+   ========================= */
+
+.hero-star {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 66vw;
+    max-width: 1000px;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation: starReveal 1.8s ease-out forwards;
+}
+
+@keyframes starReveal {
+
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.96);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
 }
 
 /* Opening animation */
@@ -146,6 +189,8 @@ h1 {
     font-weight: 400;
     margin: 0;
     text-transform: lowercase;
+    position: relative;
+    z-index: 2;
 }
 
 .subtitle {
@@ -154,6 +199,8 @@ h1 {
     text-transform: uppercase;
     font-size: 0.9rem;
     margin-bottom: 5rem;
+    position: relative;
+    z-index: 2;
 }
 
 /* =========================
@@ -164,6 +211,8 @@ nav {
     display: flex;
     justify-content: center;
     gap: 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 nav a {
@@ -298,6 +347,11 @@ footer {
         transform: translateY(20px);
     }
 
+    .hero-star {
+        width: 120vw;
+        max-width: none;
+    }
+
 }
 
 /* =========================
@@ -315,6 +369,12 @@ footer {
         opacity: 1;
         filter: none;
         transform: none;
+    }
+
+    .hero-star {
+        animation: none;
+        opacity: 1;
+        transform: translate(-50%, -50%);
     }
 
     .js .reveal {
@@ -365,6 +425,14 @@ footer {
 <!-- HOMEPAGE -->
 
 <div class="hero">
+
+    <!-- STAR -->
+
+    <img src="star.svg"
+         alt=""
+         class="hero-star"
+         aria-hidden="true">
+
 
     <div class="container">
 
