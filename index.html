@@ -8,68 +8,89 @@
 
 <title>Seb Feasey</title>
 
-<!-- GOATCOUNTER ANALYTICS -->
+<!-- GOATCOUNTER -->
 <script data-goatcounter="https://sebfeasey.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
 <script>
-    document.documentElement.classList.add("js");
+document.documentElement.classList.add("js");
 </script>
 
 <style>
 
-/* ==================================================
+/* =========================================================
+   COLOUR VARIABLES
+   ========================================================= */
+
+:root {
+
+    --cream: #F9F3DB;
+    --navy: #181A4D;
+
+    --ui-colour: #F9F3DB;
+
+}
+
+
+/* =========================================================
    BASE
-   ================================================== */
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
 
 html {
     scroll-behavior: smooth;
 }
 
 body {
+
     margin: 0;
 
-    background: #FF340C;
-    color: #F9F3DB;
+    background: #181A4D;
+
+    color: var(--cream);
 
     font-family: Arial, Helvetica, sans-serif;
 
     overflow-x: hidden;
-
-    transition:
-        background-color 1.1s cubic-bezier(0.16, 1, 0.3, 1),
-        color 0.7s ease;
 }
 
 
-/* ==================================================
+/* =========================================================
    TEXT SELECTION
-   ================================================== */
+   ========================================================= */
 
 ::selection {
-    background: #181A4D;
+
+    background: #441B07;
+
     color: #F9F3DB;
 }
 
 ::-moz-selection {
-    background: #181A4D;
+
+    background: #441B07;
+
     color: #F9F3DB;
 }
 
 
-/* ==================================================
-   FIXED INTERFACE
-   ================================================== */
+/* =========================================================
+   FIXED UI
+   ========================================================= */
 
 .home-button {
+
     position: fixed;
 
     top: 2rem;
     left: 2rem;
 
-    z-index: 100;
+    z-index: 1000;
 
-    color: currentColor;
+    color: var(--ui-colour);
 
     text-decoration: none;
 
@@ -82,28 +103,36 @@ body {
     opacity: 0.8;
 
     transition:
+        color 0.5s ease,
         opacity 0.3s ease,
-        transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
-        color 0.5s ease;
+        transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
 }
+
 
 .home-button:hover {
+
     opacity: 1;
-    transform: rotate(-7deg) scale(1.08);
+
+    transform:
+        rotate(-6deg)
+        scale(1.08);
 }
 
 
-/* ==================================================
+/* =========================================================
    LANGUAGE SWITCH
-   ================================================== */
+   ========================================================= */
 
 .language-switch {
+
     position: fixed;
 
     top: 2rem;
     right: 2rem;
 
-    z-index: 100;
+    z-index: 1000;
+
+    color: var(--ui-colour);
 
     font-size: 0.85rem;
 
@@ -111,21 +140,21 @@ body {
 
     text-transform: uppercase;
 
-    color: currentColor;
-
     transition: color 0.5s ease;
 }
 
+
 .language-switch button {
 
-    background: none;
     border: none;
 
-    color: currentColor;
+    background: none;
+
+    color: inherit;
 
     cursor: pointer;
 
-    opacity: 0.5;
+    opacity: 0.45;
 
     font-size: 0.85rem;
 
@@ -133,96 +162,175 @@ body {
 
     transition:
         opacity 0.3s ease,
-        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
 }
 
+
 .language-switch button:hover {
+
     opacity: 1;
+
     transform: translateY(-2px);
 }
 
+
 .language-switch button.active {
+
     opacity: 1;
+
     text-decoration: underline;
 }
 
 
-/* ==================================================
-   HOMEPAGE
-   ================================================== */
+/* =========================================================
+   FULL COLOUR BLOCKS
+   ========================================================= */
+
+.colour-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    width: 100%;
+
+    color: var(--section-text);
+
+    background: var(--section-bg);
+
+    transition:
+        background-color 0.8s ease,
+        color 0.5s ease;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   GLASS / BLUR SEAM
+   BETWEEN SECTIONS
+   ========================================================= */
+
+.colour-section:not(:first-of-type)::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 70px;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            rgba(249,243,219,0.13),
+            rgba(249,243,219,0.04),
+            transparent
+        );
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-top:
+
+        1px solid rgba(249,243,219,0.24);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero {
+
     height: 100vh;
 
     display: flex;
 
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
-    position: relative;
-
-    box-sizing: border-box;
+    padding: 3rem;
 }
 
-.container {
+
+.hero-inner {
+
+    width: 100%;
+
     text-align: center;
 
     position: relative;
 
-    z-index: 2;
+    z-index: 3;
 }
 
 
-/* ==================================================
-   HOMEPAGE OPENING ANIMATION
-   ================================================== */
+/* HERO ANIMATION */
 
-.hero .container {
+.hero-inner {
 
     opacity: 0;
 
-    filter: blur(12px);
+    filter: blur(13px);
 
     transform:
-        translateY(38px)
-        scale(0.96);
+        translateY(45px)
+        scale(0.95);
 
     animation:
-        heroBump 1.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
-    animation-delay: 0.1s;
+        heroEntrance
+        1.5s
+        cubic-bezier(0.16,1,0.3,1)
+        forwards;
 }
 
 
-@keyframes heroBump {
+@keyframes heroEntrance {
 
     0% {
+
         opacity: 0;
 
-        filter: blur(12px);
+        filter: blur(13px);
 
         transform:
-            translateY(38px)
-            scale(0.96);
+            translateY(45px)
+            scale(0.95);
     }
 
+
     65% {
+
         opacity: 1;
 
         filter: blur(1px);
 
         transform:
-            translateY(-6px)
+            translateY(-7px)
             scale(1.012);
     }
 
+
     82% {
+
         transform:
             translateY(3px)
-            scale(0.997);
+            scale(0.998);
     }
 
+
     100% {
+
         opacity: 1;
 
         filter: blur(0);
@@ -235,45 +343,45 @@ body {
 }
 
 
-/* ==================================================
-   MAIN TITLE
-   ================================================== */
+/* =========================================================
+   HOMEPAGE TYPOGRAPHY
+   ========================================================= */
 
 h1 {
 
-    font-family: Georgia, "Times New Roman", serif;
+    margin: 0;
 
-    font-size: clamp(4rem, 12vw, 8rem);
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(4rem, 12vw, 8rem);
 
     font-weight: 400;
-
-    margin: 0;
 
     text-transform: lowercase;
 }
 
 
-/* ==================================================
-   SUBTITLE
-   ================================================== */
-
 .subtitle {
 
     margin-top: 1rem;
 
-    letter-spacing: 0.3em;
+    margin-bottom: 5rem;
 
     text-transform: uppercase;
 
-    font-size: 0.9rem;
+    letter-spacing: 0.3em;
 
-    margin-bottom: 5rem;
+    font-size: 0.9rem;
 }
 
 
-/* ==================================================
-   HOMEPAGE NAVIGATION
-   ================================================== */
+/* =========================================================
+   HOMEPAGE NAV
+   ========================================================= */
 
 nav {
 
@@ -284,9 +392,12 @@ nav {
     gap: 2rem;
 }
 
+
 nav a {
 
-    color: currentColor;
+    display: inline-block;
+
+    color: inherit;
 
     text-decoration: none;
 
@@ -294,16 +405,19 @@ nav a {
 
     letter-spacing: 0.15em;
 
-    display: inline-block;
-
     transition:
+
         opacity 0.3s ease,
-        transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        transform
+        0.45s
+        cubic-bezier(0.34,1.56,0.64,1);
 }
+
 
 nav a:hover {
 
-    opacity: 0.7;
+    opacity: 0.65;
 
     transform:
         translateY(-5px)
@@ -311,41 +425,48 @@ nav a:hover {
 }
 
 
-/* ==================================================
-   SECTIONS
-   ================================================== */
+/* =========================================================
+   STANDARD SECTION
+   ========================================================= */
 
-section {
+.standard-section {
 
     min-height: 100vh;
 
-    padding: 8rem 12%;
-
-    box-sizing: border-box;
-
     display: flex;
 
-    flex-direction: column;
+    align-items: center;
 
-    justify-content: center;
+    padding:
 
-    color: inherit;
+        9rem
+        10%;
+}
+
+
+.standard-inner {
+
+    width: 100%;
 
     position: relative;
+
+    z-index: 3;
 }
 
 
 h2 {
 
-    font-family: Georgia, "Times New Roman", serif;
+    margin: 0 0 2rem 0;
 
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(3rem, 7vw, 5.5rem);
 
     font-weight: 400;
-
-    margin-top: 0;
-
-    margin-bottom: 2rem;
 }
 
 
@@ -359,33 +480,308 @@ h2 {
 }
 
 
-/* ==================================================
+/* =========================================================
+   PROJECTS
+   ========================================================= */
+
+.projects-section {
+
+    min-height: 100vh;
+
+    padding:
+
+        9rem
+        7%;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.projects-layout {
+
+    width: 100%;
+
+    position: relative;
+
+    z-index: 3;
+
+    display: grid;
+
+    grid-template-columns:
+
+        minmax(260px, 0.72fr)
+
+        minmax(500px, 1.65fr);
+
+    gap: 7vw;
+
+    align-items: center;
+}
+
+
+/* BIG LEFT PROJECTS TITLE */
+
+.projects-intro {
+
+    align-self: start;
+
+    padding-top: 1rem;
+}
+
+
+.projects-intro h2 {
+
+    font-size:
+        clamp(4.5rem, 9vw, 8rem);
+
+    line-height: 0.86;
+
+    margin-bottom: 2rem;
+}
+
+
+.projects-intro p {
+
+    max-width: 360px;
+
+    line-height: 1.6;
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   PROJECT GRID
+   ========================================================= */
+
+.project-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap: 1.2rem;
+}
+
+
+/* =========================================================
+   PROJECT CARD
+   ========================================================= */
+
+.project-card {
+
+    position: relative;
+
+    aspect-ratio: 4 / 3;
+
+    overflow: hidden;
+
+    border: 0;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    background: var(--project-colour);
+
+    color: var(--project-text);
+
+    font-family: inherit;
+
+    transition:
+
+        transform
+        0.55s
+        cubic-bezier(0.34,1.56,0.64,1),
+
+        border-radius
+        0.5s
+        cubic-bezier(0.34,1.56,0.64,1),
+
+        filter
+        0.4s ease;
+}
+
+
+.project-card:hover {
+
+    transform:
+        translateY(-8px)
+        rotate(-0.7deg)
+        scale(1.015);
+
+    border-radius: 22px;
+}
+
+
+.project-card:nth-child(even):hover {
+
+    transform:
+        translateY(-8px)
+        rotate(0.7deg)
+        scale(1.015);
+}
+
+
+/* DECORATIVE CIRCLES */
+
+.project-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 65%;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    right: -22%;
+    top: -28%;
+
+    background:
+
+        rgba(249,243,219,0.16);
+
+    transition:
+
+        transform
+        0.7s
+        cubic-bezier(0.16,1,0.3,1);
+}
+
+
+.project-card:hover::before {
+
+    transform:
+        scale(1.45)
+        translate(-10%,12%);
+}
+
+
+/* SECOND ABSTRACT SHAPE */
+
+.project-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 45%;
+    height: 130%;
+
+    left: -10%;
+    bottom: -70%;
+
+    background:
+        rgba(24,26,77,0.13);
+
+    transform: rotate(35deg);
+
+    transition:
+
+        transform
+        0.7s
+        cubic-bezier(0.16,1,0.3,1);
+}
+
+
+.project-card:hover::after {
+
+    transform:
+        rotate(48deg)
+        translateY(-12%);
+}
+
+
+/* CARD TEXT */
+
+.project-card-inner {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    padding: 1.4rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+
+.project-number {
+
+    font-size: 0.75rem;
+
+    letter-spacing: 0.15em;
+
+    opacity: 0.75;
+}
+
+
+.project-title {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(2rem,4vw,3.4rem);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+}
+
+
+.project-type {
+
+    font-size: 0.75rem;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
    SCROLL REVEAL
-   ================================================== */
+   ========================================================= */
 
 .js .reveal {
 
     opacity: 0;
 
-    filter: blur(9px);
+    filter: blur(12px);
 
     transform:
+
         translateY(55px)
-        rotate(0.7deg)
+
         scale(0.97);
 
     transition:
 
-        opacity 0.9s ease,
+        opacity
+        0.9s ease,
 
-        filter 1s ease,
+        filter
+        1s ease,
 
-        transform 1.15s cubic-bezier(
-            0.16,
-            1.15,
-            0.3,
-            1
-        );
+        transform
+        1.15s
+        cubic-bezier(0.16,1.15,0.3,1);
 }
 
 
@@ -396,54 +792,50 @@ h2 {
     filter: blur(0);
 
     transform:
+
         translateY(0)
-        rotate(0deg)
+
         scale(1);
 }
 
 
-/* Paragraph comes in just after heading */
+/* PROJECT GRID STAGGER */
 
-.js .reveal-delay {
+.project-card.reveal:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.project-card.reveal:nth-child(2) {
     transition-delay: 0.12s;
 }
 
+.project-card.reveal:nth-child(3) {
+    transition-delay: 0.19s;
+}
 
-/* Slight alternate movement */
-
-.js .reveal-left {
-
-    transform:
-        translateX(-35px)
-        translateY(25px)
-        rotate(-1deg)
-        scale(0.97);
+.project-card.reveal:nth-child(4) {
+    transition-delay: 0.26s;
 }
 
 
-.js .reveal-left.visible {
-
-    transform:
-        translateX(0)
-        translateY(0)
-        rotate(0deg)
-        scale(1);
-}
-
-
-/* ==================================================
-   LINKS
-   ================================================== */
+/* =========================================================
+   CONTACT
+   ========================================================= */
 
 .contact a {
 
-    color: currentColor;
+    color: inherit;
 
     display: inline-block;
 
     transition:
-        opacity 0.3s ease,
-        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        opacity
+        0.3s ease,
+
+        transform
+        0.45s
+        cubic-bezier(0.34,1.56,0.64,1);
 }
 
 
@@ -451,13 +843,202 @@ h2 {
 
     opacity: 0.65;
 
-    transform: translateX(5px);
+    transform:
+        translateX(7px);
 }
 
 
-/* ==================================================
+/* =========================================================
+   PROJECT MODAL
+   ========================================================= */
+
+.project-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    background:
+        rgba(15,15,25,0.25);
+
+    backdrop-filter:
+        blur(25px);
+
+    -webkit-backdrop-filter:
+        blur(25px);
+
+    transition:
+
+        opacity
+        0.4s ease,
+
+        visibility
+        0.4s ease;
+}
+
+
+.project-modal.open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+.modal-card {
+
+    width: min(700px,100%);
+
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    position: relative;
+
+    padding:
+
+        clamp(2rem,6vw,5rem);
+
+    background:
+        #F9F3DB;
+
+    color:
+        #181A4D;
+
+    border-radius:
+        24px;
+
+    transform:
+
+        translateY(35px)
+
+        scale(0.94);
+
+    filter: blur(10px);
+
+    transition:
+
+        transform
+        0.65s
+        cubic-bezier(0.34,1.56,0.64,1),
+
+        filter
+        0.55s ease;
+}
+
+
+.project-modal.open .modal-card {
+
+    transform:
+
+        translateY(0)
+
+        scale(1);
+
+    filter: blur(0);
+}
+
+
+.modal-close {
+
+    position: absolute;
+
+    top: 1.4rem;
+
+    right: 1.4rem;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    color: #181A4D;
+
+    font-size: 1.6rem;
+
+    transition:
+        transform
+        0.35s
+        cubic-bezier(0.34,1.56,0.64,1);
+}
+
+
+.modal-close:hover {
+
+    transform:
+        rotate(90deg)
+        scale(1.15);
+}
+
+
+.modal-number {
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.15em;
+
+    font-size: 0.75rem;
+
+    margin-bottom: 1.5rem;
+
+    opacity: 0.6;
+}
+
+
+.modal-title {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(3rem,8vw,5.5rem);
+
+    line-height: 0.95;
+
+    margin:
+
+        0
+        0
+        2rem
+        0;
+
+    font-weight: 400;
+}
+
+
+.modal-description {
+
+    max-width: 550px;
+
+    line-height: 1.7;
+
+    font-size: 1.05rem;
+}
+
+
+/* =========================================================
    FOOTER
-   ================================================== */
+   ========================================================= */
 
 footer {
 
@@ -465,21 +1046,49 @@ footer {
 
     padding: 2rem;
 
-    opacity: 0.55;
+    background: #181A4D;
+
+    color: #F9F3DB;
 
     font-size: 0.9rem;
 
-    color: inherit;
+    opacity: 1;
 }
 
 
-/* ==================================================
+/* =========================================================
    MOBILE
-   ================================================== */
+   ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
+
+
+    .home-button {
+
+        top: 1rem;
+        left: 1rem;
+    }
+
+
+    .language-switch {
+
+        top: 1rem;
+        right: 1rem;
+
+        font-size: 0.72rem;
+    }
+
+
+    .language-switch button {
+
+        font-size: 0.72rem;
+
+        padding: 0.1rem;
+    }
+
 
     h1 {
+
         font-size: 2.7rem;
     }
 
@@ -488,11 +1097,11 @@ footer {
 
         font-size: 0.7rem;
 
-        letter-spacing: 0.2em;
+        letter-spacing: 0.18em;
 
         margin-bottom: 3rem;
 
-        padding: 0 1.5rem;
+        padding: 0 1rem;
     }
 
 
@@ -505,103 +1114,102 @@ footer {
 
 
     nav a {
+
         font-size: 0.8rem;
     }
 
 
-    .home-button {
+    .standard-section {
 
-        top: 1rem;
+        padding:
 
-        left: 1rem;
+            7rem
+            8%;
     }
 
 
-    .language-switch {
+    .projects-section {
 
-        top: 1rem;
+        padding:
 
-        right: 1rem;
-
-        font-size: 0.75rem;
+            7rem
+            6%;
     }
 
 
-    .language-switch button {
+    .projects-layout {
 
-        font-size: 0.75rem;
+        grid-template-columns: 1fr;
 
-        padding: 0.15rem;
+        gap: 3rem;
     }
 
 
-    section {
+    .projects-intro h2 {
 
-        padding: 6rem 8%;
+        font-size:
+            clamp(4rem,20vw,6rem);
+
+        margin-bottom: 1.5rem;
     }
 
 
-    .js .reveal {
+    .project-grid {
 
-        transform:
-            translateY(35px)
-            scale(0.98);
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
     }
 
 
-    .js .reveal.visible {
+    .project-card {
 
-        transform:
-            translateY(0)
-            scale(1);
+        aspect-ratio: 4 / 3;
     }
 
 
-    .js .reveal-left {
+    .project-title {
 
-        transform:
-            translateX(-20px)
-            translateY(20px)
-            scale(0.98);
+        font-size: 2.6rem;
     }
 
 
-    .js .reveal-left.visible {
+    .colour-section:not(:first-of-type)::before {
 
-        transform:
-            translateX(0)
-            translateY(0)
-            scale(1);
+        height: 50px;
+
+        backdrop-filter:
+            blur(10px);
+
+        -webkit-backdrop-filter:
+            blur(10px);
     }
 
 }
 
 
-/* ==================================================
-   REDUCED MOTION
-   ================================================== */
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
+
     html {
+
         scroll-behavior: auto;
     }
 
 
-    body {
-        transition: none;
-    }
-
-
-    .hero .container {
-
-        animation: none;
+    .hero-inner {
 
         opacity: 1;
 
         filter: none;
 
         transform: none;
+
+        animation: none;
     }
 
 
@@ -612,6 +1220,20 @@ footer {
         filter: none;
 
         transform: none;
+
+        transition: none;
+    }
+
+
+    .project-card,
+    nav a,
+    .home-button {
+
+        transition: none;
+    }
+
+
+    .modal-card {
 
         transition: none;
     }
@@ -626,677 +1248,1250 @@ footer {
 <body>
 
 
-<!-- ==================================================
-     SF HOME BUTTON
-     ================================================== -->
+<!-- =========================================================
+     FIXED HOME BUTTON
+     ========================================================= -->
 
-<a href="#" class="home-button">
+<a href="#home"
+   class="home-button">
     SF.
 </a>
 
 
-<!-- ==================================================
+<!-- =========================================================
      LANGUAGE SWITCH
-     ================================================== -->
+     ========================================================= -->
 
 <div class="language-switch">
 
-    <button
-        onclick="setLanguage('en')"
-        id="btn-en"
-        class="active">
-        EN
-    </button>
+<button
+    onclick="setLanguage('en')"
+    id="btn-en"
+    class="active">
 
-    /
+    EN
 
-    <button
-        onclick="setLanguage('fr')"
-        id="btn-fr">
-        FR
-    </button>
+</button>
 
-    /
+/
 
-    <button
-        onclick="setLanguage('sv')"
-        id="btn-sv">
-        SV
-    </button>
+<button
+    onclick="setLanguage('fr')"
+    id="btn-fr">
+
+    FR
+
+</button>
+
+/
+
+<button
+    onclick="setLanguage('sv')"
+    id="btn-sv">
+
+    SV
+
+</button>
 
 </div>
 
 
-<!-- ==================================================
-     HOMEPAGE
-     ================================================== -->
+<!-- =========================================================
+     HOME
+     ========================================================= -->
+
+<section
+    id="home"
+    class="hero colour-section">
+
+
+<div class="hero-inner">
+
+
+<h1>
+seb feasey
+</h1>
+
 
 <div
-    class="hero colour-section"
-    id="home">
+    class="subtitle"
 
-    <div class="container">
+    data-en="graphic design & editorial design student"
 
-        <h1>
-            seb feasey
-        </h1>
+    data-fr="étudiant en graphisme & design éditorial"
 
+    data-sv="student inom grafisk design & redaktionell design">
 
-        <div
-            class="subtitle"
-
-            data-en="graphic design & editorial design student"
-
-            data-fr="étudiant en graphisme & design éditorial"
-
-            data-sv="student inom grafisk design & redaktionell design">
-
-            graphic design & editorial design student
-
-        </div>
-
-
-        <nav>
-
-            <a
-                href="#projects"
-
-                data-en="projects"
-                data-fr="projets"
-                data-sv="projekt">
-
-                projects
-
-            </a>
-
-
-            <a
-                href="#about"
-
-                data-en="about"
-                data-fr="à propos"
-                data-sv="om mig">
-
-                about
-
-            </a>
-
-
-            <a
-                href="#contact"
-
-                data-en="contact"
-                data-fr="contact"
-                data-sv="kontakt">
-
-                contact
-
-            </a>
-
-        </nav>
-
-    </div>
+graphic design & editorial design student
 
 </div>
 
 
-<!-- ==================================================
+<nav>
+
+
+<a
+href="#projects"
+
+data-en="projects"
+data-fr="projets"
+data-sv="projekt">
+
+projects
+
+</a>
+
+
+<a
+href="#about"
+
+data-en="about"
+data-fr="à propos"
+data-sv="om mig">
+
+about
+
+</a>
+
+
+<a
+href="#contact"
+
+data-en="contact"
+data-fr="contact"
+data-sv="kontakt">
+
+contact
+
+</a>
+
+
+</nav>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
      PROJECTS
-     ================================================== -->
+     ========================================================= -->
 
 <section
     id="projects"
-    class="colour-section">
+    class="projects-section colour-section">
 
 
-    <h2
-        class="reveal reveal-left"
-
-        data-en="Projects"
-        data-fr="Projets"
-        data-sv="Projekt">
-
-        Projects
-
-    </h2>
+<div class="projects-layout">
 
 
-    <div class="content reveal reveal-delay">
+<!-- LEFT SIDE -->
 
-        <p
-            data-en="Projects are on their way."
-
-            data-fr="Les projets arrivent bientôt."
-
-            data-sv="Projekt är på väg.">
-
-            Projects are on their way.
-
-        </p>
+<div class="projects-intro reveal">
 
 
-        <p
-            data-en="I'm currently putting together a selection of work from my studies, personal projects and collaborations. Check back soon to see what I've been working on."
+<h2
 
-            data-fr="Je rassemble actuellement une sélection de travaux issus de mes études, de projets personnels et de collaborations. Revenez bientôt pour découvrir ce sur quoi j’ai travaillé."
+data-en="Selected work."
 
-            data-sv="Jag håller just nu på att sätta ihop ett urval av arbeten från mina studier, personliga projekt och samarbeten. Kom gärna tillbaka snart för att se vad jag har jobbat med.">
+data-fr="Projets sélectionnés."
 
-            I'm currently putting together a selection of work from my studies, personal projects and collaborations. Check back soon to see what I've been working on.
+data-sv="Utvalda projekt.">
 
-        </p>
+Selected<br>
+work.
 
-    </div>
+</h2>
+
+
+<p
+
+data-en="A selection of editorial, graphic, photographic and typographic projects. Click on a project to discover more."
+
+data-fr="Une sélection de projets éditoriaux, graphiques, photographiques et typographiques. Cliquez sur un projet pour en découvrir davantage."
+
+data-sv="Ett urval av redaktionella, grafiska, fotografiska och typografiska projekt. Klicka på ett projekt för att se mer.">
+
+A selection of editorial, graphic, photographic and typographic projects. Click on a project to discover more.
+
+</p>
+
+
+</div>
+
+
+<!-- PROJECT GRID -->
+
+<div class="project-grid">
+
+
+<button
+class="project-card reveal"
+
+data-project="editorial"
+
+style="
+--project-colour:#FF340C;
+--project-text:#F9F3DB;
+">
+
+
+<div class="project-card-inner">
+
+
+<span class="project-number">
+01
+</span>
+
+
+<span
+class="project-title"
+
+data-en="Editorial"
+data-fr="Éditorial"
+data-sv="Redaktionellt">
+
+Editorial
+
+</span>
+
+
+<span class="project-type">
+
+DN MADE / PRINT
+
+</span>
+
+
+</div>
+
+</button>
+
+
+<button
+class="project-card reveal"
+
+data-project="photography"
+
+style="
+--project-colour:#0F4A42;
+--project-text:#F9F3DB;
+">
+
+
+<div class="project-card-inner">
+
+
+<span class="project-number">
+02
+</span>
+
+
+<span
+class="project-title"
+
+data-en="Photography"
+data-fr="Photographie"
+data-sv="Fotografi">
+
+Photography
+
+</span>
+
+
+<span class="project-type">
+
+IMAGE / SERIES
+
+</span>
+
+
+</div>
+
+</button>
+
+
+<button
+class="project-card reveal"
+
+data-project="posters"
+
+style="
+--project-colour:#CAC307;
+--project-text:#181A4D;
+">
+
+
+<div class="project-card-inner">
+
+
+<span class="project-number">
+03
+</span>
+
+
+<span
+class="project-title"
+
+data-en="Posters"
+data-fr="Affiches"
+data-sv="Affischer">
+
+Posters
+
+</span>
+
+
+<span class="project-type">
+
+PRINT / GRAPHIC
+
+</span>
+
+
+</div>
+
+</button>
+
+
+<button
+class="project-card reveal"
+
+data-project="typography"
+
+style="
+--project-colour:#273287;
+--project-text:#F9F3DB;
+">
+
+
+<div class="project-card-inner">
+
+
+<span class="project-number">
+04
+</span>
+
+
+<span
+class="project-title"
+
+data-en="Typography"
+data-fr="Typographie"
+data-sv="Typografi">
+
+Typography
+
+</span>
+
+
+<span class="project-type">
+
+TYPE / EXPERIMENT
+
+</span>
+
+
+</div>
+
+</button>
+
+
+</div>
+
+
+</div>
 
 </section>
 
 
-<!-- ==================================================
+<!-- =========================================================
      ABOUT
-     ================================================== -->
+     ========================================================= -->
 
 <section
-    id="about"
-    class="colour-section">
+id="about"
+class="standard-section colour-section">
 
 
-    <h2
-        class="reveal"
-
-        data-en="About"
-        data-fr="À propos"
-        data-sv="Om mig">
-
-        About
-
-    </h2>
+<div class="standard-inner">
 
 
-    <div class="content reveal reveal-delay">
+<h2
+class="reveal"
+
+data-en="About"
+data-fr="À propos"
+data-sv="Om mig">
+
+About
+
+</h2>
 
 
-        <p
-            data-en="Hi, I'm Seb."
-
-            data-fr="Salut, moi c'est Seb."
-
-            data-sv="Hej, jag heter Seb.">
-
-            Hi, I'm Seb.
-
-        </p>
+<div class="content reveal">
 
 
-        <p
-            data-en="I'm a DN MADE Graphisme student at the Lycée de la Communication in Metz, France, with a particular interest in editorial design, typography and visual storytelling."
+<p
 
-            data-fr="Je suis étudiant en DN MADE Graphisme au Lycée de la Communication à Metz, France, avec un intérêt particulier pour le design éditorial, la typographie et la narration visuelle."
+data-en="Hi, I'm Seb."
 
-            data-sv="Jag studerar DN MADE Graphisme på Lycée de la Communication i Metz, Frankrike, med ett särskilt intresse för redaktionell design, typografi och visuellt berättande.">
+data-fr="Salut, moi c'est Seb."
 
-            I'm a DN MADE Graphisme student at the Lycée de la Communication in Metz, France, with a particular interest in editorial design, typography and visual storytelling.
+data-sv="Hej, jag heter Seb.">
 
-        </p>
+Hi, I'm Seb.
 
-
-        <p
-            data-en="I love creating work that feels thoughtful, engaging and a little unexpected. Whether it's a publication, poster or visual identity, I'm always interested in how design can communicate ideas and connect with people."
-
-            data-fr="J’aime créer des projets réfléchis, engageants et parfois inattendus. Qu’il s’agisse d’une publication, d’une affiche ou d’une identité visuelle, je m’intéresse toujours à la manière dont le design peut transmettre des idées et créer du lien."
-
-            data-sv="Jag gillar att skapa projekt som känns genomtänkta, engagerande och lite oväntade. Oavsett om det handlar om en publikation, en affisch eller en visuell identitet är jag alltid nyfiken på hur design kan förmedla idéer och skapa kontakt med människor.">
-
-            I love creating work that feels thoughtful, engaging and a little unexpected. Whether it's a publication, poster or visual identity, I'm always interested in how design can communicate ideas and connect with people.
-
-        </p>
+</p>
 
 
-        <p
-            data-en="This website is a space where I'll be sharing my projects, experiments and creative journey as I continue to learn and grow as a designer."
+<p
 
-            data-fr="Ce site est un espace où je partage mes projets, mes expérimentations et mon parcours créatif au fil de mon évolution en tant que designer."
+data-en="I'm a DN MADE Graphisme student at the Lycée de la Communication in Metz, France, with a particular interest in editorial design, typography and visual storytelling."
 
-            data-sv="Den här webbplatsen är en plats där jag delar mina projekt, experiment och min kreativa resa medan jag fortsätter att lära mig och utvecklas som designer.">
+data-fr="Je suis étudiant en DN MADE Graphisme au Lycée de la Communication à Metz, France, avec un intérêt particulier pour le design éditorial, la typographie et la narration visuelle."
 
-            This website is a space where I'll be sharing my projects, experiments and creative journey as I continue to learn and grow as a designer.
+data-sv="Jag studerar DN MADE Graphisme på Lycée de la Communication i Metz, Frankrike, med ett särskilt intresse för redaktionell design, typografi och visuellt berättande.">
 
-        </p>
+I'm a DN MADE Graphisme student at the Lycée de la Communication in Metz, France, with a particular interest in editorial design, typography and visual storytelling.
 
-    </div>
+</p>
+
+
+<p
+
+data-en="I love creating work that feels thoughtful, engaging and a little unexpected. Whether it's a publication, poster or visual identity, I'm always interested in how design can communicate ideas and connect with people."
+
+data-fr="J’aime créer des projets réfléchis, engageants et parfois inattendus. Qu’il s’agisse d’une publication, d’une affiche ou d’une identité visuelle, je m’intéresse toujours à la manière dont le design peut transmettre des idées et créer du lien."
+
+data-sv="Jag gillar att skapa projekt som känns genomtänkta, engagerande och lite oväntade. Oavsett om det handlar om en publikation, en affisch eller en visuell identitet är jag alltid nyfiken på hur design kan förmedla idéer och skapa kontakt med människor.">
+
+I love creating work that feels thoughtful, engaging and a little unexpected. Whether it's a publication, poster or visual identity, I'm always interested in how design can communicate ideas and connect with people.
+
+</p>
+
+
+<p
+
+data-en="This website is a space where I'll be sharing my projects, experiments and creative journey as I continue to learn and grow as a designer."
+
+data-fr="Ce site est un espace où je partage mes projets, mes expérimentations et mon parcours créatif au fil de mon évolution en tant que designer."
+
+data-sv="Den här webbplatsen är en plats där jag delar mina projekt, experiment och min kreativa resa medan jag fortsätter att lära mig och utvecklas som designer.">
+
+This website is a space where I'll be sharing my projects, experiments and creative journey as I continue to learn and grow as a designer.
+
+</p>
+
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ==================================================
+<!-- =========================================================
      CONTACT
-     ================================================== -->
+     ========================================================= -->
 
 <section
-    id="contact"
-    class="colour-section">
+id="contact"
+class="standard-section colour-section">
 
 
-    <h2
-        class="reveal reveal-left"
-
-        data-en="Contact"
-        data-fr="Contact"
-        data-sv="Kontakt">
-
-        Contact
-
-    </h2>
+<div class="standard-inner">
 
 
-    <div class="content contact reveal reveal-delay">
+<h2
+class="reveal"
+
+data-en="Contact"
+data-fr="Contact"
+data-sv="Kontakt">
+
+Contact
+
+</h2>
 
 
-        <p>
-
-            Email:
-
-            <a href="mailto:feaseysebastien@gmail.com">
-
-                feaseysebastien@gmail.com
-
-            </a>
-
-        </p>
+<div class="content contact reveal">
 
 
-        <p>
+<p>
 
-            Instagram:
+Email:
 
-            <a
-                href="https://instagram.com/sebfeasey"
-                target="_blank"
-                rel="noopener noreferrer">
+<a href="mailto:feaseysebastien@gmail.com">
 
-                @sebfeasey
+feaseysebastien@gmail.com
 
-            </a>
+</a>
 
-        </p>
+</p>
 
-    </div>
+
+<p>
+
+Instagram:
+
+<a
+
+href="https://instagram.com/sebfeasey"
+
+target="_blank"
+
+rel="noopener noreferrer">
+
+@sebfeasey
+
+</a>
+
+</p>
+
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ==================================================
+<!-- =========================================================
      FOOTER
-     ================================================== -->
+     ========================================================= -->
 
 <footer>
-    © 2026 Seb Feasey
+
+© 2026 Seb Feasey
+
 </footer>
+
+
+<!-- =========================================================
+     PROJECT MODAL
+     ========================================================= -->
+
+<div
+class="project-modal"
+id="project-modal"
+
+aria-hidden="true">
+
+
+<div class="modal-card">
+
+
+<button
+class="modal-close"
+id="modal-close"
+aria-label="Close project">
+
+×
+
+
+</button>
+
+
+<div
+class="modal-number"
+id="modal-number">
+
+PROJECT
+
+</div>
+
+
+<h3
+class="modal-title"
+id="modal-title">
+
+Project
+
+</h3>
+
+
+<div
+class="modal-description"
+id="modal-description">
+
+Project information will appear here.
+
+</div>
+
+
+</div>
+
+</div>
 
 
 <script>
 
+/* =========================================================
+   LANGUAGE
+   ========================================================= */
 
-/* ==================================================
-   LANGUAGE SWITCH
-   ================================================== */
+let currentLanguage = "en";
 
 
 function setLanguage(language) {
 
-    const elements =
-        document.querySelectorAll("[data-en]");
 
+currentLanguage = language;
 
-    elements.forEach(element => {
 
-        const translation =
-            element.getAttribute(
-                "data-" + language
-            );
+const elements =
+document.querySelectorAll("[data-en]");
 
 
-        if (translation) {
+elements.forEach(element => {
 
-            element.textContent =
-                translation;
 
-        }
-
-    });
-
-
-    document
-        .getElementById("btn-en")
-        .classList
-        .toggle(
-            "active",
-            language === "en"
-        );
-
-
-    document
-        .getElementById("btn-fr")
-        .classList
-        .toggle(
-            "active",
-            language === "fr"
-        );
-
-
-    document
-        .getElementById("btn-sv")
-        .classList
-        .toggle(
-            "active",
-            language === "sv"
-        );
-
-
-    document.documentElement.lang =
-        language;
-
-}
-
-
-
-/* ==================================================
-   COLOUR PALETTE
-   ==================================================
-
-   Colours taken from your palette.
-
-   Each page load chooses four of them
-   and puts them in a random order.
-
-   The text colour is stored with each
-   background so it always stays readable.
-
-   ================================================== */
-
-
-const palette = [
-
-    {
-        background: "#FF340C",
-        text: "#F9F3DB"
-    },
-
-    {
-        background: "#E0070F",
-        text: "#F9F3DB"
-    },
-
-    {
-        background: "#F03172",
-        text: "#F9F3DB"
-    },
-
-    {
-        background: "#E990A2",
-        text: "#181A4D"
-    },
-
-    {
-        background: "#FFAE00",
-        text: "#181A4D"
-    },
-
-    {
-        background: "#CAC307",
-        text: "#181A4D"
-    },
-
-    {
-        background: "#0F4A42",
-        text: "#F9F3DB"
-    },
-
-    {
-        background: "#181A4D",
-        text: "#F9F3DB"
-    },
-
-    {
-        background: "#273287",
-        text: "#F9F3DB"
-    },
-
-    {
-        background: "#441B07",
-        text: "#F9F3DB"
-    }
-
-];
-
-
-
-/* ==================================================
-   SHUFFLE FUNCTION
-   ================================================== */
-
-
-function shuffle(array) {
-
-    const shuffled =
-        [...array];
-
-
-    for (
-        let i = shuffled.length - 1;
-        i > 0;
-        i--
-    ) {
-
-        const j =
-            Math.floor(
-                Math.random() *
-                (i + 1)
-            );
-
-
-        [
-            shuffled[i],
-            shuffled[j]
-        ] = [
-            shuffled[j],
-            shuffled[i]
-        ];
-
-    }
-
-
-    return shuffled;
-
-}
-
-
-
-/* ==================================================
-   CHOOSE RANDOM SECTION COLOURS
-   ================================================== */
-
-
-const colourSections =
-    document.querySelectorAll(
-        ".colour-section"
-    );
-
-
-const randomPalette =
-    shuffle(palette);
-
-
-/*
-Use four different colours
-for the four main sections.
-*/
-
-colourSections.forEach(
-    (section, index) => {
-
-        const colour =
-            randomPalette[index];
-
-
-        section.dataset.background =
-            colour.background;
-
-
-        section.dataset.text =
-            colour.text;
-
-    }
+const translation =
+element.getAttribute(
+"data-" + language
 );
 
 
+if (translation) {
 
-/* ==================================================
-   CHANGE GLOBAL PAGE COLOUR
-   ================================================== */
-
-
-function setPageColour(section) {
-
-    const background =
-        section.dataset.background;
-
-
-    const text =
-        section.dataset.text;
-
-
-    document.body.style.backgroundColor =
-        background;
-
-
-    document.body.style.color =
-        text;
+element.textContent =
+translation;
 
 }
 
-
-
-/* ==================================================
-   SET FIRST HOMEPAGE COLOUR IMMEDIATELY
-   ================================================== */
-
-
-setPageColour(
-    document.querySelector("#home")
-);
-
-
-
-/* ==================================================
-   BACKGROUND COLOUR OBSERVER
-   ================================================== */
-
-
-const colourObserver =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (
-                    entry.isIntersecting
-                ) {
-
-                    setPageColour(
-                        entry.target
-                    );
-
-                }
-
-            });
-
-        },
-
-        {
-
-            /*
-            The colour switches when the
-            section occupies the middle
-            region of the screen.
-            */
-
-            rootMargin:
-                "-35% 0px -35% 0px",
-
-            threshold: 0
-
-        }
-
-    );
-
-
-colourSections.forEach(section => {
-
-    colourObserver.observe(section);
 
 });
 
 
+document
+.getElementById("btn-en")
+.classList
+.toggle(
+"active",
+language === "en"
+);
 
-/* ==================================================
-   TEXT REVEAL OBSERVER
-   ================================================== */
 
+document
+.getElementById("btn-fr")
+.classList
+.toggle(
+"active",
+language === "fr"
+);
+
+
+document
+.getElementById("btn-sv")
+.classList
+.toggle(
+"active",
+language === "sv"
+);
+
+
+document.documentElement.lang =
+language;
+
+}
+
+
+/* =========================================================
+   YOUR COLOUR PALETTE
+   ========================================================= */
+
+const palette = [
+
+
+{
+background: "#FF340C",
+text: "#F9F3DB"
+},
+
+
+{
+background: "#E0070F",
+text: "#F9F3DB"
+},
+
+
+{
+background: "#F03172",
+text: "#F9F3DB"
+},
+
+
+{
+background: "#E990A2",
+text: "#181A4D"
+},
+
+
+{
+background: "#FFAE00",
+text: "#181A4D"
+},
+
+
+{
+background: "#CAC307",
+text: "#181A4D"
+},
+
+
+{
+background: "#0F4A42",
+text: "#F9F3DB"
+},
+
+
+{
+background: "#181A4D",
+text: "#F9F3DB"
+},
+
+
+{
+background: "#273287",
+text: "#F9F3DB"
+},
+
+
+{
+background: "#441B07",
+text: "#F9F3DB"
+}
+
+
+];
+
+
+/* =========================================================
+   SHUFFLE PALETTE
+   ========================================================= */
+
+function shuffle(array) {
+
+
+const copy = [...array];
+
+
+for (
+let i = copy.length - 1;
+i > 0;
+i--
+) {
+
+
+const j =
+Math.floor(
+Math.random() * (i + 1)
+);
+
+
+[
+copy[i],
+copy[j]
+] =
+[
+copy[j],
+copy[i]
+];
+
+
+}
+
+
+return copy;
+
+}
+
+
+/* =========================================================
+   ASSIGN ONE SOLID COLOUR PER SECTION
+   ========================================================= */
+
+const colourSections =
+document.querySelectorAll(
+".colour-section"
+);
+
+
+const randomPalette =
+shuffle(palette);
+
+
+colourSections.forEach(
+(section,index) => {
+
+
+const colour =
+randomPalette[index];
+
+
+section.style.setProperty(
+"--section-bg",
+colour.background
+);
+
+
+section.style.setProperty(
+"--section-text",
+colour.text
+);
+
+
+section.dataset.textColour =
+colour.text;
+
+
+});
+
+
+/* =========================================================
+   UPDATE FIXED UI COLOUR
+   ========================================================= */
+
+function updateUIColour(section) {
+
+
+const colour =
+section.dataset.textColour;
+
+
+document.documentElement
+.style
+.setProperty(
+"--ui-colour",
+colour
+);
+
+
+}
+
+
+/* =========================================================
+   SECTION OBSERVER
+   ========================================================= */
+
+const sectionObserver =
+new IntersectionObserver(
+
+
+entries => {
+
+
+entries.forEach(entry => {
+
+
+if (
+entry.isIntersecting
+) {
+
+
+updateUIColour(
+entry.target
+);
+
+
+}
+
+
+});
+
+
+},
+
+
+{
+
+rootMargin:
+"-40% 0px -40% 0px",
+
+threshold: 0
+
+}
+
+
+);
+
+
+colourSections.forEach(section => {
+
+sectionObserver.observe(section);
+
+});
+
+
+/* =========================================================
+   SET INITIAL UI COLOUR
+   ========================================================= */
+
+updateUIColour(
+document.querySelector("#home")
+);
+
+
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
 
 const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
+document.querySelectorAll(
+".reveal"
+);
 
 
 const revealObserver =
-    new IntersectionObserver(
-
-        (entries, observer) => {
-
-            entries.forEach(entry => {
-
-                if (
-                    entry.isIntersecting
-                ) {
-
-                    entry.target
-                        .classList
-                        .add("visible");
+new IntersectionObserver(
 
 
-                    observer.unobserve(
-                        entry.target
-                    );
+(entries,observer) => {
 
-                }
 
-            });
+entries.forEach(entry => {
 
-        },
 
-        {
+if (
+entry.isIntersecting
+) {
 
-            threshold: 0.15,
 
-            rootMargin:
-                "0px 0px -8% 0px"
+entry.target
+.classList
+.add("visible");
 
-        }
 
-    );
+observer
+.unobserve(
+entry.target
+);
+
+
+}
+
+
+});
+
+
+},
+
+
+{
+
+threshold: 0.12,
+
+rootMargin:
+"0px 0px -7% 0px"
+
+}
+
+
+);
 
 
 revealElements.forEach(element => {
 
-    revealObserver.observe(element);
+revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   PROJECT INFORMATION
+   ========================================================= */
+
+const projectInfo = {
+
+
+editorial: {
+
+number: "01",
+
+title: {
+
+en: "Editorial",
+
+fr: "Éditorial",
+
+sv: "Redaktionellt"
+
+},
+
+description: {
+
+en:
+"A selection of editorial projects exploring publication design, layout, typography and visual storytelling. Full projects will be added here soon.",
+
+fr:
+"Une sélection de projets éditoriaux explorant la mise en page, la typographie, la publication et la narration visuelle. Les projets complets seront bientôt ajoutés ici.",
+
+sv:
+"Ett urval av redaktionella projekt som utforskar publikation, layout, typografi och visuellt berättande. Fullständiga projekt kommer snart."
+
+}
+
+},
+
+
+photography: {
+
+number: "02",
+
+title: {
+
+en: "Photography",
+
+fr: "Photographie",
+
+sv: "Fotografi"
+
+},
+
+description: {
+
+en:
+"Photographic series, observations and experiments exploring places, people, objects and visual atmosphere.",
+
+fr:
+"Séries photographiques, observations et expérimentations autour des lieux, des personnes, des objets et des atmosphères visuelles.",
+
+sv:
+"Fotografiska serier, observationer och experiment kring platser, människor, föremål och visuella atmosfärer."
+
+}
+
+},
+
+
+posters: {
+
+number: "03",
+
+title: {
+
+en: "Posters",
+
+fr: "Affiches",
+
+sv: "Affischer"
+
+},
+
+description: {
+
+en:
+"Poster projects exploring composition, colour, image and typography through cultural, fictional and experimental briefs.",
+
+fr:
+"Des projets d’affiches explorant la composition, la couleur, l’image et la typographie à travers des sujets culturels, fictifs et expérimentaux.",
+
+sv:
+"Affischprojekt som utforskar komposition, färg, bild och typografi genom kulturella, fiktiva och experimentella projekt."
+
+}
+
+},
+
+
+typography: {
+
+number: "04",
+
+title: {
+
+en: "Typography",
+
+fr: "Typographie",
+
+sv: "Typografi"
+
+},
+
+description: {
+
+en:
+"Typographic studies, type experiments and letterform projects looking at how type can carry personality, rhythm and meaning.",
+
+fr:
+"Études typographiques, expérimentations et projets de formes de lettres explorant la personnalité, le rythme et le sens de la typographie.",
+
+sv:
+"Typografiska studier, experiment och bokstavsprojekt som undersöker hur typografi kan bära personlighet, rytm och mening."
+
+}
+
+}
+
+
+};
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+const modal =
+document.getElementById(
+"project-modal"
+);
+
+
+const modalTitle =
+document.getElementById(
+"modal-title"
+);
+
+
+const modalNumber =
+document.getElementById(
+"modal-number"
+);
+
+
+const modalDescription =
+document.getElementById(
+"modal-description"
+);
+
+
+const modalClose =
+document.getElementById(
+"modal-close"
+);
+
+
+document
+.querySelectorAll(
+".project-card"
+)
+.forEach(card => {
+
+
+card.addEventListener(
+"click",
+() => {
+
+
+const key =
+card.dataset.project;
+
+
+const project =
+projectInfo[key];
+
+
+modalNumber.textContent =
+"PROJECT " +
+project.number;
+
+
+modalTitle.textContent =
+project.title[
+currentLanguage
+];
+
+
+modalDescription.textContent =
+project.description[
+currentLanguage
+];
+
+
+modal.classList.add(
+"open"
+);
+
+
+modal.setAttribute(
+"aria-hidden",
+"false"
+);
+
+
+document.body.style.overflow =
+"hidden";
+
+
+});
+
+
+});
+
+
+function closeModal() {
+
+
+modal
+.classList
+.remove(
+"open"
+);
+
+
+modal.setAttribute(
+"aria-hidden",
+"true"
+);
+
+
+document.body.style.overflow =
+"";
+
+
+}
+
+
+modalClose
+.addEventListener(
+"click",
+closeModal
+);
+
+
+modal
+.addEventListener(
+"click",
+event => {
+
+
+if (
+event.target === modal
+) {
+
+
+closeModal();
+
+
+}
+
+
+});
+
+
+document
+.addEventListener(
+"keydown",
+event => {
+
+
+if (
+event.key === "Escape"
+) {
+
+
+closeModal();
+
+
+}
+
 
 });
 
 
 </script>
-
 
 </body>
 
