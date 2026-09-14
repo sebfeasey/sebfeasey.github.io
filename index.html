@@ -12,6 +12,11 @@
 <script data-goatcounter="https://sebfeasey.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
+<!-- Lets the website know JavaScript is active -->
+<script>
+    document.documentElement.classList.add("js");
+</script>
+
 <style>
 
 html {
@@ -25,7 +30,9 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* SF. BUTTON */
+/* =========================
+   SF. BUTTON
+   ========================= */
 
 .home-button {
     position: fixed;
@@ -45,7 +52,9 @@ body {
     opacity: 1;
 }
 
-/* LANGUAGE SWITCH */
+/* =========================
+   LANGUAGE SWITCH
+   ========================= */
 
 .language-switch {
     position: fixed;
@@ -73,7 +82,9 @@ body {
     text-decoration: underline;
 }
 
-/* HOMEPAGE */
+/* =========================
+   HOMEPAGE
+   ========================= */
 
 .hero {
     height: 100vh;
@@ -84,6 +95,37 @@ body {
 
 .container {
     text-align: center;
+}
+
+/* Opening animation */
+
+.hero .container {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(14px);
+
+    animation: heroReveal 1.4s ease-out forwards;
+    animation-delay: 0.15s;
+}
+
+@keyframes heroReveal {
+
+    0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(14px);
+    }
+
+    60% {
+        opacity: 0.75;
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+
 }
 
 h1 {
@@ -102,7 +144,9 @@ h1 {
     margin-bottom: 5rem;
 }
 
-/* NAVIGATION */
+/* =========================
+   NAVIGATION
+   ========================= */
 
 nav {
     display: flex;
@@ -115,14 +159,19 @@ nav a {
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    transition: opacity 0.3s;
+    transition:
+        opacity 0.3s,
+        transform 0.3s;
 }
 
 nav a:hover {
     opacity: 0.6;
+    transform: translateY(-2px);
 }
 
-/* SECTIONS */
+/* =========================
+   SECTIONS
+   ========================= */
 
 section {
     min-height: 100vh;
@@ -143,13 +192,49 @@ h2 {
     line-height: 1.8;
 }
 
-/* CONTACT */
+/* =========================
+   SCROLL REVEAL
+   ========================= */
+
+/*
+Only hides these elements when JavaScript is available.
+That means the text will still appear normally if JS fails.
+*/
+
+.js .reveal {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(28px);
+
+    transition:
+        opacity 1s ease,
+        filter 1s ease,
+        transform 1s ease;
+}
+
+.js .reveal.visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+/* Content appears slightly after its heading */
+
+.js .reveal-delay {
+    transition-delay: 0.15s;
+}
+
+/* =========================
+   CONTACT
+   ========================= */
 
 .contact a {
     color: #AFCDED;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+   ========================= */
 
 footer {
     text-align: center;
@@ -158,7 +243,9 @@ footer {
     font-size: 0.9rem;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 768px) {
 
@@ -200,6 +287,36 @@ footer {
 
     section {
         padding: 6rem 8%;
+    }
+
+    .js .reveal {
+        transform: translateY(20px);
+    }
+
+}
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .hero .container {
+        animation: none;
+        opacity: 1;
+        filter: none;
+        transform: none;
+    }
+
+    .js .reveal {
+        opacity: 1;
+        filter: none;
+        transform: none;
+        transition: none;
     }
 
 }
@@ -291,14 +408,14 @@ footer {
 
 <section id="projects">
 
-    <h2
+    <h2 class="reveal"
         data-en="Projects"
         data-fr="Projets"
         data-sv="Projekt">
         Projects
     </h2>
 
-    <div class="content">
+    <div class="content reveal reveal-delay">
 
         <p
             data-en="Projects are on their way."
@@ -327,14 +444,14 @@ footer {
 
 <section id="about">
 
-    <h2
+    <h2 class="reveal"
         data-en="About"
         data-fr="À propos"
         data-sv="Om mig">
         About
     </h2>
 
-    <div class="content">
+    <div class="content reveal reveal-delay">
 
         <p
             data-en="Hi, I'm Seb."
@@ -381,14 +498,14 @@ footer {
 
 <section id="contact">
 
-    <h2
+    <h2 class="reveal"
         data-en="Contact"
         data-fr="Contact"
         data-sv="Kontakt">
         Contact
     </h2>
 
-    <div class="content contact">
+    <div class="content contact reveal reveal-delay">
 
         <p>
             Email:
@@ -418,9 +535,11 @@ footer {
 </footer>
 
 
-<!-- LANGUAGE SCRIPT -->
+<!-- SCRIPTS -->
 
 <script>
+
+/* LANGUAGE SWITCH */
 
 function setLanguage(language) {
 
@@ -448,6 +567,45 @@ function setLanguage(language) {
     document.documentElement.lang = language;
 
 }
+
+
+/* SCROLL REVEAL */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+
+    (entries, observer) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                /*
+                Once the animation has happened,
+                we stop watching the element.
+                */
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: 0.18,
+        rootMargin: "0px 0px -8% 0px"
+    }
+
+);
+
+revealElements.forEach(element => {
+    observer.observe(element);
+});
 
 </script>
 
