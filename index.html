@@ -8,7 +8,6 @@
 
 <title>Seb Feasey</title>
 
-<!-- GOATCOUNTER -->
 <script data-goatcounter="https://sebfeasey.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
@@ -19,7 +18,7 @@ document.documentElement.classList.add("js");
 <style>
 
 /* =========================================================
-   COLOUR VARIABLES
+   VARIABLES
    ========================================================= */
 
 :root {
@@ -28,7 +27,6 @@ document.documentElement.classList.add("js");
     --navy: #181A4D;
 
     --ui-colour: #F9F3DB;
-
 }
 
 
@@ -50,7 +48,7 @@ body {
 
     background: #181A4D;
 
-    color: var(--cream);
+    color: #F9F3DB;
 
     font-family: Arial, Helvetica, sans-serif;
 
@@ -64,14 +62,14 @@ body {
 
 ::selection {
 
-    background: #441B07;
+    background: #181A4D;
 
     color: #F9F3DB;
 }
 
 ::-moz-selection {
 
-    background: #441B07;
+    background: #181A4D;
 
     color: #F9F3DB;
 }
@@ -85,10 +83,20 @@ body {
 
     position: fixed;
 
-    top: 2rem;
-    left: 2rem;
+    top: 1.5rem;
+    left: 1.5rem;
 
-    z-index: 1000;
+    z-index: 3000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 58px;
+    height: 42px;
+
+    padding: 0 1rem;
 
     color: var(--ui-colour);
 
@@ -96,59 +104,105 @@ body {
 
     font-family: Georgia, "Times New Roman", serif;
 
-    font-size: 1.2rem;
+    font-size: 1.05rem;
 
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
 
-    opacity: 0.8;
+    border:
+
+        1px solid
+        rgba(249,243,219,0.20);
+
+    border-radius: 999px;
+
+    background:
+
+        rgba(255,255,255,0.10);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
 
     transition:
-        color 0.5s ease,
-        opacity 0.3s ease,
-        transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+
+        color 0.45s ease,
+
+        transform
+        0.45s
+        cubic-bezier(0.34,1.56,0.64,1),
+
+        background
+        0.4s ease;
 }
 
 
 .home-button:hover {
 
-    opacity: 1;
-
     transform:
-        rotate(-6deg)
-        scale(1.08);
+
+        scale(1.12)
+        rotate(-5deg);
 }
 
 
 /* =========================================================
-   LANGUAGE SWITCH
+   LANGUAGE
    ========================================================= */
 
 .language-switch {
 
     position: fixed;
 
-    top: 2rem;
-    right: 2rem;
+    top: 1.5rem;
+    right: 1.5rem;
 
-    z-index: 1000;
+    z-index: 3000;
+
+    display: flex;
+
+    align-items: center;
+
+    height: 42px;
+
+    padding:
+
+        0
+        0.85rem;
+
+    border:
+
+        1px solid
+        rgba(249,243,219,0.20);
+
+    border-radius: 999px;
+
+    background:
+
+        rgba(255,255,255,0.10);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
 
     color: var(--ui-colour);
 
-    font-size: 0.85rem;
+    font-size: 0.76rem;
 
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
 
-    text-transform: uppercase;
+    transition:
 
-    transition: color 0.5s ease;
+        color 0.45s ease,
+
+        background 0.4s ease;
 }
 
 
 .language-switch button {
 
-    border: none;
+    border: 0;
 
-    background: none;
+    background: transparent;
 
     color: inherit;
 
@@ -156,13 +210,19 @@ body {
 
     opacity: 0.45;
 
-    font-size: 0.85rem;
+    padding: 0.35rem;
 
-    letter-spacing: 0.12em;
+    font-size: 0.76rem;
+
+    letter-spacing: 0.1em;
 
     transition:
+
         opacity 0.3s ease,
-        transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+
+        transform
+        0.4s
+        cubic-bezier(0.34,1.56,0.64,1);
 }
 
 
@@ -170,7 +230,7 @@ body {
 
     opacity: 1;
 
-    transform: translateY(-2px);
+    transform: scale(1.18);
 }
 
 
@@ -183,14 +243,12 @@ body {
 
 
 /* =========================================================
-   FULL COLOUR BLOCKS
+   COLOUR SECTIONS
    ========================================================= */
 
 .colour-section {
 
     position: relative;
-
-    min-height: 100vh;
 
     width: 100%;
 
@@ -198,17 +256,12 @@ body {
 
     background: var(--section-bg);
 
-    transition:
-        background-color 0.8s ease,
-        color 0.5s ease;
-
     overflow: hidden;
 }
 
 
 /* =========================================================
-   GLASS / BLUR SEAM
-   BETWEEN SECTIONS
+   GLASS TRANSITION BETWEEN BLOCKS
    ========================================================= */
 
 .colour-section:not(:first-of-type)::before {
@@ -217,13 +270,13 @@ body {
 
     position: absolute;
 
-    top: 0;
+    top: -25px;
     left: 0;
 
     width: 100%;
-    height: 70px;
+    height: 75px;
 
-    z-index: 2;
+    z-index: 5;
 
     pointer-events: none;
 
@@ -231,34 +284,35 @@ body {
 
         linear-gradient(
             to bottom,
-            rgba(249,243,219,0.13),
-            rgba(249,243,219,0.04),
+            rgba(249,243,219,0.11),
+            rgba(249,243,219,0.035),
             transparent
         );
 
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(18px);
 
-    border-top:
-
-        1px solid rgba(249,243,219,0.24);
+    -webkit-backdrop-filter: blur(18px);
 }
 
 
 /* =========================================================
-   HERO
+   HOME
    ========================================================= */
 
 .hero {
 
-    height: 100vh;
+    min-height: 82vh;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    padding: 3rem;
+    padding:
+
+        7rem
+        3rem
+        5rem;
 }
 
 
@@ -270,62 +324,63 @@ body {
 
     position: relative;
 
-    z-index: 3;
+    z-index: 10;
 }
 
 
-/* HERO ANIMATION */
+/* =========================================================
+   HERO ANIMATION
+   ========================================================= */
 
 .hero-inner {
 
     opacity: 0;
 
-    filter: blur(13px);
-
-    transform:
-        translateY(45px)
-        scale(0.95);
+    filter: blur(14px);
 
     animation:
 
-        heroEntrance
+        heroBounce
         1.5s
         cubic-bezier(0.16,1,0.3,1)
         forwards;
 }
 
 
-@keyframes heroEntrance {
+@keyframes heroBounce {
 
     0% {
 
         opacity: 0;
 
-        filter: blur(13px);
+        filter: blur(14px);
 
         transform:
-            translateY(45px)
-            scale(0.95);
+
+            translateY(38px)
+            scale(0.91);
     }
 
 
-    65% {
+    60% {
 
         opacity: 1;
 
         filter: blur(1px);
 
         transform:
+
             translateY(-7px)
-            scale(1.012);
+            scale(1.035);
     }
 
 
-    82% {
+    78% {
 
         transform:
+
             translateY(3px)
-            scale(0.998);
+            scale(0.985);
     }
 
 
@@ -336,6 +391,7 @@ body {
         filter: blur(0);
 
         transform:
+
             translateY(0)
             scale(1);
     }
@@ -344,7 +400,7 @@ body {
 
 
 /* =========================================================
-   HOMEPAGE TYPOGRAPHY
+   HERO TYPE
    ========================================================= */
 
 h1 {
@@ -357,7 +413,14 @@ h1 {
         serif;
 
     font-size:
-        clamp(4rem, 12vw, 8rem);
+
+        clamp(
+            5rem,
+            14vw,
+            10rem
+        );
+
+    line-height: 0.9;
 
     font-weight: 400;
 
@@ -367,20 +430,20 @@ h1 {
 
 .subtitle {
 
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 
     text-transform: uppercase;
 
-    letter-spacing: 0.3em;
+    letter-spacing: 0.32em;
 
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 
 /* =========================================================
-   HOMEPAGE NAV
+   HERO NAV
    ========================================================= */
 
 nav {
@@ -389,13 +452,11 @@ nav {
 
     justify-content: center;
 
-    gap: 2rem;
+    gap: 2.4rem;
 }
 
 
 nav a {
-
-    display: inline-block;
 
     color: inherit;
 
@@ -404,6 +465,8 @@ nav a {
     text-transform: uppercase;
 
     letter-spacing: 0.15em;
+
+    display: inline-block;
 
     transition:
 
@@ -417,66 +480,54 @@ nav a {
 
 nav a:hover {
 
-    opacity: 0.65;
+    opacity: 0.75;
 
     transform:
-        translateY(-5px)
-        rotate(-1deg);
+
+        scale(1.16)
+        translateY(-4px);
 }
 
 
 /* =========================================================
-   STANDARD SECTION
+   GENERAL REVEAL
    ========================================================= */
 
-.standard-section {
+.js .reveal {
 
-    min-height: 100vh;
+    opacity: 0;
 
-    display: flex;
+    filter: blur(12px);
 
-    align-items: center;
+    transform:
 
-    padding:
+        translateY(55px)
+        scale(0.90);
 
-        9rem
-        10%;
+    transition:
+
+        opacity
+        0.7s ease,
+
+        filter
+        0.75s ease,
+
+        transform
+        0.85s
+        cubic-bezier(0.34,1.32,0.64,1);
 }
 
 
-.standard-inner {
+.js .reveal.visible {
 
-    width: 100%;
+    opacity: 1;
 
-    position: relative;
+    filter: blur(0);
 
-    z-index: 3;
-}
+    transform:
 
-
-h2 {
-
-    margin: 0 0 2rem 0;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(3rem, 7vw, 5.5rem);
-
-    font-weight: 400;
-}
-
-
-.content {
-
-    max-width: 700px;
-
-    font-size: 1.1rem;
-
-    line-height: 1.8;
+        translateY(0)
+        scale(1);
 }
 
 
@@ -490,8 +541,8 @@ h2 {
 
     padding:
 
-        9rem
-        7%;
+        8rem
+        6%;
 
     display: flex;
 
@@ -503,67 +554,98 @@ h2 {
 
     width: 100%;
 
-    position: relative;
-
-    z-index: 3;
-
     display: grid;
 
     grid-template-columns:
 
-        minmax(260px, 0.72fr)
+        minmax(230px,0.55fr)
 
-        minmax(500px, 1.65fr);
+        minmax(0,1.9fr);
 
-    gap: 7vw;
+    gap: 5vw;
+
+    position: relative;
+
+    z-index: 10;
 
     align-items: center;
 }
 
 
-/* BIG LEFT PROJECTS TITLE */
-
-.projects-intro {
-
-    align-self: start;
-
-    padding-top: 1rem;
-}
-
+/* =========================================================
+   PROJECT TITLE AREA
+   ========================================================= */
 
 .projects-intro h2 {
 
+    margin: 0 0 1.8rem 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size:
-        clamp(4.5rem, 9vw, 8rem);
 
-    line-height: 0.86;
+        clamp(
+            3.7rem,
+            6.2vw,
+            6rem
+        );
 
-    margin-bottom: 2rem;
+    line-height: 0.9;
+
+    font-weight: 400;
 }
 
 
 .projects-intro p {
 
-    max-width: 360px;
+    max-width: 320px;
 
     line-height: 1.6;
 
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 
 /* =========================================================
-   PROJECT GRID
+   PROJECT CAROUSEL
    ========================================================= */
 
-.project-grid {
+.projects-carousel-wrapper {
 
-    display: grid;
+    position: relative;
 
-    grid-template-columns:
-        repeat(2, minmax(0,1fr));
+    min-width: 0;
+}
+
+
+.projects-carousel {
+
+    display: flex;
 
     gap: 1.2rem;
+
+    overflow-x: auto;
+
+    scroll-behavior: smooth;
+
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+
+    padding:
+
+        1rem
+        0
+        2rem;
+}
+
+
+.projects-carousel::-webkit-scrollbar {
+
+    display: none;
 }
 
 
@@ -573,62 +655,72 @@ h2 {
 
 .project-card {
 
-    position: relative;
+    flex:
+
+        0
+        0
+        min(390px,70%);
 
     aspect-ratio: 4 / 3;
+
+    position: relative;
 
     overflow: hidden;
 
     border: 0;
 
+    border-radius: 0;
+
     padding: 0;
+
+    scroll-snap-align: start;
 
     cursor: pointer;
 
+    background:
+        var(--project-colour);
+
+    color:
+        var(--project-text);
+
     text-align: left;
-
-    background: var(--project-colour);
-
-    color: var(--project-text);
 
     font-family: inherit;
 
     transition:
 
         transform
-        0.55s
-        cubic-bezier(0.34,1.56,0.64,1),
-
-        border-radius
         0.5s
         cubic-bezier(0.34,1.56,0.64,1),
 
-        filter
-        0.4s ease;
+        border-radius
+        0.45s
+        cubic-bezier(0.34,1.56,0.64,1);
 }
 
 
 .project-card:hover {
 
     transform:
-        translateY(-8px)
-        rotate(-0.7deg)
-        scale(1.015);
 
-    border-radius: 22px;
+        scale(1.055)
+        translateY(-7px);
+
+    border-radius: 18px;
 }
 
 
-.project-card:nth-child(even):hover {
+.project-card:active {
 
     transform:
-        translateY(-8px)
-        rotate(0.7deg)
-        scale(1.015);
+
+        scale(0.97);
 }
 
 
-/* DECORATIVE CIRCLES */
+/* =========================================================
+   PROJECT CARD GRAPHICS
+   ========================================================= */
 
 .project-card::before {
 
@@ -636,22 +728,28 @@ h2 {
 
     position: absolute;
 
-    width: 65%;
+    width: 72%;
+
     aspect-ratio: 1;
 
     border-radius: 50%;
 
-    right: -22%;
-    top: -28%;
+    right: -25%;
+    top: -30%;
 
     background:
 
-        rgba(249,243,219,0.16);
+        rgba(
+            249,
+            243,
+            219,
+            0.16
+        );
 
     transition:
 
         transform
-        0.7s
+        0.65s
         cubic-bezier(0.16,1,0.3,1);
 }
 
@@ -659,12 +757,11 @@ h2 {
 .project-card:hover::before {
 
     transform:
+
         scale(1.45)
-        translate(-10%,12%);
+        translate(-9%,12%);
 }
 
-
-/* SECOND ABSTRACT SHAPE */
 
 .project-card::after {
 
@@ -673,20 +770,27 @@ h2 {
     position: absolute;
 
     width: 45%;
-    height: 130%;
+    height: 135%;
 
-    left: -10%;
-    bottom: -70%;
+    left: -12%;
+    bottom: -75%;
 
     background:
-        rgba(24,26,77,0.13);
 
-    transform: rotate(35deg);
+        rgba(
+            24,
+            26,
+            77,
+            0.14
+        );
+
+    transform:
+        rotate(35deg);
 
     transition:
 
         transform
-        0.7s
+        0.65s
         cubic-bezier(0.16,1,0.3,1);
 }
 
@@ -694,12 +798,15 @@ h2 {
 .project-card:hover::after {
 
     transform:
+
         rotate(48deg)
         translateY(-12%);
 }
 
 
-/* CARD TEXT */
+/* =========================================================
+   PROJECT CARD CONTENT
+   ========================================================= */
 
 .project-card-inner {
 
@@ -709,7 +816,7 @@ h2 {
 
     z-index: 3;
 
-    padding: 1.4rem;
+    padding: 1.5rem;
 
     display: flex;
 
@@ -721,11 +828,9 @@ h2 {
 
 .project-number {
 
-    font-size: 0.75rem;
+    font-size: 0.7rem;
 
-    letter-spacing: 0.15em;
-
-    opacity: 0.75;
+    letter-spacing: 0.16em;
 }
 
 
@@ -737,17 +842,20 @@ h2 {
         serif;
 
     font-size:
-        clamp(2rem,4vw,3.4rem);
 
-    font-weight: 400;
+        clamp(
+            2.2rem,
+            4vw,
+            3.8rem
+        );
 
-    line-height: 0.95;
+    line-height: 0.93;
 }
 
 
 .project-type {
 
-    font-size: 0.75rem;
+    font-size: 0.7rem;
 
     letter-spacing: 0.15em;
 
@@ -756,71 +864,232 @@ h2 {
 
 
 /* =========================================================
-   SCROLL REVEAL
+   PROJECT ARROWS
    ========================================================= */
 
-.js .reveal {
+.carousel-arrow {
 
-    opacity: 0;
+    position: absolute;
 
-    filter: blur(12px);
+    top: 50%;
+
+    width: 48px;
+    height: 48px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.4rem;
+
+    font-family: Arial, sans-serif;
+
+    background:
+
+        rgba(
+            249,
+            243,
+            219,
+            0.88
+        );
+
+    color: #181A4D;
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
 
     transform:
 
-        translateY(55px)
-
-        scale(0.97);
+        translateY(-50%);
 
     transition:
 
-        opacity
-        0.9s ease,
-
-        filter
-        1s ease,
-
         transform
-        1.15s
-        cubic-bezier(0.16,1.15,0.3,1);
+        0.45s
+        cubic-bezier(0.34,1.56,0.64,1),
+
+        opacity
+        0.3s ease;
 }
 
 
-.js .reveal.visible {
-
-    opacity: 1;
-
-    filter: blur(0);
+.carousel-arrow:hover {
 
     transform:
 
-        translateY(0)
-
-        scale(1);
+        translateY(-50%)
+        scale(1.22);
 }
 
 
-/* PROJECT GRID STAGGER */
+.carousel-arrow:active {
 
-.project-card.reveal:nth-child(1) {
-    transition-delay: 0.05s;
+    transform:
+
+        translateY(-50%)
+        scale(0.9);
 }
 
-.project-card.reveal:nth-child(2) {
-    transition-delay: 0.12s;
+
+.carousel-arrow.left {
+
+    left: -24px;
 }
 
-.project-card.reveal:nth-child(3) {
-    transition-delay: 0.19s;
+
+.carousel-arrow.right {
+
+    right: -24px;
 }
 
-.project-card.reveal:nth-child(4) {
-    transition-delay: 0.26s;
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-section {
+
+    min-height: 92vh;
+
+    padding:
+
+        8rem
+        9%;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.about-layout {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+
+        minmax(260px,0.8fr)
+
+        minmax(400px,1.15fr);
+
+    gap: 8vw;
+
+    position: relative;
+
+    z-index: 10;
+
+    align-items: start;
+}
+
+
+.about-title {
+
+    margin: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+
+        clamp(
+            5rem,
+            10vw,
+            9rem
+        );
+
+    line-height: 0.85;
+
+    font-weight: 400;
+}
+
+
+.about-content {
+
+    max-width: 720px;
+
+    font-size: 1.12rem;
+
+    line-height: 1.8;
+
+    padding-top: 1rem;
 }
 
 
 /* =========================================================
    CONTACT
    ========================================================= */
+
+.contact-section {
+
+    min-height: 80vh;
+
+    padding:
+
+        8rem
+        10%;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.contact-inner {
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+.contact-inner h2 {
+
+    margin:
+
+        0
+        0
+        2rem;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+
+        clamp(
+            4rem,
+            8vw,
+            7rem
+        );
+
+    font-weight: 400;
+}
+
+
+.contact {
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+}
+
 
 .contact a {
 
@@ -830,8 +1099,128 @@ h2 {
 
     transition:
 
+        transform
+        0.45s
+        cubic-bezier(0.34,1.56,0.64,1),
+
         opacity
-        0.3s ease,
+        0.3s ease;
+}
+
+
+.contact a:hover {
+
+    transform:
+
+        translateX(7px)
+        scale(1.06);
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   PROJECT DETAIL DRAWER
+   ========================================================= */
+
+.project-drawer {
+
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width:
+        min(
+            520px,
+            46vw
+        );
+
+    height: 100vh;
+
+    z-index: 5000;
+
+    padding:
+
+        7rem
+        3.5rem
+        3rem;
+
+    background:
+
+        rgba(
+            249,
+            243,
+            219,
+            0.94
+        );
+
+    color: #181A4D;
+
+    backdrop-filter:
+        blur(28px);
+
+    -webkit-backdrop-filter:
+        blur(28px);
+
+    box-shadow:
+
+        -20px
+        0
+        70px
+        rgba(0,0,0,0.16);
+
+    transform:
+
+        translateX(110%);
+
+    filter: blur(8px);
+
+    transition:
+
+        transform
+        0.65s
+        cubic-bezier(0.16,1,0.3,1),
+
+        filter
+        0.6s ease;
+}
+
+
+.project-drawer.open {
+
+    transform:
+        translateX(0);
+
+    filter: blur(0);
+}
+
+
+.drawer-close {
+
+    position: absolute;
+
+    top: 1.6rem;
+    right: 1.6rem;
+
+    width: 44px;
+    height: 44px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background:
+        #181A4D;
+
+    color:
+        #F9F3DB;
+
+    cursor: pointer;
+
+    font-size: 1.4rem;
+
+    transition:
 
         transform
         0.45s
@@ -839,171 +1228,36 @@ h2 {
 }
 
 
-.contact a:hover {
-
-    opacity: 0.65;
-
-    transform:
-        translateX(7px);
-}
-
-
-/* =========================================================
-   PROJECT MODAL
-   ========================================================= */
-
-.project-modal {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 5000;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    padding: 2rem;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-    background:
-        rgba(15,15,25,0.25);
-
-    backdrop-filter:
-        blur(25px);
-
-    -webkit-backdrop-filter:
-        blur(25px);
-
-    transition:
-
-        opacity
-        0.4s ease,
-
-        visibility
-        0.4s ease;
-}
-
-
-.project-modal.open {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-}
-
-
-.modal-card {
-
-    width: min(700px,100%);
-
-    max-height: 85vh;
-
-    overflow-y: auto;
-
-    position: relative;
-
-    padding:
-
-        clamp(2rem,6vw,5rem);
-
-    background:
-        #F9F3DB;
-
-    color:
-        #181A4D;
-
-    border-radius:
-        24px;
+.drawer-close:hover {
 
     transform:
 
-        translateY(35px)
-
-        scale(0.94);
-
-    filter: blur(10px);
-
-    transition:
-
-        transform
-        0.65s
-        cubic-bezier(0.34,1.56,0.64,1),
-
-        filter
-        0.55s ease;
+        scale(1.15)
+        rotate(90deg);
 }
 
 
-.project-modal.open .modal-card {
-
-    transform:
-
-        translateY(0)
-
-        scale(1);
-
-    filter: blur(0);
-}
-
-
-.modal-close {
-
-    position: absolute;
-
-    top: 1.4rem;
-
-    right: 1.4rem;
-
-    border: 0;
-
-    background: transparent;
-
-    cursor: pointer;
-
-    color: #181A4D;
-
-    font-size: 1.6rem;
-
-    transition:
-        transform
-        0.35s
-        cubic-bezier(0.34,1.56,0.64,1);
-}
-
-
-.modal-close:hover {
-
-    transform:
-        rotate(90deg)
-        scale(1.15);
-}
-
-
-.modal-number {
+.drawer-number {
 
     text-transform: uppercase;
 
-    letter-spacing: 0.15em;
+    letter-spacing: 0.16em;
 
     font-size: 0.75rem;
 
-    margin-bottom: 1.5rem;
-
     opacity: 0.6;
+
+    margin-bottom: 1.5rem;
 }
 
 
-.modal-title {
+.drawer-title {
+
+    margin:
+
+        0
+        0
+        2rem;
 
     font-family:
         Georgia,
@@ -1011,26 +1265,22 @@ h2 {
         serif;
 
     font-size:
-        clamp(3rem,8vw,5.5rem);
 
-    line-height: 0.95;
+        clamp(
+            3rem,
+            6vw,
+            5rem
+        );
 
-    margin:
-
-        0
-        0
-        2rem
-        0;
+    line-height: 0.92;
 
     font-weight: 400;
 }
 
 
-.modal-description {
+.drawer-description {
 
-    max-width: 550px;
-
-    line-height: 1.7;
+    line-height: 1.8;
 
     font-size: 1.05rem;
 }
@@ -1042,17 +1292,17 @@ h2 {
 
 footer {
 
+    background:
+        #181A4D;
+
+    color:
+        #F9F3DB;
+
     text-align: center;
 
     padding: 2rem;
 
-    background: #181A4D;
-
-    color: #F9F3DB;
-
-    font-size: 0.9rem;
-
-    opacity: 1;
+    font-size: 0.85rem;
 }
 
 
@@ -1065,43 +1315,63 @@ footer {
 
     .home-button {
 
-        top: 1rem;
-        left: 1rem;
+        top: 0.8rem;
+        left: 0.8rem;
+
+        height: 38px;
+
+        min-width: 52px;
     }
 
 
     .language-switch {
 
-        top: 1rem;
-        right: 1rem;
+        top: 0.8rem;
+        right: 0.8rem;
 
-        font-size: 0.72rem;
+        height: 38px;
+
+        font-size: 0.68rem;
     }
 
 
     .language-switch button {
 
-        font-size: 0.72rem;
+        font-size: 0.68rem;
+    }
 
-        padding: 0.1rem;
+
+    .hero {
+
+        min-height: 78vh;
+
+        padding:
+
+            6rem
+            1.5rem
+            4rem;
     }
 
 
     h1 {
 
-        font-size: 2.7rem;
+        font-size:
+
+            clamp(
+                3.2rem,
+                15vw,
+                5rem
+            );
     }
 
 
     .subtitle {
 
-        font-size: 0.7rem;
+        font-size: 0.68rem;
 
         letter-spacing: 0.18em;
 
-        margin-bottom: 3rem;
-
-        padding: 0 1rem;
+        margin-bottom: 2.8rem;
     }
 
 
@@ -1115,16 +1385,7 @@ footer {
 
     nav a {
 
-        font-size: 0.8rem;
-    }
-
-
-    .standard-section {
-
-        padding:
-
-            7rem
-            8%;
+        font-size: 0.76rem;
     }
 
 
@@ -1133,7 +1394,7 @@ footer {
         padding:
 
             7rem
-            6%;
+            7%;
     }
 
 
@@ -1148,48 +1409,108 @@ footer {
     .projects-intro h2 {
 
         font-size:
-            clamp(4rem,20vw,6rem);
 
-        margin-bottom: 1.5rem;
-    }
-
-
-    .project-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 1rem;
+            clamp(
+                3.5rem,
+                17vw,
+                5rem
+            );
     }
 
 
     .project-card {
 
-        aspect-ratio: 4 / 3;
+        flex:
+
+            0
+            0
+            86%;
+
+        min-width: 0;
     }
 
 
-    .project-title {
+    .carousel-arrow {
 
-        font-size: 2.6rem;
+        width: 42px;
+        height: 42px;
+
+        font-size: 1.2rem;
     }
 
 
-    .colour-section:not(:first-of-type)::before {
+    .carousel-arrow.left {
 
-        height: 50px;
+        left: -10px;
+    }
 
-        backdrop-filter:
-            blur(10px);
 
-        -webkit-backdrop-filter:
-            blur(10px);
+    .carousel-arrow.right {
+
+        right: -10px;
+    }
+
+
+    .about-section {
+
+        padding:
+
+            7rem
+            8%;
+    }
+
+
+    .about-layout {
+
+        grid-template-columns: 1fr;
+
+        gap: 2.5rem;
+    }
+
+
+    .about-title {
+
+        font-size:
+
+            clamp(
+                4.5rem,
+                22vw,
+                7rem
+            );
+    }
+
+
+    .about-content {
+
+        padding-top: 0;
+    }
+
+
+    .contact-section {
+
+        padding:
+
+            7rem
+            8%;
+    }
+
+
+    .project-drawer {
+
+        width: 100%;
+
+        padding:
+
+            6rem
+            2rem
+            3rem;
     }
 
 }
 
 
 /* =========================================================
-   ACCESSIBILITY
+   REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1206,8 +1527,6 @@ footer {
         opacity: 1;
 
         filter: none;
-
-        transform: none;
 
         animation: none;
     }
@@ -1226,14 +1545,8 @@ footer {
 
 
     .project-card,
-    nav a,
-    .home-button {
-
-        transition: none;
-    }
-
-
-    .modal-card {
+    .carousel-arrow,
+    nav a {
 
         transition: none;
     }
@@ -1249,49 +1562,54 @@ footer {
 
 
 <!-- =========================================================
-     FIXED HOME BUTTON
+     FIXED UI
      ========================================================= -->
 
-<a href="#home"
-   class="home-button">
-    SF.
+<a
+href="#home"
+class="home-button">
+
+SF.
+
 </a>
 
 
-<!-- =========================================================
-     LANGUAGE SWITCH
-     ========================================================= -->
-
 <div class="language-switch">
 
-<button
-    onclick="setLanguage('en')"
-    id="btn-en"
-    class="active">
 
-    EN
+<button
+onclick="setLanguage('en')"
+id="btn-en"
+class="active">
+
+EN
 
 </button>
+
 
 /
 
-<button
-    onclick="setLanguage('fr')"
-    id="btn-fr">
 
-    FR
+<button
+onclick="setLanguage('fr')"
+id="btn-fr">
+
+FR
 
 </button>
+
 
 /
 
-<button
-    onclick="setLanguage('sv')"
-    id="btn-sv">
 
-    SV
+<button
+onclick="setLanguage('sv')"
+id="btn-sv">
+
+SV
 
 </button>
+
 
 </div>
 
@@ -1301,26 +1619,28 @@ footer {
      ========================================================= -->
 
 <section
-    id="home"
-    class="hero colour-section">
+id="home"
+class="hero colour-section">
 
 
 <div class="hero-inner">
 
 
 <h1>
+
 seb feasey
+
 </h1>
 
 
 <div
-    class="subtitle"
+class="subtitle"
 
-    data-en="graphic design & editorial design student"
+data-en="graphic design & editorial design student"
 
-    data-fr="étudiant en graphisme & design éditorial"
+data-fr="étudiant en graphisme & design éditorial"
 
-    data-sv="student inom grafisk design & redaktionell design">
+data-sv="student inom grafisk design & redaktionell design">
 
 graphic design & editorial design student
 
@@ -1379,14 +1699,14 @@ contact
      ========================================================= -->
 
 <section
-    id="projects"
-    class="projects-section colour-section">
+id="projects"
+class="projects-section colour-section">
 
 
 <div class="projects-layout">
 
 
-<!-- LEFT SIDE -->
+<!-- LEFT -->
 
 <div class="projects-intro reveal">
 
@@ -1399,21 +1719,20 @@ data-fr="Projets sélectionnés."
 
 data-sv="Utvalda projekt.">
 
-Selected<br>
-work.
+Selected<br>work.
 
 </h2>
 
 
 <p
 
-data-en="A selection of editorial, graphic, photographic and typographic projects. Click on a project to discover more."
+data-en="A selection of editorial, graphic, photographic and typographic projects. Click a project to discover more."
 
 data-fr="Une sélection de projets éditoriaux, graphiques, photographiques et typographiques. Cliquez sur un projet pour en découvrir davantage."
 
 data-sv="Ett urval av redaktionella, grafiska, fotografiska och typografiska projekt. Klicka på ett projekt för att se mer.">
 
-A selection of editorial, graphic, photographic and typographic projects. Click on a project to discover more.
+A selection of editorial, graphic, photographic and typographic projects. Click a project to discover more.
 
 </p>
 
@@ -1421,13 +1740,28 @@ A selection of editorial, graphic, photographic and typographic projects. Click 
 </div>
 
 
-<!-- PROJECT GRID -->
+<!-- RIGHT -->
 
-<div class="project-grid">
+<div class="projects-carousel-wrapper reveal">
 
 
 <button
-class="project-card reveal"
+class="carousel-arrow left"
+id="projects-left"
+aria-label="Previous projects">
+
+←
+
+</button>
+
+
+<div
+class="projects-carousel"
+id="projects-carousel">
+
+
+<button
+class="project-card"
 
 data-project="editorial"
 
@@ -1441,7 +1775,9 @@ style="
 
 
 <span class="project-number">
+
 01
+
 </span>
 
 
@@ -1449,7 +1785,9 @@ style="
 class="project-title"
 
 data-en="Editorial"
+
 data-fr="Éditorial"
+
 data-sv="Redaktionellt">
 
 Editorial
@@ -1470,7 +1808,7 @@ DN MADE / PRINT
 
 
 <button
-class="project-card reveal"
+class="project-card"
 
 data-project="photography"
 
@@ -1484,7 +1822,9 @@ style="
 
 
 <span class="project-number">
+
 02
+
 </span>
 
 
@@ -1492,7 +1832,9 @@ style="
 class="project-title"
 
 data-en="Photography"
+
 data-fr="Photographie"
+
 data-sv="Fotografi">
 
 Photography
@@ -1513,12 +1855,12 @@ IMAGE / SERIES
 
 
 <button
-class="project-card reveal"
+class="project-card"
 
 data-project="posters"
 
 style="
---project-colour:#CAC307;
+--project-colour:#FFAE00;
 --project-text:#181A4D;
 ">
 
@@ -1527,7 +1869,9 @@ style="
 
 
 <span class="project-number">
+
 03
+
 </span>
 
 
@@ -1535,7 +1879,9 @@ style="
 class="project-title"
 
 data-en="Posters"
+
 data-fr="Affiches"
+
 data-sv="Affischer">
 
 Posters
@@ -1556,7 +1902,7 @@ PRINT / GRAPHIC
 
 
 <button
-class="project-card reveal"
+class="project-card"
 
 data-project="typography"
 
@@ -1570,7 +1916,9 @@ style="
 
 
 <span class="project-number">
+
 04
+
 </span>
 
 
@@ -1578,7 +1926,9 @@ style="
 class="project-title"
 
 data-en="Typography"
+
 data-fr="Typographie"
+
 data-sv="Typografi">
 
 Typography
@@ -1598,6 +1948,66 @@ TYPE / EXPERIMENT
 </button>
 
 
+<button
+class="project-card"
+
+data-project="experiments"
+
+style="
+--project-colour:#E990A2;
+--project-text:#181A4D;
+">
+
+
+<div class="project-card-inner">
+
+
+<span class="project-number">
+
+05
+
+</span>
+
+
+<span
+class="project-title"
+
+data-en="Experiments"
+
+data-fr="Expérimentations"
+
+data-sv="Experiment">
+
+Experiments
+
+</span>
+
+
+<span class="project-type">
+
+PROCESS / PLAY
+
+</span>
+
+
+</div>
+
+</button>
+
+
+</div>
+
+
+<button
+class="carousel-arrow right"
+id="projects-right"
+aria-label="Next projects">
+
+→
+
+</button>
+
+
 </div>
 
 
@@ -1612,17 +2022,19 @@ TYPE / EXPERIMENT
 
 <section
 id="about"
-class="standard-section colour-section">
+class="about-section colour-section">
 
 
-<div class="standard-inner">
+<div class="about-layout">
 
 
 <h2
-class="reveal"
+class="about-title reveal"
 
 data-en="About"
+
 data-fr="À propos"
+
 data-sv="Om mig">
 
 About
@@ -1630,7 +2042,8 @@ About
 </h2>
 
 
-<div class="content reveal">
+<div
+class="about-content reveal">
 
 
 <p
@@ -1687,6 +2100,7 @@ This website is a space where I'll be sharing my projects, experiments and creat
 
 </div>
 
+
 </div>
 
 </section>
@@ -1698,17 +2112,19 @@ This website is a space where I'll be sharing my projects, experiments and creat
 
 <section
 id="contact"
-class="standard-section colour-section">
+class="contact-section colour-section">
 
 
-<div class="standard-inner">
+<div class="contact-inner">
 
 
 <h2
 class="reveal"
 
 data-en="Contact"
+
 data-fr="Contact"
+
 data-sv="Kontakt">
 
 Contact
@@ -1716,7 +2132,7 @@ Contact
 </h2>
 
 
-<div class="content contact reveal">
+<div class="contact reveal">
 
 
 <p>
@@ -1737,11 +2153,8 @@ feaseysebastien@gmail.com
 Instagram:
 
 <a
-
 href="https://instagram.com/sebfeasey"
-
 target="_blank"
-
 rel="noopener noreferrer">
 
 @sebfeasey
@@ -1752,6 +2165,7 @@ rel="noopener noreferrer">
 
 
 </div>
+
 
 </div>
 
@@ -1770,63 +2184,57 @@ rel="noopener noreferrer">
 
 
 <!-- =========================================================
-     PROJECT MODAL
+     PROJECT DRAWER
      ========================================================= -->
 
-<div
-class="project-modal"
-id="project-modal"
-
+<aside
+class="project-drawer"
+id="project-drawer"
 aria-hidden="true">
 
 
-<div class="modal-card">
-
-
 <button
-class="modal-close"
-id="modal-close"
+class="drawer-close"
+id="drawer-close"
 aria-label="Close project">
 
 ×
-
 
 </button>
 
 
 <div
-class="modal-number"
-id="modal-number">
+class="drawer-number"
+id="drawer-number">
 
-PROJECT
+PROJECT 01
 
 </div>
 
 
 <h3
-class="modal-title"
-id="modal-title">
+class="drawer-title"
+id="drawer-title">
 
-Project
+Editorial
 
 </h3>
 
 
 <div
-class="modal-description"
-id="modal-description">
+class="drawer-description"
+id="drawer-description">
 
-Project information will appear here.
-
-</div>
-
+Project information.
 
 </div>
 
-</div>
+
+</aside>
 
 
 <script>
+
 
 /* =========================================================
    LANGUAGE
@@ -1841,11 +2249,9 @@ function setLanguage(language) {
 currentLanguage = language;
 
 
-const elements =
-document.querySelectorAll("[data-en]");
-
-
-elements.forEach(element => {
+document
+.querySelectorAll("[data-en]")
+.forEach(element => {
 
 
 const translation =
@@ -1867,8 +2273,7 @@ translation;
 
 document
 .getElementById("btn-en")
-.classList
-.toggle(
+.classList.toggle(
 "active",
 language === "en"
 );
@@ -1876,8 +2281,7 @@ language === "en"
 
 document
 .getElementById("btn-fr")
-.classList
-.toggle(
+.classList.toggle(
 "active",
 language === "fr"
 );
@@ -1885,8 +2289,7 @@ language === "fr"
 
 document
 .getElementById("btn-sv")
-.classList
-.toggle(
+.classList.toggle(
 "active",
 language === "sv"
 );
@@ -1899,20 +2302,26 @@ language;
 
 
 /* =========================================================
-   YOUR COLOUR PALETTE
+   CURATED SECTION COLOURS
    ========================================================= */
 
-const palette = [
+/*
+
+Only four background colours are used.
+
+They are deliberately from different colour
+families so adjacent blocks never feel like
+two almost-identical colours fighting.
+
+Their ORDER changes on every refresh.
+
+*/
+
+const sectionColours = [
 
 
 {
 background: "#FF340C",
-text: "#F9F3DB"
-},
-
-
-{
-background: "#E0070F",
 text: "#F9F3DB"
 },
 
@@ -1924,43 +2333,13 @@ text: "#F9F3DB"
 
 
 {
-background: "#E990A2",
-text: "#181A4D"
-},
-
-
-{
-background: "#FFAE00",
-text: "#181A4D"
-},
-
-
-{
-background: "#CAC307",
-text: "#181A4D"
-},
-
-
-{
 background: "#0F4A42",
 text: "#F9F3DB"
 },
 
 
 {
-background: "#181A4D",
-text: "#F9F3DB"
-},
-
-
-{
 background: "#273287",
-text: "#F9F3DB"
-},
-
-
-{
-background: "#441B07",
 text: "#F9F3DB"
 }
 
@@ -1969,7 +2348,7 @@ text: "#F9F3DB"
 
 
 /* =========================================================
-   SHUFFLE PALETTE
+   SHUFFLE
    ========================================================= */
 
 function shuffle(array) {
@@ -2010,25 +2389,25 @@ return copy;
 
 
 /* =========================================================
-   ASSIGN ONE SOLID COLOUR PER SECTION
+   APPLY RANDOM ORDER
    ========================================================= */
 
-const colourSections =
+const sections =
 document.querySelectorAll(
 ".colour-section"
 );
 
 
-const randomPalette =
-shuffle(palette);
+const shuffledColours =
+shuffle(sectionColours);
 
 
-colourSections.forEach(
+sections.forEach(
 (section,index) => {
 
 
 const colour =
-randomPalette[index];
+shuffledColours[index];
 
 
 section.style.setProperty(
@@ -2051,29 +2430,33 @@ colour.text;
 
 
 /* =========================================================
-   UPDATE FIXED UI COLOUR
+   FIXED UI COLOUR
    ========================================================= */
 
 function updateUIColour(section) {
 
 
-const colour =
-section.dataset.textColour;
-
-
 document.documentElement
 .style
 .setProperty(
+
 "--ui-colour",
-colour
+
+section.dataset.textColour
+
 );
 
 
 }
 
 
+updateUIColour(
+document.querySelector("#home")
+);
+
+
 /* =========================================================
-   SECTION OBSERVER
+   TRACK CURRENT SECTION
    ========================================================= */
 
 const sectionObserver =
@@ -2086,9 +2469,7 @@ entries => {
 entries.forEach(entry => {
 
 
-if (
-entry.isIntersecting
-) {
+if (entry.isIntersecting) {
 
 
 updateUIColour(
@@ -2108,7 +2489,7 @@ entry.target
 {
 
 rootMargin:
-"-40% 0px -40% 0px",
+"-42% 0px -42% 0px",
 
 threshold: 0
 
@@ -2118,7 +2499,7 @@ threshold: 0
 );
 
 
-colourSections.forEach(section => {
+sections.forEach(section => {
 
 sectionObserver.observe(section);
 
@@ -2126,16 +2507,7 @@ sectionObserver.observe(section);
 
 
 /* =========================================================
-   SET INITIAL UI COLOUR
-   ========================================================= */
-
-updateUIColour(
-document.querySelector("#home")
-);
-
-
-/* =========================================================
-   REVEAL ANIMATION
+   REPEATING REVEAL ANIMATIONS
    ========================================================= */
 
 const revealElements =
@@ -2148,15 +2520,13 @@ const revealObserver =
 new IntersectionObserver(
 
 
-(entries,observer) => {
+entries => {
 
 
 entries.forEach(entry => {
 
 
-if (
-entry.isIntersecting
-) {
+if (entry.isIntersecting) {
 
 
 entry.target
@@ -2164,10 +2534,12 @@ entry.target
 .add("visible");
 
 
-observer
-.unobserve(
+} else {
+
+
 entry.target
-);
+.classList
+.remove("visible");
 
 
 }
@@ -2181,10 +2553,10 @@ entry.target
 
 {
 
-threshold: 0.12,
+threshold: 0.18,
 
 rootMargin:
-"0px 0px -7% 0px"
+"0px 0px -8% 0px"
 
 }
 
@@ -2195,6 +2567,83 @@ rootMargin:
 revealElements.forEach(element => {
 
 revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   PROJECT CAROUSEL
+   ========================================================= */
+
+const carousel =
+document.getElementById(
+"projects-carousel"
+);
+
+
+const leftArrow =
+document.getElementById(
+"projects-left"
+);
+
+
+const rightArrow =
+document.getElementById(
+"projects-right"
+);
+
+
+function carouselAmount() {
+
+
+const card =
+carousel.querySelector(
+".project-card"
+);
+
+
+if (!card) return 400;
+
+
+return card.offsetWidth + 20;
+
+}
+
+
+leftArrow.addEventListener(
+"click",
+() => {
+
+
+carousel.scrollBy({
+
+left:
+-carouselAmount(),
+
+behavior:
+"smooth"
+
+});
+
+
+});
+
+
+rightArrow.addEventListener(
+"click",
+() => {
+
+
+carousel.scrollBy({
+
+left:
+carouselAmount(),
+
+behavior:
+"smooth"
+
+});
+
 
 });
 
@@ -2223,13 +2672,13 @@ sv: "Redaktionellt"
 description: {
 
 en:
-"A selection of editorial projects exploring publication design, layout, typography and visual storytelling. Full projects will be added here soon.",
+"Editorial projects exploring publication design, layout, typography and visual storytelling. This area can eventually contain images, process work and the full project story.",
 
 fr:
-"Une sélection de projets éditoriaux explorant la mise en page, la typographie, la publication et la narration visuelle. Les projets complets seront bientôt ajoutés ici.",
+"Des projets éditoriaux explorant la mise en page, la typographie, la publication et la narration visuelle. Cet espace pourra ensuite accueillir des images, le processus et l’histoire complète du projet.",
 
 sv:
-"Ett urval av redaktionella projekt som utforskar publikation, layout, typografi och visuellt berättande. Fullständiga projekt kommer snart."
+"Redaktionella projekt som utforskar publikation, layout, typografi och visuellt berättande."
 
 }
 
@@ -2253,13 +2702,13 @@ sv: "Fotografi"
 description: {
 
 en:
-"Photographic series, observations and experiments exploring places, people, objects and visual atmosphere.",
+"Photographic series and visual observations exploring places, people, objects and atmosphere.",
 
 fr:
-"Séries photographiques, observations et expérimentations autour des lieux, des personnes, des objets et des atmosphères visuelles.",
+"Séries photographiques et observations visuelles autour des lieux, des personnes, des objets et des atmosphères.",
 
 sv:
-"Fotografiska serier, observationer och experiment kring platser, människor, föremål och visuella atmosfärer."
+"Fotografiska serier och visuella observationer kring platser, människor, föremål och atmosfär."
 
 }
 
@@ -2283,13 +2732,13 @@ sv: "Affischer"
 description: {
 
 en:
-"Poster projects exploring composition, colour, image and typography through cultural, fictional and experimental briefs.",
+"Poster design exploring typography, composition, image and colour through cultural and experimental briefs.",
 
 fr:
-"Des projets d’affiches explorant la composition, la couleur, l’image et la typographie à travers des sujets culturels, fictifs et expérimentaux.",
+"Des affiches explorant la typographie, la composition, l’image et la couleur à travers des sujets culturels et expérimentaux.",
 
 sv:
-"Affischprojekt som utforskar komposition, färg, bild och typografi genom kulturella, fiktiva och experimentella projekt."
+"Affischdesign som utforskar typografi, komposition, bild och färg."
 
 }
 
@@ -2313,13 +2762,43 @@ sv: "Typografi"
 description: {
 
 en:
-"Typographic studies, type experiments and letterform projects looking at how type can carry personality, rhythm and meaning.",
+"Type experiments and letterform projects exploring rhythm, personality and how typography can communicate beyond words.",
 
 fr:
-"Études typographiques, expérimentations et projets de formes de lettres explorant la personnalité, le rythme et le sens de la typographie.",
+"Expérimentations typographiques et projets de lettres explorant le rythme, la personnalité et la manière dont la typographie communique au-delà des mots.",
 
 sv:
-"Typografiska studier, experiment och bokstavsprojekt som undersöker hur typografi kan bära personlighet, rytm och mening."
+"Typografiska experiment och bokstavsprojekt kring rytm, personlighet och kommunikation."
+
+}
+
+},
+
+
+experiments: {
+
+number: "05",
+
+title: {
+
+en: "Experiments",
+
+fr: "Expérimentations",
+
+sv: "Experiment"
+
+},
+
+description: {
+
+en:
+"Personal experiments, unfinished ideas, visual tests and the things that don't quite fit into a single category.",
+
+fr:
+"Expérimentations personnelles, idées en cours, tests visuels et projets qui ne rentrent pas vraiment dans une seule catégorie.",
+
+sv:
+"Personliga experiment, visuella tester och projekt som inte riktigt passar i en enda kategori."
 
 }
 
@@ -2330,43 +2809,41 @@ sv:
 
 
 /* =========================================================
-   MODAL
+   DRAWER
    ========================================================= */
 
-const modal =
+const drawer =
 document.getElementById(
-"project-modal"
+"project-drawer"
 );
 
 
-const modalTitle =
+const drawerClose =
 document.getElementById(
-"modal-title"
+"drawer-close"
 );
 
 
-const modalNumber =
+const drawerNumber =
 document.getElementById(
-"modal-number"
+"drawer-number"
 );
 
 
-const modalDescription =
+const drawerTitle =
 document.getElementById(
-"modal-description"
+"drawer-title"
 );
 
 
-const modalClose =
+const drawerDescription =
 document.getElementById(
-"modal-close"
+"drawer-description"
 );
 
 
 document
-.querySelectorAll(
-".project-card"
-)
+.querySelectorAll(".project-card")
 .forEach(card => {
 
 
@@ -2383,96 +2860,64 @@ const project =
 projectInfo[key];
 
 
-modalNumber.textContent =
+drawerNumber.textContent =
 "PROJECT " +
 project.number;
 
 
-modalTitle.textContent =
+drawerTitle.textContent =
 project.title[
 currentLanguage
 ];
 
 
-modalDescription.textContent =
+drawerDescription.textContent =
 project.description[
 currentLanguage
 ];
 
 
-modal.classList.add(
+drawer.classList.add(
 "open"
 );
 
 
-modal.setAttribute(
+drawer.setAttribute(
 "aria-hidden",
 "false"
 );
 
 
-document.body.style.overflow =
-"hidden";
-
-
 });
 
 
 });
 
 
-function closeModal() {
+function closeDrawer() {
 
 
-modal
-.classList
-.remove(
+drawer.classList.remove(
 "open"
 );
 
 
-modal.setAttribute(
+drawer.setAttribute(
 "aria-hidden",
 "true"
 );
 
 
-document.body.style.overflow =
-"";
-
-
 }
 
 
-modalClose
-.addEventListener(
+drawerClose.addEventListener(
 "click",
-closeModal
+closeDrawer
 );
 
 
-modal
-.addEventListener(
-"click",
-event => {
-
-
-if (
-event.target === modal
-) {
-
-
-closeModal();
-
-
-}
-
-
-});
-
-
-document
-.addEventListener(
+document.addEventListener(
 "keydown",
 event => {
 
@@ -2482,7 +2927,7 @@ event.key === "Escape"
 ) {
 
 
-closeModal();
+closeDrawer();
 
 
 }
