@@ -43,12 +43,14 @@ html {
     scroll-behavior: smooth;
 
     /*
-    Gentle snapping rather than mandatory snapping.
-    This means the browser helps the sections settle
-    into place without taking control away from you.
+    Gentle assistance only.
+    The browser can settle near a section,
+    but normal scrolling still feels free.
     */
 
     scroll-snap-type: y proximity;
+
+    scroll-padding-top: 0;
 
 }
 
@@ -63,6 +65,72 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 
     overflow-x: hidden;
+
+}
+
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+   ========================================================= */
+
+/* Firefox */
+
+html {
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        var(--ui-colour)
+        rgba(24,26,77,0.18);
+
+}
+
+
+/* Chrome / Edge / Safari */
+
+::-webkit-scrollbar {
+
+    width: 11px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        rgba(24,26,77,0.14);
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        var(--ui-colour);
+
+    border-radius: 999px;
+
+    border:
+        3px solid
+        transparent;
+
+    background-clip:
+        padding-box;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        var(--ui-colour);
+
+    border:
+        2px solid
+        transparent;
+
+    background-clip:
+        padding-box;
 
 }
 
@@ -298,7 +366,7 @@ body {
     left: 0;
 
     width: 100%;
-    height: 22px;
+    height: 18px;
 
     z-index: 5;
 
@@ -308,12 +376,12 @@ body {
 
         linear-gradient(
             to bottom,
-            rgba(249,243,219,0.035),
+            rgba(249,243,219,0.025),
             transparent
         );
 
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 
 }
 
@@ -454,8 +522,6 @@ h1 {
 }
 
 
-/* individual letters */
-
 .name-letter {
 
     display: inline-block;
@@ -478,15 +544,13 @@ h1 {
 }
 
 
-/* little playful movement */
-
 .name-letter:hover {
 
     transform:
 
         translateY(-12px)
         rotate(-5deg)
-        scale(1.16, 1.06);
+        scale(1.16,1.06);
 
 }
 
@@ -497,7 +561,7 @@ h1 {
 
         translateY(-10px)
         rotate(5deg)
-        scale(1.12, 1.10);
+        scale(1.12,1.10);
 
 }
 
@@ -725,20 +789,10 @@ nav a:hover {
 
     min-width: 0;
 
-    /*
-    Gives the carousel a little breathing room
-    from the title.
-    */
-
     margin-left: 1.3rem;
 
 }
 
-
-/*
-The small inner mask gives the left edge
-a slightly cropped / window-like feeling.
-*/
 
 .projects-carousel-mask {
 
@@ -763,7 +817,7 @@ a slightly cropped / window-like feeling.
 
     scroll-behavior: smooth;
 
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
 
     scrollbar-width: none;
 
@@ -782,7 +836,7 @@ a slightly cropped / window-like feeling.
 
 
 /* =========================================================
-   SIMPLE PROJECT BOX
+   PROJECT BOX
    ========================================================= */
 
 .project-card {
@@ -927,12 +981,12 @@ a slightly cropped / window-like feeling.
 
     top: 50%;
 
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
 
     border:
         1px solid
-        rgba(249,243,219,0.34);
+        rgba(249,243,219,0.25);
 
     border-radius: 50%;
 
@@ -945,19 +999,19 @@ a slightly cropped / window-like feeling.
     align-items: center;
     justify-content: center;
 
-    font-size: 1rem;
+    font-size: 0.95rem;
 
     line-height: 1;
 
     background:
-        rgba(249,243,219,0.12);
+        rgba(249,243,219,0.08);
 
     color: inherit;
 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 
-    opacity: 0.72;
+    opacity: 0.62;
 
     transform:
         translateY(-50%);
@@ -965,28 +1019,28 @@ a slightly cropped / window-like feeling.
     transition:
 
         transform
-        0.45s
+        0.42s
         cubic-bezier(0.34,1.56,0.64,1),
 
         opacity
-        0.3s ease,
+        0.25s ease,
 
         background
-        0.3s ease;
+        0.25s ease;
 
 }
 
 
 .carousel-arrow:hover {
 
-    opacity: 1;
+    opacity: 0.95;
 
     background:
-        rgba(249,243,219,0.20);
+        rgba(249,243,219,0.14);
 
     transform:
         translateY(-50%)
-        scale(1.10);
+        scale(1.08);
 
 }
 
@@ -995,21 +1049,21 @@ a slightly cropped / window-like feeling.
 
     transform:
         translateY(-50%)
-        scale(0.94);
+        scale(0.96);
 
 }
 
 
 .carousel-arrow.left {
 
-    left: -6px;
+    left: -4px;
 
 }
 
 
 .carousel-arrow.right {
 
-    right: -6px;
+    right: -4px;
 
 }
 
@@ -1170,7 +1224,7 @@ a slightly cropped / window-like feeling.
 
 
 /* =========================================================
-   FOOTER — SAME CONTACT BLOCK
+   FOOTER
    ========================================================= */
 
 footer {
@@ -1358,10 +1412,6 @@ footer {
 
     html {
 
-        /*
-        Still helpful on mobile, but not forceful.
-        */
-
         scroll-snap-type: y proximity;
 
     }
@@ -1535,22 +1585,22 @@ footer {
 
     .carousel-arrow {
 
-        width: 36px;
-        height: 36px;
+        width: 34px;
+        height: 34px;
 
     }
 
 
     .carousel-arrow.left {
 
-        left: -5px;
+        left: -4px;
 
     }
 
 
     .carousel-arrow.right {
 
-        right: -5px;
+        right: -4px;
 
     }
 
@@ -1827,8 +1877,6 @@ class="projects-section colour-section">
 <div class="projects-layout">
 
 
-<!-- PROJECT TITLE -->
-
 <div class="projects-intro reveal">
 
 
@@ -1861,8 +1909,6 @@ A selection of editorial, graphic, photographic and typographic projects. Click 
 
 </div>
 
-
-<!-- PROJECT CAROUSEL -->
 
 <div class="projects-carousel-wrapper reveal">
 
@@ -2183,7 +2229,7 @@ This website is a space where I'll be sharing my projects, experiments and creat
 
 
 <!-- =========================================================
-     CONTACT + FOOTER
+     CONTACT
      ========================================================= -->
 
 <section
@@ -2326,17 +2372,22 @@ const nameText =
 "seb feasey";
 
 
-animatedName.innerHTML = "";
+animatedName.innerHTML =
+"";
 
 
 [...nameText].forEach(character => {
 
 
-if (character === " ") {
+if (
+character === " "
+) {
 
 
 const space =
-document.createElement("span");
+document.createElement(
+"span"
+);
 
 
 space.className =
@@ -2356,7 +2407,9 @@ space
 
 
 const letter =
-document.createElement("span");
+document.createElement(
+"span"
+);
 
 
 letter.className =
@@ -2522,6 +2575,7 @@ copy[i]
 
 return copy;
 
+
 }
 
 
@@ -2631,7 +2685,7 @@ entry.target
 {
 
 rootMargin:
-"-42% 0px -42% 0px",
+"-44% 0px -44% 0px",
 
 threshold: 0
 
@@ -2701,10 +2755,10 @@ entry.target
 
 {
 
-threshold: 0.18,
+threshold: 0.16,
 
 rootMargin:
-"0px 0px -8% 0px"
+"0px 0px -6% 0px"
 
 }
 
@@ -2724,20 +2778,12 @@ element
 
 
 /* =========================================================
-   PROJECT CAROUSEL
+   TRUE INFINITE PROJECT CAROUSEL
    ========================================================= */
 
 const carousel =
 document.getElementById(
 "projects-carousel"
-);
-
-
-const projectCards =
-Array.from(
-carousel.querySelectorAll(
-".project-card"
-)
 );
 
 
@@ -2753,116 +2799,211 @@ document.getElementById(
 );
 
 
-let currentProjectIndex =
-0;
+/*
+Take the original cards before cloning.
+*/
 
-
-/* =========================================================
-   FIND NEAREST CURRENT CARD
-   ========================================================= */
-
-function updateCurrentProjectIndex() {
-
-
-let closestIndex =
-0;
-
-
-let closestDistance =
-Infinity;
-
-
-projectCards.forEach(
-(card,index) => {
-
-
-const distance =
-Math.abs(
-card.offsetLeft -
-carousel.scrollLeft
+const originalCards =
+Array.from(
+carousel.querySelectorAll(
+".project-card"
+)
 );
 
 
-if (
-distance <
-closestDistance
-) {
+const totalOriginal =
+originalCards.length;
 
 
-closestDistance =
-distance;
+/*
+Clone all cards once before and once after.
+
+Structure becomes:
+
+01 02 03 04 05
+01 02 03 04 05
+01 02 03 04 05
+
+The visitor begins in the middle set.
+When they reach either cloned set,
+the scroll position silently moves back
+to the identical card in the middle.
+*/
+
+originalCards.forEach(card => {
 
 
-closestIndex =
-index;
+const clone =
+card.cloneNode(true);
 
 
-}
+clone.classList.add(
+"carousel-clone"
+);
+
+
+carousel.appendChild(
+clone
+);
 
 
 });
 
 
-currentProjectIndex =
-closestIndex;
+[...originalCards]
+.reverse()
+.forEach(card => {
+
+
+const clone =
+card.cloneNode(true);
+
+
+clone.classList.add(
+"carousel-clone"
+);
+
+
+carousel.insertBefore(
+clone,
+carousel.firstChild
+);
+
+
+});
+
+
+let allCards =
+Array.from(
+carousel.querySelectorAll(
+".project-card"
+)
+);
+
+
+/*
+Middle-set starting index.
+*/
+
+let carouselIndex =
+totalOriginal;
+
+
+/* =========================================================
+   CARD WIDTH
+   ========================================================= */
+
+function getCardStep() {
+
+
+const firstCard =
+allCards[0];
+
+
+if (!firstCard) {
+
+return 390;
+
+}
+
+
+const styles =
+window.getComputedStyle(
+carousel
+);
+
+
+const gap =
+parseFloat(
+styles.columnGap ||
+styles.gap ||
+20
+);
+
+
+return (
+firstCard.offsetWidth +
+gap
+);
 
 
 }
 
 
 /* =========================================================
-   SCROLL TO PROJECT
+   INITIAL CAROUSEL POSITION
    ========================================================= */
 
-function scrollToProject(index) {
+function positionCarouselInitially() {
 
 
-const total =
-projectCards.length;
+const step =
+getCardStep();
 
 
-/* wrap infinitely */
-
-if (
-index >= total
-) {
+carousel.scrollLeft =
+step *
+totalOriginal;
 
 
-index = 0;
-
-
-}
-
-
-if (
-index < 0
-) {
-
-
-index =
-total - 1;
+carouselIndex =
+totalOriginal;
 
 
 }
 
 
-currentProjectIndex =
+window.addEventListener(
+"load",
+positionCarouselInitially
+);
+
+
+window.addEventListener(
+"resize",
+() => {
+
+
+const step =
+getCardStep();
+
+
+carousel.scrollLeft =
+step *
+carouselIndex;
+
+
+});
+
+
+/* =========================================================
+   SCROLL TO INDEX
+   ========================================================= */
+
+function moveToIndex(
+index,
+smooth = true
+) {
+
+
+carouselIndex =
 index;
 
 
-const card =
-projectCards[
-currentProjectIndex
-];
+const step =
+getCardStep();
 
 
 carousel.scrollTo({
 
 left:
-card.offsetLeft,
+step *
+carouselIndex,
 
 behavior:
-"smooth"
+smooth
+? "smooth"
+: "auto"
 
 });
 
@@ -2871,7 +3012,7 @@ behavior:
 
 
 /* =========================================================
-   ARROWS
+   ARROW MOVEMENT
    ========================================================= */
 
 rightArrow.addEventListener(
@@ -2879,11 +3020,8 @@ rightArrow.addEventListener(
 () => {
 
 
-updateCurrentProjectIndex();
-
-
-scrollToProject(
-currentProjectIndex + 1
+moveToIndex(
+carouselIndex + 1
 );
 
 
@@ -2895,20 +3033,19 @@ leftArrow.addEventListener(
 () => {
 
 
-updateCurrentProjectIndex();
-
-
-scrollToProject(
-currentProjectIndex - 1
+moveToIndex(
+carouselIndex - 1
 );
 
 
 });
 
 
-/* Keep index updated if you manually drag/scroll */
+/* =========================================================
+   LOOP CORRECTION
+   ========================================================= */
 
-let carouselScrollTimer;
+let carouselTimer;
 
 
 carousel.addEventListener(
@@ -2917,13 +3054,77 @@ carousel.addEventListener(
 
 
 clearTimeout(
-carouselScrollTimer
+carouselTimer
 );
 
 
-carouselScrollTimer =
+carouselTimer =
 setTimeout(
-updateCurrentProjectIndex,
+() => {
+
+
+const step =
+getCardStep();
+
+
+const approximateIndex =
+Math.round(
+carousel.scrollLeft /
+step
+);
+
+
+carouselIndex =
+approximateIndex;
+
+
+/*
+If we're in the right cloned group,
+jump invisibly to matching middle card.
+*/
+
+if (
+carouselIndex >=
+totalOriginal * 2
+) {
+
+
+carouselIndex -=
+totalOriginal;
+
+
+carousel.scrollLeft =
+step *
+carouselIndex;
+
+
+}
+
+
+/*
+If we're in the left cloned group,
+jump invisibly to matching middle card.
+*/
+
+if (
+carouselIndex <
+totalOriginal
+) {
+
+
+carouselIndex +=
+totalOriginal;
+
+
+carousel.scrollLeft =
+step *
+carouselIndex;
+
+
+}
+
+
+},
 120
 );
 
@@ -3125,14 +3326,28 @@ document.getElementById(
 );
 
 
-document
-.querySelectorAll(".project-card")
-.forEach(card => {
+/*
+Because the carousel has cloned cards,
+use event delegation instead of adding
+listeners only to the originals.
+*/
 
-
-card.addEventListener(
+carousel.addEventListener(
 "click",
-() => {
+event => {
+
+
+const card =
+event.target.closest(
+".project-card"
+);
+
+
+if (!card) {
+
+return;
+
+}
 
 
 const key =
@@ -3141,6 +3356,13 @@ card.dataset.project;
 
 const project =
 projectInfo[key];
+
+
+if (!project) {
+
+return;
+
+}
 
 
 drawerNumber.textContent =
@@ -3169,9 +3391,6 @@ drawer.setAttribute(
 "aria-hidden",
 "false"
 );
-
-
-});
 
 
 });
