@@ -30,6 +30,18 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* TEXT SELECTION */
+
+::selection {
+    background: #4f0108;
+    color: #AFCDED;
+}
+
+::-moz-selection {
+    background: #4f0108;
+    color: #AFCDED;
+}
+
 /* =========================
    SF. BUTTON
    ========================= */
@@ -196,11 +208,6 @@ h2 {
    SCROLL REVEAL
    ========================= */
 
-/*
-Only hides these elements when JavaScript is available.
-That means the text will still appear normally if JS fails.
-*/
-
 .js .reveal {
     opacity: 0;
     filter: blur(6px);
@@ -217,8 +224,6 @@ That means the text will still appear normally if JS fails.
     filter: blur(0);
     transform: translateY(0);
 }
-
-/* Content appears slightly after its heading */
 
 .js .reveal-delay {
     transition-delay: 0.15s;
@@ -582,11 +587,6 @@ const observer = new IntersectionObserver(
             if (entry.isIntersecting) {
 
                 entry.target.classList.add("visible");
-
-                /*
-                Once the animation has happened,
-                we stop watching the element.
-                */
 
                 observer.unobserve(entry.target);
 
