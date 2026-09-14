@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 816.21 513.46">
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 816.21 597.18">
   <defs>
     <style>
       .cls-1 {
@@ -7,5 +7,5 @@
       }
     </style>
   </defs>
-  <polyline class="cls-1" points="423.59 .01 475.64 189.91 816.21 89.27 551.23 275.81 678.78 482.67 455.72 335.44 147.94 513.46 291.04 264.21 0 154.32 350.72 178.01 384.67 0"/>
+  <polyline class="cls-1" points="384.72 83.43 400.64 0 475.64 273.62 816.21 172.99 551.23 359.52 678.78 566.38 455.72 419.16 147.94 597.18 291.04 347.92 0 238.03 350.72 261.72 384.72 83.43"/>
 </svg>
