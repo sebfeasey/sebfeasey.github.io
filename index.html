@@ -1993,11 +1993,11 @@ footer {
 </h2>
 
 <p
-data-en="A selection of editorial, graphic, photographic and typographic projects. Click a project to discover more."
-data-fr="Une sélection de projets éditoriaux, graphiques, photographiques et typographiques. Cliquez sur un projet pour en découvrir davantage."
-data-sv="Ett urval av redaktionella, grafiska, fotografiska och typografiska projekt. Klicka på ett projekt för att se mer.">
+data-en="They're not here yet, still working on that! But come back soon to discover my work :)"
+data-fr="Ils ne sont pas encore là, j’y travaille toujours! Mais revenez bientôt pour découvrir mon travail :)"
+data-sv="De är inte här än, jag jobbar fortfarande på det! Men kom tillbaka snart för att upptäcka mitt arbete :)">
 
-A selection of editorial, graphic, photographic and typographic projects. Click a project to discover more.
+There not here yet, still working on that! But come back soon to discover my work :)
 
 </p>
 
@@ -2374,11 +2374,6 @@ const isIOS =
 /iPhone|iPad|iPod/i.test(userAgent);
 
 
-/*
-Show only inside Instagram, and only if the visitor
-hasn't dismissed it during this browsing session.
-*/
-
 if (
     isInstagramBrowser &&
     sessionStorage.getItem(
@@ -2470,16 +2465,6 @@ instagramOpenButton.addEventListener(
 async () => {
 
 
-    /*
-    ANDROID
-
-    Android's intent system can sometimes hand the URL
-    from Instagram's webview to the device's external
-    browser/default handler.
-
-    This is best-effort rather than guaranteed.
-    */
-
     if (isAndroid) {
 
         const url =
@@ -2503,11 +2488,6 @@ async () => {
         "end";
 
 
-        /*
-        If Instagram blocks the intent and we're
-        still on the page, show manual instructions.
-        */
-
         setTimeout(() => {
 
             if (
@@ -2530,16 +2510,6 @@ async () => {
 
     }
 
-
-    /*
-    iPHONE / iPAD
-
-    A normal webpage cannot reliably command iOS to
-    leave Instagram and launch the user's default browser.
-
-    Instead we copy the exact URL and make the next step
-    very obvious.
-    */
 
     const copied =
     await copyCurrentURL();
