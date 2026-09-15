@@ -37,7 +37,9 @@ document.documentElement.classList.add("js");
 }
 
 html {
+
     scroll-behavior: smooth;
+
     scroll-snap-type: y proximity;
 }
 
@@ -54,6 +56,72 @@ body {
     overflow-x: hidden;
 
     -webkit-overflow-scrolling: touch;
+
+    /*
+    Nothing on the site is selectable by default.
+    We selectively turn selection back on for About
+    and Contact below.
+    */
+
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+
+/* =========================================================
+   SELECTABLE TEXT
+   ========================================================= */
+
+.about-content,
+.about-content p,
+.contact,
+.contact p,
+.contact a {
+
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+
+/*
+A simple neutral selection colour that works
+against all of the site backgrounds.
+*/
+
+::selection {
+
+    background: rgba(249,243,219,0.92);
+
+    color: #181A4D;
+}
+
+
+::-moz-selection {
+
+    background: rgba(249,243,219,0.92);
+
+    color: #181A4D;
+}
+
+
+/* =========================================================
+   BETTER TEXT WRAPPING
+   ========================================================= */
+
+.about-content p,
+.contact p,
+.projects-intro p {
+
+    text-wrap: pretty;
+}
+
+
+.section-title,
+.project-title,
+.drawer-title,
+h1 {
+
+    text-wrap: balance;
 }
 
 
@@ -72,6 +140,7 @@ html {
 
 
 ::-webkit-scrollbar {
+
     width: 10px;
 }
 
@@ -161,26 +230,6 @@ html {
     backdrop-filter: blur(1.5px);
 
     -webkit-backdrop-filter: blur(1.5px);
-}
-
-
-/* =========================================================
-   TEXT SELECTION
-   ========================================================= */
-
-::selection {
-
-    background: #181A4D;
-
-    color: #F9F3DB;
-}
-
-
-::-moz-selection {
-
-    background: #181A4D;
-
-    color: #F9F3DB;
 }
 
 
@@ -2104,10 +2153,11 @@ class="about-content reveal">
 
 
 <p
+class="no-orphan"
 
 data-en="Hi, I’m Seb!"
 
-data-fr="Salut, moi c’est Seb !"
+data-fr="Salut, moi c’est Seb!"
 
 data-sv="Hej, jag heter Seb!">
 
@@ -2117,10 +2167,11 @@ Hi, I’m Seb!
 
 
 <p
+class="no-orphan"
 
 data-en="I’m currently completing my Bachelor’s Degree in Graphic Design (DNMADe Graphisme, Spécialité édition) at the Lycée de la Communication in Metz, France."
 
-data-fr="Je termine actuellement mon Bachelor en design graphique (DNMADe Graphisme, spécialité édition) au Lycée de la Communication à Metz, en France."
+data-fr="Je complète actuellement mon Bachelor en design graphique (DNMADe Graphisme, spécialité édition) au Lycée de la Communication à Metz, en France."
 
 data-sv="Jag håller just nu på att avsluta min kandidatexamen i grafisk design (DNMADe Graphisme, spécialité édition) vid Lycée de la Communication i Metz, Frankrike.">
 
@@ -2130,10 +2181,11 @@ I’m currently completing my Bachelor’s Degree in Graphic Design (DNMADe Grap
 
 
 <p
+class="no-orphan"
 
 data-en="Having known from as soon as middle school that I wanted to build a career in this domain, I’ve been able to develop my style and find the things I really like over the years. Still loooooooooads more of evolution for me to go through of course, I’m looking forward to it!"
 
-data-fr="Sachant dès le collège que je voulais construire ma carrière dans ce domaine, j’ai pu développer mon style et découvrir au fil des années ce qui me plaît vraiment. Il me reste bien sûr encoooooooore énormément de choses à explorer et d’évolution à venir, et j’ai hâte !"
+data-fr="Sachant dès le collège que je voulais construire ma carrière dans ce domaine, j’ai pu développer mon style et découvrir au fil des années ce qui me plaît vraiment. Il me reste bien sûr encore énoooooormément de choses à explorer et d’évolution à venir, j’ai hâte!"
 
 data-sv="Redan i högstadiet visste jag att jag ville bygga en karriär inom det här området, och genom åren har jag kunnat utveckla min stil och upptäcka vad jag verkligen gillar. Jag har såååååååå mycket mer kvar att utveckla såklart, och jag ser verkligen fram emot det!">
 
@@ -2143,10 +2195,11 @@ Having known from as soon as middle school that I wanted to build a career in th
 
 
 <p
+class="no-orphan"
 
 data-en="With a love for bright bold colours and funky typography, I enjoy creating whether it's a publication, poster or visual identity and I feel comfortable working with pretty much any type of style or vibe that gets chucked at me."
 
-data-fr="Avec un goût particulier pour les couleurs vives et audacieuses et les typographies un peu funky, j’adore créer, qu’il s’agisse d’une publication, d’une affiche ou d’une identité visuelle, et je me sens à l’aise avec à peu près n’importe quel style ou univers qu’on me lance."
+data-fr="Avec un goût particulier pour les couleurs vives et audacieuses et les typographies funky, j’adore créer, qu’il s’agisse d’une publication, d’une affiche ou d’une identité visuelle, et je me sens à l’aise avec à peu près n’importe quel style ou univers qu’on me lance."
 
 data-sv="Jag älskar starka, djärva färger och funky typografi, och tycker om att skapa oavsett om det handlar om en publikation, affisch eller visuell identitet. Jag känner mig bekväm med i stort sett vilken stil eller vibe som helst som kastas åt mitt håll.">
 
@@ -2156,6 +2209,7 @@ With a love for bright bold colours and funky typography, I enjoy creating wheth
 
 
 <p
+class="no-orphan"
 
 data-en="This website is still a work in progress at the moment, but this space will be dedicated to sharing my projects, experiments and creative journey as I continue to learn and grow as a designer."
 
@@ -2206,7 +2260,7 @@ Contact
 <div class="contact reveal">
 
 
-<p>
+<p class="no-orphan">
 
 Email:
 
@@ -2219,7 +2273,7 @@ feaseysebastien@gmail.com
 </p>
 
 
-<p>
+<p class="no-orphan">
 
 Instagram:
 
@@ -2362,6 +2416,59 @@ letter
 
 
 /* =========================================================
+   PREVENT ORPHAN WORDS
+   ========================================================= */
+
+/*
+Keeps the final two words together by replacing
+the last normal space with a non-breaking space.
+
+This is applied after every language change too.
+*/
+
+function preventOrphans() {
+
+
+document
+.querySelectorAll(".no-orphan")
+.forEach(element => {
+
+
+const text =
+element.textContent
+.trim();
+
+
+const lastSpace =
+text.lastIndexOf(" ");
+
+
+if (
+lastSpace > 0
+) {
+
+
+element.textContent =
+text.slice(
+0,
+lastSpace
+) +
+"\u00A0" +
+text.slice(
+lastSpace + 1
+);
+
+
+}
+
+
+});
+
+
+}
+
+
+/* =========================================================
    LANGUAGE
    ========================================================= */
 
@@ -2428,6 +2535,14 @@ document.documentElement.lang =
 language;
 
 
+/*
+Re-apply orphan protection because changing
+language replaces the text content.
+*/
+
+preventOrphans();
+
+
 if (
 drawer.classList.contains("open") &&
 currentOpenProject
@@ -2446,6 +2561,73 @@ currentLanguage
 
 
 }
+
+
+/* =========================================================
+   PLAIN-TEXT COPYING
+   ========================================================= */
+
+/*
+When text is copied from the site, only plain text
+is placed on the clipboard.
+
+This prevents Google Docs / Word etc. from inheriting
+the site's background colour, text colour or font styling.
+*/
+
+document.addEventListener(
+"copy",
+event => {
+
+
+const selection =
+window.getSelection();
+
+
+if (
+!selection ||
+selection.isCollapsed
+) {
+
+
+return;
+
+
+}
+
+
+const plainText =
+selection.toString();
+
+
+if (
+!plainText
+) {
+
+
+return;
+
+
+}
+
+
+event.preventDefault();
+
+
+event.clipboardData.setData(
+"text/plain",
+plainText
+);
+
+
+});
+
+
+/* =========================================================
+   RUN ORPHAN PROTECTION ON INITIAL LOAD
+   ========================================================= */
+
+preventOrphans();
 
 
 /* =========================================================
