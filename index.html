@@ -1073,13 +1073,6 @@ nav a:hover {
 }
 
 
-/*
-The carousel itself is masked at the edges.
-
-Rather than cards suddenly disappearing at a hard vertical
-line, their opacity fades gently into the section behind them.
-*/
-
 .projects-carousel {
     display:
         flex;
@@ -1554,6 +1547,15 @@ footer {
    PROJECT MODAL BACKDROP
    ========================================================= */
 
+/*
+Much lighter than before.
+
+Important performance change:
+the blur itself is NOT animated.
+
+Only opacity changes, which is far smoother.
+*/
+
 .project-modal-backdrop {
     position:
         fixed;
@@ -1565,13 +1567,13 @@ footer {
         4900;
 
     background:
-        rgba(13,13,28,0.24);
+        rgba(13,13,28,0.16);
 
     backdrop-filter:
-        blur(0px);
+        blur(6px);
 
     -webkit-backdrop-filter:
-        blur(0px);
+        blur(6px);
 
     opacity:
         0;
@@ -1583,10 +1585,8 @@ footer {
         none;
 
     transition:
-        opacity 0.5s ease,
-        backdrop-filter 0.55s ease,
-        -webkit-backdrop-filter 0.55s ease,
-        visibility 0.55s;
+        opacity 0.32s ease,
+        visibility 0.32s;
 }
 
 
@@ -1599,18 +1599,18 @@ footer {
 
     pointer-events:
         auto;
-
-    backdrop-filter:
-        blur(16px);
-
-    -webkit-backdrop-filter:
-        blur(16px);
 }
 
 
 /* =========================================================
    CENTRED PROJECT POPUP
    ========================================================= */
+
+/*
+The popup now uses opacity + transform only.
+
+No animated blur = considerably smoother.
+*/
 
 .project-modal {
     position:
@@ -1657,7 +1657,7 @@ footer {
         );
 
     background:
-        rgba(249,243,219,0.96);
+        rgba(249,243,219,0.985);
 
     color:
         #181A4D;
@@ -1671,15 +1671,9 @@ footer {
 
     box-shadow:
         0
-        25px
-        90px
-        rgba(0,0,0,0.24);
-
-    backdrop-filter:
-        blur(24px);
-
-    -webkit-backdrop-filter:
-        blur(24px);
+        24px
+        70px
+        rgba(0,0,0,0.20);
 
     opacity:
         0;
@@ -1690,18 +1684,18 @@ footer {
     pointer-events:
         none;
 
-    filter:
-        blur(18px);
-
     transform:
-        translate(-50%,-46%)
-        scale(0.92);
+        translate(-50%,-47%)
+        scale(0.965);
+
+    will-change:
+        transform,
+        opacity;
 
     transition:
-        opacity 0.5s ease,
-        filter 0.58s ease,
-        transform 0.68s cubic-bezier(0.16,1,0.3,1),
-        visibility 0.68s;
+        opacity 0.3s ease,
+        transform 0.42s cubic-bezier(0.16,1,0.3,1),
+        visibility 0.42s;
 }
 
 
@@ -1714,9 +1708,6 @@ footer {
 
     pointer-events:
         auto;
-
-    filter:
-        blur(0);
 
     transform:
         translate(-50%,-50%)
@@ -2086,11 +2077,6 @@ body.modal-open {
     }
 
 
-    /*
-    On phones it still leaves a visible border of the
-    blurred site around the popup.
-    */
-
     .project-modal {
         width:
             calc(100vw - 2rem);
@@ -2118,6 +2104,23 @@ body.modal-open {
                 11vw,
                 3.5rem
             );
+    }
+
+
+    /*
+    Mobile browsers struggle the most with large blur regions,
+    so make it even lighter here.
+    */
+
+    .project-modal-backdrop {
+        backdrop-filter:
+            blur(4px);
+
+        -webkit-backdrop-filter:
+            blur(4px);
+
+        background:
+            rgba(13,13,28,0.14);
     }
 
 }
@@ -2642,7 +2645,7 @@ Instagram:
 
 
 <!-- =========================================================
-     BLURRED PROJECT BACKDROP
+     PROJECT BACKDROP
      ========================================================= -->
 
 <div class="project-modal-backdrop"
@@ -2651,7 +2654,7 @@ Instagram:
 
 
 <!-- =========================================================
-     CENTRED PROJECT WINDOW
+     PROJECT WINDOW
      ========================================================= -->
 
 <aside class="project-modal"
@@ -2659,6 +2662,7 @@ Instagram:
        aria-hidden="true"
        role="dialog"
        aria-modal="true">
+
 
 <button class="project-modal-close"
         id="project-modal-close"
@@ -4004,18 +4008,29 @@ event => {
     ];
 
 
-    projectModal
-    .classList
-    .add(
-        "open"
-    );
+    /*
+    Request the animation on the next browser frame.
+    This gives the browser time to prepare the layers
+    before starting the motion.
+    */
+
+    requestAnimationFrame(
+    () => {
+
+        projectModalBackdrop
+        .classList
+        .add(
+            "open"
+        );
 
 
-    projectModalBackdrop
-    .classList
-    .add(
-        "open"
-    );
+        projectModal
+        .classList
+        .add(
+            "open"
+        );
+
+    });
 
 
     projectModal.setAttribute(
@@ -4083,7 +4098,7 @@ function closeProjectModal() {
         }
 
     },
-    700
+    450
     );
 
 }
