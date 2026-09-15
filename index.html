@@ -16,20 +16,11 @@ document.documentElement.classList.add("js");
 
 <style>
 
-/* =========================================================
-   VARIABLES
-   ========================================================= */
-
 :root {
     --cream: #F9F3DB;
     --navy: #181A4D;
     --ui-colour: #F9F3DB;
 }
-
-
-/* =========================================================
-   BASE
-   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -47,7 +38,9 @@ html {
 
 body {
     margin: 0;
+
     background: #181A4D;
+
     color: #F9F3DB;
 
     font-family: Arial, Helvetica, sans-serif;
@@ -302,11 +295,13 @@ h1 {
 
 .language-switch button:hover {
     opacity: 1;
+
     transform: scale(1.13);
 }
 
 .language-switch button.active {
     opacity: 1;
+
     text-decoration: underline;
 }
 
@@ -329,8 +324,7 @@ h1 {
             calc(100vw - 2rem)
         );
 
-    padding:
-        1.35rem;
+    padding: 1.35rem;
 
     background:
         rgba(249,243,219,0.94);
@@ -1993,11 +1987,11 @@ footer {
 </h2>
 
 <p
-data-en="They're not here yet, still working on that! But come back soon to discover my work :)"
-data-fr="Ils ne sont pas encore là, j’y travaille toujours! Mais revenez bientôt pour découvrir mon travail :)"
+data-en="There not here yet, still working on that! But come back soon to discover my work :)"
+data-fr="Ils ne sont pas encore là, j’y travaille toujours ! Mais revenez bientôt pour découvrir mon travail :)"
 data-sv="De är inte här än, jag jobbar fortfarande på det! Men kom tillbaka snart för att upptäcka mitt arbete :)">
 
-They're not here yet, still working on that! But come back soon to discover my work :)
+There not here yet, still working on that! But come back soon to discover my work :)
 
 </p>
 
@@ -2785,17 +2779,92 @@ function shuffle(array) {
 }
 
 
+/* =========================================================
+   RANDOM COLOURS WITHOUT REPEATING HOME
+   ========================================================= */
+
 const sections =
 document.querySelectorAll(
     ".colour-section"
 );
 
 
-const shuffledColours =
+/*
+Remember the colour that Home had on the
+previous page load.
+*/
+
+const previousHomeColour =
+localStorage.getItem(
+    "seb-last-home-colour"
+);
+
+
+/*
+Shuffle normally first.
+*/
+
+let shuffledColours =
 shuffle(
     sectionColours
 );
 
+
+/*
+If the newly shuffled Home colour happens to be
+the same as the previous Home colour, swap it with
+one of the other three colours.
+
+This guarantees Home never repeats twice in a row.
+*/
+
+if (
+    previousHomeColour &&
+    shuffledColours[0].background ===
+    previousHomeColour
+) {
+
+    const alternativeIndex =
+    shuffledColours.findIndex(
+        (colour,index) =>
+            index > 0 &&
+            colour.background !==
+            previousHomeColour
+    );
+
+
+    if (
+        alternativeIndex !== -1
+    ) {
+
+        [
+            shuffledColours[0],
+            shuffledColours[alternativeIndex]
+        ] =
+        [
+            shuffledColours[alternativeIndex],
+            shuffledColours[0]
+        ];
+
+    }
+
+}
+
+
+/*
+Save this load's Home colour so we can avoid it
+the next time the page refreshes.
+*/
+
+localStorage.setItem(
+    "seb-last-home-colour",
+    shuffledColours[0].background
+);
+
+
+/*
+Apply all four colours.
+*/
 
 sections.forEach(
 (section,index) => {
@@ -2821,6 +2890,10 @@ sections.forEach(
 
 });
 
+
+/* =========================================================
+   FIXED UI COLOUR
+   ========================================================= */
 
 function updateUIColour(section) {
 
