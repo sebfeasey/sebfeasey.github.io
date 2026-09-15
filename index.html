@@ -57,12 +57,6 @@ body {
 
     -webkit-overflow-scrolling: touch;
 
-    /*
-    Nothing on the site is selectable by default.
-    We selectively turn selection back on for About
-    and Contact below.
-    */
-
     user-select: none;
     -webkit-user-select: none;
 }
@@ -82,11 +76,6 @@ body {
     -webkit-user-select: text;
 }
 
-
-/*
-A simple neutral selection colour that works
-against all of the site backgrounds.
-*/
 
 ::selection {
 
@@ -650,7 +639,12 @@ h1 {
 
 .subtitle {
 
-    margin-top: 1rem;
+    /*
+    Increased from 1rem so the descender of the Y
+    has proper breathing room.
+    */
+
+    margin-top: 2.2rem;
 
     margin-bottom: 5rem;
 
@@ -1499,6 +1493,13 @@ footer {
 
     .subtitle {
 
+        /*
+        Slightly less space on small screens,
+        but still clearly separated from the Y.
+        */
+
+        margin-top: 1.8rem;
+
         font-size: 0.68rem;
 
         letter-spacing: 0.18em;
@@ -1749,10 +1750,6 @@ footer {
 <body>
 
 
-<!-- =========================================================
-     FIXED UI
-     ========================================================= -->
-
 <a
 href="#home"
 class="home-button">
@@ -1801,10 +1798,6 @@ SV
 
 </div>
 
-
-<!-- =========================================================
-     HOME
-     ========================================================= -->
 
 <section
 id="home"
@@ -1889,10 +1882,6 @@ contact
 
 </section>
 
-
-<!-- =========================================================
-     PROJECTS
-     ========================================================= -->
 
 <section
 id="projects"
@@ -2124,10 +2113,6 @@ aria-label="Next project">
 </section>
 
 
-<!-- =========================================================
-     ABOUT
-     ========================================================= -->
-
 <section
 id="about"
 class="about-section colour-section">
@@ -2230,10 +2215,6 @@ This website is still a work in progress at the moment, but this space will be d
 </section>
 
 
-<!-- =========================================================
-     CONTACT
-     ========================================================= -->
-
 <section
 id="contact"
 class="contact-section colour-section">
@@ -2307,10 +2288,6 @@ rel="noopener noreferrer">
 
 </section>
 
-
-<!-- =========================================================
-     PROJECT DRAWER
-     ========================================================= -->
 
 <aside
 class="project-drawer"
@@ -2416,15 +2393,8 @@ letter
 
 
 /* =========================================================
-   PREVENT ORPHAN WORDS
+   ORPHAN PROTECTION
    ========================================================= */
-
-/*
-Keeps the final two words together by replacing
-the last normal space with a non-breaking space.
-
-This is applied after every language change too.
-*/
 
 function preventOrphans() {
 
@@ -2535,11 +2505,6 @@ document.documentElement.lang =
 language;
 
 
-/*
-Re-apply orphan protection because changing
-language replaces the text content.
-*/
-
 preventOrphans();
 
 
@@ -2564,16 +2529,8 @@ currentLanguage
 
 
 /* =========================================================
-   PLAIN-TEXT COPYING
+   PLAIN TEXT COPYING
    ========================================================= */
-
-/*
-When text is copied from the site, only plain text
-is placed on the clipboard.
-
-This prevents Google Docs / Word etc. from inheriting
-the site's background colour, text colour or font styling.
-*/
 
 document.addEventListener(
 "copy",
@@ -2623,10 +2580,6 @@ plainText
 });
 
 
-/* =========================================================
-   RUN ORPHAN PROTECTION ON INITIAL LOAD
-   ========================================================= */
-
 preventOrphans();
 
 
@@ -2663,10 +2616,6 @@ text: "#F9F3DB"
 
 ];
 
-
-/* =========================================================
-   SHUFFLE
-   ========================================================= */
 
 function shuffle(array) {
 
@@ -2708,10 +2657,6 @@ return copy;
 }
 
 
-/* =========================================================
-   APPLY SECTION COLOURS
-   ========================================================= */
-
 const sections =
 document.querySelectorAll(
 ".colour-section"
@@ -2751,10 +2696,6 @@ colour.text;
 });
 
 
-/* =========================================================
-   FIXED UI COLOUR
-   ========================================================= */
-
 function updateUIColour(section) {
 
 
@@ -2773,10 +2714,6 @@ updateUIColour(
 document.querySelector("#home")
 );
 
-
-/* =========================================================
-   CURRENT SECTION
-   ========================================================= */
 
 const sectionObserver =
 new IntersectionObserver(
@@ -2832,7 +2769,7 @@ section
 
 
 /* =========================================================
-   REPEATING REVEAL
+   REVEALS
    ========================================================= */
 
 const revealElements =
@@ -2938,10 +2875,6 @@ card.cloneNode(true)
 );
 
 
-/* =========================================================
-   APPEND SET
-   ========================================================= */
-
 function appendProjectSet() {
 
 
@@ -2958,10 +2891,6 @@ template.cloneNode(true)
 
 }
 
-
-/* =========================================================
-   PREPEND SET
-   ========================================================= */
 
 function prependProjectSet() {
 
@@ -2996,10 +2925,6 @@ addedWidth;
 }
 
 
-/* =========================================================
-   INITIAL LONG CAROUSEL
-   ========================================================= */
-
 appendProjectSet();
 appendProjectSet();
 appendProjectSet();
@@ -3007,10 +2932,6 @@ appendProjectSet();
 prependProjectSet();
 prependProjectSet();
 
-
-/* =========================================================
-   NEAREST CARD
-   ========================================================= */
 
 function nearestCard() {
 
@@ -3079,10 +3000,6 @@ return closest;
 
 }
 
-
-/* =========================================================
-   MOVE ONE CARD
-   ========================================================= */
 
 function moveCarousel(direction) {
 
@@ -3161,10 +3078,6 @@ behavior:
 }
 
 
-/* =========================================================
-   ARROWS
-   ========================================================= */
-
 rightArrow.addEventListener(
 "click",
 () => {
@@ -3212,10 +3125,6 @@ moveCarousel(-1);
 
 });
 
-
-/* =========================================================
-   MANUAL CAROUSEL SCROLL
-   ========================================================= */
 
 let carouselScrollTimer;
 
