@@ -16,11 +16,20 @@ document.documentElement.classList.add("js");
 
 <style>
 
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
 :root {
     --cream: #F9F3DB;
     --navy: #181A4D;
     --ui-colour: #F9F3DB;
 }
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -31,6 +40,7 @@ html {
     scroll-snap-type: y proximity;
 
     scrollbar-width: thin;
+
     scrollbar-color:
         var(--ui-colour)
         rgba(24,26,77,0.16);
@@ -43,7 +53,10 @@ body {
 
     color: #F9F3DB;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
     overflow-x: hidden;
 
@@ -68,13 +81,19 @@ body {
 }
 
 ::selection {
-    background: rgba(249,243,219,0.92);
-    color: #181A4D;
+    background:
+        rgba(249,243,219,0.92);
+
+    color:
+        #181A4D;
 }
 
 ::-moz-selection {
-    background: rgba(249,243,219,0.92);
-    color: #181A4D;
+    background:
+        rgba(249,243,219,0.92);
+
+    color:
+        #181A4D;
 }
 
 
@@ -90,7 +109,7 @@ body {
 
 .section-title,
 .project-title,
-.drawer-title,
+.project-modal-title,
 h1 {
     text-wrap: balance;
 }
@@ -105,22 +124,30 @@ h1 {
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(24,26,77,0.12);
+    background:
+        rgba(24,26,77,0.12);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--ui-colour);
+    background:
+        var(--ui-colour);
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
-    border: 3px solid transparent;
+    border:
+        3px solid transparent;
 
-    background-clip: padding-box;
+    background-clip:
+        padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    border: 2px solid transparent;
-    background-clip: padding-box;
+    border:
+        2px solid transparent;
+
+    background-clip:
+        padding-box;
 }
 
 
@@ -133,14 +160,21 @@ h1 {
 
     width: 100%;
 
-    color: var(--section-text);
-    background: var(--section-bg);
+    color:
+        var(--section-text);
+
+    background:
+        var(--section-bg);
 
     overflow: hidden;
 
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
+    scroll-snap-align:
+        start;
+
+    scroll-snap-stop:
+        normal;
 }
+
 
 .colour-section:not(:first-of-type)::before {
     content: "";
@@ -164,8 +198,11 @@ h1 {
             transparent
         );
 
-    backdrop-filter: blur(1.5px);
-    -webkit-backdrop-filter: blur(1.5px);
+    backdrop-filter:
+        blur(1.5px);
+
+    -webkit-backdrop-filter:
+        blur(1.5px);
 }
 
 
@@ -189,38 +226,48 @@ h1 {
     min-width: 58px;
     height: 42px;
 
-    padding: 0 1rem;
+    padding:
+        0 1rem;
 
-    color: var(--ui-colour);
+    color:
+        var(--ui-colour);
 
-    text-decoration: none;
+    text-decoration:
+        none;
 
     font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-    font-size: 1.05rem;
+    font-size:
+        1.05rem;
 
-    letter-spacing: 0.08em;
+    letter-spacing:
+        0.08em;
 
     border:
         1px solid
         rgba(249,243,219,0.18);
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
     background:
         rgba(255,255,255,0.08);
 
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
 
     transition:
         color 0.4s ease,
         transform 0.45s cubic-bezier(0.34,1.56,0.64,1),
         background 0.3s ease;
 }
+
 
 .home-button:hover {
     transform:
@@ -242,67 +289,90 @@ h1 {
     z-index: 3000;
 
     display: flex;
+
     align-items: center;
 
     height: 42px;
 
-    padding: 0 0.85rem;
+    padding:
+        0 0.85rem;
 
     border:
         1px solid
         rgba(249,243,219,0.18);
 
-    border-radius: 999px;
+    border-radius:
+        999px;
 
     background:
         rgba(255,255,255,0.08);
 
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter:
+        blur(14px);
 
-    color: var(--ui-colour);
+    -webkit-backdrop-filter:
+        blur(14px);
 
-    font-size: 0.76rem;
+    color:
+        var(--ui-colour);
 
-    letter-spacing: 0.1em;
+    font-size:
+        0.76rem;
+
+    letter-spacing:
+        0.1em;
 
     transition:
         color 0.4s ease,
         background 0.3s ease;
 }
 
+
 .language-switch button {
     border: 0;
 
-    background: transparent;
+    background:
+        transparent;
 
-    color: inherit;
+    color:
+        inherit;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    opacity: 0.45;
+    opacity:
+        0.45;
 
-    padding: 0.35rem;
+    padding:
+        0.35rem;
 
-    font-size: 0.76rem;
+    font-size:
+        0.76rem;
 
-    letter-spacing: 0.1em;
+    letter-spacing:
+        0.1em;
 
     transition:
         opacity 0.25s ease,
         transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
 }
 
-.language-switch button:hover {
-    opacity: 1;
 
-    transform: scale(1.13);
+.language-switch button:hover {
+    opacity:
+        1;
+
+    transform:
+        scale(1.13);
 }
 
-.language-switch button.active {
-    opacity: 1;
 
-    text-decoration: underline;
+.language-switch button.active {
+    opacity:
+        1;
+
+    text-decoration:
+        underline;
 }
 
 
@@ -324,7 +394,8 @@ h1 {
             calc(100vw - 2rem)
         );
 
-    padding: 1.35rem;
+    padding:
+        1.35rem;
 
     background:
         rgba(249,243,219,0.94);
@@ -351,17 +422,20 @@ h1 {
     -webkit-backdrop-filter:
         blur(24px);
 
-    opacity: 0;
+    opacity:
+        0;
 
-    visibility: hidden;
+    visibility:
+        hidden;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
     filter:
         blur(12px);
 
     transform:
-        translate(-50%, 30px)
+        translate(-50%,30px)
         scale(0.96);
 
     transition:
@@ -371,20 +445,25 @@ h1 {
         visibility 0.6s;
 }
 
+
 .instagram-browser-notice.open {
-    opacity: 1;
+    opacity:
+        1;
 
-    visibility: visible;
+    visibility:
+        visible;
 
-    pointer-events: auto;
+    pointer-events:
+        auto;
 
     filter:
         blur(0);
 
     transform:
-        translate(-50%, 0)
+        translate(-50%,0)
         scale(1);
 }
+
 
 .instagram-browser-label {
     margin:
@@ -405,6 +484,7 @@ h1 {
         0.55;
 }
 
+
 .instagram-browser-title {
     margin:
         0
@@ -423,6 +503,7 @@ h1 {
         1;
 }
 
+
 .instagram-browser-text {
     margin:
         0
@@ -436,6 +517,7 @@ h1 {
         1.55;
 }
 
+
 .instagram-browser-actions {
     display:
         flex;
@@ -446,6 +528,7 @@ h1 {
     flex-wrap:
         wrap;
 }
+
 
 .instagram-browser-actions button {
     border:
@@ -474,6 +557,7 @@ h1 {
         color 0.25s ease;
 }
 
+
 .instagram-open-button {
     background:
         #181A4D;
@@ -481,6 +565,7 @@ h1 {
     color:
         #F9F3DB;
 }
+
 
 .instagram-dismiss-button {
     background:
@@ -490,10 +575,12 @@ h1 {
         #181A4D;
 }
 
+
 .instagram-browser-actions button:hover {
     transform:
         scale(1.055);
 }
+
 
 .instagram-browser-actions button:active {
     transform:
@@ -506,13 +593,20 @@ h1 {
    ========================================================= */
 
 .hero {
-    height: 100vh;
-    min-height: 100vh;
+    height:
+        100vh;
 
-    display: flex;
+    min-height:
+        100vh;
 
-    align-items: center;
-    justify-content: center;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
     padding:
         7rem
@@ -520,14 +614,19 @@ h1 {
         5rem;
 }
 
+
 .hero-inner {
-    width: 100%;
+    width:
+        100%;
 
-    text-align: center;
+    text-align:
+        center;
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 10;
+    z-index:
+        10;
 }
 
 
@@ -536,9 +635,11 @@ h1 {
    ========================================================= */
 
 .hero-name {
-    opacity: 0;
+    opacity:
+        0;
 
-    filter: blur(14px);
+    filter:
+        blur(14px);
 
     transform:
         translateY(32px)
@@ -552,10 +653,13 @@ h1 {
         forwards;
 }
 
-.hero .subtitle {
-    opacity: 0;
 
-    filter: blur(8px);
+.hero .subtitle {
+    opacity:
+        0;
+
+    filter:
+        blur(8px);
 
     transform:
         translateY(20px);
@@ -568,10 +672,13 @@ h1 {
         forwards;
 }
 
-.hero nav {
-    opacity: 0;
 
-    filter: blur(6px);
+.hero nav {
+    opacity:
+        0;
+
+    filter:
+        blur(6px);
 
     transform:
         translateY(16px);
@@ -584,12 +691,15 @@ h1 {
         forwards;
 }
 
+
 @keyframes heroNameEntrance {
 
     0% {
-        opacity: 0;
+        opacity:
+            0;
 
-        filter: blur(14px);
+        filter:
+            blur(14px);
 
         transform:
             translateY(32px)
@@ -597,9 +707,11 @@ h1 {
     }
 
     67% {
-        opacity: 1;
+        opacity:
+            1;
 
-        filter: blur(1px);
+        filter:
+            blur(1px);
 
         transform:
             translateY(-5px)
@@ -613,9 +725,11 @@ h1 {
     }
 
     100% {
-        opacity: 1;
+        opacity:
+            1;
 
-        filter: blur(0);
+        filter:
+            blur(0);
 
         transform:
             translateY(0)
@@ -623,30 +737,37 @@ h1 {
     }
 }
 
+
 @keyframes heroSmallEntrance {
 
     0% {
-        opacity: 0;
+        opacity:
+            0;
 
-        filter: blur(8px);
+        filter:
+            blur(8px);
 
         transform:
             translateY(20px);
     }
 
     70% {
-        opacity: 1;
+        opacity:
+            1;
 
-        filter: blur(0);
+        filter:
+            blur(0);
 
         transform:
             translateY(-2px);
     }
 
     100% {
-        opacity: 1;
+        opacity:
+            1;
 
-        filter: blur(0);
+        filter:
+            blur(0);
 
         transform:
             translateY(0);
@@ -659,7 +780,8 @@ h1 {
    ========================================================= */
 
 h1 {
-    margin: 0;
+    margin:
+        0;
 
     font-family:
         Georgia,
@@ -683,12 +805,16 @@ h1 {
         lowercase;
 }
 
+
 .name-letter {
-    display: inline-block;
+    display:
+        inline-block;
 
-    position: relative;
+    position:
+        relative;
 
-    cursor: default;
+    cursor:
+        default;
 
     transform-origin:
         center bottom;
@@ -699,12 +825,14 @@ h1 {
         cubic-bezier(0.34,1.56,0.64,1);
 }
 
+
 .name-letter:hover {
     transform:
         translateY(-12px)
         rotate(-5deg)
         scale(1.16,1.06);
 }
+
 
 .name-letter:nth-child(even):hover {
     transform:
@@ -713,8 +841,10 @@ h1 {
         scale(1.12,1.10);
 }
 
+
 .name-space {
-    display: inline-block;
+    display:
+        inline-block;
 
     width:
         0.22em;
@@ -758,6 +888,7 @@ nav {
         2rem;
 }
 
+
 nav a {
     color:
         inherit;
@@ -779,6 +910,7 @@ nav a {
         transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
 }
 
+
 nav a:hover {
     opacity:
         0.75;
@@ -794,7 +926,8 @@ nav a:hover {
    ========================================================= */
 
 .section-title {
-    margin: 0;
+    margin:
+        0;
 
     font-family:
         Georgia,
@@ -837,6 +970,7 @@ nav a:hover {
         transform 0.82s cubic-bezier(0.34,1.26,0.64,1);
 }
 
+
 .js .reveal.visible {
     opacity:
         1;
@@ -872,6 +1006,7 @@ nav a:hover {
         center;
 }
 
+
 .projects-layout {
     width:
         100%;
@@ -896,10 +1031,12 @@ nav a:hover {
         center;
 }
 
+
 .projects-intro .section-title {
     margin-bottom:
         1.8rem;
 }
+
 
 .projects-intro p {
     max-width:
@@ -932,8 +1069,16 @@ nav a:hover {
 
     padding:
         1.6rem
-        1.4rem;
+        0;
 }
+
+
+/*
+The carousel itself is masked at the edges.
+
+Rather than cards suddenly disappearing at a hard vertical
+line, their opacity fades gently into the section behind them.
+*/
 
 .projects-carousel {
     display:
@@ -958,11 +1103,33 @@ nav a:hover {
         none;
 
     padding:
-        1.5rem
-        2.6rem
-        1.8rem
-        2.6rem;
+        1.7rem
+        4rem
+        2rem;
+
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0,0,0,0.25) 3%,
+            black 9%,
+            black 91%,
+            rgba(0,0,0,0.25) 97%,
+            transparent 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            rgba(0,0,0,0.25) 3%,
+            black 9%,
+            black 91%,
+            rgba(0,0,0,0.25) 97%,
+            transparent 100%
+        );
 }
+
 
 .projects-carousel::-webkit-scrollbar {
     display:
@@ -1021,6 +1188,7 @@ nav a:hover {
         border-radius 0.4s cubic-bezier(0.34,1.56,0.64,1);
 }
 
+
 .project-card:hover {
     transform:
         translateY(-8px)
@@ -1033,10 +1201,12 @@ nav a:hover {
         8px;
 }
 
+
 .project-card:active {
     transform:
         scale(0.98);
 }
+
 
 .project-card-inner {
     position:
@@ -1058,6 +1228,7 @@ nav a:hover {
         space-between;
 }
 
+
 .project-number {
     font-size:
         0.7rem;
@@ -1065,6 +1236,7 @@ nav a:hover {
     letter-spacing:
         0.16em;
 }
+
 
 .project-title {
     font-family:
@@ -1118,7 +1290,7 @@ nav a:hover {
         pointer;
 
     z-index:
-        20;
+        30;
 
     display:
         flex;
@@ -1136,19 +1308,19 @@ nav a:hover {
         1;
 
     background:
-        rgba(249,243,219,0.075);
+        rgba(249,243,219,0.08);
 
     color:
         inherit;
 
     backdrop-filter:
-        blur(8px);
+        blur(10px);
 
     -webkit-backdrop-filter:
-        blur(8px);
+        blur(10px);
 
     opacity:
-        0.62;
+        0.72;
 
     transform:
         translateY(-50%);
@@ -1159,17 +1331,19 @@ nav a:hover {
         background 0.25s ease;
 }
 
+
 .carousel-arrow:hover {
     opacity:
-        0.95;
+        1;
 
     background:
-        rgba(249,243,219,0.14);
+        rgba(249,243,219,0.15);
 
     transform:
         translateY(-50%)
         scale(1.08);
 }
+
 
 .carousel-arrow:active {
     transform:
@@ -1177,14 +1351,16 @@ nav a:hover {
         scale(0.96);
 }
 
+
 .carousel-arrow.left {
     left:
-        0.3rem;
+        0.4rem;
 }
+
 
 .carousel-arrow.right {
     right:
-        0.3rem;
+        0.4rem;
 }
 
 
@@ -1210,6 +1386,7 @@ nav a:hover {
         center;
 }
 
+
 .about-layout {
     width:
         100%;
@@ -1233,6 +1410,7 @@ nav a:hover {
     align-items:
         start;
 }
+
 
 .about-content {
     max-width:
@@ -1272,6 +1450,7 @@ nav a:hover {
         column;
 }
 
+
 .contact-main {
     flex:
         1;
@@ -1289,15 +1468,18 @@ nav a:hover {
         10;
 }
 
+
 .contact-content {
     width:
         100%;
 }
 
+
 .contact-content .section-title {
     margin-bottom:
         2.3rem;
 }
+
 
 .contact {
     font-size:
@@ -1307,12 +1489,14 @@ nav a:hover {
         1.9;
 }
 
+
 .contact p {
     margin:
         0
         0
         0.5rem;
 }
+
 
 .contact a {
     color:
@@ -1328,6 +1512,7 @@ nav a:hover {
         transform 0.45s cubic-bezier(0.34,1.56,0.64,1),
         opacity 0.3s ease;
 }
+
 
 .contact a:hover {
     transform:
@@ -1366,27 +1551,91 @@ footer {
 
 
 /* =========================================================
-   PROJECT DRAWER
+   PROJECT MODAL BACKDROP
    ========================================================= */
 
-.project-drawer {
+.project-modal-backdrop {
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        4900;
+
+    background:
+        rgba(13,13,28,0.24);
+
+    backdrop-filter:
+        blur(0px);
+
+    -webkit-backdrop-filter:
+        blur(0px);
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    pointer-events:
+        none;
+
+    transition:
+        opacity 0.5s ease,
+        backdrop-filter 0.55s ease,
+        -webkit-backdrop-filter 0.55s ease,
+        visibility 0.55s;
+}
+
+
+.project-modal-backdrop.open {
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    pointer-events:
+        auto;
+
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+}
+
+
+/* =========================================================
+   CENTRED PROJECT POPUP
+   ========================================================= */
+
+.project-modal {
     position:
         fixed;
 
     top:
-        0;
+        50%;
 
-    right:
-        0;
+    left:
+        50%;
 
     width:
         min(
-            470px,
-            40vw
+            860px,
+            calc(100vw - 4cm)
         );
 
     height:
-        100vh;
+        min(
+            620px,
+            calc(100vh - 4cm)
+        );
+
+    min-height:
+        340px;
 
     z-index:
         5000;
@@ -1397,37 +1646,43 @@ footer {
     align-items:
         center;
 
+    justify-content:
+        center;
+
     padding:
-        6rem
-        3.5rem;
+        clamp(
+            2.5rem,
+            7vw,
+            6rem
+        );
 
     background:
-        rgba(249,243,219,0.95);
+        rgba(249,243,219,0.96);
 
     color:
         #181A4D;
 
-    backdrop-filter:
-        blur(22px);
+    border:
+        1px solid
+        rgba(24,26,77,0.09);
 
-    -webkit-backdrop-filter:
-        blur(22px);
+    border-radius:
+        12px;
 
     box-shadow:
-        -15px
         0
-        55px
-        rgba(0,0,0,0.12);
+        25px
+        90px
+        rgba(0,0,0,0.24);
 
-    transform:
-        translateX(110%)
-        scale(0.985);
+    backdrop-filter:
+        blur(24px);
+
+    -webkit-backdrop-filter:
+        blur(24px);
 
     opacity:
         0;
-
-    filter:
-        blur(15px);
 
     visibility:
         hidden;
@@ -1435,40 +1690,87 @@ footer {
     pointer-events:
         none;
 
+    filter:
+        blur(18px);
+
+    transform:
+        translate(-50%,-46%)
+        scale(0.92);
+
     transition:
-        transform 0.68s cubic-bezier(0.16,1,0.3,1),
-        opacity 0.48s ease,
+        opacity 0.5s ease,
         filter 0.58s ease,
+        transform 0.68s cubic-bezier(0.16,1,0.3,1),
         visibility 0.68s;
 }
 
-.project-drawer.open {
-    transform:
-        translateX(0)
-        scale(1);
 
+.project-modal.open {
     opacity:
         1;
-
-    filter:
-        blur(0);
 
     visibility:
         visible;
 
     pointer-events:
         auto;
+
+    filter:
+        blur(0);
+
+    transform:
+        translate(-50%,-50%)
+        scale(1);
 }
 
-.drawer-close {
+
+/* =========================================================
+   MODAL TITLE
+   ========================================================= */
+
+.project-modal-title {
+    margin:
+        0;
+
+    width:
+        100%;
+
+    text-align:
+        center;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            2.3rem,
+            5vw,
+            4.4rem
+        );
+
+    line-height:
+        0.96;
+
+    font-weight:
+        400;
+}
+
+
+/* =========================================================
+   MODAL CLOSE
+   ========================================================= */
+
+.project-modal-close {
     position:
         absolute;
 
     top:
-        1.6rem;
+        1.4rem;
 
     right:
-        1.6rem;
+        1.4rem;
 
     width:
         42px;
@@ -1498,36 +1800,21 @@ footer {
         transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
 }
 
-.drawer-close:hover {
+
+.project-modal-close:hover {
     transform:
         scale(1.13)
         rotate(90deg);
 }
 
-.drawer-title {
-    margin:
-        0;
 
-    width:
-        100%;
+/* =========================================================
+   LOCK PAGE WHILE MODAL OPEN
+   ========================================================= */
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            2.25rem,
-            3.7vw,
-            3.5rem
-        );
-
-    line-height:
-        0.96;
-
-    font-weight:
-        400;
+body.modal-open {
+    overflow:
+        hidden;
 }
 
 
@@ -1538,29 +1825,44 @@ footer {
 @media (max-width: 850px) {
 
     .home-button {
-        top: 0.8rem;
-        left: 0.8rem;
+        top:
+            0.8rem;
 
-        height: 38px;
+        left:
+            0.8rem;
 
-        min-width: 52px;
+        height:
+            38px;
+
+        min-width:
+            52px;
     }
+
 
     .language-switch {
-        top: 0.8rem;
-        right: 0.8rem;
+        top:
+            0.8rem;
 
-        height: 38px;
+        right:
+            0.8rem;
 
-        font-size: 0.68rem;
+        height:
+            38px;
+
+        font-size:
+            0.68rem;
     }
+
 
     .language-switch button {
-        font-size: 0.68rem;
+        font-size:
+            0.68rem;
     }
 
+
     .instagram-browser-notice {
-        bottom: 0.8rem;
+        bottom:
+            0.8rem;
 
         width:
             calc(100vw - 1.2rem);
@@ -1569,10 +1871,12 @@ footer {
             1.15rem;
     }
 
+
     .instagram-browser-title {
         font-size:
             1.45rem;
     }
+
 
     .hero {
         height:
@@ -1587,6 +1891,7 @@ footer {
             4rem;
     }
 
+
     h1 {
         font-size:
             clamp(
@@ -1596,10 +1901,12 @@ footer {
             );
     }
 
+
     .name-letter:hover {
         transform:
             none;
     }
+
 
     .subtitle {
         margin-top:
@@ -1619,6 +1926,7 @@ footer {
             1rem;
     }
 
+
     nav {
         gap:
             1rem;
@@ -1627,10 +1935,12 @@ footer {
             wrap;
     }
 
+
     nav a {
         font-size:
             0.76rem;
     }
+
 
     .section-title {
         font-size:
@@ -1641,6 +1951,7 @@ footer {
             );
     }
 
+
     .projects-section,
     .about-section {
         height:
@@ -1650,11 +1961,13 @@ footer {
             100vh;
     }
 
+
     .projects-section {
         padding:
             7rem
             7%;
     }
+
 
     .projects-layout {
         grid-template-columns:
@@ -1664,10 +1977,12 @@ footer {
             3rem;
     }
 
+
     .projects-intro p {
         min-height:
             0;
     }
+
 
     .projects-carousel-wrapper {
         margin-left:
@@ -1675,25 +1990,46 @@ footer {
 
         padding:
             1rem
-            0.7rem;
+            0;
     }
+
 
     .projects-carousel {
         padding:
-            1.3rem
-            2rem
-            1.6rem;
+            1.4rem
+            3rem
+            1.7rem;
+
+        -webkit-mask-image:
+            linear-gradient(
+                to right,
+                transparent 0%,
+                black 11%,
+                black 89%,
+                transparent 100%
+            );
+
+        mask-image:
+            linear-gradient(
+                to right,
+                transparent 0%,
+                black 11%,
+                black 89%,
+                transparent 100%
+            );
     }
+
 
     .project-card {
         flex:
             0
             0
-            86%;
+            82%;
 
         min-width:
             0;
     }
+
 
     .project-title {
         font-size:
@@ -1704,6 +2040,7 @@ footer {
             );
     }
 
+
     .carousel-arrow {
         width:
             32px;
@@ -1712,11 +2049,13 @@ footer {
             32px;
     }
 
+
     .about-section {
         padding:
             7rem
             8%;
     }
+
 
     .about-layout {
         grid-template-columns:
@@ -1726,6 +2065,7 @@ footer {
             2.5rem;
     }
 
+
     .about-content {
         min-height:
             0;
@@ -1733,6 +2073,7 @@ footer {
         padding-top:
             0;
     }
+
 
     .contact-section {
         min-height:
@@ -1744,26 +2085,41 @@ footer {
             0;
     }
 
-    .project-drawer {
+
+    /*
+    On phones it still leaves a visible border of the
+    blurred site around the popup.
+    */
+
+    .project-modal {
         width:
-            100%;
+            calc(100vw - 2rem);
+
+        height:
+            calc(100vh - 2rem);
+
+        min-height:
+            0;
 
         padding:
-            5rem
+            4.5rem
+            1.5rem
             2rem;
 
-        align-items:
-            center;
+        border-radius:
+            10px;
     }
 
-    .drawer-title {
+
+    .project-modal-title {
         font-size:
             clamp(
-                2.4rem,
+                2.2rem,
                 11vw,
-                3.7rem
+                3.5rem
             );
     }
+
 }
 
 
@@ -1781,6 +2137,7 @@ footer {
             none;
     }
 
+
     .hero-name,
     .hero .subtitle,
     .hero nav {
@@ -1797,20 +2154,24 @@ footer {
             none;
     }
 
+
     .name-letter,
     .project-card,
     .carousel-arrow,
     nav a,
-    .project-drawer,
+    .project-modal,
+    .project-modal-backdrop,
     .instagram-browser-notice {
         transition:
             none;
     }
 
+
     .name-letter:hover {
         transform:
             none;
     }
+
 
     .js .reveal {
         opacity:
@@ -1825,6 +2186,7 @@ footer {
         transition:
             none;
     }
+
 }
 
 </style>
@@ -1837,7 +2199,7 @@ footer {
 
 <a href="#home"
    class="home-button">
-    SF.
+SF.
 </a>
 
 
@@ -1846,28 +2208,28 @@ footer {
 <button onclick="setLanguage('en')"
         id="btn-en"
         class="active">
-    EN
+EN
 </button>
 
 /
 
 <button onclick="setLanguage('fr')"
         id="btn-fr">
-    FR
+FR
 </button>
 
 /
 
 <button onclick="setLanguage('sv')"
         id="btn-sv">
-    SV
+SV
 </button>
 
 </div>
 
 
 <!-- =========================================================
-     INSTAGRAM BROWSER NOTICE
+     INSTAGRAM NOTICE
      ========================================================= -->
 
 <div class="instagram-browser-notice"
@@ -1876,36 +2238,36 @@ footer {
      aria-modal="false"
      aria-labelledby="instagram-browser-title">
 
-    <p class="instagram-browser-label">
-        Instagram browser
-    </p>
+<p class="instagram-browser-label">
+Instagram browser
+</p>
 
-    <h2 class="instagram-browser-title"
-        id="instagram-browser-title">
-        Looks better outside Instagram.
-    </h2>
+<h2 class="instagram-browser-title"
+    id="instagram-browser-title">
+Looks better outside Instagram.
+</h2>
 
-    <p class="instagram-browser-text"
-       id="instagram-browser-text">
-        Instagram's built-in browser can affect some of the site's animations.
-        For the best experience, open it in your normal browser.
-    </p>
+<p class="instagram-browser-text"
+   id="instagram-browser-text">
+Instagram's built-in browser can affect some of the site's animations.
+For the best experience, open it in your normal browser.
+</p>
 
-    <div class="instagram-browser-actions">
+<div class="instagram-browser-actions">
 
-        <button class="instagram-open-button"
-                id="instagram-open-button"
-                type="button">
-            Open in browser
-        </button>
+<button class="instagram-open-button"
+        id="instagram-open-button"
+        type="button">
+Open in browser
+</button>
 
-        <button class="instagram-dismiss-button"
-                id="instagram-dismiss-button"
-                type="button">
-            Continue here
-        </button>
+<button class="instagram-dismiss-button"
+        id="instagram-dismiss-button"
+        type="button">
+Continue here
+</button>
 
-    </div>
+</div>
 
 </div>
 
@@ -1923,19 +2285,21 @@ footer {
 
 <h1 id="animated-name"
     aria-label="seb feasey">
-    seb feasey
+seb feasey
 </h1>
 
 </div>
+
 
 <div class="subtitle"
      data-en="graphic design & editorial design student"
      data-fr="étudiant en graphisme & design éditorial"
      data-sv="student inom grafisk design & redaktionell design">
 
-    graphic design & editorial design student
+graphic design & editorial design student
 
 </div>
+
 
 <nav>
 
@@ -1943,21 +2307,21 @@ footer {
    data-en="projects"
    data-fr="projets"
    data-sv="projekt">
-    projects
+projects
 </a>
 
 <a href="#about"
    data-en="about"
    data-fr="à propos"
    data-sv="om mig">
-    about
+about
 </a>
 
 <a href="#contact"
    data-en="contact"
    data-fr="contact"
    data-sv="kontakt">
-    contact
+contact
 </a>
 
 </nav>
@@ -1983,8 +2347,11 @@ footer {
     data-en="Projects"
     data-fr="Projets"
     data-sv="Projekt">
-    Projects
+
+Projects
+
 </h2>
+
 
 <p
 data-en="There not here yet, still working on that! But come back soon to discover my work :)"
@@ -2000,10 +2367,11 @@ There not here yet, still working on that! But come back soon to discover my wor
 
 <div class="projects-carousel-wrapper reveal">
 
+
 <button class="carousel-arrow left"
         id="projects-left"
         aria-label="Previous project">
-    ‹
+‹
 </button>
 
 
@@ -2122,8 +2490,9 @@ Experiments
 <button class="carousel-arrow right"
         id="projects-right"
         aria-label="Next project">
-    ›
+›
 </button>
+
 
 </div>
 
@@ -2141,11 +2510,14 @@ Experiments
 
 <div class="about-layout">
 
+
 <h2 class="section-title reveal"
     data-en="About"
     data-fr="À propos"
     data-sv="Om mig">
-    About
+
+About
+
 </h2>
 
 
@@ -2156,7 +2528,9 @@ Experiments
    data-en="Hi, I’m Seb!"
    data-fr="Salut, moi c’est Seb!"
    data-sv="Hej, jag heter Seb!">
+
 Hi, I’m Seb!
+
 </p>
 
 
@@ -2218,11 +2592,14 @@ This website is still a work in progress at the moment, but this space will be d
 
 <div class="contact-content">
 
+
 <h2 class="section-title reveal"
     data-en="Contact"
     data-fr="Contact"
     data-sv="Kontakt">
+
 Contact
+
 </h2>
 
 
@@ -2230,21 +2607,27 @@ Contact
 
 <p>
 Email:
+
 <a href="mailto:feaseysebastien@gmail.com">
 feaseysebastien@gmail.com
 </a>
+
 </p>
+
 
 <p>
 Instagram:
+
 <a href="https://instagram.com/sebfeasey"
    target="_blank"
    rel="noopener noreferrer">
 @sebfeasey
 </a>
+
 </p>
 
 </div>
+
 
 </div>
 
@@ -2259,23 +2642,40 @@ Instagram:
 
 
 <!-- =========================================================
-     PROJECT DRAWER
+     BLURRED PROJECT BACKDROP
      ========================================================= -->
 
-<aside class="project-drawer"
-       id="project-drawer"
-       aria-hidden="true">
+<div class="project-modal-backdrop"
+     id="project-modal-backdrop">
+</div>
 
-<button class="drawer-close"
-        id="drawer-close"
+
+<!-- =========================================================
+     CENTRED PROJECT WINDOW
+     ========================================================= -->
+
+<aside class="project-modal"
+       id="project-modal"
+       aria-hidden="true"
+       role="dialog"
+       aria-modal="true">
+
+<button class="project-modal-close"
+        id="project-modal-close"
         aria-label="Close project">
+
 ×
+
 </button>
 
-<h3 class="drawer-title"
-    id="drawer-title">
+
+<h3 class="project-modal-title"
+    id="project-modal-title">
+
 Editorial
+
 </h3>
+
 
 </aside>
 
@@ -2287,19 +2687,29 @@ Editorial
    ========================================================= */
 
 const animatedName =
-document.getElementById("animated-name");
+document.getElementById(
+    "animated-name"
+);
+
 
 const nameText =
 "seb feasey";
 
-animatedName.innerHTML = "";
+
+animatedName.innerHTML =
+"";
+
 
 [...nameText].forEach(character => {
 
-    if (character === " ") {
+    if (
+        character === " "
+    ) {
 
         const space =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
 
         space.className =
         "name-space";
@@ -2307,12 +2717,16 @@ animatedName.innerHTML = "";
         space.innerHTML =
         "&nbsp;";
 
-        animatedName.appendChild(space);
+        animatedName.appendChild(
+            space
+        );
 
     } else {
 
         const letter =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
 
         letter.className =
         "name-letter";
@@ -2320,7 +2734,9 @@ animatedName.innerHTML = "";
         letter.textContent =
         character;
 
-        animatedName.appendChild(letter);
+        animatedName.appendChild(
+            letter
+        );
 
     }
 
@@ -2336,15 +2752,18 @@ document.getElementById(
     "instagram-browser-notice"
 );
 
+
 const instagramOpenButton =
 document.getElementById(
     "instagram-open-button"
 );
 
+
 const instagramDismissButton =
 document.getElementById(
     "instagram-dismiss-button"
 );
+
 
 const instagramBrowserText =
 document.getElementById(
@@ -2357,15 +2776,21 @@ navigator.userAgent || "";
 
 
 const isInstagramBrowser =
-/Instagram/i.test(userAgent);
+/Instagram/i.test(
+    userAgent
+);
 
 
 const isAndroid =
-/Android/i.test(userAgent);
+/Android/i.test(
+    userAgent
+);
 
 
 const isIOS =
-/iPhone|iPad|iPod/i.test(userAgent);
+/iPhone|iPad|iPod/i.test(
+    userAgent
+);
 
 
 if (
@@ -2375,7 +2800,9 @@ if (
     ) !== "true"
 ) {
 
-    if (isIOS) {
+    if (
+        isIOS
+    ) {
 
         instagramOpenButton.textContent =
         "Copy link";
@@ -2388,25 +2815,31 @@ if (
     }
 
 
-    setTimeout(() => {
+    setTimeout(
+    () => {
 
-        instagramNotice.classList.add(
+        instagramNotice
+        .classList
+        .add(
             "open"
         );
 
-    }, 850);
+    },
+    850
+    );
 
 }
 
 
 /* =========================================================
-   COPY CURRENT URL
+   COPY URL
    ========================================================= */
 
 async function copyCurrentURL() {
 
     const currentURL =
     window.location.href;
+
 
     try {
 
@@ -2416,7 +2849,9 @@ async function copyCurrentURL() {
 
         return true;
 
-    } catch (error) {
+    } catch (
+        error
+    ) {
 
         const temporaryInput =
         document.createElement(
@@ -2439,7 +2874,9 @@ async function copyCurrentURL() {
         temporaryInput.select();
 
         const copied =
-        document.execCommand("copy");
+        document.execCommand(
+            "copy"
+        );
 
         temporaryInput.remove();
 
@@ -2459,12 +2896,15 @@ instagramOpenButton.addEventListener(
 async () => {
 
 
-    if (isAndroid) {
+    if (
+        isAndroid
+    ) {
 
         const url =
         new URL(
             window.location.href
         );
+
 
         const intentTarget =
         url.host +
@@ -2482,7 +2922,8 @@ async () => {
         "end";
 
 
-        setTimeout(() => {
+        setTimeout(
+        () => {
 
             if (
                 document.visibilityState ===
@@ -2497,7 +2938,9 @@ async () => {
 
             }
 
-        }, 1400);
+        },
+        1400
+        );
 
 
         return;
@@ -2509,7 +2952,9 @@ async () => {
     await copyCurrentURL();
 
 
-    if (copied) {
+    if (
+        copied
+    ) {
 
         instagramBrowserText.textContent =
         "Link copied! Tap the ••• menu in Instagram and choose “Open in browser”.";
@@ -2530,17 +2975,16 @@ async () => {
 });
 
 
-/* =========================================================
-   DISMISS INSTAGRAM NOTICE
-   ========================================================= */
-
 instagramDismissButton.addEventListener(
 "click",
 () => {
 
-    instagramNotice.classList.remove(
+    instagramNotice
+    .classList
+    .remove(
         "open"
     );
+
 
     sessionStorage.setItem(
         "instagram-browser-notice-dismissed",
@@ -2560,15 +3004,22 @@ function preventOrphans() {
     .querySelectorAll(
         ".no-orphan"
     )
-    .forEach(element => {
+    .forEach(
+    element => {
 
         const text =
         element.textContent.trim();
 
-        const lastSpace =
-        text.lastIndexOf(" ");
 
-        if (lastSpace > 0) {
+        const lastSpace =
+        text.lastIndexOf(
+            " "
+        );
+
+
+        if (
+            lastSpace > 0
+        ) {
 
             element.textContent =
             text.slice(
@@ -2595,7 +3046,9 @@ let currentLanguage =
 "en";
 
 
-function setLanguage(language) {
+function setLanguage(
+    language
+) {
 
     currentLanguage =
     language;
@@ -2605,14 +3058,19 @@ function setLanguage(language) {
     .querySelectorAll(
         "[data-en]"
     )
-    .forEach(element => {
+    .forEach(
+    element => {
 
         const translation =
         element.getAttribute(
-            "data-" + language
+            "data-" +
+            language
         );
 
-        if (translation) {
+
+        if (
+            translation
+        ) {
 
             element.textContent =
             translation;
@@ -2623,24 +3081,33 @@ function setLanguage(language) {
 
 
     document
-    .getElementById("btn-en")
-    .classList.toggle(
+    .getElementById(
+        "btn-en"
+    )
+    .classList
+    .toggle(
         "active",
         language === "en"
     );
 
 
     document
-    .getElementById("btn-fr")
-    .classList.toggle(
+    .getElementById(
+        "btn-fr"
+    )
+    .classList
+    .toggle(
         "active",
         language === "fr"
     );
 
 
     document
-    .getElementById("btn-sv")
-    .classList.toggle(
+    .getElementById(
+        "btn-sv"
+    )
+    .classList
+    .toggle(
         "active",
         language === "sv"
     );
@@ -2654,13 +3121,15 @@ function setLanguage(language) {
 
 
     if (
-        drawer.classList.contains(
+        projectModal
+        .classList
+        .contains(
             "open"
         ) &&
         currentOpenProject
     ) {
 
-        drawerTitle.textContent =
+        projectModalTitle.textContent =
         projectInfo[
             currentOpenProject
         ].title[
@@ -2683,11 +3152,14 @@ event => {
     const selection =
     window.getSelection();
 
+
     if (
         !selection ||
         selection.isCollapsed
     ) {
+
         return;
+
     }
 
 
@@ -2695,8 +3167,12 @@ event => {
     selection.toString();
 
 
-    if (!plainText) {
+    if (
+        !plainText
+    ) {
+
         return;
+
     }
 
 
@@ -2721,37 +3197,54 @@ preventOrphans();
 const sectionColours = [
 
     {
-        background: "#FF340C",
-        text: "#F9F3DB"
+        background:
+            "#FF340C",
+
+        text:
+            "#F9F3DB"
     },
 
     {
-        background: "#F03172",
-        text: "#F9F3DB"
+        background:
+            "#F03172",
+
+        text:
+            "#F9F3DB"
     },
 
     {
-        background: "#0F4A42",
-        text: "#F9F3DB"
+        background:
+            "#0F4A42",
+
+        text:
+            "#F9F3DB"
     },
 
     {
-        background: "#273287",
-        text: "#F9F3DB"
+        background:
+            "#273287",
+
+        text:
+            "#F9F3DB"
     }
 
 ];
 
 
-function shuffle(array) {
+function shuffle(
+    array
+) {
 
     const copy =
     [...array];
 
 
     for (
-        let i = copy.length - 1;
+        let i =
+        copy.length - 1;
+
         i > 0;
+
         i--
     ) {
 
@@ -2780,7 +3273,7 @@ function shuffle(array) {
 
 
 /* =========================================================
-   RANDOM COLOURS WITHOUT REPEATING HOME
+   HOME NEVER REPEATS COLOUR
    ========================================================= */
 
 const sections =
@@ -2789,34 +3282,17 @@ document.querySelectorAll(
 );
 
 
-/*
-Remember the colour that Home had on the
-previous page load.
-*/
-
 const previousHomeColour =
 localStorage.getItem(
     "seb-last-home-colour"
 );
 
 
-/*
-Shuffle normally first.
-*/
-
 let shuffledColours =
 shuffle(
     sectionColours
 );
 
-
-/*
-If the newly shuffled Home colour happens to be
-the same as the previous Home colour, swap it with
-one of the other three colours.
-
-This guarantees Home never repeats twice in a row.
-*/
 
 if (
     previousHomeColour &&
@@ -2839,10 +3315,14 @@ if (
 
         [
             shuffledColours[0],
-            shuffledColours[alternativeIndex]
+            shuffledColours[
+                alternativeIndex
+            ]
         ] =
         [
-            shuffledColours[alternativeIndex],
+            shuffledColours[
+                alternativeIndex
+            ],
             shuffledColours[0]
         ];
 
@@ -2851,26 +3331,19 @@ if (
 }
 
 
-/*
-Save this load's Home colour so we can avoid it
-the next time the page refreshes.
-*/
-
 localStorage.setItem(
     "seb-last-home-colour",
     shuffledColours[0].background
 );
 
 
-/*
-Apply all four colours.
-*/
-
 sections.forEach(
 (section,index) => {
 
     const colour =
-    shuffledColours[index];
+    shuffledColours[
+        index
+    ];
 
 
     section.style.setProperty(
@@ -2895,7 +3368,9 @@ sections.forEach(
    FIXED UI COLOUR
    ========================================================= */
 
-function updateUIColour(section) {
+function updateUIColour(
+    section
+) {
 
     document.documentElement
     .style
@@ -2908,7 +3383,9 @@ function updateUIColour(section) {
 
 
 updateUIColour(
-    document.querySelector("#home")
+    document.querySelector(
+        "#home"
+    )
 );
 
 
@@ -2917,9 +3394,12 @@ new IntersectionObserver(
 
 entries => {
 
-    entries.forEach(entry => {
+    entries.forEach(
+    entry => {
 
-        if (entry.isIntersecting) {
+        if (
+            entry.isIntersecting
+        ) {
 
             updateUIColour(
                 entry.target
@@ -2942,7 +3422,8 @@ entries => {
 );
 
 
-sections.forEach(section => {
+sections.forEach(
+section => {
 
     sectionObserver.observe(
         section
@@ -2966,7 +3447,8 @@ new IntersectionObserver(
 
 entries => {
 
-    entries.forEach(entry => {
+    entries.forEach(
+    entry => {
 
         if (
             entry.isIntersecting
@@ -3046,7 +3528,9 @@ Array.from(
 const templates =
 originalCards.map(
 card =>
-    card.cloneNode(true)
+    card.cloneNode(
+        true
+    )
 );
 
 
@@ -3074,7 +3558,8 @@ function prependProjectSet() {
 
     [...templates]
     .reverse()
-    .forEach(template => {
+    .forEach(
+    template => {
 
         carousel.insertBefore(
             template.cloneNode(
@@ -3116,12 +3601,13 @@ function nearestCard() {
 
 
     const carouselBox =
-    carousel.getBoundingClientRect();
+    carousel
+    .getBoundingClientRect();
 
 
     const target =
     carouselBox.left +
-    70;
+    85;
 
 
     let closest =
@@ -3132,10 +3618,12 @@ function nearestCard() {
     Infinity;
 
 
-    cards.forEach(card => {
+    cards.forEach(
+    card => {
 
         const box =
-        card.getBoundingClientRect();
+        card
+        .getBoundingClientRect();
 
 
         const distance =
@@ -3166,14 +3654,20 @@ function nearestCard() {
 }
 
 
-function moveCarousel(direction) {
+function moveCarousel(
+    direction
+) {
 
     const card =
     nearestCard();
 
 
-    if (!card) {
+    if (
+        !card
+    ) {
+
         return;
+
     }
 
 
@@ -3186,14 +3680,18 @@ function moveCarousel(direction) {
 
 
     let index =
-    cards.indexOf(card);
+    cards.indexOf(
+        card
+    );
 
 
     index +=
     direction;
 
 
-    if (index < 0) {
+    if (
+        index < 0
+    ) {
 
         prependProjectSet();
 
@@ -3226,7 +3724,7 @@ function moveCarousel(direction) {
 
         left:
             nextCard.offsetLeft -
-            40,
+            65,
 
         behavior:
             "smooth"
@@ -3252,7 +3750,9 @@ rightArrow.addEventListener(
     }
 
 
-    moveCarousel(1);
+    moveCarousel(
+        1
+    );
 
 });
 
@@ -3271,7 +3771,9 @@ leftArrow.addEventListener(
     }
 
 
-    moveCarousel(-1);
+    moveCarousel(
+        -1
+    );
 
 });
 
@@ -3329,9 +3831,16 @@ const projectInfo = {
     editorial: {
 
         title: {
-            en: "Editorial",
-            fr: "Éditorial",
-            sv: "Redaktionellt"
+
+            en:
+                "Editorial",
+
+            fr:
+                "Éditorial",
+
+            sv:
+                "Redaktionellt"
+
         }
 
     },
@@ -3340,9 +3849,16 @@ const projectInfo = {
     photography: {
 
         title: {
-            en: "Photography",
-            fr: "Photographie",
-            sv: "Fotografi"
+
+            en:
+                "Photography",
+
+            fr:
+                "Photographie",
+
+            sv:
+                "Fotografi"
+
         }
 
     },
@@ -3351,9 +3867,16 @@ const projectInfo = {
     posters: {
 
         title: {
-            en: "Posters",
-            fr: "Affiches",
-            sv: "Affischer"
+
+            en:
+                "Posters",
+
+            fr:
+                "Affiches",
+
+            sv:
+                "Affischer"
+
         }
 
     },
@@ -3362,9 +3885,16 @@ const projectInfo = {
     typography: {
 
         title: {
-            en: "Typography",
-            fr: "Typographie",
-            sv: "Typografi"
+
+            en:
+                "Typography",
+
+            fr:
+                "Typographie",
+
+            sv:
+                "Typografi"
+
         }
 
     },
@@ -3373,9 +3903,16 @@ const projectInfo = {
     experiments: {
 
         title: {
-            en: "Experiments",
-            fr: "Expérimentations",
-            sv: "Experiment"
+
+            en:
+                "Experiments",
+
+            fr:
+                "Expérimentations",
+
+            sv:
+                "Experiment"
+
         }
 
     }
@@ -3384,30 +3921,40 @@ const projectInfo = {
 
 
 /* =========================================================
-   DRAWER
+   PROJECT MODAL
    ========================================================= */
 
-const drawer =
+const projectModal =
 document.getElementById(
-    "project-drawer"
+    "project-modal"
 );
 
 
-const drawerClose =
+const projectModalBackdrop =
 document.getElementById(
-    "drawer-close"
+    "project-modal-backdrop"
 );
 
 
-const drawerTitle =
+const projectModalClose =
 document.getElementById(
-    "drawer-title"
+    "project-modal-close"
+);
+
+
+const projectModalTitle =
+document.getElementById(
+    "project-modal-title"
 );
 
 
 let currentOpenProject =
 null;
 
+
+/* =========================================================
+   OPEN PROJECT
+   ========================================================= */
 
 carousel.addEventListener(
 "click",
@@ -3419,8 +3966,12 @@ event => {
     );
 
 
-    if (!card) {
+    if (
+        !card
+    ) {
+
         return;
+
     }
 
 
@@ -3429,11 +3980,17 @@ event => {
 
 
     const project =
-    projectInfo[key];
+    projectInfo[
+        key
+    ];
 
 
-    if (!project) {
+    if (
+        !project
+    ) {
+
         return;
+
     }
 
 
@@ -3441,35 +3998,71 @@ event => {
     key;
 
 
-    drawerTitle.textContent =
+    projectModalTitle.textContent =
     project.title[
         currentLanguage
     ];
 
 
-    drawer.classList.add(
+    projectModal
+    .classList
+    .add(
         "open"
     );
 
 
-    drawer.setAttribute(
+    projectModalBackdrop
+    .classList
+    .add(
+        "open"
+    );
+
+
+    projectModal.setAttribute(
         "aria-hidden",
         "false"
+    );
+
+
+    document.body
+    .classList
+    .add(
+        "modal-open"
     );
 
 });
 
 
-function closeDrawer() {
+/* =========================================================
+   CLOSE PROJECT
+   ========================================================= */
 
-    drawer.classList.remove(
+function closeProjectModal() {
+
+    projectModal
+    .classList
+    .remove(
         "open"
     );
 
 
-    drawer.setAttribute(
+    projectModalBackdrop
+    .classList
+    .remove(
+        "open"
+    );
+
+
+    projectModal.setAttribute(
         "aria-hidden",
         "true"
+    );
+
+
+    document.body
+    .classList
+    .remove(
+        "modal-open"
     );
 
 
@@ -3477,7 +4070,9 @@ function closeDrawer() {
     () => {
 
         if (
-            !drawer.classList.contains(
+            !projectModal
+            .classList
+            .contains(
                 "open"
             )
         ) {
@@ -3494,9 +4089,15 @@ function closeDrawer() {
 }
 
 
-drawerClose.addEventListener(
+projectModalClose.addEventListener(
     "click",
-    closeDrawer
+    closeProjectModal
+);
+
+
+projectModalBackdrop.addEventListener(
+    "click",
+    closeProjectModal
 );
 
 
@@ -3509,7 +4110,7 @@ event => {
         "Escape"
     ) {
 
-        closeDrawer();
+        closeProjectModal();
 
     }
 
@@ -3518,4 +4119,5 @@ event => {
 </script>
 
 </body>
+
 </html>
