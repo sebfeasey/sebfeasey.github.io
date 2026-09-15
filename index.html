@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -37,18 +36,18 @@ document.documentElement.classList.add("js");
 }
 
 html {
-
     scroll-behavior: smooth;
-
     scroll-snap-type: y proximity;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        var(--ui-colour)
+        rgba(24,26,77,0.16);
 }
 
 body {
-
     margin: 0;
-
     background: #181A4D;
-
     color: #F9F3DB;
 
     font-family: Arial, Helvetica, sans-serif;
@@ -71,98 +70,64 @@ body {
 .contact,
 .contact p,
 .contact a {
-
     user-select: text;
     -webkit-user-select: text;
 }
 
-
 ::selection {
-
     background: rgba(249,243,219,0.92);
-
     color: #181A4D;
 }
 
-
 ::-moz-selection {
-
     background: rgba(249,243,219,0.92);
-
     color: #181A4D;
 }
 
 
 /* =========================================================
-   BETTER TEXT WRAPPING
+   TEXT WRAPPING
    ========================================================= */
 
 .about-content p,
 .contact p,
 .projects-intro p {
-
     text-wrap: pretty;
 }
-
 
 .section-title,
 .project-title,
 .drawer-title,
 h1 {
-
     text-wrap: balance;
 }
 
 
 /* =========================================================
-   CUSTOM SCROLLBAR
+   SCROLLBAR
    ========================================================= */
 
-html {
-
-    scrollbar-width: thin;
-
-    scrollbar-color:
-        var(--ui-colour)
-        rgba(24,26,77,0.16);
-}
-
-
 ::-webkit-scrollbar {
-
     width: 10px;
 }
 
-
 ::-webkit-scrollbar-track {
-
-    background:
-        rgba(24,26,77,0.12);
+    background: rgba(24,26,77,0.12);
 }
 
-
 ::-webkit-scrollbar-thumb {
-
-    background:
-        var(--ui-colour);
+    background: var(--ui-colour);
 
     border-radius: 999px;
 
-    border:
-        3px solid transparent;
+    border: 3px solid transparent;
 
-    background-clip:
-        padding-box;
+    background-clip: padding-box;
 }
 
-
 ::-webkit-scrollbar-thumb:hover {
-
-    border:
-        2px solid transparent;
-
-    background-clip:
-        padding-box;
+    border: 2px solid transparent;
+    background-clip: padding-box;
 }
 
 
@@ -171,29 +136,20 @@ html {
    ========================================================= */
 
 .colour-section {
-
     position: relative;
 
     width: 100%;
 
     color: var(--section-text);
-
     background: var(--section-bg);
 
     overflow: hidden;
 
     scroll-snap-align: start;
-
     scroll-snap-stop: normal;
 }
 
-
-/* =========================================================
-   SUBTLE SECTION EDGE
-   ========================================================= */
-
 .colour-section:not(:first-of-type)::before {
-
     content: "";
 
     position: absolute;
@@ -209,7 +165,6 @@ html {
     pointer-events: none;
 
     background:
-
         linear-gradient(
             to bottom,
             rgba(249,243,219,0.018),
@@ -217,7 +172,6 @@ html {
         );
 
     backdrop-filter: blur(1.5px);
-
     -webkit-backdrop-filter: blur(1.5px);
 }
 
@@ -227,7 +181,6 @@ html {
    ========================================================= */
 
 .home-button {
-
     position: fixed;
 
     top: 1.5rem;
@@ -268,23 +221,15 @@ html {
         rgba(255,255,255,0.08);
 
     backdrop-filter: blur(14px);
-
     -webkit-backdrop-filter: blur(14px);
 
     transition:
-
         color 0.4s ease,
-
-        transform
-        0.45s
-        cubic-bezier(0.34,1.56,0.64,1),
-
+        transform 0.45s cubic-bezier(0.34,1.56,0.64,1),
         background 0.3s ease;
 }
 
-
 .home-button:hover {
-
     transform:
         scale(1.10)
         rotate(-4deg);
@@ -296,7 +241,6 @@ html {
    ========================================================= */
 
 .language-switch {
-
     position: fixed;
 
     top: 1.5rem;
@@ -305,14 +249,11 @@ html {
     z-index: 3000;
 
     display: flex;
-
     align-items: center;
 
     height: 42px;
 
-    padding:
-        0
-        0.85rem;
+    padding: 0 0.85rem;
 
     border:
         1px solid
@@ -324,7 +265,6 @@ html {
         rgba(255,255,255,0.08);
 
     backdrop-filter: blur(14px);
-
     -webkit-backdrop-filter: blur(14px);
 
     color: var(--ui-colour);
@@ -338,9 +278,7 @@ html {
         background 0.3s ease;
 }
 
-
 .language-switch button {
-
     border: 0;
 
     background: transparent;
@@ -358,28 +296,214 @@ html {
     letter-spacing: 0.1em;
 
     transition:
-
         opacity 0.25s ease,
-
-        transform
-        0.4s
-        cubic-bezier(0.34,1.56,0.64,1);
+        transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
 }
 
-
 .language-switch button:hover {
-
     opacity: 1;
-
     transform: scale(1.13);
 }
 
-
 .language-switch button.active {
+    opacity: 1;
+    text-decoration: underline;
+}
 
+
+/* =========================================================
+   INSTAGRAM BROWSER NOTICE
+   ========================================================= */
+
+.instagram-browser-notice {
+    position: fixed;
+
+    left: 50%;
+    bottom: 1.5rem;
+
+    z-index: 10000;
+
+    width:
+        min(
+            430px,
+            calc(100vw - 2rem)
+        );
+
+    padding:
+        1.35rem;
+
+    background:
+        rgba(249,243,219,0.94);
+
+    color:
+        #181A4D;
+
+    border:
+        1px solid
+        rgba(24,26,77,0.12);
+
+    border-radius:
+        20px;
+
+    box-shadow:
+        0
+        18px
+        55px
+        rgba(0,0,0,0.18);
+
+    backdrop-filter:
+        blur(24px);
+
+    -webkit-backdrop-filter:
+        blur(24px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    filter:
+        blur(12px);
+
+    transform:
+        translate(-50%, 30px)
+        scale(0.96);
+
+    transition:
+        opacity 0.45s ease,
+        filter 0.5s ease,
+        transform 0.6s cubic-bezier(0.16,1,0.3,1),
+        visibility 0.6s;
+}
+
+.instagram-browser-notice.open {
     opacity: 1;
 
-    text-decoration: underline;
+    visibility: visible;
+
+    pointer-events: auto;
+
+    filter:
+        blur(0);
+
+    transform:
+        translate(-50%, 0)
+        scale(1);
+}
+
+.instagram-browser-label {
+    margin:
+        0
+        0
+        0.5rem;
+
+    font-size:
+        0.7rem;
+
+    letter-spacing:
+        0.14em;
+
+    text-transform:
+        uppercase;
+
+    opacity:
+        0.55;
+}
+
+.instagram-browser-title {
+    margin:
+        0
+        0
+        0.65rem;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        1.65rem;
+
+    line-height:
+        1;
+}
+
+.instagram-browser-text {
+    margin:
+        0
+        0
+        1.1rem;
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.55;
+}
+
+.instagram-browser-actions {
+    display:
+        flex;
+
+    gap:
+        0.6rem;
+
+    flex-wrap:
+        wrap;
+}
+
+.instagram-browser-actions button {
+    border:
+        1px solid
+        #181A4D;
+
+    border-radius:
+        999px;
+
+    padding:
+        0.7rem
+        1rem;
+
+    font-family:
+        inherit;
+
+    font-size:
+        0.8rem;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.instagram-open-button {
+    background:
+        #181A4D;
+
+    color:
+        #F9F3DB;
+}
+
+.instagram-dismiss-button {
+    background:
+        transparent;
+
+    color:
+        #181A4D;
+}
+
+.instagram-browser-actions button:hover {
+    transform:
+        scale(1.055);
+}
+
+.instagram-browser-actions button:active {
+    transform:
+        scale(0.97);
 }
 
 
@@ -388,9 +512,7 @@ html {
    ========================================================= */
 
 .hero {
-
     height: 100vh;
-
     min-height: 100vh;
 
     display: flex;
@@ -404,9 +526,7 @@ html {
         5rem;
 }
 
-
 .hero-inner {
-
     width: 100%;
 
     text-align: center;
@@ -418,11 +538,10 @@ html {
 
 
 /* =========================================================
-   HOMEPAGE ENTRY
+   HOME ENTRY
    ========================================================= */
 
 .hero-name {
-
     opacity: 0;
 
     filter: blur(14px);
@@ -432,7 +551,6 @@ html {
         scale(0.93);
 
     animation:
-
         heroNameEntrance
         1.25s
         cubic-bezier(0.16,1,0.3,1)
@@ -440,9 +558,7 @@ html {
         forwards;
 }
 
-
 .hero .subtitle {
-
     opacity: 0;
 
     filter: blur(8px);
@@ -451,7 +567,6 @@ html {
         translateY(20px);
 
     animation:
-
         heroSmallEntrance
         1s
         cubic-bezier(0.16,1,0.3,1)
@@ -459,9 +574,7 @@ html {
         forwards;
 }
 
-
 .hero nav {
-
     opacity: 0;
 
     filter: blur(6px);
@@ -470,7 +583,6 @@ html {
         translateY(16px);
 
     animation:
-
         heroSmallEntrance
         1s
         cubic-bezier(0.16,1,0.3,1)
@@ -478,11 +590,9 @@ html {
         forwards;
 }
 
-
 @keyframes heroNameEntrance {
 
     0% {
-
         opacity: 0;
 
         filter: blur(14px);
@@ -493,7 +603,6 @@ html {
     }
 
     67% {
-
         opacity: 1;
 
         filter: blur(1px);
@@ -504,14 +613,12 @@ html {
     }
 
     84% {
-
         transform:
             translateY(2px)
             scale(0.992);
     }
 
     100% {
-
         opacity: 1;
 
         filter: blur(0);
@@ -520,14 +627,11 @@ html {
             translateY(0)
             scale(1);
     }
-
 }
-
 
 @keyframes heroSmallEntrance {
 
     0% {
-
         opacity: 0;
 
         filter: blur(8px);
@@ -537,7 +641,6 @@ html {
     }
 
     70% {
-
         opacity: 1;
 
         filter: blur(0);
@@ -547,7 +650,6 @@ html {
     }
 
     100% {
-
         opacity: 1;
 
         filter: blur(0);
@@ -555,7 +657,6 @@ html {
         transform:
             translateY(0);
     }
-
 }
 
 
@@ -564,7 +665,6 @@ html {
    ========================================================= */
 
 h1 {
-
     margin: 0;
 
     font-family:
@@ -579,57 +679,51 @@ h1 {
             8rem
         );
 
-    line-height: 0.9;
+    line-height:
+        0.9;
 
-    font-weight: 400;
+    font-weight:
+        400;
 
-    text-transform: lowercase;
+    text-transform:
+        lowercase;
 }
 
-
 .name-letter {
-
     display: inline-block;
 
     position: relative;
 
     cursor: default;
 
-    transform-origin: center bottom;
+    transform-origin:
+        center bottom;
 
     transition:
-
         transform
         0.55s
         cubic-bezier(0.34,1.56,0.64,1);
 }
 
-
 .name-letter:hover {
-
     transform:
-
         translateY(-12px)
         rotate(-5deg)
         scale(1.16,1.06);
 }
 
-
 .name-letter:nth-child(even):hover {
-
     transform:
-
         translateY(-10px)
         rotate(5deg)
         scale(1.12,1.10);
 }
 
-
 .name-space {
-
     display: inline-block;
 
-    width: 0.22em;
+    width:
+        0.22em;
 }
 
 
@@ -638,21 +732,20 @@ h1 {
    ========================================================= */
 
 .subtitle {
+    margin-top:
+        2.2rem;
 
-    /*
-    Increased from 1rem so the descender of the Y
-    has proper breathing room.
-    */
+    margin-bottom:
+        5rem;
 
-    margin-top: 2.2rem;
+    text-transform:
+        uppercase;
 
-    margin-bottom: 5rem;
+    letter-spacing:
+        0.3em;
 
-    text-transform: uppercase;
-
-    letter-spacing: 0.3em;
-
-    font-size: 0.9rem;
+    font-size:
+        0.9rem;
 }
 
 
@@ -661,40 +754,40 @@ h1 {
    ========================================================= */
 
 nav {
+    display:
+        flex;
 
-    display: flex;
+    justify-content:
+        center;
 
-    justify-content: center;
-
-    gap: 2rem;
+    gap:
+        2rem;
 }
-
 
 nav a {
+    color:
+        inherit;
 
-    color: inherit;
+    text-decoration:
+        none;
 
-    text-decoration: none;
+    text-transform:
+        uppercase;
 
-    text-transform: uppercase;
+    letter-spacing:
+        0.15em;
 
-    letter-spacing: 0.15em;
-
-    display: inline-block;
+    display:
+        inline-block;
 
     transition:
-
         opacity 0.25s ease,
-
-        transform
-        0.45s
-        cubic-bezier(0.34,1.56,0.64,1);
+        transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
 }
 
-
 nav a:hover {
-
-    opacity: 0.75;
+    opacity:
+        0.75;
 
     transform:
         scale(1.12)
@@ -707,7 +800,6 @@ nav a:hover {
    ========================================================= */
 
 .section-title {
-
     margin: 0;
 
     font-family:
@@ -722,45 +814,41 @@ nav a:hover {
             6rem
         );
 
-    line-height: 0.9;
+    line-height:
+        0.9;
 
-    font-weight: 400;
+    font-weight:
+        400;
 }
 
 
 /* =========================================================
-   REPEATING REVEAL
+   REVEAL
    ========================================================= */
 
 .js .reveal {
+    opacity:
+        0;
 
-    opacity: 0;
-
-    filter: blur(9px);
+    filter:
+        blur(9px);
 
     transform:
         translateY(38px)
         scale(0.94);
 
     transition:
-
-        opacity
-        0.65s ease,
-
-        filter
-        0.72s ease,
-
-        transform
-        0.82s
-        cubic-bezier(0.34,1.26,0.64,1);
+        opacity 0.65s ease,
+        filter 0.72s ease,
+        transform 0.82s cubic-bezier(0.34,1.26,0.64,1);
 }
 
-
 .js .reveal.visible {
+    opacity:
+        1;
 
-    opacity: 1;
-
-    filter: blur(0);
+    filter:
+        blur(0);
 
     transform:
         translateY(0)
@@ -773,58 +861,64 @@ nav a:hover {
    ========================================================= */
 
 .projects-section {
+    height:
+        100vh;
 
-    height: 100vh;
-
-    min-height: 100vh;
+    min-height:
+        100vh;
 
     padding:
         8rem
         6%;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 }
-
 
 .projects-layout {
+    width:
+        100%;
 
-    width: 100%;
-
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-
         minmax(240px,0.52fr)
-
         minmax(0,1.85fr);
 
-    gap: 7vw;
+    gap:
+        7vw;
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 10;
+    z-index:
+        10;
 
-    align-items: center;
+    align-items:
+        center;
 }
-
 
 .projects-intro .section-title {
-
-    margin-bottom: 1.8rem;
+    margin-bottom:
+        1.8rem;
 }
 
-
 .projects-intro p {
+    max-width:
+        310px;
 
-    max-width: 310px;
+    min-height:
+        90px;
 
-    min-height: 90px;
+    line-height:
+        1.6;
 
-    line-height: 1.6;
-
-    font-size: 0.95rem;
+    font-size:
+        0.95rem;
 }
 
 
@@ -833,34 +927,41 @@ nav a:hover {
    ========================================================= */
 
 .projects-carousel-wrapper {
+    position:
+        relative;
 
-    position: relative;
+    min-width:
+        0;
 
-    min-width: 0;
-
-    margin-left: 1.3rem;
+    margin-left:
+        1.3rem;
 
     padding:
         1.6rem
         1.4rem;
 }
 
-
 .projects-carousel {
+    display:
+        flex;
 
-    display: flex;
+    gap:
+        1.25rem;
 
-    gap: 1.25rem;
+    overflow-x:
+        auto;
 
-    overflow-x: auto;
+    overflow-y:
+        hidden;
 
-    overflow-y: hidden;
+    scroll-behavior:
+        smooth;
 
-    scroll-behavior: smooth;
+    scroll-snap-type:
+        x proximity;
 
-    scroll-snap-type: x proximity;
-
-    scrollbar-width: none;
+    scrollbar-width:
+        none;
 
     padding:
         1.5rem
@@ -869,10 +970,9 @@ nav a:hover {
         2.6rem;
 }
 
-
 .projects-carousel::-webkit-scrollbar {
-
-    display: none;
+    display:
+        none;
 }
 
 
@@ -881,105 +981,98 @@ nav a:hover {
    ========================================================= */
 
 .project-card {
-
     flex:
-        0
-        0
-        min(370px,72%);
+        0 0 min(370px,72%);
 
-    aspect-ratio: 4 / 3;
+    aspect-ratio:
+        4 / 3;
 
-    position: relative;
+    position:
+        relative;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
     border:
         1px solid
         currentColor;
 
-    border-radius: 0;
+    border-radius:
+        0;
 
-    padding: 0;
+    padding:
+        0;
 
-    scroll-snap-align: start;
+    scroll-snap-align:
+        start;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
     background:
         rgba(249,243,219,0.055);
 
-    color: inherit;
+    color:
+        inherit;
 
-    text-align: left;
+    text-align:
+        left;
 
-    font-family: inherit;
+    font-family:
+        inherit;
 
     transition:
-
-        transform
-        0.5s
-        cubic-bezier(0.34,1.56,0.64,1),
-
-        background
-        0.3s ease,
-
-        border-radius
-        0.4s
-        cubic-bezier(0.34,1.56,0.64,1);
+        transform 0.5s cubic-bezier(0.34,1.56,0.64,1),
+        background 0.3s ease,
+        border-radius 0.4s cubic-bezier(0.34,1.56,0.64,1);
 }
 
-
 .project-card:hover {
-
     transform:
-
         translateY(-8px)
         scale(1.04);
 
     background:
         rgba(249,243,219,0.105);
 
-    border-radius: 8px;
+    border-radius:
+        8px;
 }
 
-
 .project-card:active {
-
     transform:
         scale(0.98);
 }
 
-
-/* =========================================================
-   PROJECT CARD CONTENT
-   ========================================================= */
-
 .project-card-inner {
+    position:
+        absolute;
 
-    position: absolute;
+    inset:
+        0;
 
-    inset: 0;
+    padding:
+        1.5rem;
 
-    padding: 1.5rem;
+    display:
+        flex;
 
-    display: flex;
+    flex-direction:
+        column;
 
-    flex-direction: column;
-
-    justify-content: space-between;
+    justify-content:
+        space-between;
 }
-
 
 .project-number {
+    font-size:
+        0.7rem;
 
-    font-size: 0.7rem;
-
-    letter-spacing: 0.16em;
+    letter-spacing:
+        0.16em;
 }
 
-
 .project-title {
-
     font-family:
         Georgia,
         "Times New Roman",
@@ -992,11 +1085,14 @@ nav a:hover {
             3rem
         );
 
-    line-height: 0.96;
+    line-height:
+        0.96;
 
-    overflow-wrap: normal;
+    overflow-wrap:
+        normal;
 
-    word-break: normal;
+    word-break:
+        normal;
 }
 
 
@@ -1005,64 +1101,73 @@ nav a:hover {
    ========================================================= */
 
 .carousel-arrow {
+    position:
+        absolute;
 
-    position: absolute;
+    top:
+        50%;
 
-    top: 50%;
+    width:
+        34px;
 
-    width: 34px;
-    height: 34px;
+    height:
+        34px;
 
     border:
         1px solid
         rgba(249,243,219,0.22);
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    z-index: 20;
+    z-index:
+        20;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
-    justify-content: center;
+    align-items:
+        center;
 
-    font-size: 0.9rem;
+    justify-content:
+        center;
 
-    line-height: 1;
+    font-size:
+        0.9rem;
+
+    line-height:
+        1;
 
     background:
         rgba(249,243,219,0.075);
 
-    color: inherit;
+    color:
+        inherit;
 
-    backdrop-filter: blur(8px);
+    backdrop-filter:
+        blur(8px);
 
-    -webkit-backdrop-filter: blur(8px);
+    -webkit-backdrop-filter:
+        blur(8px);
 
-    opacity: 0.62;
+    opacity:
+        0.62;
 
     transform:
         translateY(-50%);
 
     transition:
-
-        transform
-        0.42s
-        cubic-bezier(0.34,1.56,0.64,1),
-
-        opacity
-        0.25s ease,
-
-        background
-        0.25s ease;
+        transform 0.42s cubic-bezier(0.34,1.56,0.64,1),
+        opacity 0.25s ease,
+        background 0.25s ease;
 }
 
-
 .carousel-arrow:hover {
-
-    opacity: 0.95;
+    opacity:
+        0.95;
 
     background:
         rgba(249,243,219,0.14);
@@ -1072,24 +1177,20 @@ nav a:hover {
         scale(1.08);
 }
 
-
 .carousel-arrow:active {
-
     transform:
         translateY(-50%)
         scale(0.96);
 }
 
-
 .carousel-arrow.left {
-
-    left: 0.3rem;
+    left:
+        0.3rem;
 }
 
-
 .carousel-arrow.right {
-
-    right: 0.3rem;
+    right:
+        0.3rem;
 }
 
 
@@ -1098,54 +1199,62 @@ nav a:hover {
    ========================================================= */
 
 .about-section {
+    height:
+        100vh;
 
-    height: 100vh;
-
-    min-height: 100vh;
+    min-height:
+        100vh;
 
     padding:
         8rem
         9%;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 }
-
 
 .about-layout {
+    width:
+        100%;
 
-    width: 100%;
-
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-
         minmax(260px,0.75fr)
-
         minmax(400px,1.25fr);
 
-    gap: 8vw;
+    gap:
+        8vw;
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 10;
+    z-index:
+        10;
 
-    align-items: start;
+    align-items:
+        start;
 }
 
-
 .about-content {
+    max-width:
+        720px;
 
-    max-width: 720px;
+    min-height:
+        410px;
 
-    min-height: 410px;
+    font-size:
+        1.08rem;
 
-    font-size: 1.08rem;
+    line-height:
+        1.8;
 
-    line-height: 1.8;
-
-    padding-top: 0.3rem;
+    padding-top:
+        0.3rem;
 }
 
 
@@ -1154,87 +1263,85 @@ nav a:hover {
    ========================================================= */
 
 .contact-section {
-
-    min-height: 100vh;
+    min-height:
+        100vh;
 
     padding:
         8rem
         9%
         0;
 
-    display: flex;
+    display:
+        flex;
 
-    flex-direction: column;
+    flex-direction:
+        column;
 }
-
 
 .contact-main {
+    flex:
+        1;
 
-    flex: 1;
+    display:
+        flex;
 
-    display: flex;
+    align-items:
+        center;
 
-    align-items: center;
+    position:
+        relative;
 
-    position: relative;
-
-    z-index: 10;
+    z-index:
+        10;
 }
-
 
 .contact-content {
-
-    width: 100%;
+    width:
+        100%;
 }
-
 
 .contact-content .section-title {
-
-    margin-bottom: 2.3rem;
+    margin-bottom:
+        2.3rem;
 }
-
 
 .contact {
+    font-size:
+        1.08rem;
 
-    font-size: 1.08rem;
-
-    line-height: 1.9;
+    line-height:
+        1.9;
 }
 
-
 .contact p {
-
     margin:
         0
         0
         0.5rem;
 }
 
-
 .contact a {
+    color:
+        inherit;
 
-    color: inherit;
+    display:
+        inline-block;
 
-    display: inline-block;
+    white-space:
+        nowrap;
 
     transition:
-
-        transform
-        0.45s
-        cubic-bezier(0.34,1.56,0.64,1),
-
-        opacity
-        0.3s ease;
+        transform 0.45s cubic-bezier(0.34,1.56,0.64,1),
+        opacity 0.3s ease;
 }
 
-
 .contact a:hover {
-
     transform:
         translateX(6px)
         scale(1.04);
 
-    opacity: 0.75;
+    opacity:
+        0.75;
 }
 
 
@@ -1243,20 +1350,24 @@ nav a:hover {
    ========================================================= */
 
 footer {
+    width:
+        100%;
 
-    width: 100%;
-
-    text-align: center;
+    text-align:
+        center;
 
     padding:
         2rem
         1rem;
 
-    color: inherit;
+    color:
+        inherit;
 
-    font-size: 0.85rem;
+    font-size:
+        0.85rem;
 
-    opacity: 0.65;
+    opacity:
+        0.65;
 }
 
 
@@ -1265,11 +1376,14 @@ footer {
    ========================================================= */
 
 .project-drawer {
+    position:
+        fixed;
 
-    position: fixed;
+    top:
+        0;
 
-    top: 0;
-    right: 0;
+    right:
+        0;
 
     width:
         min(
@@ -1277,13 +1391,17 @@ footer {
             40vw
         );
 
-    height: 100vh;
+    height:
+        100vh;
 
-    z-index: 5000;
+    z-index:
+        5000;
 
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
     padding:
         6rem
@@ -1292,11 +1410,14 @@ footer {
     background:
         rgba(249,243,219,0.95);
 
-    color: #181A4D;
+    color:
+        #181A4D;
 
-    backdrop-filter: blur(22px);
+    backdrop-filter:
+        blur(22px);
 
-    -webkit-backdrop-filter: blur(22px);
+    -webkit-backdrop-filter:
+        blur(22px);
 
     box-shadow:
         -15px
@@ -1308,62 +1429,64 @@ footer {
         translateX(110%)
         scale(0.985);
 
-    opacity: 0;
+    opacity:
+        0;
 
     filter:
         blur(15px);
 
-    visibility: hidden;
+    visibility:
+        hidden;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
     transition:
-
-        transform
-        0.68s
-        cubic-bezier(0.16,1,0.3,1),
-
-        opacity
-        0.48s ease,
-
-        filter
-        0.58s ease,
-
-        visibility
-        0.68s;
+        transform 0.68s cubic-bezier(0.16,1,0.3,1),
+        opacity 0.48s ease,
+        filter 0.58s ease,
+        visibility 0.68s;
 }
 
-
 .project-drawer.open {
-
     transform:
         translateX(0)
         scale(1);
 
-    opacity: 1;
+    opacity:
+        1;
 
     filter:
         blur(0);
 
-    visibility: visible;
+    visibility:
+        visible;
 
-    pointer-events: auto;
+    pointer-events:
+        auto;
 }
 
-
 .drawer-close {
+    position:
+        absolute;
 
-    position: absolute;
+    top:
+        1.6rem;
 
-    top: 1.6rem;
-    right: 1.6rem;
+    right:
+        1.6rem;
 
-    width: 42px;
-    height: 42px;
+    width:
+        42px;
 
-    border: 0;
+    height:
+        42px;
 
-    border-radius: 50%;
+    border:
+        0;
+
+    border-radius:
+        50%;
 
     background:
         #181A4D;
@@ -1371,31 +1494,28 @@ footer {
     color:
         #F9F3DB;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    font-size: 1.35rem;
+    font-size:
+        1.35rem;
 
     transition:
-
-        transform
-        0.45s
-        cubic-bezier(0.34,1.56,0.64,1);
+        transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
 }
 
-
 .drawer-close:hover {
-
     transform:
         scale(1.13)
         rotate(90deg);
 }
 
-
 .drawer-title {
+    margin:
+        0;
 
-    margin: 0;
-
-    width: 100%;
+    width:
+        100%;
 
     font-family:
         Georgia,
@@ -1409,13 +1529,11 @@ footer {
             3.5rem
         );
 
-    line-height: 0.96;
+    line-height:
+        0.96;
 
-    font-weight: 400;
-
-    overflow-wrap: normal;
-
-    word-break: normal;
+    font-weight:
+        400;
 }
 
 
@@ -1425,16 +1543,7 @@ footer {
 
 @media (max-width: 850px) {
 
-
-    html {
-
-        scroll-snap-type:
-            y proximity;
-    }
-
-
     .home-button {
-
         top: 0.8rem;
         left: 0.8rem;
 
@@ -1443,9 +1552,7 @@ footer {
         min-width: 52px;
     }
 
-
     .language-switch {
-
         top: 0.8rem;
         right: 0.8rem;
 
@@ -1454,18 +1561,31 @@ footer {
         font-size: 0.68rem;
     }
 
-
     .language-switch button {
-
         font-size: 0.68rem;
     }
 
+    .instagram-browser-notice {
+        bottom: 0.8rem;
+
+        width:
+            calc(100vw - 1.2rem);
+
+        padding:
+            1.15rem;
+    }
+
+    .instagram-browser-title {
+        font-size:
+            1.45rem;
+    }
 
     .hero {
+        height:
+            100vh;
 
-        height: 100vh;
-
-        min-height: 100vh;
+        min-height:
+            100vh;
 
         padding:
             6rem
@@ -1473,9 +1593,7 @@ footer {
             4rem;
     }
 
-
     h1 {
-
         font-size:
             clamp(
                 3.2rem,
@@ -1484,48 +1602,43 @@ footer {
             );
     }
 
-
     .name-letter:hover {
-
-        transform: none;
+        transform:
+            none;
     }
-
 
     .subtitle {
+        margin-top:
+            1.8rem;
 
-        /*
-        Slightly less space on small screens,
-        but still clearly separated from the Y.
-        */
+        font-size:
+            0.68rem;
 
-        margin-top: 1.8rem;
+        letter-spacing:
+            0.18em;
 
-        font-size: 0.68rem;
+        margin-bottom:
+            3rem;
 
-        letter-spacing: 0.18em;
-
-        margin-bottom: 3rem;
-
-        padding: 0 1rem;
+        padding:
+            0
+            1rem;
     }
-
 
     nav {
+        gap:
+            1rem;
 
-        gap: 1rem;
-
-        flex-wrap: wrap;
+        flex-wrap:
+            wrap;
     }
-
 
     nav a {
-
-        font-size: 0.76rem;
+        font-size:
+            0.76rem;
     }
 
-
     .section-title {
-
         font-size:
             clamp(
                 3.3rem,
@@ -1534,70 +1647,61 @@ footer {
             );
     }
 
-
     .projects-section,
     .about-section {
+        height:
+            auto;
 
-        height: auto;
-
-        min-height: 100vh;
+        min-height:
+            100vh;
     }
 
-
     .projects-section {
-
         padding:
             7rem
             7%;
     }
 
-
     .projects-layout {
+        grid-template-columns:
+            1fr;
 
-        grid-template-columns: 1fr;
-
-        gap: 3rem;
+        gap:
+            3rem;
     }
-
 
     .projects-intro p {
-
-        min-height: 0;
+        min-height:
+            0;
     }
 
-
     .projects-carousel-wrapper {
-
-        margin-left: 0;
+        margin-left:
+            0;
 
         padding:
             1rem
             0.7rem;
     }
 
-
     .projects-carousel {
-
         padding:
             1.3rem
             2rem
             1.6rem;
     }
 
-
     .project-card {
-
         flex:
             0
             0
             86%;
 
-        min-width: 0;
+        min-width:
+            0;
     }
 
-
     .project-title {
-
         font-size:
             clamp(
                 1.85rem,
@@ -1606,41 +1710,39 @@ footer {
             );
     }
 
-
     .carousel-arrow {
+        width:
+            32px;
 
-        width: 32px;
-        height: 32px;
+        height:
+            32px;
     }
 
-
     .about-section {
-
         padding:
             7rem
             8%;
     }
 
-
     .about-layout {
+        grid-template-columns:
+            1fr;
 
-        grid-template-columns: 1fr;
-
-        gap: 2.5rem;
+        gap:
+            2.5rem;
     }
-
 
     .about-content {
+        min-height:
+            0;
 
-        min-height: 0;
-
-        padding-top: 0;
+        padding-top:
+            0;
     }
 
-
     .contact-section {
-
-        min-height: 100vh;
+        min-height:
+            100vh;
 
         padding:
             7rem
@@ -1648,21 +1750,19 @@ footer {
             0;
     }
 
-
     .project-drawer {
-
-        width: 100%;
+        width:
+            100%;
 
         padding:
             5rem
             2rem;
 
-        align-items: center;
+        align-items:
+            center;
     }
 
-
     .drawer-title {
-
         font-size:
             clamp(
                 2.4rem,
@@ -1670,7 +1770,6 @@ footer {
                 3.7rem
             );
     }
-
 }
 
 
@@ -1680,66 +1779,58 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
 
-
     html {
+        scroll-behavior:
+            auto;
 
-        scroll-behavior: auto;
-
-        scroll-snap-type: none;
+        scroll-snap-type:
+            none;
     }
-
 
     .hero-name,
     .hero .subtitle,
     .hero nav {
+        opacity:
+            1;
 
-        opacity: 1;
+        filter:
+            none;
 
-        filter: none;
+        transform:
+            none;
 
-        transform: none;
-
-        animation: none;
+        animation:
+            none;
     }
 
-
-    .name-letter {
-
-        transition: none;
-    }
-
-
-    .name-letter:hover {
-
-        transform: none;
-    }
-
-
-    .js .reveal {
-
-        opacity: 1;
-
-        filter: none;
-
-        transform: none;
-
-        transition: none;
-    }
-
-
+    .name-letter,
     .project-card,
     .carousel-arrow,
-    nav a {
-
-        transition: none;
+    nav a,
+    .project-drawer,
+    .instagram-browser-notice {
+        transition:
+            none;
     }
 
-
-    .project-drawer {
-
-        transition: none;
+    .name-letter:hover {
+        transform:
+            none;
     }
 
+    .js .reveal {
+        opacity:
+            1;
+
+        filter:
+            none;
+
+        transform:
+            none;
+
+        transition:
+            none;
+    }
 }
 
 </style>
@@ -1750,343 +1841,282 @@ footer {
 <body>
 
 
-<a
-href="#home"
-class="home-button">
-
-SF.
-
+<a href="#home"
+   class="home-button">
+    SF.
 </a>
 
 
 <div class="language-switch">
 
-
-<button
-onclick="setLanguage('en')"
-id="btn-en"
-class="active">
-
-EN
-
+<button onclick="setLanguage('en')"
+        id="btn-en"
+        class="active">
+    EN
 </button>
-
 
 /
 
-
-<button
-onclick="setLanguage('fr')"
-id="btn-fr">
-
-FR
-
+<button onclick="setLanguage('fr')"
+        id="btn-fr">
+    FR
 </button>
-
 
 /
 
-
-<button
-onclick="setLanguage('sv')"
-id="btn-sv">
-
-SV
-
+<button onclick="setLanguage('sv')"
+        id="btn-sv">
+    SV
 </button>
-
 
 </div>
 
 
-<section
-id="home"
-class="hero colour-section">
+<!-- =========================================================
+     INSTAGRAM BROWSER NOTICE
+     ========================================================= -->
 
+<div class="instagram-browser-notice"
+     id="instagram-browser-notice"
+     role="dialog"
+     aria-modal="false"
+     aria-labelledby="instagram-browser-title">
+
+    <p class="instagram-browser-label">
+        Instagram browser
+    </p>
+
+    <h2 class="instagram-browser-title"
+        id="instagram-browser-title">
+        Looks better outside Instagram.
+    </h2>
+
+    <p class="instagram-browser-text"
+       id="instagram-browser-text">
+        Instagram's built-in browser can affect some of the site's animations.
+        For the best experience, open it in your normal browser.
+    </p>
+
+    <div class="instagram-browser-actions">
+
+        <button class="instagram-open-button"
+                id="instagram-open-button"
+                type="button">
+            Open in browser
+        </button>
+
+        <button class="instagram-dismiss-button"
+                id="instagram-dismiss-button"
+                type="button">
+            Continue here
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     HOME
+     ========================================================= -->
+
+<section id="home"
+         class="hero colour-section">
 
 <div class="hero-inner">
 
-
 <div class="hero-name">
 
-
-<h1
-id="animated-name"
-aria-label="seb feasey">
-
-seb feasey
-
+<h1 id="animated-name"
+    aria-label="seb feasey">
+    seb feasey
 </h1>
 
-
 </div>
 
+<div class="subtitle"
+     data-en="graphic design & editorial design student"
+     data-fr="étudiant en graphisme & design éditorial"
+     data-sv="student inom grafisk design & redaktionell design">
 
-<div
-class="subtitle"
-
-data-en="graphic design & editorial design student"
-
-data-fr="étudiant en graphisme & design éditorial"
-
-data-sv="student inom grafisk design & redaktionell design">
-
-graphic design & editorial design student
+    graphic design & editorial design student
 
 </div>
-
 
 <nav>
 
-
-<a
-href="#projects"
-
-data-en="projects"
-data-fr="projets"
-data-sv="projekt">
-
-projects
-
+<a href="#projects"
+   data-en="projects"
+   data-fr="projets"
+   data-sv="projekt">
+    projects
 </a>
 
-
-<a
-href="#about"
-
-data-en="about"
-data-fr="à propos"
-data-sv="om mig">
-
-about
-
+<a href="#about"
+   data-en="about"
+   data-fr="à propos"
+   data-sv="om mig">
+    about
 </a>
 
-
-<a
-href="#contact"
-
-data-en="contact"
-data-fr="contact"
-data-sv="kontakt">
-
-contact
-
+<a href="#contact"
+   data-en="contact"
+   data-fr="contact"
+   data-sv="kontakt">
+    contact
 </a>
-
 
 </nav>
-
 
 </div>
 
 </section>
 
 
-<section
-id="projects"
-class="projects-section colour-section">
+<!-- =========================================================
+     PROJECTS
+     ========================================================= -->
 
+<section id="projects"
+         class="projects-section colour-section">
 
 <div class="projects-layout">
 
 
 <div class="projects-intro reveal">
 
-
-<h2
-class="section-title"
-
-data-en="Projects"
-
-data-fr="Projets"
-
-data-sv="Projekt">
-
-Projects
-
+<h2 class="section-title"
+    data-en="Projects"
+    data-fr="Projets"
+    data-sv="Projekt">
+    Projects
 </h2>
 
-
 <p
-
 data-en="A selection of editorial, graphic, photographic and typographic projects. Click a project to discover more."
-
 data-fr="Une sélection de projets éditoriaux, graphiques, photographiques et typographiques. Cliquez sur un projet pour en découvrir davantage."
-
 data-sv="Ett urval av redaktionella, grafiska, fotografiska och typografiska projekt. Klicka på ett projekt för att se mer.">
 
 A selection of editorial, graphic, photographic and typographic projects. Click a project to discover more.
 
 </p>
 
-
 </div>
 
 
 <div class="projects-carousel-wrapper reveal">
 
-
-<button
-class="carousel-arrow left"
-id="projects-left"
-aria-label="Previous project">
-
-‹
-
+<button class="carousel-arrow left"
+        id="projects-left"
+        aria-label="Previous project">
+    ‹
 </button>
 
 
-<div
-class="projects-carousel"
-id="projects-carousel">
+<div class="projects-carousel"
+     id="projects-carousel">
 
 
-<button
-class="project-card"
-data-project="editorial">
-
+<button class="project-card"
+        data-project="editorial">
 
 <div class="project-card-inner">
-
 
 <span class="project-number">
 01
 </span>
 
-
-<span
-class="project-title"
-
-data-en="Editorial"
-data-fr="Éditorial"
-data-sv="Redaktionellt">
-
+<span class="project-title"
+      data-en="Editorial"
+      data-fr="Éditorial"
+      data-sv="Redaktionellt">
 Editorial
-
 </span>
-
 
 </div>
 
 </button>
 
 
-<button
-class="project-card"
-data-project="photography">
-
+<button class="project-card"
+        data-project="photography">
 
 <div class="project-card-inner">
-
 
 <span class="project-number">
 02
 </span>
 
-
-<span
-class="project-title"
-
-data-en="Photography"
-data-fr="Photographie"
-data-sv="Fotografi">
-
+<span class="project-title"
+      data-en="Photography"
+      data-fr="Photographie"
+      data-sv="Fotografi">
 Photography
-
 </span>
-
 
 </div>
 
 </button>
 
 
-<button
-class="project-card"
-data-project="posters">
-
+<button class="project-card"
+        data-project="posters">
 
 <div class="project-card-inner">
-
 
 <span class="project-number">
 03
 </span>
 
-
-<span
-class="project-title"
-
-data-en="Posters"
-data-fr="Affiches"
-data-sv="Affischer">
-
+<span class="project-title"
+      data-en="Posters"
+      data-fr="Affiches"
+      data-sv="Affischer">
 Posters
-
 </span>
-
 
 </div>
 
 </button>
 
 
-<button
-class="project-card"
-data-project="typography">
-
+<button class="project-card"
+        data-project="typography">
 
 <div class="project-card-inner">
-
 
 <span class="project-number">
 04
 </span>
 
-
-<span
-class="project-title"
-
-data-en="Typography"
-data-fr="Typographie"
-data-sv="Typografi">
-
+<span class="project-title"
+      data-en="Typography"
+      data-fr="Typographie"
+      data-sv="Typografi">
 Typography
-
 </span>
-
 
 </div>
 
 </button>
 
 
-<button
-class="project-card"
-data-project="experiments">
-
+<button class="project-card"
+        data-project="experiments">
 
 <div class="project-card-inner">
-
 
 <span class="project-number">
 05
 </span>
 
-
-<span
-class="project-title"
-
-data-en="Experiments"
-data-fr="Expérimentations"
-data-sv="Experiment">
-
+<span class="project-title"
+      data-en="Experiments"
+      data-fr="Expérimentations"
+      data-sv="Experiment">
 Experiments
-
 </span>
 
-
 </div>
 
 </button>
@@ -2095,112 +2125,81 @@ Experiments
 </div>
 
 
-<button
-class="carousel-arrow right"
-id="projects-right"
-aria-label="Next project">
-
-›
-
+<button class="carousel-arrow right"
+        id="projects-right"
+        aria-label="Next project">
+    ›
 </button>
 
-
 </div>
-
 
 </div>
 
 </section>
 
 
-<section
-id="about"
-class="about-section colour-section">
+<!-- =========================================================
+     ABOUT
+     ========================================================= -->
 
+<section id="about"
+         class="about-section colour-section">
 
 <div class="about-layout">
 
-
-<h2
-class="section-title reveal"
-
-data-en="About"
-data-fr="À propos"
-data-sv="Om mig">
-
-About
-
+<h2 class="section-title reveal"
+    data-en="About"
+    data-fr="À propos"
+    data-sv="Om mig">
+    About
 </h2>
 
 
-<div
-class="about-content reveal">
+<div class="about-content reveal">
 
 
-<p
-class="no-orphan"
-
-data-en="Hi, I’m Seb!"
-
-data-fr="Salut, moi c’est Seb!"
-
-data-sv="Hej, jag heter Seb!">
-
+<p class="no-orphan"
+   data-en="Hi, I’m Seb!"
+   data-fr="Salut, moi c’est Seb!"
+   data-sv="Hej, jag heter Seb!">
 Hi, I’m Seb!
-
 </p>
 
 
-<p
-class="no-orphan"
-
-data-en="I’m currently completing my Bachelor’s Degree in Graphic Design (DNMADe Graphisme, Spécialité édition) at the Lycée de la Communication in Metz, France."
-
-data-fr="Je complète actuellement mon Bachelor en design graphique (DNMADe Graphisme, spécialité édition) au Lycée de la Communication à Metz, en France."
-
-data-sv="Jag håller just nu på att avsluta min kandidatexamen i grafisk design (DNMADe Graphisme, spécialité édition) vid Lycée de la Communication i Metz, Frankrike.">
+<p class="no-orphan"
+   data-en="I’m currently completing my Bachelor’s Degree in Graphic Design (DNMADe Graphisme, Spécialité édition) at the Lycée de la Communication in Metz, France."
+   data-fr="Je complète actuellement mon Bachelor en design graphique (DNMADe Graphisme, spécialité édition) au Lycée de la Communication à Metz, en France."
+   data-sv="Jag håller just nu på att avsluta min kandidatexamen i grafisk design (DNMADe Graphisme, spécialité édition) vid Lycée de la Communication i Metz, Frankrike.">
 
 I’m currently completing my Bachelor’s Degree in Graphic Design (DNMADe Graphisme, Spécialité édition) at the Lycée de la Communication in Metz, France.
 
 </p>
 
 
-<p
-class="no-orphan"
-
-data-en="Having known from as soon as middle school that I wanted to build a career in this domain, I’ve been able to develop my style and find the things I really like over the years. Still loooooooooads more of evolution for me to go through of course, I’m looking forward to it!"
-
-data-fr="Sachant dès le collège que je voulais construire ma carrière dans ce domaine, j’ai pu développer mon style et découvrir au fil des années ce qui me plaît vraiment. Il me reste bien sûr encore énoooooormément de choses à explorer et d’évolution à venir, j’ai hâte!"
-
-data-sv="Redan i högstadiet visste jag att jag ville bygga en karriär inom det här området, och genom åren har jag kunnat utveckla min stil och upptäcka vad jag verkligen gillar. Jag har såååååååå mycket mer kvar att utveckla såklart, och jag ser verkligen fram emot det!">
+<p class="no-orphan"
+   data-en="Having known from as soon as middle school that I wanted to build a career in this domain, I’ve been able to develop my style and find the things I really like over the years. Still loooooooooads more of evolution for me to go through of course, I’m looking forward to it!"
+   data-fr="Sachant dès le collège que je voulais construire ma carrière dans ce domaine, j’ai pu développer mon style et découvrir au fil des années ce qui me plaît vraiment. Il me reste bien sûr encore énoooooormément de choses à explorer et d’évolution à venir, j’ai hâte!"
+   data-sv="Redan i högstadiet visste jag att jag ville bygga en karriär inom det här området, och genom åren har jag kunnat utveckla min stil och upptäcka vad jag verkligen gillar. Jag har såååååååå mycket mer kvar att utveckla såklart, och jag ser verkligen fram emot det!">
 
 Having known from as soon as middle school that I wanted to build a career in this domain, I’ve been able to develop my style and find the things I really like over the years. Still loooooooooads more of evolution for me to go through of course, I’m looking forward to it!
 
 </p>
 
 
-<p
-class="no-orphan"
-
-data-en="With a love for bright bold colours and funky typography, I enjoy creating whether it's a publication, poster or visual identity and I feel comfortable working with pretty much any type of style or vibe that gets chucked at me."
-
-data-fr="Avec un goût particulier pour les couleurs vives et audacieuses et les typographies funky, j’adore créer, qu’il s’agisse d’une publication, d’une affiche ou d’une identité visuelle, et je me sens à l’aise avec à peu près n’importe quel style ou univers qu’on me lance."
-
-data-sv="Jag älskar starka, djärva färger och funky typografi, och tycker om att skapa oavsett om det handlar om en publikation, affisch eller visuell identitet. Jag känner mig bekväm med i stort sett vilken stil eller vibe som helst som kastas åt mitt håll.">
+<p class="no-orphan"
+   data-en="With a love for bright bold colours and funky typography, I enjoy creating whether it's a publication, poster or visual identity and I feel comfortable working with pretty much any type of style or vibe that gets chucked at me."
+   data-fr="Avec un goût particulier pour les couleurs vives et audacieuses et les typographies funky, j’adore créer, qu’il s’agisse d’une publication, d’une affiche ou d’une identité visuelle, et je me sens à l’aise avec à peu près n’importe quel style ou univers qu’on me lance."
+   data-sv="Jag älskar starka, djärva färger och funky typografi, och tycker om att skapa oavsett om det handlar om en publikation, affisch eller visuell identitet. Jag känner mig bekväm med i stort sett vilken stil eller vibe som helst som kastas åt mitt håll.">
 
 With a love for bright bold colours and funky typography, I enjoy creating whether it's a publication, poster or visual identity and I feel comfortable working with pretty much any type of style or vibe that gets chucked at me.
 
 </p>
 
 
-<p
-class="no-orphan"
-
-data-en="This website is still a work in progress at the moment, but this space will be dedicated to sharing my projects, experiments and creative journey as I continue to learn and grow as a designer."
-
-data-fr="Ce site est encore en cours de construction pour le moment, mais cet espace sera dédié à mes projets, mes expérimentations et mon parcours créatif au fur et à mesure que je continue à apprendre et à évoluer en tant que designer."
-
-data-sv="Den här webbplatsen är fortfarande under utveckling, men det här utrymmet kommer att vara tillägnat mina projekt, experiment och min kreativa resa medan jag fortsätter att lära mig och utvecklas som designer.">
+<p class="no-orphan"
+   data-en="This website is still a work in progress at the moment, but this space will be dedicated to sharing my projects, experiments and creative journey as I continue to learn and grow as a designer."
+   data-fr="Ce site est encore en cours de construction pour le moment, mais cet espace sera dédié à mes projets, mes expérimentations et mon parcours créatif au fur et à mesure que je continue à apprendre et à évoluer en tant que designer."
+   data-sv="Den här webbplatsen är fortfarande under utveckling, men det här utrymmet kommer att vara tillägnat mina projekt, experiment och min kreativa resa medan jag fortsätter att lära mig och utvecklas som designer.">
 
 This website is still a work in progress at the moment, but this space will be dedicated to sharing my projects, experiments and creative journey as I continue to learn and grow as a designer.
 
@@ -2209,110 +2208,80 @@ This website is still a work in progress at the moment, but this space will be d
 
 </div>
 
-
 </div>
 
 </section>
 
 
-<section
-id="contact"
-class="contact-section colour-section">
+<!-- =========================================================
+     CONTACT
+     ========================================================= -->
 
+<section id="contact"
+         class="contact-section colour-section">
 
 <div class="contact-main">
 
-
 <div class="contact-content">
 
-
-<h2
-class="section-title reveal"
-
-data-en="Contact"
-data-fr="Contact"
-data-sv="Kontakt">
-
+<h2 class="section-title reveal"
+    data-en="Contact"
+    data-fr="Contact"
+    data-sv="Kontakt">
 Contact
-
 </h2>
 
 
 <div class="contact reveal">
 
-
-<p class="no-orphan">
-
+<p>
 Email:
-
 <a href="mailto:feaseysebastien@gmail.com">
-
 feaseysebastien@gmail.com
-
 </a>
-
 </p>
 
-
-<p class="no-orphan">
-
+<p>
 Instagram:
-
-<a
-href="https://instagram.com/sebfeasey"
-target="_blank"
-rel="noopener noreferrer">
-
+<a href="https://instagram.com/sebfeasey"
+   target="_blank"
+   rel="noopener noreferrer">
 @sebfeasey
-
 </a>
-
 </p>
 
-
 </div>
 
-
 </div>
-
 
 </div>
 
 
 <footer>
-
 © 2026 Seb Feasey
-
 </footer>
-
 
 </section>
 
 
-<aside
-class="project-drawer"
-id="project-drawer"
-aria-hidden="true">
+<!-- =========================================================
+     PROJECT DRAWER
+     ========================================================= -->
 
+<aside class="project-drawer"
+       id="project-drawer"
+       aria-hidden="true">
 
-<button
-class="drawer-close"
-id="drawer-close"
-aria-label="Close project">
-
+<button class="drawer-close"
+        id="drawer-close"
+        aria-label="Close project">
 ×
-
 </button>
 
-
-<h3
-class="drawer-title"
-id="drawer-title">
-
+<h3 class="drawer-title"
+    id="drawer-title">
 Editorial
-
 </h3>
-
 
 </aside>
 
@@ -2324,70 +2293,295 @@ Editorial
    ========================================================= */
 
 const animatedName =
-document.getElementById(
-"animated-name"
-);
-
+document.getElementById("animated-name");
 
 const nameText =
 "seb feasey";
 
-
-animatedName.innerHTML =
-"";
-
+animatedName.innerHTML = "";
 
 [...nameText].forEach(character => {
 
+    if (character === " ") {
+
+        const space =
+        document.createElement("span");
+
+        space.className =
+        "name-space";
+
+        space.innerHTML =
+        "&nbsp;";
+
+        animatedName.appendChild(space);
+
+    } else {
+
+        const letter =
+        document.createElement("span");
+
+        letter.className =
+        "name-letter";
+
+        letter.textContent =
+        character;
+
+        animatedName.appendChild(letter);
+
+    }
+
+});
+
+
+/* =========================================================
+   INSTAGRAM IN-APP BROWSER
+   ========================================================= */
+
+const instagramNotice =
+document.getElementById(
+    "instagram-browser-notice"
+);
+
+const instagramOpenButton =
+document.getElementById(
+    "instagram-open-button"
+);
+
+const instagramDismissButton =
+document.getElementById(
+    "instagram-dismiss-button"
+);
+
+const instagramBrowserText =
+document.getElementById(
+    "instagram-browser-text"
+);
+
+
+const userAgent =
+navigator.userAgent || "";
+
+
+const isInstagramBrowser =
+/Instagram/i.test(userAgent);
+
+
+const isAndroid =
+/Android/i.test(userAgent);
+
+
+const isIOS =
+/iPhone|iPad|iPod/i.test(userAgent);
+
+
+/*
+Show only inside Instagram, and only if the visitor
+hasn't dismissed it during this browsing session.
+*/
 
 if (
-character === " "
+    isInstagramBrowser &&
+    sessionStorage.getItem(
+        "instagram-browser-notice-dismissed"
+    ) !== "true"
 ) {
 
+    if (isIOS) {
 
-const space =
-document.createElement(
-"span"
-);
+        instagramOpenButton.textContent =
+        "Copy link";
 
+    } else {
 
-space.className =
-"name-space";
+        instagramOpenButton.textContent =
+        "Open in browser";
 
-
-space.innerHTML =
-"&nbsp;";
+    }
 
 
-animatedName.appendChild(
-space
-);
+    setTimeout(() => {
 
+        instagramNotice.classList.add(
+            "open"
+        );
 
-} else {
-
-
-const letter =
-document.createElement(
-"span"
-);
-
-
-letter.className =
-"name-letter";
-
-
-letter.textContent =
-character;
-
-
-animatedName.appendChild(
-letter
-);
-
+    }, 850);
 
 }
 
+
+/* =========================================================
+   COPY CURRENT URL
+   ========================================================= */
+
+async function copyCurrentURL() {
+
+    const currentURL =
+    window.location.href;
+
+    try {
+
+        await navigator.clipboard.writeText(
+            currentURL
+        );
+
+        return true;
+
+    } catch (error) {
+
+        const temporaryInput =
+        document.createElement(
+            "textarea"
+        );
+
+        temporaryInput.value =
+        currentURL;
+
+        temporaryInput.style.position =
+        "fixed";
+
+        temporaryInput.style.opacity =
+        "0";
+
+        document.body.appendChild(
+            temporaryInput
+        );
+
+        temporaryInput.select();
+
+        const copied =
+        document.execCommand("copy");
+
+        temporaryInput.remove();
+
+        return copied;
+
+    }
+
+}
+
+
+/* =========================================================
+   INSTAGRAM OPEN BUTTON
+   ========================================================= */
+
+instagramOpenButton.addEventListener(
+"click",
+async () => {
+
+
+    /*
+    ANDROID
+
+    Android's intent system can sometimes hand the URL
+    from Instagram's webview to the device's external
+    browser/default handler.
+
+    This is best-effort rather than guaranteed.
+    */
+
+    if (isAndroid) {
+
+        const url =
+        new URL(
+            window.location.href
+        );
+
+        const intentTarget =
+        url.host +
+        url.pathname +
+        url.search +
+        url.hash;
+
+
+        window.location.href =
+        "intent://" +
+        intentTarget +
+        "#Intent;" +
+        "scheme=https;" +
+        "action=android.intent.action.VIEW;" +
+        "end";
+
+
+        /*
+        If Instagram blocks the intent and we're
+        still on the page, show manual instructions.
+        */
+
+        setTimeout(() => {
+
+            if (
+                document.visibilityState ===
+                "visible"
+            ) {
+
+                instagramBrowserText.textContent =
+                "If Instagram kept you here, tap the ••• menu and choose “Open in browser”.";
+
+                instagramOpenButton.textContent =
+                "Copy link";
+
+            }
+
+        }, 1400);
+
+
+        return;
+
+    }
+
+
+    /*
+    iPHONE / iPAD
+
+    A normal webpage cannot reliably command iOS to
+    leave Instagram and launch the user's default browser.
+
+    Instead we copy the exact URL and make the next step
+    very obvious.
+    */
+
+    const copied =
+    await copyCurrentURL();
+
+
+    if (copied) {
+
+        instagramBrowserText.textContent =
+        "Link copied! Tap the ••• menu in Instagram and choose “Open in browser”.";
+
+        instagramOpenButton.textContent =
+        "Copied ✓";
+
+    } else {
+
+        instagramBrowserText.textContent =
+        "Tap the ••• menu in Instagram and choose “Open in browser”.";
+
+        instagramOpenButton.textContent =
+        "Open menu above";
+
+    }
+
+});
+
+
+/* =========================================================
+   DISMISS INSTAGRAM NOTICE
+   ========================================================= */
+
+instagramDismissButton.addEventListener(
+"click",
+() => {
+
+    instagramNotice.classList.remove(
+        "open"
+    );
+
+    sessionStorage.setItem(
+        "instagram-browser-notice-dismissed",
+        "true"
+    );
 
 });
 
@@ -2398,42 +2592,33 @@ letter
 
 function preventOrphans() {
 
+    document
+    .querySelectorAll(
+        ".no-orphan"
+    )
+    .forEach(element => {
 
-document
-.querySelectorAll(".no-orphan")
-.forEach(element => {
+        const text =
+        element.textContent.trim();
 
+        const lastSpace =
+        text.lastIndexOf(" ");
 
-const text =
-element.textContent
-.trim();
+        if (lastSpace > 0) {
 
+            element.textContent =
+            text.slice(
+                0,
+                lastSpace
+            ) +
+            "\u00A0" +
+            text.slice(
+                lastSpace + 1
+            );
 
-const lastSpace =
-text.lastIndexOf(" ");
+        }
 
-
-if (
-lastSpace > 0
-) {
-
-
-element.textContent =
-text.slice(
-0,
-lastSpace
-) +
-"\u00A0" +
-text.slice(
-lastSpace + 1
-);
-
-
-}
-
-
-});
-
+    });
 
 }
 
@@ -2448,82 +2633,77 @@ let currentLanguage =
 
 function setLanguage(language) {
 
-
-currentLanguage =
-language;
-
-
-document
-.querySelectorAll("[data-en]")
-.forEach(element => {
+    currentLanguage =
+    language;
 
 
-const translation =
-element.getAttribute(
-"data-" + language
-);
+    document
+    .querySelectorAll(
+        "[data-en]"
+    )
+    .forEach(element => {
+
+        const translation =
+        element.getAttribute(
+            "data-" + language
+        );
+
+        if (translation) {
+
+            element.textContent =
+            translation;
+
+        }
+
+    });
 
 
-if (translation) {
+    document
+    .getElementById("btn-en")
+    .classList.toggle(
+        "active",
+        language === "en"
+    );
 
 
-element.textContent =
-translation;
+    document
+    .getElementById("btn-fr")
+    .classList.toggle(
+        "active",
+        language === "fr"
+    );
 
 
-}
+    document
+    .getElementById("btn-sv")
+    .classList.toggle(
+        "active",
+        language === "sv"
+    );
 
 
-});
+    document.documentElement.lang =
+    language;
 
 
-document
-.getElementById("btn-en")
-.classList.toggle(
-"active",
-language === "en"
-);
+    preventOrphans();
 
 
-document
-.getElementById("btn-fr")
-.classList.toggle(
-"active",
-language === "fr"
-);
+    if (
+        drawer.classList.contains(
+            "open"
+        ) &&
+        currentOpenProject
+    ) {
 
+        drawerTitle.textContent =
+        projectInfo[
+            currentOpenProject
+        ].title[
+            currentLanguage
+        ];
 
-document
-.getElementById("btn-sv")
-.classList.toggle(
-"active",
-language === "sv"
-);
-
-
-document.documentElement.lang =
-language;
-
-
-preventOrphans();
-
-
-if (
-drawer.classList.contains("open") &&
-currentOpenProject
-) {
-
-
-drawerTitle.textContent =
-projectInfo[
-currentOpenProject
-].title[
-currentLanguage
-];
-
-
-}
-
+    }
 
 }
 
@@ -2536,46 +2716,33 @@ document.addEventListener(
 "copy",
 event => {
 
+    const selection =
+    window.getSelection();
 
-const selection =
-window.getSelection();
-
-
-if (
-!selection ||
-selection.isCollapsed
-) {
-
-
-return;
+    if (
+        !selection ||
+        selection.isCollapsed
+    ) {
+        return;
+    }
 
 
-}
+    const plainText =
+    selection.toString();
 
 
-const plainText =
-selection.toString();
+    if (!plainText) {
+        return;
+    }
 
 
-if (
-!plainText
-) {
+    event.preventDefault();
 
 
-return;
-
-
-}
-
-
-event.preventDefault();
-
-
-event.clipboardData.setData(
-"text/plain",
-plainText
-);
-
+    event.clipboardData.setData(
+        "text/plain",
+        plainText
+    );
 
 });
 
@@ -2589,252 +2756,216 @@ preventOrphans();
 
 const sectionColours = [
 
+    {
+        background: "#FF340C",
+        text: "#F9F3DB"
+    },
 
-{
-background: "#FF340C",
-text: "#F9F3DB"
-},
+    {
+        background: "#F03172",
+        text: "#F9F3DB"
+    },
 
+    {
+        background: "#0F4A42",
+        text: "#F9F3DB"
+    },
 
-{
-background: "#F03172",
-text: "#F9F3DB"
-},
-
-
-{
-background: "#0F4A42",
-text: "#F9F3DB"
-},
-
-
-{
-background: "#273287",
-text: "#F9F3DB"
-}
-
+    {
+        background: "#273287",
+        text: "#F9F3DB"
+    }
 
 ];
 
 
 function shuffle(array) {
 
-
-const copy =
-[...array];
-
-
-for (
-let i = copy.length - 1;
-i > 0;
-i--
-) {
+    const copy =
+    [...array];
 
 
-const j =
-Math.floor(
-Math.random() *
-(i + 1)
-);
+    for (
+        let i = copy.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+        Math.floor(
+            Math.random() *
+            (i + 1)
+        );
 
 
-[
-copy[i],
-copy[j]
-] =
-[
-copy[j],
-copy[i]
-];
+        [
+            copy[i],
+            copy[j]
+        ] =
+        [
+            copy[j],
+            copy[i]
+        ];
+
+    }
 
 
-}
-
-
-return copy;
-
+    return copy;
 
 }
 
 
 const sections =
 document.querySelectorAll(
-".colour-section"
+    ".colour-section"
 );
 
 
 const shuffledColours =
 shuffle(
-sectionColours
+    sectionColours
 );
 
 
 sections.forEach(
 (section,index) => {
 
-
-const colour =
-shuffledColours[index];
-
-
-section.style.setProperty(
-"--section-bg",
-colour.background
-);
+    const colour =
+    shuffledColours[index];
 
 
-section.style.setProperty(
-"--section-text",
-colour.text
-);
+    section.style.setProperty(
+        "--section-bg",
+        colour.background
+    );
 
 
-section.dataset.textColour =
-colour.text;
+    section.style.setProperty(
+        "--section-text",
+        colour.text
+    );
 
+
+    section.dataset.textColour =
+    colour.text;
 
 });
 
 
 function updateUIColour(section) {
 
-
-document.documentElement
-.style
-.setProperty(
-"--ui-colour",
-section.dataset.textColour
-);
-
+    document.documentElement
+    .style
+    .setProperty(
+        "--ui-colour",
+        section.dataset.textColour
+    );
 
 }
 
 
 updateUIColour(
-document.querySelector("#home")
+    document.querySelector("#home")
 );
 
 
 const sectionObserver =
 new IntersectionObserver(
 
-
 entries => {
 
+    entries.forEach(entry => {
 
-entries.forEach(entry => {
+        if (entry.isIntersecting) {
 
+            updateUIColour(
+                entry.target
+            );
 
-if (
-entry.isIntersecting
-) {
+        }
 
-
-updateUIColour(
-entry.target
-);
-
-
-}
-
-
-});
-
+    });
 
 },
 
-
 {
+    rootMargin:
+        "-45% 0px -45% 0px",
 
-rootMargin:
-"-45% 0px -45% 0px",
-
-threshold: 0
-
+    threshold:
+        0
 }
-
 
 );
 
 
 sections.forEach(section => {
 
-
-sectionObserver.observe(
-section
-);
-
+    sectionObserver.observe(
+        section
+    );
 
 });
 
 
 /* =========================================================
-   REVEALS
+   REVEAL
    ========================================================= */
 
 const revealElements =
 document.querySelectorAll(
-".reveal"
+    ".reveal"
 );
 
 
 const revealObserver =
 new IntersectionObserver(
 
-
 entries => {
 
+    entries.forEach(entry => {
 
-entries.forEach(entry => {
+        if (
+            entry.isIntersecting
+        ) {
 
+            entry.target
+            .classList
+            .add(
+                "visible"
+            );
 
-if (
-entry.isIntersecting
-) {
+        } else {
 
+            entry.target
+            .classList
+            .remove(
+                "visible"
+            );
 
-entry.target
-.classList
-.add("visible");
+        }
 
-
-} else {
-
-
-entry.target
-.classList
-.remove("visible");
-
-
-}
-
-
-});
-
+    });
 
 },
 
-
 {
+    threshold:
+        0.15,
 
-threshold: 0.15,
-
-rootMargin:
-"0px 0px -5% 0px"
-
+    rootMargin:
+        "0px 0px -5% 0px"
 }
 
-
 );
 
 
-revealElements.forEach(element => {
+revealElements.forEach(
+element => {
 
-
-revealObserver.observe(
-element
-);
-
+    revealObserver.observe(
+        element
+    );
 
 });
 
@@ -2845,82 +2976,80 @@ element
 
 const carousel =
 document.getElementById(
-"projects-carousel"
+    "projects-carousel"
 );
 
 
 const leftArrow =
 document.getElementById(
-"projects-left"
+    "projects-left"
 );
 
 
 const rightArrow =
 document.getElementById(
-"projects-right"
+    "projects-right"
 );
 
 
 const originalCards =
 Array.from(
-carousel.querySelectorAll(
-".project-card"
-)
+    carousel.querySelectorAll(
+        ".project-card"
+    )
 );
 
 
 const templates =
-originalCards.map(card =>
-card.cloneNode(true)
+originalCards.map(
+card =>
+    card.cloneNode(true)
 );
 
 
 function appendProjectSet() {
 
+    templates.forEach(
+    template => {
 
-templates.forEach(template => {
+        carousel.appendChild(
+            template.cloneNode(
+                true
+            )
+        );
 
-
-carousel.appendChild(
-template.cloneNode(true)
-);
-
-
-});
-
+    });
 
 }
 
 
 function prependProjectSet() {
 
-
-const previousWidth =
-carousel.scrollWidth;
-
-
-[...templates]
-.reverse()
-.forEach(template => {
+    const previousWidth =
+    carousel.scrollWidth;
 
 
-carousel.insertBefore(
-template.cloneNode(true),
-carousel.firstChild
-);
+    [...templates]
+    .reverse()
+    .forEach(template => {
+
+        carousel.insertBefore(
+            template.cloneNode(
+                true
+            ),
+            carousel.firstChild
+        );
+
+    });
 
 
-});
+    const addedWidth =
+    carousel.scrollWidth -
+    previousWidth;
 
 
-const addedWidth =
-carousel.scrollWidth -
-previousWidth;
-
-
-carousel.scrollLeft +=
-addedWidth;
-
+    carousel.scrollLeft +=
+    addedWidth;
 
 }
 
@@ -2935,145 +3064,131 @@ prependProjectSet();
 
 function nearestCard() {
 
-
-const cards =
-Array.from(
-carousel.querySelectorAll(
-".project-card"
-)
-);
-
-
-const carouselBox =
-carousel.getBoundingClientRect();
+    const cards =
+    Array.from(
+        carousel.querySelectorAll(
+            ".project-card"
+        )
+    );
 
 
-const target =
-carouselBox.left +
-70;
+    const carouselBox =
+    carousel.getBoundingClientRect();
 
 
-let closest =
-cards[0];
+    const target =
+    carouselBox.left +
+    70;
 
 
-let closestDistance =
-Infinity;
+    let closest =
+    cards[0];
 
 
-cards.forEach(card => {
+    let closestDistance =
+    Infinity;
 
 
-const box =
-card.getBoundingClientRect();
+    cards.forEach(card => {
+
+        const box =
+        card.getBoundingClientRect();
 
 
-const distance =
-Math.abs(
-box.left -
-target
-);
+        const distance =
+        Math.abs(
+            box.left -
+            target
+        );
 
 
-if (
-distance <
-closestDistance
-) {
+        if (
+            distance <
+            closestDistance
+        ) {
+
+            closestDistance =
+            distance;
+
+            closest =
+            card;
+
+        }
+
+    });
 
 
-closestDistance =
-distance;
-
-
-closest =
-card;
-
-
-}
-
-
-});
-
-
-return closest;
-
+    return closest;
 
 }
 
 
 function moveCarousel(direction) {
 
-
-const card =
-nearestCard();
-
-
-if (!card) return;
+    const card =
+    nearestCard();
 
 
-const cards =
-Array.from(
-carousel.querySelectorAll(
-".project-card"
-)
-);
+    if (!card) {
+        return;
+    }
 
 
-let index =
-cards.indexOf(card);
+    const cards =
+    Array.from(
+        carousel.querySelectorAll(
+            ".project-card"
+        )
+    );
 
 
-index += direction;
+    let index =
+    cards.indexOf(card);
 
 
-if (
-index < 0
-) {
+    index +=
+    direction;
 
 
-prependProjectSet();
+    if (index < 0) {
+
+        prependProjectSet();
+
+        return moveCarousel(
+            direction
+        );
+
+    }
 
 
-return moveCarousel(
-direction
-);
+    if (
+        index >=
+        cards.length
+    ) {
+
+        appendProjectSet();
+
+        return moveCarousel(
+            direction
+        );
+
+    }
 
 
-}
+    const nextCard =
+    cards[index];
 
 
-if (
-index >=
-cards.length
-) {
+    carousel.scrollTo({
 
+        left:
+            nextCard.offsetLeft -
+            40,
 
-appendProjectSet();
+        behavior:
+            "smooth"
 
-
-return moveCarousel(
-direction
-);
-
-
-}
-
-
-const nextCard =
-cards[index];
-
-
-carousel.scrollTo({
-
-left:
-nextCard.offsetLeft -
-40,
-
-behavior:
-"smooth"
-
-});
-
+    });
 
 }
 
@@ -3082,23 +3197,19 @@ rightArrow.addEventListener(
 "click",
 () => {
 
+    if (
+        carousel.scrollWidth -
+        carousel.scrollLeft -
+        carousel.clientWidth <
+        carousel.clientWidth * 3
+    ) {
 
-if (
-carousel.scrollWidth -
-carousel.scrollLeft -
-carousel.clientWidth <
-carousel.clientWidth * 3
-) {
+        appendProjectSet();
 
-
-appendProjectSet();
-
-
-}
+    }
 
 
-moveCarousel(1);
-
+    moveCarousel(1);
 
 });
 
@@ -3107,21 +3218,17 @@ leftArrow.addEventListener(
 "click",
 () => {
 
+    if (
+        carousel.scrollLeft <
+        carousel.clientWidth * 2
+    ) {
 
-if (
-carousel.scrollLeft <
-carousel.clientWidth * 2
-) {
+        prependProjectSet();
 
-
-prependProjectSet();
-
-
-}
+    }
 
 
-moveCarousel(-1);
-
+    moveCarousel(-1);
 
 });
 
@@ -3133,47 +3240,39 @@ carousel.addEventListener(
 "scroll",
 () => {
 
-
-clearTimeout(
-carouselScrollTimer
-);
-
-
-carouselScrollTimer =
-setTimeout(
-() => {
+    clearTimeout(
+        carouselScrollTimer
+    );
 
 
-if (
-carousel.scrollWidth -
-carousel.scrollLeft -
-carousel.clientWidth <
-carousel.clientWidth * 2
-) {
+    carouselScrollTimer =
+    setTimeout(
+    () => {
+
+        if (
+            carousel.scrollWidth -
+            carousel.scrollLeft -
+            carousel.clientWidth <
+            carousel.clientWidth * 2
+        ) {
+
+            appendProjectSet();
+
+        }
 
 
-appendProjectSet();
+        if (
+            carousel.scrollLeft <
+            carousel.clientWidth
+        ) {
 
+            prependProjectSet();
 
-}
+        }
 
-
-if (
-carousel.scrollLeft <
-carousel.clientWidth
-) {
-
-
-prependProjectSet();
-
-
-}
-
-
-},
-80
-);
-
+    },
+    80
+    );
 
 });
 
@@ -3184,81 +3283,59 @@ prependProjectSet();
 
 const projectInfo = {
 
+    editorial: {
 
-editorial: {
+        title: {
+            en: "Editorial",
+            fr: "Éditorial",
+            sv: "Redaktionellt"
+        }
 
-title: {
-
-en: "Editorial",
-
-fr: "Éditorial",
-
-sv: "Redaktionellt"
-
-}
-
-},
+    },
 
 
-photography: {
+    photography: {
 
-title: {
+        title: {
+            en: "Photography",
+            fr: "Photographie",
+            sv: "Fotografi"
+        }
 
-en: "Photography",
-
-fr: "Photographie",
-
-sv: "Fotografi"
-
-}
-
-},
+    },
 
 
-posters: {
+    posters: {
 
-title: {
+        title: {
+            en: "Posters",
+            fr: "Affiches",
+            sv: "Affischer"
+        }
 
-en: "Posters",
-
-fr: "Affiches",
-
-sv: "Affischer"
-
-}
-
-},
+    },
 
 
-typography: {
+    typography: {
 
-title: {
+        title: {
+            en: "Typography",
+            fr: "Typographie",
+            sv: "Typografi"
+        }
 
-en: "Typography",
-
-fr: "Typographie",
-
-sv: "Typografi"
-
-}
-
-},
+    },
 
 
-experiments: {
+    experiments: {
 
-title: {
+        title: {
+            en: "Experiments",
+            fr: "Expérimentations",
+            sv: "Experiment"
+        }
 
-en: "Experiments",
-
-fr: "Expérimentations",
-
-sv: "Experiment"
-
-}
-
-}
-
+    }
 
 };
 
@@ -3269,19 +3346,19 @@ sv: "Experiment"
 
 const drawer =
 document.getElementById(
-"project-drawer"
+    "project-drawer"
 );
 
 
 const drawerClose =
 document.getElementById(
-"drawer-close"
+    "drawer-close"
 );
 
 
 const drawerTitle =
 document.getElementById(
-"drawer-title"
+    "drawer-title"
 );
 
 
@@ -3293,94 +3370,90 @@ carousel.addEventListener(
 "click",
 event => {
 
-
-const card =
-event.target.closest(
-".project-card"
-);
-
-
-if (!card) return;
+    const card =
+    event.target.closest(
+        ".project-card"
+    );
 
 
-const key =
-card.dataset.project;
+    if (!card) {
+        return;
+    }
 
 
-const project =
-projectInfo[key];
+    const key =
+    card.dataset.project;
 
 
-if (!project) return;
+    const project =
+    projectInfo[key];
 
 
-currentOpenProject =
-key;
+    if (!project) {
+        return;
+    }
 
 
-drawerTitle.textContent =
-project.title[
-currentLanguage
-];
+    currentOpenProject =
+    key;
 
 
-drawer.classList.add(
-"open"
-);
+    drawerTitle.textContent =
+    project.title[
+        currentLanguage
+    ];
 
 
-drawer.setAttribute(
-"aria-hidden",
-"false"
-);
+    drawer.classList.add(
+        "open"
+    );
 
+
+    drawer.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
 });
 
 
 function closeDrawer() {
 
-
-drawer.classList.remove(
-"open"
-);
-
-
-drawer.setAttribute(
-"aria-hidden",
-"true"
-);
+    drawer.classList.remove(
+        "open"
+    );
 
 
-setTimeout(
-() => {
+    drawer.setAttribute(
+        "aria-hidden",
+        "true"
+    );
 
 
-if (
-!drawer.classList.contains(
-"open"
-)
-) {
+    setTimeout(
+    () => {
 
+        if (
+            !drawer.classList.contains(
+                "open"
+            )
+        ) {
 
-currentOpenProject =
-null;
+            currentOpenProject =
+            null;
 
+        }
 
-}
-
-
-},
-700
-);
-
+    },
+    700
+    );
 
 }
 
 
 drawerClose.addEventListener(
-"click",
-closeDrawer
+    "click",
+    closeDrawer
 );
 
 
@@ -3388,23 +3461,18 @@ document.addEventListener(
 "keydown",
 event => {
 
+    if (
+        event.key ===
+        "Escape"
+    ) {
 
-if (
-event.key === "Escape"
-) {
+        closeDrawer();
 
-
-closeDrawer();
-
-
-}
-
+    }
 
 });
-
 
 </script>
 
 </body>
-
 </html>
