@@ -1252,31 +1252,17 @@ nav a:hover {
 
     word-break:
         normal;
+
+    white-space:
+        nowrap;
 }
 
 
 /* =========================================================
-   LONGER PROJECT TITLES
+   LONGER DESKTOP PROJECT TITLES
    ========================================================= */
 
-/*
-Only the longer project names are reduced.
-
-This keeps Editorial and Posters nice and large while
-making sure Photography, Typography and especially
-Expérimentations stay safely inside their cards.
-*/
-
-.project-card[data-project="photography"] .project-title {
-    font-size:
-        clamp(
-            1.75rem,
-            2.75vw,
-            2.7rem
-        );
-}
-
-
+.project-card[data-project="photography"] .project-title,
 .project-card[data-project="typography"] .project-title {
     font-size:
         clamp(
@@ -1942,6 +1928,18 @@ body.modal-open {
         padding:
             0
             1rem;
+
+        max-width:
+            92vw;
+
+        margin-left:
+            auto;
+
+        margin-right:
+            auto;
+
+        line-height:
+            1.55;
     }
 
 
@@ -1999,6 +1997,9 @@ body.modal-open {
     .projects-intro p {
         min-height:
             0;
+
+        max-width:
+            92%;
     }
 
 
@@ -2049,46 +2050,41 @@ body.modal-open {
     }
 
 
-    .project-title {
+    /*
+    MOBILE PROJECT TITLES
+
+    Keep them much more consistent.
+    All five now use essentially the same scale rather
+    than some looking dramatically larger than others.
+    */
+
+    .project-title,
+    .project-card[data-project="photography"] .project-title,
+    .project-card[data-project="typography"] .project-title {
         font-size:
             clamp(
-                1.8rem,
-                7.8vw,
-                2.7rem
+                1.45rem,
+                5.7vw,
+                1.8rem
             );
+
+        line-height:
+            1;
     }
 
 
     /*
-    Mobile-specific sizing for the longer titles.
+    Expérimentations is exceptionally long, so it gets
+    only a SMALL reduction rather than looking like a
+    totally different size.
     */
-
-    .project-card[data-project="photography"] .project-title {
-        font-size:
-            clamp(
-                1.55rem,
-                6.7vw,
-                2.3rem
-            );
-    }
-
-
-    .project-card[data-project="typography"] .project-title {
-        font-size:
-            clamp(
-                1.55rem,
-                6.7vw,
-                2.3rem
-            );
-    }
-
 
     .project-card[data-project="experiments"] .project-title {
         font-size:
             clamp(
-                1.3rem,
-                5.5vw,
-                1.95rem
+                1.35rem,
+                5.2vw,
+                1.65rem
             );
     }
 
@@ -2177,6 +2173,33 @@ body.modal-open {
 
         background:
             rgba(13,13,28,0.14);
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    /*
+    Slightly smaller again on narrow phones, but ALL
+    project names stay visually close in size.
+    */
+
+    .project-title,
+    .project-card[data-project="photography"] .project-title,
+    .project-card[data-project="typography"] .project-title {
+        font-size:
+            1.42rem;
+    }
+
+
+    .project-card[data-project="experiments"] .project-title {
+        font-size:
+            1.3rem;
     }
 
 }
@@ -2350,7 +2373,7 @@ seb feasey
 </div>
 
 
-<div class="subtitle"
+<div class="subtitle no-orphan"
      data-en="graphic design & editorial design student"
      data-fr="étudiant en graphisme & design éditorial"
      data-sv="student inom grafisk design & redaktionell design">
@@ -2412,7 +2435,7 @@ Projects
 </h2>
 
 
-<p
+<p class="project-intro-copy"
 data-en="They're not here yet, still working on that! But come back soon to discover my work :)"
 data-fr="Ils ne sont pas encore là, j’y travaille toujours ! Mais revenez bientôt pour découvrir mon travail :)"
 data-sv="De är inte här än, jag jobbar fortfarande på det! Men kom tillbaka snart för att upptäcka mitt arbete :)">
@@ -3060,6 +3083,11 @@ instagramDismissButton.addEventListener(
 
 function preventOrphans() {
 
+    /*
+    Normal orphan protection:
+    keeps the last two words together.
+    */
+
     document
     .querySelectorAll(
         ".no-orphan"
@@ -3068,7 +3096,9 @@ function preventOrphans() {
     element => {
 
         const text =
-        element.textContent.trim();
+        element.textContent
+        .replace(/\u00A0/g, " ")
+        .trim();
 
 
         const lastSpace =
@@ -3090,6 +3120,52 @@ function preventOrphans() {
             text.slice(
                 lastSpace + 1
             );
+
+        }
+
+    });
+
+
+    /*
+    Projects sentence:
+    keep the final THREE pieces together so we get:
+
+    my work :)
+
+    rather than a lonely "work" or ":)".
+    */
+
+    document
+    .querySelectorAll(
+        ".project-intro-copy"
+    )
+    .forEach(
+    element => {
+
+        const text =
+        element.textContent
+        .replace(/\u00A0/g, " ")
+        .trim();
+
+
+        const words =
+        text.split(/\s+/);
+
+
+        if (
+            words.length >= 3
+        ) {
+
+            const ending =
+            words
+            .splice(-3)
+            .join("\u00A0");
+
+
+            element.textContent =
+            words.join(" ") +
+            "\u00A0" +
+            ending;
 
         }
 
