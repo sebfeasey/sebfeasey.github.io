@@ -76,12 +76,12 @@ body {
 }
 
 ::selection {
-    background: #F9F3DB;
+    background: rgba(249,243,219,0.92);
     color: #181A4D;
 }
 
 ::-moz-selection {
-    background: #F9F3DB;
+    background: rgba(249,243,219,0.92);
     color: #181A4D;
 }
 
@@ -113,7 +113,7 @@ h1 {
 }
 
 ::-webkit-scrollbar-track {
-    background: #181A4D;
+    background: rgba(24,26,77,0.12);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -151,6 +151,33 @@ h1 {
 }
 
 
+.colour-section:not(:first-of-type)::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 14px;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(249,243,219,0.018),
+            transparent
+        );
+
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+}
+
+
 /* =========================================================
    SF BUTTON
    ========================================================= */
@@ -173,7 +200,7 @@ h1 {
 
     padding: 0 1rem;
 
-    color: #181A4D;
+    color: var(--ui-colour);
 
     text-decoration: none;
 
@@ -186,18 +213,20 @@ h1 {
 
     letter-spacing: 0.08em;
 
-    border: 0;
+    border:
+        1px solid
+        rgba(249,243,219,0.18);
 
     border-radius: 999px;
 
     background:
-        color-mix(
-            in srgb,
-            #F9F3DB 92%,
-            var(--section-bg, #F9F3DB) 8%
-        );
+        rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 
     transition:
+        color 0.4s ease,
         transform 0.45s cubic-bezier(0.34,1.56,0.64,1),
         background 0.3s ease;
 }
@@ -205,8 +234,8 @@ h1 {
 
 .home-button:hover {
     transform:
-        scale(1.08)
-        rotate(-3deg);
+        scale(1.10)
+        rotate(-4deg);
 }
 
 
@@ -229,22 +258,27 @@ h1 {
 
     padding: 0 0.85rem;
 
-    border: 0;
+    border:
+        1px solid
+        rgba(249,243,219,0.18);
 
     border-radius: 999px;
 
     background:
-        color-mix(
-            in srgb,
-            #F9F3DB 92%,
-            var(--section-bg, #F9F3DB) 8%
-        );
+        rgba(255,255,255,0.08);
 
-    color: #181A4D;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    color: var(--ui-colour);
 
     font-size: 0.76rem;
 
     letter-spacing: 0.1em;
+
+    transition:
+        color 0.4s ease,
+        background 0.3s ease;
 }
 
 
@@ -273,14 +307,12 @@ h1 {
 
 .language-switch button:hover {
     opacity: 1;
-
-    transform: scale(1.1);
+    transform: scale(1.13);
 }
 
 
 .language-switch button.active {
     opacity: 1;
-
     text-decoration: underline;
 }
 
@@ -305,11 +337,14 @@ h1 {
 
     padding: 1.35rem;
 
-    background: #F9F3DB;
+    background:
+        rgba(249,243,219,0.94);
 
     color: #181A4D;
 
-    border: 0;
+    border:
+        1px solid
+        rgba(24,26,77,0.12);
 
     border-radius: 20px;
 
@@ -317,7 +352,10 @@ h1 {
         0
         18px
         55px
-        rgba(0,0,0,0.14);
+        rgba(0,0,0,0.18);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
 
     opacity: 0;
 
@@ -325,14 +363,17 @@ h1 {
 
     pointer-events: none;
 
+    filter: blur(12px);
+
     transform:
         translate(-50%,30px)
         scale(0.96);
 
     transition:
-        opacity 0.4s ease,
-        transform 0.55s cubic-bezier(0.16,1,0.3,1),
-        visibility 0.55s;
+        opacity 0.45s ease,
+        filter 0.5s ease,
+        transform 0.6s cubic-bezier(0.16,1,0.3,1),
+        visibility 0.6s;
 }
 
 
@@ -342,6 +383,8 @@ h1 {
     visibility: visible;
 
     pointer-events: auto;
+
+    filter: blur(0);
 
     transform:
         translate(-50%,0)
@@ -395,7 +438,9 @@ h1 {
 
 
 .instagram-browser-actions button {
-    border: 0;
+    border:
+        1px solid
+        #181A4D;
 
     border-radius: 999px;
 
@@ -410,36 +455,31 @@ h1 {
     cursor: pointer;
 
     transition:
-        transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+        transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
+        background 0.25s ease,
+        color 0.25s ease;
 }
 
 
 .instagram-open-button {
     background: #181A4D;
-
     color: #F9F3DB;
 }
 
 
 .instagram-dismiss-button {
-    background:
-        color-mix(
-            in srgb,
-            #F9F3DB 90%,
-            #181A4D 10%
-        );
-
+    background: transparent;
     color: #181A4D;
 }
 
 
 .instagram-browser-actions button:hover {
-    transform: scale(1.045);
+    transform: scale(1.055);
 }
 
 
 .instagram-browser-actions button:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
 }
 
 
@@ -875,8 +915,10 @@ nav a:hover {
         linear-gradient(
             to right,
             transparent 0%,
+            rgba(0,0,0,0.25) 3%,
             black 9%,
             black 91%,
+            rgba(0,0,0,0.25) 97%,
             transparent 100%
         );
 
@@ -884,8 +926,10 @@ nav a:hover {
         linear-gradient(
             to right,
             transparent 0%,
+            rgba(0,0,0,0.25) 3%,
             black 9%,
             black 91%,
+            rgba(0,0,0,0.25) 97%,
             transparent 100%
         );
 }
@@ -911,7 +955,9 @@ nav a:hover {
 
     overflow: hidden;
 
-    border: 0;
+    border:
+        1px solid
+        currentColor;
 
     border-radius: 0;
 
@@ -922,13 +968,9 @@ nav a:hover {
     cursor: pointer;
 
     background:
-        color-mix(
-            in srgb,
-            #F9F3DB 88%,
-            var(--section-bg) 12%
-        );
+        rgba(249,243,219,0.055);
 
-    color: #181A4D;
+    color: inherit;
 
     text-align: left;
 
@@ -943,15 +985,11 @@ nav a:hover {
 
 .project-card:hover {
     transform:
-        translateY(-6px)
-        scale(1.025);
+        translateY(-8px)
+        scale(1.04);
 
     background:
-        color-mix(
-            in srgb,
-            #F9F3DB 84%,
-            var(--section-bg) 16%
-        );
+        rgba(249,243,219,0.105);
 
     border-radius: 8px;
 }
@@ -959,7 +997,7 @@ nav a:hover {
 
 .project-card:active {
     transform:
-        scale(0.985);
+        scale(0.98);
 }
 
 
@@ -1015,7 +1053,9 @@ nav a:hover {
     width: 34px;
     height: 34px;
 
-    border: 0;
+    border:
+        1px solid
+        rgba(249,243,219,0.22);
 
     border-radius: 50%;
 
@@ -1033,38 +1073,41 @@ nav a:hover {
     line-height: 1;
 
     background:
-        color-mix(
-            in srgb,
-            #F9F3DB 88%,
-            var(--section-bg) 12%
-        );
+        rgba(249,243,219,0.08);
 
-    color: #181A4D;
+    color: inherit;
 
-    opacity: 0.9;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    opacity: 0.72;
 
     transform:
         translateY(-50%);
 
     transition:
         transform 0.42s cubic-bezier(0.34,1.56,0.64,1),
-        opacity 0.25s ease;
+        opacity 0.25s ease,
+        background 0.25s ease;
 }
 
 
 .carousel-arrow:hover {
     opacity: 1;
 
+    background:
+        rgba(249,243,219,0.15);
+
     transform:
         translateY(-50%)
-        scale(1.06);
+        scale(1.08);
 }
 
 
 .carousel-arrow:active {
     transform:
         translateY(-50%)
-        scale(0.97);
+        scale(0.96);
 }
 
 
@@ -1304,15 +1347,14 @@ footer {
         );
 
     background:
-        color-mix(
-            in srgb,
-            #F9F3DB 94%,
-            #181A4D 6%
-        );
+        rgba(249,243,219,0.985);
 
-    color: #181A4D;
+    color:
+        #181A4D;
 
-    border: 0;
+    border:
+        1px solid
+        rgba(24,26,77,0.09);
 
     border-radius: 12px;
 
@@ -1320,7 +1362,7 @@ footer {
         0
         24px
         70px
-        rgba(0,0,0,0.16);
+        rgba(0,0,0,0.20);
 
     opacity: 0;
 
@@ -1419,7 +1461,7 @@ footer {
 
 .project-modal-close:hover {
     transform:
-        scale(1.1)
+        scale(1.13)
         rotate(90deg);
 }
 
@@ -1953,6 +1995,8 @@ They're not here yet, still working on that! But come back soon to discover my w
      id="projects-carousel">
 
 
+<!-- 01 EDITORIAL -->
+
 <button class="project-card"
         data-project="editorial">
 
@@ -1973,6 +2017,8 @@ Editorial
 
 </button>
 
+
+<!-- 02 PHOTO -->
 
 <button class="project-card"
         data-project="photo">
@@ -1995,6 +2041,8 @@ Photo
 </button>
 
 
+<!-- 03 POSTERS -->
+
 <button class="project-card"
         data-project="posters">
 
@@ -2015,6 +2063,8 @@ Posters
 
 </button>
 
+
+<!-- 04 TYPO -->
 
 <button class="project-card"
         data-project="typo">
@@ -2194,10 +2244,18 @@ Instagram:
 </section>
 
 
+<!-- =========================================================
+     PROJECT BACKDROP
+     ========================================================= -->
+
 <div class="project-modal-backdrop"
      id="project-modal-backdrop">
 </div>
 
+
+<!-- =========================================================
+     PROJECT WINDOW
+     ========================================================= -->
 
 <aside class="project-modal"
        id="project-modal"
@@ -2233,19 +2291,29 @@ Editorial
    ========================================================= */
 
 const animatedName =
-document.getElementById("animated-name");
+document.getElementById(
+    "animated-name"
+);
+
 
 const nameText =
 "seb feasey";
 
-animatedName.innerHTML = "";
+
+animatedName.innerHTML =
+"";
+
 
 [...nameText].forEach(character => {
 
-    if (character === " ") {
+    if (
+        character === " "
+    ) {
 
         const space =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
 
         space.className =
         "name-space";
@@ -2253,12 +2321,16 @@ animatedName.innerHTML = "";
         space.innerHTML =
         "&nbsp;";
 
-        animatedName.appendChild(space);
+        animatedName.appendChild(
+            space
+        );
 
     } else {
 
         const letter =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
 
         letter.className =
         "name-letter";
@@ -2266,7 +2338,9 @@ animatedName.innerHTML = "";
         letter.textContent =
         character;
 
-        animatedName.appendChild(letter);
+        animatedName.appendChild(
+            letter
+        );
 
     }
 
@@ -2274,32 +2348,53 @@ animatedName.innerHTML = "";
 
 
 /* =========================================================
-   INSTAGRAM
+   INSTAGRAM IN-APP BROWSER
    ========================================================= */
 
 const instagramNotice =
-document.getElementById("instagram-browser-notice");
+document.getElementById(
+    "instagram-browser-notice"
+);
+
 
 const instagramOpenButton =
-document.getElementById("instagram-open-button");
+document.getElementById(
+    "instagram-open-button"
+);
+
 
 const instagramDismissButton =
-document.getElementById("instagram-dismiss-button");
+document.getElementById(
+    "instagram-dismiss-button"
+);
+
 
 const instagramBrowserText =
-document.getElementById("instagram-browser-text");
+document.getElementById(
+    "instagram-browser-text"
+);
+
 
 const userAgent =
 navigator.userAgent || "";
 
+
 const isInstagramBrowser =
-/Instagram/i.test(userAgent);
+/Instagram/i.test(
+    userAgent
+);
+
 
 const isAndroid =
-/Android/i.test(userAgent);
+/Android/i.test(
+    userAgent
+);
+
 
 const isIOS =
-/iPhone|iPad|iPod/i.test(userAgent);
+/iPhone|iPad|iPod/i.test(
+    userAgent
+);
 
 
 if (
@@ -2309,7 +2404,9 @@ if (
     ) !== "true"
 ) {
 
-    if (isIOS) {
+    if (
+        isIOS
+    ) {
 
         instagramOpenButton.textContent =
         "Copy link";
@@ -2322,21 +2419,31 @@ if (
     }
 
 
-    setTimeout(() => {
+    setTimeout(
+    () => {
 
-        instagramNotice.classList.add(
+        instagramNotice
+        .classList
+        .add(
             "open"
         );
 
-    },850);
+    },
+    850
+    );
 
 }
 
+
+/* =========================================================
+   COPY URL
+   ========================================================= */
 
 async function copyCurrentURL() {
 
     const currentURL =
     window.location.href;
+
 
     try {
 
@@ -2346,7 +2453,9 @@ async function copyCurrentURL() {
 
         return true;
 
-    } catch (error) {
+    } catch (
+        error
+    ) {
 
         const temporaryInput =
         document.createElement(
@@ -2382,22 +2491,31 @@ async function copyCurrentURL() {
 }
 
 
+/* =========================================================
+   INSTAGRAM OPEN BUTTON
+   ========================================================= */
+
 instagramOpenButton.addEventListener(
 "click",
 async () => {
 
-    if (isAndroid) {
+
+    if (
+        isAndroid
+    ) {
 
         const url =
         new URL(
             window.location.href
         );
 
+
         const intentTarget =
         url.host +
         url.pathname +
         url.search +
         url.hash;
+
 
         window.location.href =
         "intent://" +
@@ -2407,7 +2525,9 @@ async () => {
         "action=android.intent.action.VIEW;" +
         "end";
 
-        setTimeout(() => {
+
+        setTimeout(
+        () => {
 
             if (
                 document.visibilityState ===
@@ -2422,7 +2542,10 @@ async () => {
 
             }
 
-        },1400);
+        },
+        1400
+        );
+
 
         return;
 
@@ -2433,7 +2556,9 @@ async () => {
     await copyCurrentURL();
 
 
-    if (copied) {
+    if (
+        copied
+    ) {
 
         instagramBrowserText.textContent =
         "Link copied! Tap the ••• menu in Instagram and choose “Open in browser”.";
@@ -2458,9 +2583,12 @@ instagramDismissButton.addEventListener(
 "click",
 () => {
 
-    instagramNotice.classList.remove(
+    instagramNotice
+    .classList
+    .remove(
         "open"
     );
+
 
     sessionStorage.setItem(
         "instagram-browser-notice-dismissed",
@@ -2471,7 +2599,7 @@ instagramDismissButton.addEventListener(
 
 
 /* =========================================================
-   ORPHANS
+   ORPHAN PROTECTION
    ========================================================= */
 
 function preventOrphans() {
@@ -2480,17 +2608,24 @@ function preventOrphans() {
     .querySelectorAll(
         ".no-orphan"
     )
-    .forEach(element => {
+    .forEach(
+    element => {
 
         const text =
         element.textContent
-        .replace(/\u00A0/g," ")
+        .replace(/\u00A0/g, " ")
         .trim();
 
-        const lastSpace =
-        text.lastIndexOf(" ");
 
-        if (lastSpace > 0) {
+        const lastSpace =
+        text.lastIndexOf(
+            " "
+        );
+
+
+        if (
+            lastSpace > 0
+        ) {
 
             element.textContent =
             text.slice(
@@ -2511,22 +2646,28 @@ function preventOrphans() {
     .querySelectorAll(
         ".project-intro-copy"
     )
-    .forEach(element => {
+    .forEach(
+    element => {
 
         const text =
         element.textContent
-        .replace(/\u00A0/g," ")
+        .replace(/\u00A0/g, " ")
         .trim();
+
 
         const words =
         text.split(/\s+/);
 
-        if (words.length >= 3) {
+
+        if (
+            words.length >= 3
+        ) {
 
             const ending =
             words
             .splice(-3)
             .join("\u00A0");
+
 
             element.textContent =
             words.join(" ") +
@@ -2548,7 +2689,9 @@ let currentLanguage =
 "en";
 
 
-function setLanguage(language) {
+function setLanguage(
+    language
+) {
 
     currentLanguage =
     language;
@@ -2558,7 +2701,8 @@ function setLanguage(language) {
     .querySelectorAll(
         "[data-en]"
     )
-    .forEach(element => {
+    .forEach(
+    element => {
 
         const translation =
         element.getAttribute(
@@ -2566,7 +2710,10 @@ function setLanguage(language) {
             language
         );
 
-        if (translation) {
+
+        if (
+            translation
+        ) {
 
             element.textContent =
             translation;
@@ -2577,22 +2724,33 @@ function setLanguage(language) {
 
 
     document
-    .getElementById("btn-en")
-    .classList.toggle(
+    .getElementById(
+        "btn-en"
+    )
+    .classList
+    .toggle(
         "active",
         language === "en"
     );
 
+
     document
-    .getElementById("btn-fr")
-    .classList.toggle(
+    .getElementById(
+        "btn-fr"
+    )
+    .classList
+    .toggle(
         "active",
         language === "fr"
     );
 
+
     document
-    .getElementById("btn-sv")
-    .classList.toggle(
+    .getElementById(
+        "btn-sv"
+    )
+    .classList
+    .toggle(
         "active",
         language === "sv"
     );
@@ -2606,7 +2764,9 @@ function setLanguage(language) {
 
 
     if (
-        projectModal.classList.contains(
+        projectModal
+        .classList
+        .contains(
             "open"
         ) &&
         currentOpenProject
@@ -2625,7 +2785,7 @@ function setLanguage(language) {
 
 
 /* =========================================================
-   COPY AS PLAIN TEXT
+   PLAIN TEXT COPYING
    ========================================================= */
 
 document.addEventListener(
@@ -2635,21 +2795,32 @@ event => {
     const selection =
     window.getSelection();
 
+
     if (
         !selection ||
         selection.isCollapsed
     ) {
+
         return;
+
     }
+
 
     const plainText =
     selection.toString();
 
-    if (!plainText) {
+
+    if (
+        !plainText
+    ) {
+
         return;
+
     }
 
+
     event.preventDefault();
+
 
     event.clipboardData.setData(
         "text/plain",
@@ -2696,6 +2867,7 @@ function shuffle(array) {
     const copy =
     [...array];
 
+
     for (
         let i =
         copy.length - 1;
@@ -2711,6 +2883,7 @@ function shuffle(array) {
             (i + 1)
         );
 
+
         [
             copy[i],
             copy[j]
@@ -2722,13 +2895,14 @@ function shuffle(array) {
 
     }
 
+
     return copy;
 
 }
 
 
 /* =========================================================
-   ALL SECTIONS CHANGE COLOUR
+   ALL SECTIONS CHANGE COLOUR ON EVERY REFRESH
    ========================================================= */
 
 const sections =
@@ -2736,6 +2910,26 @@ document.querySelectorAll(
     ".colour-section"
 );
 
+
+/*
+Get the complete previous colour arrangement.
+
+Example:
+
+[
+    "#FF340C",
+    "#273287",
+    "#F03172",
+    "#0F4A42"
+]
+
+Each position corresponds to:
+
+0 = Home
+1 = Projects
+2 = About
+3 = Contact
+*/
 
 let previousSectionColours = [];
 
@@ -2749,7 +2943,9 @@ try {
         )
     ) || [];
 
-} catch (error) {
+} catch (
+    error
+) {
 
     previousSectionColours =
     [];
@@ -2757,20 +2953,33 @@ try {
 }
 
 
+/*
+Create a new shuffled arrangement.
+*/
+
 let shuffledColours =
 shuffle(
     sectionColours
 );
 
 
+/*
+If we have a complete previous arrangement,
+keep reshuffling until NONE of the four sections
+has the same colour it had on the last page load.
+*/
+
 if (
     previousSectionColours.length ===
     sectionColours.length
 ) {
 
-    let attempts = 0;
+    let attempts =
+    0;
 
-    const maximumAttempts = 100;
+
+    const maximumAttempts =
+    100;
 
 
     while (
@@ -2788,10 +2997,22 @@ if (
             sectionColours
         );
 
+
         attempts++;
 
     }
 
+
+    /*
+    Extremely unlikely fallback.
+
+    If random shuffling somehow failed to find a valid
+    arrangement after 100 attempts, rotate the previous
+    arrangement by one position.
+
+    Because all four colours are unique, this guarantees
+    every section receives a different colour.
+    */
 
     if (
         shuffledColours.some(
@@ -2803,7 +3024,8 @@ if (
 
         const previousObjects =
         previousSectionColours
-        .map(colourCode => {
+        .map(
+        colourCode => {
 
             return sectionColours.find(
                 colour =>
@@ -2834,6 +3056,10 @@ if (
 }
 
 
+/*
+Save the complete new arrangement for next refresh.
+*/
+
 localStorage.setItem(
     "seb-last-section-colours",
 
@@ -2846,21 +3072,30 @@ localStorage.setItem(
 );
 
 
+/*
+Apply the colours to Home, Projects, About and Contact.
+*/
+
 sections.forEach(
 (section,index) => {
 
     const colour =
-    shuffledColours[index];
+    shuffledColours[
+        index
+    ];
+
 
     section.style.setProperty(
         "--section-bg",
         colour.background
     );
 
+
     section.style.setProperty(
         "--section-text",
         colour.text
     );
+
 
     section.dataset.textColour =
     colour.text;
@@ -2869,26 +3104,18 @@ sections.forEach(
 
 
 /* =========================================================
-   FIXED UI CURRENT SECTION COLOUR
+   FIXED UI COLOUR
    ========================================================= */
 
-function updateUIColour(section) {
+function updateUIColour(
+    section
+) {
 
     document.documentElement
     .style
     .setProperty(
         "--ui-colour",
         section.dataset.textColour
-    );
-
-
-    document.documentElement
-    .style
-    .setProperty(
-        "--current-section-bg",
-        section.style.getPropertyValue(
-            "--section-bg"
-        )
     );
 
 }
@@ -2906,7 +3133,8 @@ new IntersectionObserver(
 
 entries => {
 
-    entries.forEach(entry => {
+    entries.forEach(
+    entry => {
 
         if (
             entry.isIntersecting
@@ -2926,13 +3154,15 @@ entries => {
     rootMargin:
         "-45% 0px -45% 0px",
 
-    threshold: 0
+    threshold:
+        0
 }
 
 );
 
 
-sections.forEach(section => {
+sections.forEach(
+section => {
 
     sectionObserver.observe(
         section
@@ -2942,7 +3172,7 @@ sections.forEach(section => {
 
 
 /* =========================================================
-   REVEALS
+   REVEAL
    ========================================================= */
 
 const revealElements =
@@ -2956,7 +3186,8 @@ new IntersectionObserver(
 
 entries => {
 
-    entries.forEach(entry => {
+    entries.forEach(
+    entry => {
 
         if (
             entry.isIntersecting
@@ -2983,7 +3214,8 @@ entries => {
 },
 
 {
-    threshold: 0.15,
+    threshold:
+        0.15,
 
     rootMargin:
         "0px 0px -5% 0px"
@@ -2992,7 +3224,8 @@ entries => {
 );
 
 
-revealElements.forEach(element => {
+revealElements.forEach(
+element => {
 
     revealObserver.observe(
         element
@@ -3002,7 +3235,7 @@ revealElements.forEach(element => {
 
 
 /* =========================================================
-   CAROUSEL
+   PROJECT CAROUSEL
    ========================================================= */
 
 const carousel =
@@ -3034,16 +3267,21 @@ Array.from(
 const templates =
 originalCards.map(
 card =>
-    card.cloneNode(true)
+    card.cloneNode(
+        true
+    )
 );
 
 
 function appendProjectSet() {
 
-    templates.forEach(template => {
+    templates.forEach(
+    template => {
 
         carousel.appendChild(
-            template.cloneNode(true)
+            template.cloneNode(
+                true
+            )
         );
 
     });
@@ -3056,12 +3294,16 @@ function prependProjectSet() {
     const previousWidth =
     carousel.scrollWidth;
 
+
     [...templates]
     .reverse()
-    .forEach(template => {
+    .forEach(
+    template => {
 
         carousel.insertBefore(
-            template.cloneNode(true),
+            template.cloneNode(
+                true
+            ),
             carousel.firstChild
         );
 
@@ -3071,6 +3313,7 @@ function prependProjectSet() {
     const addedWidth =
     carousel.scrollWidth -
     previousWidth;
+
 
     carousel.scrollLeft +=
     addedWidth;
@@ -3097,7 +3340,8 @@ function nearestCard() {
 
 
     const carouselBox =
-    carousel.getBoundingClientRect();
+    carousel
+    .getBoundingClientRect();
 
 
     const target =
@@ -3113,10 +3357,13 @@ function nearestCard() {
     Infinity;
 
 
-    cards.forEach(card => {
+    cards.forEach(
+    card => {
 
         const box =
-        card.getBoundingClientRect();
+        card
+        .getBoundingClientRect();
+
 
         const distance =
         Math.abs(
@@ -3146,13 +3393,20 @@ function nearestCard() {
 }
 
 
-function moveCarousel(direction) {
+function moveCarousel(
+    direction
+) {
 
     const card =
     nearestCard();
 
-    if (!card) {
+
+    if (
+        !card
+    ) {
+
         return;
+
     }
 
 
@@ -3165,13 +3419,18 @@ function moveCarousel(direction) {
 
 
     let index =
-    cards.indexOf(card);
+    cards.indexOf(
+        card
+    );
+
 
     index +=
     direction;
 
 
-    if (index < 0) {
+    if (
+        index < 0
+    ) {
 
         prependProjectSet();
 
@@ -3229,7 +3488,10 @@ rightArrow.addEventListener(
 
     }
 
-    moveCarousel(1);
+
+    moveCarousel(
+        1
+    );
 
 });
 
@@ -3247,7 +3509,10 @@ leftArrow.addEventListener(
 
     }
 
-    moveCarousel(-1);
+
+    moveCarousel(
+        -1
+    );
 
 });
 
@@ -3388,6 +3653,10 @@ let currentOpenProject =
 null;
 
 
+/* =========================================================
+   OPEN PROJECT
+   ========================================================= */
+
 carousel.addEventListener(
 "click",
 event => {
@@ -3398,8 +3667,12 @@ event => {
     );
 
 
-    if (!card) {
+    if (
+        !card
+    ) {
+
         return;
+
     }
 
 
@@ -3408,11 +3681,17 @@ event => {
 
 
     const project =
-    projectInfo[key];
+    projectInfo[
+        key
+    ];
 
 
-    if (!project) {
+    if (
+        !project
+    ) {
+
         return;
+
     }
 
 
@@ -3459,6 +3738,10 @@ event => {
 
 });
 
+
+/* =========================================================
+   CLOSE PROJECT
+   ========================================================= */
 
 function closeProjectModal() {
 
