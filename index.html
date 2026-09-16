@@ -1023,10 +1023,6 @@ nav a:hover {
 }
 
 
-/*
-All project titles now use EXACTLY the same size.
-*/
-
 .project-title {
     font-family:
         Georgia,
@@ -1669,10 +1665,6 @@ body.modal-open {
         min-width: 0;
     }
 
-
-    /*
-    All four are EXACTLY the same size on mobile too.
-    */
 
     .project-title {
         font-size: 1.55rem;
@@ -2848,43 +2840,29 @@ preventOrphans();
 const sectionColours = [
 
     {
-        background:
-            "#FF340C",
-
-        text:
-            "#F9F3DB"
+        background: "#FF340C",
+        text: "#F9F3DB"
     },
 
     {
-        background:
-            "#F03172",
-
-        text:
-            "#F9F3DB"
+        background: "#F03172",
+        text: "#F9F3DB"
     },
 
     {
-        background:
-            "#0F4A42",
-
-        text:
-            "#F9F3DB"
+        background: "#0F4A42",
+        text: "#F9F3DB"
     },
 
     {
-        background:
-            "#273287",
-
-        text:
-            "#F9F3DB"
+        background: "#273287",
+        text: "#F9F3DB"
     }
 
 ];
 
 
-function shuffle(
-    array
-) {
+function shuffle(array) {
 
     const copy =
     [...array];
@@ -2924,7 +2902,7 @@ function shuffle(
 
 
 /* =========================================================
-   HOME NEVER REPEATS COLOUR
+   ALL SECTIONS CHANGE COLOUR ON EVERY REFRESH
    ========================================================= */
 
 const sections =
@@ -2933,11 +2911,51 @@ document.querySelectorAll(
 );
 
 
-const previousHomeColour =
-localStorage.getItem(
-    "seb-last-home-colour"
-);
+/*
+Get the complete previous colour arrangement.
 
+Example:
+
+[
+    "#FF340C",
+    "#273287",
+    "#F03172",
+    "#0F4A42"
+]
+
+Each position corresponds to:
+
+0 = Home
+1 = Projects
+2 = About
+3 = Contact
+*/
+
+let previousSectionColours = [];
+
+
+try {
+
+    previousSectionColours =
+    JSON.parse(
+        localStorage.getItem(
+            "seb-last-section-colours"
+        )
+    ) || [];
+
+} catch (
+    error
+) {
+
+    previousSectionColours =
+    [];
+
+}
+
+
+/*
+Create a new shuffled arrangement.
+*/
 
 let shuffledColours =
 shuffle(
@@ -2945,48 +2963,118 @@ shuffle(
 );
 
 
+/*
+If we have a complete previous arrangement,
+keep reshuffling until NONE of the four sections
+has the same colour it had on the last page load.
+*/
+
 if (
-    previousHomeColour &&
-    shuffledColours[0].background ===
-    previousHomeColour
+    previousSectionColours.length ===
+    sectionColours.length
 ) {
 
-    const alternativeIndex =
-    shuffledColours.findIndex(
-        (colour,index) =>
-            index > 0 &&
-            colour.background !==
-            previousHomeColour
-    );
+    let attempts =
+    0;
 
 
-    if (
-        alternativeIndex !== -1
+    const maximumAttempts =
+    100;
+
+
+    while (
+        shuffledColours.some(
+            (colour,index) =>
+                colour.background ===
+                previousSectionColours[index]
+        ) &&
+        attempts <
+        maximumAttempts
     ) {
 
-        [
-            shuffledColours[0],
-            shuffledColours[
-                alternativeIndex
-            ]
-        ] =
-        [
-            shuffledColours[
-                alternativeIndex
-            ],
-            shuffledColours[0]
-        ];
+        shuffledColours =
+        shuffle(
+            sectionColours
+        );
+
+
+        attempts++;
+
+    }
+
+
+    /*
+    Extremely unlikely fallback.
+
+    If random shuffling somehow failed to find a valid
+    arrangement after 100 attempts, rotate the previous
+    arrangement by one position.
+
+    Because all four colours are unique, this guarantees
+    every section receives a different colour.
+    */
+
+    if (
+        shuffledColours.some(
+            (colour,index) =>
+                colour.background ===
+                previousSectionColours[index]
+        )
+    ) {
+
+        const previousObjects =
+        previousSectionColours
+        .map(
+        colourCode => {
+
+            return sectionColours.find(
+                colour =>
+                    colour.background ===
+                    colourCode
+            );
+
+        })
+        .filter(Boolean);
+
+
+        if (
+            previousObjects.length ===
+            sectionColours.length
+        ) {
+
+            shuffledColours = [
+                previousObjects[1],
+                previousObjects[2],
+                previousObjects[3],
+                previousObjects[0]
+            ];
+
+        }
 
     }
 
 }
 
 
+/*
+Save the complete new arrangement for next refresh.
+*/
+
 localStorage.setItem(
-    "seb-last-home-colour",
-    shuffledColours[0].background
+    "seb-last-section-colours",
+
+    JSON.stringify(
+        shuffledColours.map(
+            colour =>
+                colour.background
+        )
+    )
 );
 
+
+/*
+Apply the colours to Home, Projects, About and Contact.
+*/
 
 sections.forEach(
 (section,index) => {
@@ -3483,14 +3571,9 @@ const projectInfo = {
 
         title: {
 
-            en:
-                "Editorial",
-
-            fr:
-                "Éditorial",
-
-            sv:
-                "Redaktionellt"
+            en: "Editorial",
+            fr: "Éditorial",
+            sv: "Redaktionellt"
 
         }
 
@@ -3501,14 +3584,9 @@ const projectInfo = {
 
         title: {
 
-            en:
-                "Photo",
-
-            fr:
-                "Photo",
-
-            sv:
-                "Foto"
+            en: "Photo",
+            fr: "Photo",
+            sv: "Foto"
 
         }
 
@@ -3519,14 +3597,9 @@ const projectInfo = {
 
         title: {
 
-            en:
-                "Posters",
-
-            fr:
-                "Affiches",
-
-            sv:
-                "Affischer"
+            en: "Posters",
+            fr: "Affiches",
+            sv: "Affischer"
 
         }
 
@@ -3537,14 +3610,9 @@ const projectInfo = {
 
         title: {
 
-            en:
-                "Typo",
-
-            fr:
-                "Typo",
-
-            sv:
-                "Typo"
+            en: "Typo",
+            fr: "Typo",
+            sv: "Typo"
 
         }
 
