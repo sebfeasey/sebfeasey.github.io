@@ -7,6 +7,10 @@
 
 <title>Seb Feasey</title>
 
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 <script data-goatcounter="https://sebfeasey.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 
@@ -42,7 +46,7 @@ html {
     scrollbar-width: thin;
     scrollbar-color:
         var(--ui-colour)
-        rgba(24,26,77,0.16);
+        rgba(24,26,77,.16);
 }
 
 body {
@@ -76,12 +80,12 @@ body {
 }
 
 ::selection {
-    background: rgba(249,243,219,0.92);
+    background: rgba(249,243,219,.92);
     color: #181A4D;
 }
 
 ::-moz-selection {
-    background: rgba(249,243,219,0.92);
+    background: rgba(249,243,219,.92);
     color: #181A4D;
 }
 
@@ -113,16 +117,13 @@ h1 {
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(24,26,77,0.12);
+    background: rgba(24,26,77,.12);
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--ui-colour);
-
     border-radius: 999px;
-
     border: 3px solid transparent;
-
     background-clip: padding-box;
 }
 
@@ -150,7 +151,6 @@ h1 {
     scroll-snap-stop: normal;
 }
 
-
 .colour-section:not(:first-of-type)::before {
     content: "";
 
@@ -169,7 +169,7 @@ h1 {
     background:
         linear-gradient(
             to bottom,
-            rgba(249,243,219,0.018),
+            rgba(249,243,219,.018),
             transparent
         );
 
@@ -211,26 +211,25 @@ h1 {
 
     font-size: 1.05rem;
 
-    letter-spacing: 0.08em;
+    letter-spacing: .08em;
 
     border:
         1px solid
-        rgba(249,243,219,0.18);
+        rgba(249,243,219,.18);
 
     border-radius: 999px;
 
     background:
-        rgba(255,255,255,0.08);
+        rgba(255,255,255,.08);
 
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
     transition:
-        color 0.4s ease,
-        transform 0.45s cubic-bezier(0.34,1.56,0.64,1),
-        background 0.3s ease;
+        color .4s ease,
+        transform .45s cubic-bezier(.34,1.56,.64,1),
+        background .3s ease;
 }
-
 
 .home-button:hover {
     transform:
@@ -252,35 +251,35 @@ h1 {
     z-index: 3000;
 
     display: flex;
+
     align-items: center;
 
     height: 42px;
 
-    padding: 0 0.85rem;
+    padding: 0 .85rem;
 
     border:
         1px solid
-        rgba(249,243,219,0.18);
+        rgba(249,243,219,.18);
 
     border-radius: 999px;
 
     background:
-        rgba(255,255,255,0.08);
+        rgba(255,255,255,.08);
 
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
     color: var(--ui-colour);
 
-    font-size: 0.76rem;
+    font-size: .76rem;
 
-    letter-spacing: 0.1em;
+    letter-spacing: .1em;
 
     transition:
-        color 0.4s ease,
-        background 0.3s ease;
+        color .4s ease,
+        background .3s ease;
 }
-
 
 .language-switch button {
     border: 0;
@@ -291,28 +290,28 @@ h1 {
 
     cursor: pointer;
 
-    opacity: 0.45;
+    opacity: .45;
 
-    padding: 0.35rem;
+    padding: .35rem;
 
-    font-size: 0.76rem;
+    font-size: .76rem;
 
-    letter-spacing: 0.1em;
+    letter-spacing: .1em;
 
     transition:
-        opacity 0.25s ease,
-        transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+        opacity .25s ease,
+        transform .4s cubic-bezier(.34,1.56,.64,1);
 }
-
 
 .language-switch button:hover {
     opacity: 1;
+
     transform: scale(1.13);
 }
 
-
 .language-switch button.active {
     opacity: 1;
+
     text-decoration: underline;
 }
 
@@ -338,13 +337,13 @@ h1 {
     padding: 1.35rem;
 
     background:
-        rgba(249,243,219,0.94);
+        rgba(249,243,219,.94);
 
     color: #181A4D;
 
     border:
         1px solid
-        rgba(24,26,77,0.12);
+        rgba(24,26,77,.12);
 
     border-radius: 20px;
 
@@ -352,7 +351,7 @@ h1 {
         0
         18px
         55px
-        rgba(0,0,0,0.18);
+        rgba(0,0,0,.18);
 
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
@@ -367,15 +366,14 @@ h1 {
 
     transform:
         translate(-50%,30px)
-        scale(0.96);
+        scale(.96);
 
     transition:
-        opacity 0.45s ease,
-        filter 0.5s ease,
-        transform 0.6s cubic-bezier(0.16,1,0.3,1),
-        visibility 0.6s;
+        opacity .45s ease,
+        filter .5s ease,
+        transform .6s cubic-bezier(.16,1,.3,1),
+        visibility .6s;
 }
-
 
 .instagram-browser-notice.open {
     opacity: 1;
@@ -391,22 +389,20 @@ h1 {
         scale(1);
 }
 
-
 .instagram-browser-label {
-    margin: 0 0 0.5rem;
+    margin: 0 0 .5rem;
 
-    font-size: 0.7rem;
+    font-size: .7rem;
 
-    letter-spacing: 0.14em;
+    letter-spacing: .14em;
 
     text-transform: uppercase;
 
-    opacity: 0.55;
+    opacity: .55;
 }
 
-
 .instagram-browser-title {
-    margin: 0 0 0.65rem;
+    margin: 0 0 .65rem;
 
     font-family:
         Georgia,
@@ -418,24 +414,21 @@ h1 {
     line-height: 1;
 }
 
-
 .instagram-browser-text {
     margin: 0 0 1.1rem;
 
-    font-size: 0.9rem;
+    font-size: .9rem;
 
     line-height: 1.55;
 }
 
-
 .instagram-browser-actions {
     display: flex;
 
-    gap: 0.6rem;
+    gap: .6rem;
 
     flex-wrap: wrap;
 }
-
 
 .instagram-browser-actions button {
     border:
@@ -445,41 +438,39 @@ h1 {
     border-radius: 999px;
 
     padding:
-        0.7rem
+        .7rem
         1rem;
 
     font-family: inherit;
 
-    font-size: 0.8rem;
+    font-size: .8rem;
 
     cursor: pointer;
 
     transition:
-        transform 0.4s cubic-bezier(0.34,1.56,0.64,1),
-        background 0.25s ease,
-        color 0.25s ease;
+        transform .4s cubic-bezier(.34,1.56,.64,1),
+        background .25s ease,
+        color .25s ease;
 }
-
 
 .instagram-open-button {
     background: #181A4D;
+
     color: #F9F3DB;
 }
 
-
 .instagram-dismiss-button {
     background: transparent;
+
     color: #181A4D;
 }
-
 
 .instagram-browser-actions button:hover {
     transform: scale(1.055);
 }
 
-
 .instagram-browser-actions button:active {
-    transform: scale(0.97);
+    transform: scale(.97);
 }
 
 
@@ -502,7 +493,6 @@ h1 {
         5rem;
 }
 
-
 .hero-inner {
     width: 100%;
 
@@ -515,7 +505,7 @@ h1 {
 
 
 /* =========================================================
-   HOME ENTRY
+   HERO ENTRY
    ========================================================= */
 
 .hero-name {
@@ -525,16 +515,15 @@ h1 {
 
     transform:
         translateY(32px)
-        scale(0.93);
+        scale(.93);
 
     animation:
         heroNameEntrance
         1.25s
-        cubic-bezier(0.16,1,0.3,1)
-        0.08s
+        cubic-bezier(.16,1,.3,1)
+        .08s
         forwards;
 }
-
 
 .hero .subtitle {
     opacity: 0;
@@ -547,11 +536,10 @@ h1 {
     animation:
         heroSmallEntrance
         1s
-        cubic-bezier(0.16,1,0.3,1)
-        0.38s
+        cubic-bezier(.16,1,.3,1)
+        .38s
         forwards;
 }
-
 
 .hero nav {
     opacity: 0;
@@ -564,11 +552,10 @@ h1 {
     animation:
         heroSmallEntrance
         1s
-        cubic-bezier(0.16,1,0.3,1)
-        0.62s
+        cubic-bezier(.16,1,.3,1)
+        .62s
         forwards;
 }
-
 
 @keyframes heroNameEntrance {
 
@@ -579,7 +566,7 @@ h1 {
 
         transform:
             translateY(32px)
-            scale(0.93);
+            scale(.93);
     }
 
     67% {
@@ -595,7 +582,7 @@ h1 {
     84% {
         transform:
             translateY(2px)
-            scale(0.992);
+            scale(.992);
     }
 
     100% {
@@ -607,8 +594,8 @@ h1 {
             translateY(0)
             scale(1);
     }
-}
 
+}
 
 @keyframes heroSmallEntrance {
 
@@ -638,6 +625,7 @@ h1 {
         transform:
             translateY(0);
     }
+
 }
 
 
@@ -660,13 +648,12 @@ h1 {
             8rem
         );
 
-    line-height: 0.9;
+    line-height: .9;
 
     font-weight: 400;
 
     text-transform: lowercase;
 }
-
 
 .name-letter {
     display: inline-block;
@@ -679,11 +666,8 @@ h1 {
         center bottom;
 
     transition:
-        transform
-        0.55s
-        cubic-bezier(0.34,1.56,0.64,1);
+        transform .55s cubic-bezier(.34,1.56,.64,1);
 }
-
 
 .name-letter:hover {
     transform:
@@ -692,7 +676,6 @@ h1 {
         scale(1.16,1.06);
 }
 
-
 .name-letter:nth-child(even):hover {
     transform:
         translateY(-10px)
@@ -700,11 +683,10 @@ h1 {
         scale(1.12,1.10);
 }
 
-
 .name-space {
     display: inline-block;
 
-    width: 0.22em;
+    width: .22em;
 }
 
 
@@ -719,14 +701,14 @@ h1 {
 
     text-transform: uppercase;
 
-    letter-spacing: 0.3em;
+    letter-spacing: .3em;
 
-    font-size: 0.9rem;
+    font-size: .9rem;
 }
 
 
 /* =========================================================
-   HOME NAV
+   NAV
    ========================================================= */
 
 nav {
@@ -737,7 +719,6 @@ nav {
     gap: 2rem;
 }
 
-
 nav a {
     color: inherit;
 
@@ -745,18 +726,17 @@ nav a {
 
     text-transform: uppercase;
 
-    letter-spacing: 0.15em;
+    letter-spacing: .15em;
 
     display: inline-block;
 
     transition:
-        opacity 0.25s ease,
-        transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+        opacity .25s ease,
+        transform .45s cubic-bezier(.34,1.56,.64,1);
 }
 
-
 nav a:hover {
-    opacity: 0.75;
+    opacity: .75;
 
     transform:
         scale(1.12)
@@ -765,7 +745,7 @@ nav a:hover {
 
 
 /* =========================================================
-   SECTION TITLES
+   TITLES
    ========================================================= */
 
 .section-title {
@@ -783,7 +763,7 @@ nav a:hover {
             6rem
         );
 
-    line-height: 0.9;
+    line-height: .9;
 
     font-weight: 400;
 }
@@ -800,14 +780,13 @@ nav a:hover {
 
     transform:
         translateY(38px)
-        scale(0.94);
+        scale(.94);
 
     transition:
-        opacity 0.65s ease,
-        filter 0.72s ease,
-        transform 0.82s cubic-bezier(0.34,1.26,0.64,1);
+        opacity .65s ease,
+        filter .72s ease,
+        transform .82s cubic-bezier(.34,1.26,.64,1);
 }
-
 
 .js .reveal.visible {
     opacity: 1;
@@ -837,14 +816,13 @@ nav a:hover {
     align-items: center;
 }
 
-
 .projects-layout {
     width: 100%;
 
     display: grid;
 
     grid-template-columns:
-        minmax(240px,0.52fr)
+        minmax(240px,.52fr)
         minmax(0,1.85fr);
 
     gap: 7vw;
@@ -856,11 +834,9 @@ nav a:hover {
     align-items: center;
 }
 
-
 .projects-intro .section-title {
     margin-bottom: 1.8rem;
 }
-
 
 .projects-intro p {
     max-width: 310px;
@@ -869,12 +845,12 @@ nav a:hover {
 
     line-height: 1.6;
 
-    font-size: 0.95rem;
+    font-size: .95rem;
 }
 
 
 /* =========================================================
-   PROJECT CAROUSEL
+   CAROUSEL
    ========================================================= */
 
 .projects-carousel-wrapper {
@@ -888,7 +864,6 @@ nav a:hover {
         1.6rem
         0;
 }
-
 
 .projects-carousel {
     display: flex;
@@ -915,10 +890,10 @@ nav a:hover {
         linear-gradient(
             to right,
             transparent 0%,
-            rgba(0,0,0,0.25) 3%,
+            rgba(0,0,0,.25) 3%,
             black 9%,
             black 91%,
-            rgba(0,0,0,0.25) 97%,
+            rgba(0,0,0,.25) 97%,
             transparent 100%
         );
 
@@ -926,14 +901,13 @@ nav a:hover {
         linear-gradient(
             to right,
             transparent 0%,
-            rgba(0,0,0,0.25) 3%,
+            rgba(0,0,0,.25) 3%,
             black 9%,
             black 91%,
-            rgba(0,0,0,0.25) 97%,
+            rgba(0,0,0,.25) 97%,
             transparent 100%
         );
 }
-
 
 .projects-carousel::-webkit-scrollbar {
     display: none;
@@ -968,7 +942,7 @@ nav a:hover {
     cursor: pointer;
 
     background:
-        rgba(249,243,219,0.055);
+        rgba(249,243,219,.055);
 
     color: inherit;
 
@@ -977,11 +951,10 @@ nav a:hover {
     font-family: inherit;
 
     transition:
-        transform 0.5s cubic-bezier(0.34,1.56,0.64,1),
-        background 0.3s ease,
-        border-radius 0.4s cubic-bezier(0.34,1.56,0.64,1);
+        transform .5s cubic-bezier(.34,1.56,.64,1),
+        background .3s ease,
+        border-radius .4s cubic-bezier(.34,1.56,.64,1);
 }
-
 
 .project-card:hover {
     transform:
@@ -989,17 +962,14 @@ nav a:hover {
         scale(1.04);
 
     background:
-        rgba(249,243,219,0.105);
+        rgba(249,243,219,.105);
 
     border-radius: 8px;
 }
 
-
 .project-card:active {
-    transform:
-        scale(0.98);
+    transform: scale(.98);
 }
-
 
 .project-card-inner {
     position: absolute;
@@ -1015,13 +985,11 @@ nav a:hover {
     justify-content: space-between;
 }
 
-
 .project-number {
-    font-size: 0.7rem;
+    font-size: .7rem;
 
-    letter-spacing: 0.16em;
+    letter-spacing: .16em;
 }
-
 
 .project-title {
     font-family:
@@ -1042,7 +1010,7 @@ nav a:hover {
 
 
 /* =========================================================
-   PROJECT ARROWS
+   CAROUSEL ARROWS
    ========================================================= */
 
 .carousel-arrow {
@@ -1055,7 +1023,7 @@ nav a:hover {
 
     border:
         1px solid
-        rgba(249,243,219,0.22);
+        rgba(249,243,219,.22);
 
     border-radius: 50%;
 
@@ -1068,56 +1036,52 @@ nav a:hover {
     align-items: center;
     justify-content: center;
 
-    font-size: 0.9rem;
+    font-size: .9rem;
 
     line-height: 1;
 
     background:
-        rgba(249,243,219,0.08);
+        rgba(249,243,219,.08);
 
     color: inherit;
 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 
-    opacity: 0.72;
+    opacity: .72;
 
     transform:
         translateY(-50%);
 
     transition:
-        transform 0.42s cubic-bezier(0.34,1.56,0.64,1),
-        opacity 0.25s ease,
-        background 0.25s ease;
+        transform .42s cubic-bezier(.34,1.56,.64,1),
+        opacity .25s ease,
+        background .25s ease;
 }
-
 
 .carousel-arrow:hover {
     opacity: 1;
 
     background:
-        rgba(249,243,219,0.15);
+        rgba(249,243,219,.15);
 
     transform:
         translateY(-50%)
         scale(1.08);
 }
 
-
 .carousel-arrow:active {
     transform:
         translateY(-50%)
-        scale(0.96);
+        scale(.96);
 }
-
 
 .carousel-arrow.left {
-    left: 0.4rem;
+    left: .4rem;
 }
 
-
 .carousel-arrow.right {
-    right: 0.4rem;
+    right: .4rem;
 }
 
 
@@ -1138,14 +1102,13 @@ nav a:hover {
     align-items: center;
 }
 
-
 .about-layout {
     width: 100%;
 
     display: grid;
 
     grid-template-columns:
-        minmax(260px,0.75fr)
+        minmax(260px,.75fr)
         minmax(400px,1.25fr);
 
     gap: 8vw;
@@ -1157,7 +1120,6 @@ nav a:hover {
     align-items: start;
 }
 
-
 .about-content {
     max-width: 720px;
 
@@ -1167,7 +1129,7 @@ nav a:hover {
 
     line-height: 1.8;
 
-    padding-top: 0.3rem;
+    padding-top: .3rem;
 }
 
 
@@ -1188,7 +1150,6 @@ nav a:hover {
     flex-direction: column;
 }
 
-
 .contact-main {
     flex: 1;
 
@@ -1201,16 +1162,13 @@ nav a:hover {
     z-index: 10;
 }
 
-
 .contact-content {
     width: 100%;
 }
 
-
 .contact-content .section-title {
     margin-bottom: 2.3rem;
 }
-
 
 .contact {
     font-size: 1.08rem;
@@ -1218,14 +1176,12 @@ nav a:hover {
     line-height: 1.9;
 }
 
-
 .contact p {
     margin:
         0
         0
-        0.5rem;
+        .5rem;
 }
-
 
 .contact a {
     color: inherit;
@@ -1235,17 +1191,16 @@ nav a:hover {
     white-space: nowrap;
 
     transition:
-        transform 0.45s cubic-bezier(0.34,1.56,0.64,1),
-        opacity 0.3s ease;
+        transform .45s cubic-bezier(.34,1.56,.64,1),
+        opacity .3s ease;
 }
-
 
 .contact a:hover {
     transform:
         translateX(6px)
         scale(1.04);
 
-    opacity: 0.75;
+    opacity: .75;
 }
 
 
@@ -1264,9 +1219,9 @@ footer {
 
     color: inherit;
 
-    font-size: 0.85rem;
+    font-size: .85rem;
 
-    opacity: 0.65;
+    opacity: .65;
 }
 
 
@@ -1282,7 +1237,7 @@ footer {
     z-index: 4900;
 
     background:
-        rgba(13,13,28,0.16);
+        rgba(13,13,28,.16);
 
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
@@ -1294,10 +1249,9 @@ footer {
     pointer-events: none;
 
     transition:
-        opacity 0.32s ease,
-        visibility 0.32s;
+        opacity .32s ease,
+        visibility .32s;
 }
-
 
 .project-modal-backdrop.open {
     opacity: 1;
@@ -1309,7 +1263,7 @@ footer {
 
 
 /* =========================================================
-   CENTRED PROJECT POPUP
+   PROJECT MODAL
    ========================================================= */
 
 .project-modal {
@@ -1347,14 +1301,13 @@ footer {
         );
 
     background:
-        rgba(249,243,219,0.985);
+        rgba(249,243,219,.985);
 
-    color:
-        #181A4D;
+    color: #181A4D;
 
     border:
         1px solid
-        rgba(24,26,77,0.09);
+        rgba(24,26,77,.09);
 
     border-radius: 12px;
 
@@ -1362,7 +1315,7 @@ footer {
         0
         24px
         70px
-        rgba(0,0,0,0.20);
+        rgba(0,0,0,.20);
 
     opacity: 0;
 
@@ -1372,18 +1325,17 @@ footer {
 
     transform:
         translate(-50%,-47%)
-        scale(0.965);
+        scale(.965);
 
     will-change:
         transform,
         opacity;
 
     transition:
-        opacity 0.3s ease,
-        transform 0.42s cubic-bezier(0.16,1,0.3,1),
-        visibility 0.42s;
+        opacity .3s ease,
+        transform .42s cubic-bezier(.16,1,.3,1),
+        visibility .42s;
 }
-
 
 .project-modal.open {
     opacity: 1;
@@ -1396,11 +1348,6 @@ footer {
         translate(-50%,-50%)
         scale(1);
 }
-
-
-/* =========================================================
-   MODAL TITLE
-   ========================================================= */
 
 .project-modal-title {
     margin: 0;
@@ -1421,15 +1368,10 @@ footer {
             4.4rem
         );
 
-    line-height: 0.96;
+    line-height: .96;
 
     font-weight: 400;
 }
-
-
-/* =========================================================
-   MODAL CLOSE
-   ========================================================= */
 
 .project-modal-close {
     position: absolute;
@@ -1453,22 +1395,14 @@ footer {
     font-size: 1.35rem;
 
     transition:
-        transform
-        0.45s
-        cubic-bezier(0.34,1.56,0.64,1);
+        transform .45s cubic-bezier(.34,1.56,.64,1);
 }
-
 
 .project-modal-close:hover {
     transform:
         scale(1.13)
         rotate(90deg);
 }
-
-
-/* =========================================================
-   LOCK PAGE WHILE MODAL OPEN
-   ========================================================= */
 
 body.modal-open {
     overflow: hidden;
@@ -1482,32 +1416,29 @@ body.modal-open {
 @media (max-width: 850px) {
 
     .home-button {
-        top: 0.8rem;
-        left: 0.8rem;
+        top: .8rem;
+        left: .8rem;
 
         height: 38px;
 
         min-width: 52px;
     }
 
-
     .language-switch {
-        top: 0.8rem;
-        right: 0.8rem;
+        top: .8rem;
+        right: .8rem;
 
         height: 38px;
 
-        font-size: 0.68rem;
+        font-size: .68rem;
     }
-
 
     .language-switch button {
-        font-size: 0.68rem;
+        font-size: .68rem;
     }
 
-
     .instagram-browser-notice {
-        bottom: 0.8rem;
+        bottom: .8rem;
 
         width:
             calc(100vw - 1.2rem);
@@ -1515,11 +1446,9 @@ body.modal-open {
         padding: 1.15rem;
     }
 
-
     .instagram-browser-title {
         font-size: 1.45rem;
     }
-
 
     .hero {
         height: 100vh;
@@ -1531,7 +1460,6 @@ body.modal-open {
             4rem;
     }
 
-
     h1 {
         font-size:
             clamp(
@@ -1541,18 +1469,16 @@ body.modal-open {
             );
     }
 
-
     .name-letter:hover {
         transform: none;
     }
 
-
     .subtitle {
         margin-top: 1.8rem;
 
-        font-size: 0.68rem;
+        font-size: .68rem;
 
-        letter-spacing: 0.18em;
+        letter-spacing: .18em;
 
         margin-bottom: 3rem;
 
@@ -1568,18 +1494,15 @@ body.modal-open {
         line-height: 1.55;
     }
 
-
     nav {
         gap: 1rem;
 
         flex-wrap: wrap;
     }
 
-
     nav a {
-        font-size: 0.76rem;
+        font-size: .76rem;
     }
-
 
     .section-title {
         font-size:
@@ -1590,7 +1513,6 @@ body.modal-open {
             );
     }
 
-
     .projects-section,
     .about-section {
         height: auto;
@@ -1598,13 +1520,11 @@ body.modal-open {
         min-height: 100vh;
     }
 
-
     .projects-section {
         padding:
             7rem
             7%;
     }
-
 
     .projects-layout {
         grid-template-columns:
@@ -1613,13 +1533,11 @@ body.modal-open {
         gap: 3rem;
     }
 
-
     .projects-intro p {
         min-height: 0;
 
         max-width: 92%;
     }
-
 
     .projects-carousel-wrapper {
         margin-left: 0;
@@ -1628,7 +1546,6 @@ body.modal-open {
             1rem
             0;
     }
-
 
     .projects-carousel {
         padding:
@@ -1655,7 +1572,6 @@ body.modal-open {
             );
     }
 
-
     .project-card {
         flex:
             0
@@ -1665,7 +1581,6 @@ body.modal-open {
         min-width: 0;
     }
 
-
     .project-title {
         font-size: 1.55rem;
 
@@ -1674,19 +1589,16 @@ body.modal-open {
         white-space: nowrap;
     }
 
-
     .carousel-arrow {
         width: 32px;
         height: 32px;
     }
-
 
     .about-section {
         padding:
             7rem
             8%;
     }
-
 
     .about-layout {
         grid-template-columns:
@@ -1695,13 +1607,11 @@ body.modal-open {
         gap: 2.5rem;
     }
 
-
     .about-content {
         min-height: 0;
 
         padding-top: 0;
     }
-
 
     .contact-section {
         min-height: 100vh;
@@ -1711,7 +1621,6 @@ body.modal-open {
             8%
             0;
     }
-
 
     .project-modal {
         width:
@@ -1730,7 +1639,6 @@ body.modal-open {
         border-radius: 10px;
     }
 
-
     .project-modal-title {
         font-size:
             clamp(
@@ -1740,13 +1648,12 @@ body.modal-open {
             );
     }
 
-
     .project-modal-backdrop {
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
 
         background:
-            rgba(13,13,28,0.14);
+            rgba(13,13,28,.14);
     }
 
 }
@@ -1763,7 +1670,6 @@ body.modal-open {
         scroll-snap-type: none;
     }
 
-
     .hero-name,
     .hero .subtitle,
     .hero nav {
@@ -1776,7 +1682,6 @@ body.modal-open {
         animation: none;
     }
 
-
     .name-letter,
     .project-card,
     .carousel-arrow,
@@ -1787,11 +1692,9 @@ body.modal-open {
         transition: none;
     }
 
-
     .name-letter:hover {
         transform: none;
     }
-
 
     .js .reveal {
         opacity: 1;
@@ -1995,8 +1898,6 @@ They're not here yet, still working on that! But come back soon to discover my w
      id="projects-carousel">
 
 
-<!-- 01 EDITORIAL -->
-
 <button class="project-card"
         data-project="editorial">
 
@@ -2017,8 +1918,6 @@ Editorial
 
 </button>
 
-
-<!-- 02 PHOTO -->
 
 <button class="project-card"
         data-project="photo">
@@ -2041,8 +1940,6 @@ Photo
 </button>
 
 
-<!-- 03 POSTERS -->
-
 <button class="project-card"
         data-project="posters">
 
@@ -2063,8 +1960,6 @@ Posters
 
 </button>
 
-
-<!-- 04 TYPO -->
 
 <button class="project-card"
         data-project="typo">
@@ -2245,7 +2140,7 @@ Instagram:
 
 
 <!-- =========================================================
-     PROJECT BACKDROP
+     PROJECT MODAL
      ========================================================= -->
 
 <div class="project-modal-backdrop"
@@ -2253,33 +2148,22 @@ Instagram:
 </div>
 
 
-<!-- =========================================================
-     PROJECT WINDOW
-     ========================================================= -->
-
 <aside class="project-modal"
        id="project-modal"
        aria-hidden="true"
        role="dialog"
        aria-modal="true">
 
-
 <button class="project-modal-close"
         id="project-modal-close"
         aria-label="Close project">
-
 ×
-
 </button>
-
 
 <h3 class="project-modal-title"
     id="project-modal-title">
-
 Editorial
-
 </h3>
-
 
 </aside>
 
@@ -2291,29 +2175,19 @@ Editorial
    ========================================================= */
 
 const animatedName =
-document.getElementById(
-    "animated-name"
-);
-
+document.getElementById("animated-name");
 
 const nameText =
 "seb feasey";
 
-
-animatedName.innerHTML =
-"";
-
+animatedName.innerHTML = "";
 
 [...nameText].forEach(character => {
 
-    if (
-        character === " "
-    ) {
+    if (character === " ") {
 
         const space =
-        document.createElement(
-            "span"
-        );
+        document.createElement("span");
 
         space.className =
         "name-space";
@@ -2321,16 +2195,12 @@ animatedName.innerHTML =
         space.innerHTML =
         "&nbsp;";
 
-        animatedName.appendChild(
-            space
-        );
+        animatedName.appendChild(space);
 
     } else {
 
         const letter =
-        document.createElement(
-            "span"
-        );
+        document.createElement("span");
 
         letter.className =
         "name-letter";
@@ -2338,9 +2208,7 @@ animatedName.innerHTML =
         letter.textContent =
         character;
 
-        animatedName.appendChild(
-            letter
-        );
+        animatedName.appendChild(letter);
 
     }
 
@@ -2348,53 +2216,34 @@ animatedName.innerHTML =
 
 
 /* =========================================================
-   INSTAGRAM IN-APP BROWSER
+   INSTAGRAM
    ========================================================= */
 
 const instagramNotice =
-document.getElementById(
-    "instagram-browser-notice"
-);
-
+document.getElementById("instagram-browser-notice");
 
 const instagramOpenButton =
-document.getElementById(
-    "instagram-open-button"
-);
-
+document.getElementById("instagram-open-button");
 
 const instagramDismissButton =
-document.getElementById(
-    "instagram-dismiss-button"
-);
-
+document.getElementById("instagram-dismiss-button");
 
 const instagramBrowserText =
-document.getElementById(
-    "instagram-browser-text"
-);
-
+document.getElementById("instagram-browser-text");
 
 const userAgent =
 navigator.userAgent || "";
 
-
 const isInstagramBrowser =
-/Instagram/i.test(
-    userAgent
-);
-
+/Instagram/i.test(userAgent);
 
 const isAndroid =
-/Android/i.test(
-    userAgent
-);
-
+/Android/i.test(userAgent);
 
 const isIOS =
-/iPhone|iPad|iPod/i.test(
-    userAgent
-);
+/iPhone|iPad|iPod/i.test(userAgent);
+
+let androidIntentFailed = false;
 
 
 if (
@@ -2404,9 +2253,7 @@ if (
     ) !== "true"
 ) {
 
-    if (
-        isIOS
-    ) {
+    if (isIOS) {
 
         instagramOpenButton.textContent =
         "Copy link";
@@ -2418,32 +2265,21 @@ if (
 
     }
 
+    setTimeout(() => {
 
-    setTimeout(
-    () => {
-
-        instagramNotice
-        .classList
-        .add(
+        instagramNotice.classList.add(
             "open"
         );
 
-    },
-    850
-    );
+    },850);
 
 }
 
-
-/* =========================================================
-   COPY URL
-   ========================================================= */
 
 async function copyCurrentURL() {
 
     const currentURL =
     window.location.href;
-
 
     try {
 
@@ -2453,9 +2289,7 @@ async function copyCurrentURL() {
 
         return true;
 
-    } catch (
-        error
-    ) {
+    } catch (error) {
 
         const temporaryInput =
         document.createElement(
@@ -2491,17 +2325,13 @@ async function copyCurrentURL() {
 }
 
 
-/* =========================================================
-   INSTAGRAM OPEN BUTTON
-   ========================================================= */
-
 instagramOpenButton.addEventListener(
 "click",
 async () => {
 
-
     if (
-        isAndroid
+        isAndroid &&
+        !androidIntentFailed
     ) {
 
         const url =
@@ -2509,13 +2339,11 @@ async () => {
             window.location.href
         );
 
-
         const intentTarget =
         url.host +
         url.pathname +
         url.search +
         url.hash;
-
 
         window.location.href =
         "intent://" +
@@ -2525,14 +2353,14 @@ async () => {
         "action=android.intent.action.VIEW;" +
         "end";
 
-
-        setTimeout(
-        () => {
+        setTimeout(() => {
 
             if (
                 document.visibilityState ===
                 "visible"
             ) {
+
+                androidIntentFailed = true;
 
                 instagramBrowserText.textContent =
                 "If Instagram kept you here, tap the ••• menu and choose “Open in browser”.";
@@ -2542,10 +2370,7 @@ async () => {
 
             }
 
-        },
-        1400
-        );
-
+        },1400);
 
         return;
 
@@ -2556,9 +2381,7 @@ async () => {
     await copyCurrentURL();
 
 
-    if (
-        copied
-    ) {
+    if (copied) {
 
         instagramBrowserText.textContent =
         "Link copied! Tap the ••• menu in Instagram and choose “Open in browser”.";
@@ -2583,12 +2406,9 @@ instagramDismissButton.addEventListener(
 "click",
 () => {
 
-    instagramNotice
-    .classList
-    .remove(
+    instagramNotice.classList.remove(
         "open"
     );
-
 
     sessionStorage.setItem(
         "instagram-browser-notice-dismissed",
@@ -2599,7 +2419,7 @@ instagramDismissButton.addEventListener(
 
 
 /* =========================================================
-   ORPHAN PROTECTION
+   ORPHANS
    ========================================================= */
 
 function preventOrphans() {
@@ -2608,24 +2428,17 @@ function preventOrphans() {
     .querySelectorAll(
         ".no-orphan"
     )
-    .forEach(
-    element => {
+    .forEach(element => {
 
         const text =
         element.textContent
-        .replace(/\u00A0/g, " ")
+        .replace(/\u00A0/g," ")
         .trim();
 
-
         const lastSpace =
-        text.lastIndexOf(
-            " "
-        );
+        text.lastIndexOf(" ");
 
-
-        if (
-            lastSpace > 0
-        ) {
+        if (lastSpace > 0) {
 
             element.textContent =
             text.slice(
@@ -2646,28 +2459,22 @@ function preventOrphans() {
     .querySelectorAll(
         ".project-intro-copy"
     )
-    .forEach(
-    element => {
+    .forEach(element => {
 
         const text =
         element.textContent
-        .replace(/\u00A0/g, " ")
+        .replace(/\u00A0/g," ")
         .trim();
-
 
         const words =
         text.split(/\s+/);
 
-
-        if (
-            words.length >= 3
-        ) {
+        if (words.length >= 3) {
 
             const ending =
             words
             .splice(-3)
             .join("\u00A0");
-
 
             element.textContent =
             words.join(" ") +
@@ -2689,9 +2496,7 @@ let currentLanguage =
 "en";
 
 
-function setLanguage(
-    language
-) {
+function setLanguage(language) {
 
     currentLanguage =
     language;
@@ -2701,8 +2506,7 @@ function setLanguage(
     .querySelectorAll(
         "[data-en]"
     )
-    .forEach(
-    element => {
+    .forEach(element => {
 
         const translation =
         element.getAttribute(
@@ -2710,10 +2514,7 @@ function setLanguage(
             language
         );
 
-
-        if (
-            translation
-        ) {
+        if (translation) {
 
             element.textContent =
             translation;
@@ -2724,33 +2525,22 @@ function setLanguage(
 
 
     document
-    .getElementById(
-        "btn-en"
-    )
-    .classList
-    .toggle(
+    .getElementById("btn-en")
+    .classList.toggle(
         "active",
         language === "en"
     );
 
-
     document
-    .getElementById(
-        "btn-fr"
-    )
-    .classList
-    .toggle(
+    .getElementById("btn-fr")
+    .classList.toggle(
         "active",
         language === "fr"
     );
 
-
     document
-    .getElementById(
-        "btn-sv"
-    )
-    .classList
-    .toggle(
+    .getElementById("btn-sv")
+    .classList.toggle(
         "active",
         language === "sv"
     );
@@ -2764,9 +2554,7 @@ function setLanguage(
 
 
     if (
-        projectModal
-        .classList
-        .contains(
+        projectModal.classList.contains(
             "open"
         ) &&
         currentOpenProject
@@ -2785,7 +2573,7 @@ function setLanguage(
 
 
 /* =========================================================
-   PLAIN TEXT COPYING
+   COPY AS PLAIN TEXT
    ========================================================= */
 
 document.addEventListener(
@@ -2795,32 +2583,21 @@ event => {
     const selection =
     window.getSelection();
 
-
     if (
         !selection ||
         selection.isCollapsed
     ) {
-
         return;
-
     }
-
 
     const plainText =
     selection.toString();
 
-
-    if (
-        !plainText
-    ) {
-
+    if (!plainText) {
         return;
-
     }
 
-
     event.preventDefault();
-
 
     event.clipboardData.setData(
         "text/plain",
@@ -2867,7 +2644,6 @@ function shuffle(array) {
     const copy =
     [...array];
 
-
     for (
         let i =
         copy.length - 1;
@@ -2883,7 +2659,6 @@ function shuffle(array) {
             (i + 1)
         );
 
-
         [
             copy[i],
             copy[j]
@@ -2895,14 +2670,13 @@ function shuffle(array) {
 
     }
 
-
     return copy;
 
 }
 
 
 /* =========================================================
-   ALL SECTIONS CHANGE COLOUR ON EVERY REFRESH
+   SECTION COLOURS
    ========================================================= */
 
 const sections =
@@ -2910,26 +2684,6 @@ document.querySelectorAll(
     ".colour-section"
 );
 
-
-/*
-Get the complete previous colour arrangement.
-
-Example:
-
-[
-    "#FF340C",
-    "#273287",
-    "#F03172",
-    "#0F4A42"
-]
-
-Each position corresponds to:
-
-0 = Home
-1 = Projects
-2 = About
-3 = Contact
-*/
 
 let previousSectionColours = [];
 
@@ -2943,9 +2697,7 @@ try {
         )
     ) || [];
 
-} catch (
-    error
-) {
+} catch (error) {
 
     previousSectionColours =
     [];
@@ -2953,33 +2705,20 @@ try {
 }
 
 
-/*
-Create a new shuffled arrangement.
-*/
-
 let shuffledColours =
 shuffle(
     sectionColours
 );
 
 
-/*
-If we have a complete previous arrangement,
-keep reshuffling until NONE of the four sections
-has the same colour it had on the last page load.
-*/
-
 if (
     previousSectionColours.length ===
     sectionColours.length
 ) {
 
-    let attempts =
-    0;
+    let attempts = 0;
 
-
-    const maximumAttempts =
-    100;
+    const maximumAttempts = 100;
 
 
     while (
@@ -2997,22 +2736,10 @@ if (
             sectionColours
         );
 
-
         attempts++;
 
     }
 
-
-    /*
-    Extremely unlikely fallback.
-
-    If random shuffling somehow failed to find a valid
-    arrangement after 100 attempts, rotate the previous
-    arrangement by one position.
-
-    Because all four colours are unique, this guarantees
-    every section receives a different colour.
-    */
 
     if (
         shuffledColours.some(
@@ -3024,8 +2751,7 @@ if (
 
         const previousObjects =
         previousSectionColours
-        .map(
-        colourCode => {
+        .map(colourCode => {
 
             return sectionColours.find(
                 colour =>
@@ -3056,10 +2782,6 @@ if (
 }
 
 
-/*
-Save the complete new arrangement for next refresh.
-*/
-
 localStorage.setItem(
     "seb-last-section-colours",
 
@@ -3072,30 +2794,21 @@ localStorage.setItem(
 );
 
 
-/*
-Apply the colours to Home, Projects, About and Contact.
-*/
-
 sections.forEach(
 (section,index) => {
 
     const colour =
-    shuffledColours[
-        index
-    ];
-
+    shuffledColours[index];
 
     section.style.setProperty(
         "--section-bg",
         colour.background
     );
 
-
     section.style.setProperty(
         "--section-text",
         colour.text
     );
-
 
     section.dataset.textColour =
     colour.text;
@@ -3104,12 +2817,10 @@ sections.forEach(
 
 
 /* =========================================================
-   FIXED UI COLOUR
+   UI COLOUR
    ========================================================= */
 
-function updateUIColour(
-    section
-) {
+function updateUIColour(section) {
 
     document.documentElement
     .style
@@ -3133,8 +2844,7 @@ new IntersectionObserver(
 
 entries => {
 
-    entries.forEach(
-    entry => {
+    entries.forEach(entry => {
 
         if (
             entry.isIntersecting
@@ -3154,15 +2864,13 @@ entries => {
     rootMargin:
         "-45% 0px -45% 0px",
 
-    threshold:
-        0
+    threshold: 0
 }
 
 );
 
 
-sections.forEach(
-section => {
+sections.forEach(section => {
 
     sectionObserver.observe(
         section
@@ -3172,7 +2880,7 @@ section => {
 
 
 /* =========================================================
-   REVEAL
+   REVEALS
    ========================================================= */
 
 const revealElements =
@@ -3186,8 +2894,7 @@ new IntersectionObserver(
 
 entries => {
 
-    entries.forEach(
-    entry => {
+    entries.forEach(entry => {
 
         if (
             entry.isIntersecting
@@ -3214,8 +2921,7 @@ entries => {
 },
 
 {
-    threshold:
-        0.15,
+    threshold: .15,
 
     rootMargin:
         "0px 0px -5% 0px"
@@ -3224,8 +2930,7 @@ entries => {
 );
 
 
-revealElements.forEach(
-element => {
+revealElements.forEach(element => {
 
     revealObserver.observe(
         element
@@ -3235,7 +2940,7 @@ element => {
 
 
 /* =========================================================
-   PROJECT CAROUSEL
+   CAROUSEL
    ========================================================= */
 
 const carousel =
@@ -3267,21 +2972,16 @@ Array.from(
 const templates =
 originalCards.map(
 card =>
-    card.cloneNode(
-        true
-    )
+    card.cloneNode(true)
 );
 
 
 function appendProjectSet() {
 
-    templates.forEach(
-    template => {
+    templates.forEach(template => {
 
         carousel.appendChild(
-            template.cloneNode(
-                true
-            )
+            template.cloneNode(true)
         );
 
     });
@@ -3294,16 +2994,12 @@ function prependProjectSet() {
     const previousWidth =
     carousel.scrollWidth;
 
-
     [...templates]
     .reverse()
-    .forEach(
-    template => {
+    .forEach(template => {
 
         carousel.insertBefore(
-            template.cloneNode(
-                true
-            ),
+            template.cloneNode(true),
             carousel.firstChild
         );
 
@@ -3313,7 +3009,6 @@ function prependProjectSet() {
     const addedWidth =
     carousel.scrollWidth -
     previousWidth;
-
 
     carousel.scrollLeft +=
     addedWidth;
@@ -3340,8 +3035,7 @@ function nearestCard() {
 
 
     const carouselBox =
-    carousel
-    .getBoundingClientRect();
+    carousel.getBoundingClientRect();
 
 
     const target =
@@ -3357,13 +3051,10 @@ function nearestCard() {
     Infinity;
 
 
-    cards.forEach(
-    card => {
+    cards.forEach(card => {
 
         const box =
-        card
-        .getBoundingClientRect();
-
+        card.getBoundingClientRect();
 
         const distance =
         Math.abs(
@@ -3393,20 +3084,13 @@ function nearestCard() {
 }
 
 
-function moveCarousel(
-    direction
-) {
+function moveCarousel(direction) {
 
     const card =
     nearestCard();
 
-
-    if (
-        !card
-    ) {
-
+    if (!card) {
         return;
-
     }
 
 
@@ -3419,18 +3103,13 @@ function moveCarousel(
 
 
     let index =
-    cards.indexOf(
-        card
-    );
-
+    cards.indexOf(card);
 
     index +=
     direction;
 
 
-    if (
-        index < 0
-    ) {
+    if (index < 0) {
 
         prependProjectSet();
 
@@ -3488,10 +3167,7 @@ rightArrow.addEventListener(
 
     }
 
-
-    moveCarousel(
-        1
-    );
+    moveCarousel(1);
 
 });
 
@@ -3509,10 +3185,7 @@ leftArrow.addEventListener(
 
     }
 
-
-    moveCarousel(
-        -1
-    );
+    moveCarousel(-1);
 
 });
 
@@ -3562,7 +3235,7 @@ carousel.addEventListener(
 
 
 /* =========================================================
-   PROJECT TITLES
+   PROJECT INFO
    ========================================================= */
 
 const projectInfo = {
@@ -3653,10 +3326,6 @@ let currentOpenProject =
 null;
 
 
-/* =========================================================
-   OPEN PROJECT
-   ========================================================= */
-
 carousel.addEventListener(
 "click",
 event => {
@@ -3667,12 +3336,8 @@ event => {
     );
 
 
-    if (
-        !card
-    ) {
-
+    if (!card) {
         return;
-
     }
 
 
@@ -3681,17 +3346,11 @@ event => {
 
 
     const project =
-    projectInfo[
-        key
-    ];
+    projectInfo[key];
 
 
-    if (
-        !project
-    ) {
-
+    if (!project) {
         return;
-
     }
 
 
@@ -3738,10 +3397,6 @@ event => {
 
 });
 
-
-/* =========================================================
-   CLOSE PROJECT
-   ========================================================= */
 
 function closeProjectModal() {
 
