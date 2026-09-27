@@ -135,13 +135,17 @@ h1 {
 
 ::-webkit-scrollbar-thumb {
     background: var(--ui-colour);
+
     border-radius: 999px;
+
     border: 3px solid transparent;
+
     background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     border: 2px solid transparent;
+
     background-clip: padding-box;
 }
 
@@ -264,7 +268,6 @@ h1 {
     z-index: 3000;
 
     display: flex;
-
     align-items: center;
 
     height: 42px;
@@ -330,7 +333,7 @@ h1 {
 
 
 /* =========================================================
-   INSTAGRAM BROWSER NOTICE
+   INSTAGRAM NOTICE
    ========================================================= */
 
 .instagram-browser-notice {
@@ -361,10 +364,7 @@ h1 {
     border-radius: 20px;
 
     box-shadow:
-        0
-        18px
-        55px
-        rgba(0,0,0,.18);
+        0 18px 55px rgba(0,0,0,.18);
 
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
@@ -575,6 +575,7 @@ h1 {
     0% {
         opacity: 0;
         filter: blur(14px);
+
         transform:
             translateY(32px)
             scale(.93);
@@ -583,6 +584,7 @@ h1 {
     67% {
         opacity: 1;
         filter: blur(1px);
+
         transform:
             translateY(-5px)
             scale(1.025);
@@ -597,6 +599,7 @@ h1 {
     100% {
         opacity: 1;
         filter: blur(0);
+
         transform:
             translateY(0)
             scale(1);
@@ -609,6 +612,7 @@ h1 {
     0% {
         opacity: 0;
         filter: blur(8px);
+
         transform:
             translateY(20px);
     }
@@ -616,6 +620,7 @@ h1 {
     70% {
         opacity: 1;
         filter: blur(0);
+
         transform:
             translateY(-2px);
     }
@@ -623,6 +628,7 @@ h1 {
     100% {
         opacity: 1;
         filter: blur(0);
+
         transform:
             translateY(0);
     }
@@ -1220,14 +1226,9 @@ nav a:hover {
    ========================================================= */
 
 footer {
+    position: relative;
+
     width: 100%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: .7rem;
 
     text-align: center;
 
@@ -1242,11 +1243,21 @@ footer {
     opacity: .65;
 }
 
-.footer-separator {
-    opacity: .55;
+.footer-copyright {
+    display: block;
+
+    text-align: center;
 }
 
 .credit-button {
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
     border: 0;
 
     padding: 0;
@@ -1273,7 +1284,9 @@ footer {
 .credit-button:hover {
     opacity: 1;
 
-    transform: scale(1.06);
+    transform:
+        translateY(-50%)
+        scale(1.06);
 }
 
 
@@ -1347,26 +1360,11 @@ footer {
         scale(1);
 }
 
-.credit-popup-label {
-    margin:
-        0
-        0
-        .45rem;
-
-    font-size: .68rem;
-
-    letter-spacing: .14em;
-
-    text-transform: uppercase;
-
-    opacity: .5;
-}
-
 .credit-popup-title {
     margin:
         0
         0
-        .7rem;
+        .65rem;
 
     font-family:
         "Switzer",
@@ -1841,14 +1839,17 @@ body.modal-open {
             1rem;
     }
 
+    .credit-button {
+        right: 0;
+    }
+
     .credit-popup {
         bottom: .8rem;
 
         width:
             calc(100vw - 1.2rem);
 
-        padding:
-            1.25rem;
+        padding: 1.25rem;
     }
 
     .project-modal {
@@ -2364,12 +2365,8 @@ Instagram:
 
 <footer>
 
-<span>
+<span class="footer-copyright">
 © 2026 Seb Feasey
-</span>
-
-<span class="footer-separator">
-·
 </span>
 
 <button class="credit-button"
@@ -2400,18 +2397,13 @@ Credit
 ×
 </button>
 
-<p class="credit-popup-label">
-Typeface
-</p>
-
 <h2 class="credit-popup-title"
     id="credit-popup-title">
-Thank you, Fontshare.
+Thank you.
 </h2>
 
 <p class="credit-popup-text">
 Switzer is provided by Fontshare and Indian Type Foundry.
-Thank you for making such beautiful type freely available to designers.
 </p>
 
 </div>
@@ -2532,15 +2524,11 @@ if (
 ) {
 
     if (isIOS) {
-
         instagramOpenButton.textContent =
         "Copy link";
-
     } else {
-
         instagramOpenButton.textContent =
         "Open in browser";
-
     }
 
     setTimeout(() => {
